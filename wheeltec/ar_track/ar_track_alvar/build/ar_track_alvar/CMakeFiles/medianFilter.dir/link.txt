@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmedianFilter.a CMakeFiles/medianFilter.dir/src/medianFilter.cpp.o
+/usr/bin/ranlib libmedianFilter.a

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>mycobot280_moveit2_control</name>
+  <version>0.0.1</version>
+  <description>ros2_control hardware interface for the mycobot280 M5 arm. Bridges MoveIt2 / ros2_control to the existing Python driver (mycobot_driver_node.py) via std_msgs/Float64MultiArray topics.</description>
+  <maintainer email="hl@todo.com">hl</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>hardware_interface</depend>
+  <depend>pluginlib</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>realtime_tools</depend>
+  <depend>std_msgs</depend>
+
+  <!-- Test/script-only deps: used by scripts/test_arm_movement.py -->
+  <exec_depend>control_msgs</exec_depend>
+  <exec_depend>trajectory_msgs</exec_depend>
+  <!-- <exec_depend>gripper_action_controller</exec_depend> -->
+  <exec_depend>joint_trajectory_controller</exec_depend>
+  <exec_depend>joint_state_broadcaster</exec_depend>
+  <!-- Used by scripts/fake_planning_scene_server.py -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>mycobot_interfaces</exec_depend>
+  <exec_depend>moveit_msgs</exec_depend>
+  <exec_depend>shape_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <!-- pluginlib plugin description is in mycobot280_moveit2_control.xml -->
+    <mycobot280_moveit2_control plugin="${prefix}/mycobot280_moveit2_control.xml"/>
+  </export>
+</package>

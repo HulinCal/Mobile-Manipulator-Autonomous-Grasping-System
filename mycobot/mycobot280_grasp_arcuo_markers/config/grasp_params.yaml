@@ -1,0 +1,42 @@
+# mycobot280_grasp_arcuo_markers 参数
+# ===========================================================================
+# ROS2 参数文件格式：节点名 / ros__parameters / 参数
+
+detect_markers_node:
+  ros__parameters:
+    # ---- 目标 ArUco 标记 ----
+    # 需要检测的 marker ID 列表（检测到任意一个即可计算抓取位姿）
+    target_marker_ids: [1, 2, 582]
+
+    # ArUco marker 边长 [m]
+    # 注意：所有检测到的 marker 必须使用同一尺寸
+    # （marker_publisher 只接受一个 marker_size 参数）
+    marker_size: 0.026
+
+    # ---- 抓取几何 T_grasp (gripper_base -> marker) ----
+    # T_grasp 描述"成功抓取时，marker 在 gripper 坐标系下的位姿"。
+    # 从上往下接近目标时：
+    #   - gripper_base Y 轴指向下方 (= -marker Z)，手指朝向目标
+    #   - gripper_base 原点位于 marker 上方一定高度（预抓取位置）
+    #
+    # 旋转矩阵 R (marker 轴在 gripper 坐标系下)：
+    #   [0, -1,  0]    marker X -> gripper (0, 0, 1)
+    #   [0,  0, -1]    marker Y -> gripper (-1, 0, 0)
+    #   [1,  0,  0]    marker Z -> gripper (0, -1, 0) = -gripper Y ✓
+    #
+    # 对应四元数 (x, y, z, w) = (0.5, -0.5, 0.5, 0.5)
+
+    # marker 在 gripper 坐标系下的平移 [x, y, z] [m]
+    # y = +0.04 表示 marker 在 gripper Y 方向 4cm 处（预抓取位置，离手指前方 4cm）
+    # 注意：mycobot280 水平可达半径约 32cm，grasp_offset 不宜过大，
+    #       否则即使 marker 在可达范围内，gripper 目标也会超出工作空间。
+    # 实际抓取时减小此值（如 0.0~0.02），让手指接触 marker
+    grasp_offset: [0.0, 0.04, 0.0]
+
+    # 旋转四元数 [x, y, z, w]
+    # 默认值使 gripper Y = -marker Z（从上往下接近）
+    grasp_orientation: [0.5, -0.5, 0.5, 0.5]
+
+    # ---- 坐标系定义 ----
+    robot_base_frame: "base_link"
+    camera_optical_frame: "camera_color_optical_frame"

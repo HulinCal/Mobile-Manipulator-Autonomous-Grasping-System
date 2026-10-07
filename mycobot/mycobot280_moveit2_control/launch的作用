@@ -1,0 +1,7 @@
+mycobot_280_real_pick_place.launch.py：
+连接好真实机械臂后，启动即可发送MTC规划出的路径到机械臂执行，会向fake_planning_scene_server.py请求
+返回场景的服务
+
+
+real_pick_place.launch.py = real_moveit.launch.py + 感知/场景服务 + MTC 节点。 
+real_moveit.launch.py 是更基础的启动文件，让你可以单独测试真实硬件栈，不加 MTC 任务规划。

@@ -1,0 +1,485 @@
+[0.000000] (-) TimerEvent: {}
+[0.000283] (ar_track_alvar) JobQueued: {'identifier': 'ar_track_alvar', 'dependencies': OrderedDict()}
+[0.000573] (ar_track_alvar) JobStarted: {'identifier': 'ar_track_alvar'}
+[0.018264] (ar_track_alvar) JobProgress: {'identifier': 'ar_track_alvar', 'progress': 'cmake'}
+[0.019829] (ar_track_alvar) JobProgress: {'identifier': 'ar_track_alvar', 'progress': 'build'}
+[0.020988] (ar_track_alvar) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', '--', '-j24', '-l24'], 'cwd': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'env': OrderedDict({'GZ_SIM_SYSTEM_PLUGIN_PATH': '/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LIBRARY_PATH': '/home/hl/TensorRT-10.13.3.9/lib:/home/hl/TensorRT-10.13.3.9/lib:', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share:/home/hl/.gazebo/models', 'AI_AGENT': 'TRAE', 'USER': 'hl', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'OPENNI2_INCLUDE': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Include', 'XDG_SESSION_TYPE': 'x11', 'GIT_ASKPASS': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass.sh', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LIBGL_ALWAYS_SOFTWARE': '0', 'LD_LIBRARY_PATH': '/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid/lib:/home/hl/wheeltec/wheeltec_ws/install/astra_camera/lib:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/usb_cam/lib:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping/lib:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin/lib:/home/hl/trac_ik_ws/install/trac_ik_lib/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/hl/AstraSDK/lib:/home/hl/AstraSDK/lib', 'HOME': '/home/hl', 'CHROME_DESKTOP': 'trae-cn.desktop', 'CONDA_SHLVL': '0', 'OLDPWD': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar', 'TERM_PROGRAM_VERSION': '1.107.1', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/hl/.nvm/versions/node/v22.22.1/bin', 'NVM_INC': '/home/hl/.nvm/versions/node/v22.22.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/trae-cn.desktop', 'TRAE_SANDBOX_CLI_PATH': '/usr/share/trae-cn/resources/app/modules/sandbox/trae-sandbox', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': '', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass-main.js', 'PS1': '\\n(TraeAI-4) \\w [$?] $', 'GZ_SIM_RENDER_ENGINE': 'ogre', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/trae-cn/trae-cn', 'MANAGERPID': '2357', 'TRAE_AI_SHELL_ID': '4', 'TRAE_SANDBOX_SOURCE_FLAG_PATH': '/tmp/sandbox-source-flag-3627a05a-7a26-45cb-936f-473fb8d30b85', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '2693', 'BUNDLED_DEBUGPY_PATH': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'ASTRA_SDK_INCLUDE': '/home/hl/AstraSDK/include', 'COLORTERM': 'truecolor', '_CE_M': '', 'isArchMatched': '1', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3783', 'TRAE_JWT_TOKEN_PATH': '/home/hl/.trae-cn/trae-jwt-token', 'NVM_DIR': '/home/hl/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'TRAE_SANDBOX_STORAGE_PATH': '/home/hl/.config/Trae CN/ModularData/ai-agent/sandbox', 'SAFE_RM_AUTO_ADD_TEMP': '1', 'COLCON_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install:/home/hl/trac_ik_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'fcitx', 'LOGNAME': 'hl', 'SAFE_RM_DENIED_PATH': '/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.git:/home/hl/wheeltec/wheeltec_ws/.git', 'JOURNAL_STREAM': '10:13026', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': ':/usr/local/lib/pkgconfig:/usr/local/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'hl', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/home/hl/.gazebo/models:/home/hl/gazebo_models', 'LIBGL_ALWAYS_INDIRECT': '1', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'TRAE_SANDBOX_LOG_DIR': '/home/hl/.config/Trae CN/logs/20260908T091402/Modular', '_CE_CONDA': '', 'FC_FONTATIONS': '1', 'HISTCONTROL': 'ignorespace', 'WINDOWPATH': '2', 'PATH': '/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/usr/local/cuda/bin:/usr/share/trae-cn/resources/app/bin:/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/home/hl/.local/bin:/home/hl/miniconda3/condabin:/usr/local/cuda/bin:/home/hl/.nvm/versions/node/v22.22.1/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/hl/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/hlc:@/tmp/.ICE-unix/2662,unix/hlc:/tmp/.ICE-unix/2662', 'INVOCATION_ID': '0e2cc4f825cf4380adf466cc942ad463', 'XDG_MENU_PREFIX': 'gnome-', 'ASTRA_SDK_LIB': '/home/hl/AstraSDK/lib', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':1', 'FILESYSTEM_CASE_SENSITIVE': 'true', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-9f65482cc9bab372.txt', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'OPENNI2_REDIST': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Redist', 'PYTHONSTARTUP': '/home/hl/.config/Trae CN/User/workspaceStorage/03094a5d17a112e1e28db96c421cd790/ms-python.python/pythonrc.py', 'TRAE_SANDBOX_CONFIG_NAME': '6a9cd8ee20cf484735200318', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=fcitx', 'TRAE_SANDBOX_DUMP_DIR': '/home/hl/.config/Trae CN/Crashpad/sandbox-pending', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'TRAE_BRAND_NAME': 'Trae CN', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-18c4daf3ca.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_nav2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/pcl_conversions:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/nav2_common:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/astra_camera:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/hl/miniconda3/bin/python', 'SHELL': '/bin/bash', '__trae_PS1': '\\n(TraeAI-4) \\w [$?] $', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'TRAE_SANDBOX_TRACE_FILE': '/tmp/trae_sandbox_trace_269939e4-0c64-4078-9dc1-7feb2f8e6a6c.jsonl', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': '', 'QT_IM_MODULE': 'fcitx', 'PWD': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'TURTLEBOT3_MODEL': 'burger', 'SAFE_RM_ALLOWED_PATH': '/home/hl/wheeltec/wheeltec_ws:/home/hl/wheeltec/wheeltec_ws', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CONDA_EXE': '/home/hl/miniconda3/bin/conda', 'TERM_PRODUCT': 'Trae', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/quiz_status/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav2_common/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/manual_drive/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/beamer/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'SAFE_RM_PROTECTION_FLAG': '/tmp/safe-rm-protection-flag-1186c237-6462-41da-bae0-bf8509a7fc9d', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'SAFE_RM_SOURCE_FLAG': '/tmp/safe-rm-source-flag-0faf3fb1-092f-4f20-8743-4f78649cc702', 'GAZEBO_VERSION': 'harmonic', 'CMAKE_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/wheeltec_nav2:/home/hl/wheeltec/wheeltec_ws/install/pcl_conversions:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid:/home/hl/wheeltec/wheeltec_ws/install/nav2_common:/home/hl/wheeltec/wheeltec_ws/install/astra_camera:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy'}), 'shell': False}
+[0.099640] (-) TimerEvent: {}
+[0.152908] (ar_track_alvar) StdoutLine: {'line': b'[  4%] Built target kinect_filtering\n'}
+[0.199769] (-) TimerEvent: {}
+[0.242356] (ar_track_alvar) StdoutLine: {'line': b'[ 69%] Built target ar_track_alvar\n'}
+[0.284519] (ar_track_alvar) StdoutLine: {'line': b'[ 73%] Built target medianFilter\n'}
+[0.299887] (-) TimerEvent: {}
+[0.316220] (ar_track_alvar) StdoutLine: {'line': b'[ 78%] Built target createMarker\n'}
+[0.316749] (ar_track_alvar) StdoutLine: {'line': b'[ 82%] Building CXX object CMakeFiles/individualMarkers.dir/nodes/IndividualMarkers.cpp.o\n'}
+[0.316967] (ar_track_alvar) StdoutLine: {'line': b'[ 82%] Building CXX object CMakeFiles/findMarkerBundlesNoKinect.dir/nodes/FindMarkerBundlesNoKinect.cpp.o\n'}
+[0.317337] (ar_track_alvar) StdoutLine: {'line': b'[ 84%] Building CXX object CMakeFiles/trainMarkerBundle.dir/nodes/TrainMarkerBundle.cpp.o\n'}
+[0.317750] (ar_track_alvar) StdoutLine: {'line': b'[ 86%] Building CXX object CMakeFiles/individualMarkersNoKinect.dir/nodes/IndividualMarkersNoKinect.cpp.o\n'}
+[0.354322] (ar_track_alvar) StdoutLine: {'line': b'[ 89%] Building CXX object CMakeFiles/findMarkerBundles.dir/nodes/FindMarkerBundles.cpp.o\n'}
+[0.400054] (-) TimerEvent: {}
+[0.500330] (-) TimerEvent: {}
+[0.600566] (-) TimerEvent: {}
+[0.700814] (-) TimerEvent: {}
+[0.801043] (-) TimerEvent: {}
+[0.901261] (-) TimerEvent: {}
+[1.001480] (-) TimerEvent: {}
+[1.101724] (-) TimerEvent: {}
+[1.202068] (-) TimerEvent: {}
+[1.302389] (-) TimerEvent: {}
+[1.402688] (-) TimerEvent: {}
+[1.502950] (-) TimerEvent: {}
+[1.603217] (-) TimerEvent: {}
+[1.703481] (-) TimerEvent: {}
+[1.803726] (-) TimerEvent: {}
+[1.903954] (-) TimerEvent: {}
+[2.004229] (-) TimerEvent: {}
+[2.104473] (-) TimerEvent: {}
+[2.204744] (-) TimerEvent: {}
+[2.305020] (-) TimerEvent: {}
+[2.405235] (-) TimerEvent: {}
+[2.505448] (-) TimerEvent: {}
+[2.605663] (-) TimerEvent: {}
+[2.705873] (-) TimerEvent: {}
+[2.806045] (-) TimerEvent: {}
+[2.906258] (-) TimerEvent: {}
+[3.006461] (-) TimerEvent: {}
+[3.106670] (-) TimerEvent: {}
+[3.206917] (-) TimerEvent: {}
+[3.307220] (-) TimerEvent: {}
+[3.407490] (-) TimerEvent: {}
+[3.507721] (-) TimerEvent: {}
+[3.607958] (-) TimerEvent: {}
+[3.708204] (-) TimerEvent: {}
+[3.808433] (-) TimerEvent: {}
+[3.908658] (-) TimerEvent: {}
+[4.008892] (-) TimerEvent: {}
+[4.109129] (-) TimerEvent: {}
+[4.209352] (-) TimerEvent: {}
+[4.309579] (-) TimerEvent: {}
+[4.409813] (-) TimerEvent: {}
+[4.510047] (-) TimerEvent: {}
+[4.610289] (-) TimerEvent: {}
+[4.710533] (-) TimerEvent: {}
+[4.810773] (-) TimerEvent: {}
+[4.911096] (-) TimerEvent: {}
+[5.011426] (-) TimerEvent: {}
+[5.111676] (-) TimerEvent: {}
+[5.211920] (-) TimerEvent: {}
+[5.312166] (-) TimerEvent: {}
+[5.412409] (-) TimerEvent: {}
+[5.512645] (-) TimerEvent: {}
+[5.612882] (-) TimerEvent: {}
+[5.713141] (-) TimerEvent: {}
+[5.813393] (-) TimerEvent: {}
+[5.913650] (-) TimerEvent: {}
+[6.013888] (-) TimerEvent: {}
+[6.114138] (-) TimerEvent: {}
+[6.214385] (-) TimerEvent: {}
+[6.314632] (-) TimerEvent: {}
+[6.414859] (-) TimerEvent: {}
+[6.515095] (-) TimerEvent: {}
+[6.615340] (-) TimerEvent: {}
+[6.715607] (-) TimerEvent: {}
+[6.815875] (-) TimerEvent: {}
+[6.916146] (-) TimerEvent: {}
+[7.016410] (-) TimerEvent: {}
+[7.116664] (-) TimerEvent: {}
+[7.216905] (-) TimerEvent: {}
+[7.317153] (-) TimerEvent: {}
+[7.417408] (-) TimerEvent: {}
+[7.517663] (-) TimerEvent: {}
+[7.617905] (-) TimerEvent: {}
+[7.718159] (-) TimerEvent: {}
+[7.818408] (-) TimerEvent: {}
+[7.918650] (-) TimerEvent: {}
+[8.018893] (-) TimerEvent: {}
+[8.119143] (-) TimerEvent: {}
+[8.219378] (-) TimerEvent: {}
+[8.319628] (-) TimerEvent: {}
+[8.419870] (-) TimerEvent: {}
+[8.520128] (-) TimerEvent: {}
+[8.620391] (-) TimerEvent: {}
+[8.720644] (-) TimerEvent: {}
+[8.820900] (-) TimerEvent: {}
+[8.921217] (-) TimerEvent: {}
+[9.021616] (-) TimerEvent: {}
+[9.122042] (-) TimerEvent: {}
+[9.222450] (-) TimerEvent: {}
+[9.322758] (-) TimerEvent: {}
+[9.423025] (-) TimerEvent: {}
+[9.523275] (-) TimerEvent: {}
+[9.623520] (-) TimerEvent: {}
+[9.723777] (-) TimerEvent: {}
+[9.824042] (-) TimerEvent: {}
+[9.924289] (-) TimerEvent: {}
+[10.024530] (-) TimerEvent: {}
+[10.124771] (-) TimerEvent: {}
+[10.225029] (-) TimerEvent: {}
+[10.325275] (-) TimerEvent: {}
+[10.425523] (-) TimerEvent: {}
+[10.525776] (-) TimerEvent: {}
+[10.626039] (-) TimerEvent: {}
+[10.726292] (-) TimerEvent: {}
+[10.826552] (-) TimerEvent: {}
+[10.926805] (-) TimerEvent: {}
+[11.027055] (-) TimerEvent: {}
+[11.121066] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[11.121502] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp:40:\n'}
+[11.121766] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[11.122028] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[11.122269] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[11.122510] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[11.122750] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/algorithm:60,\n'}
+[11.122995] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp:11,\n'}
+[11.123233] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/std_msgs/std_msgs/msg/bool.hpp:7,\n'}
+[11.123477] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp:38:\n'}
+[11.123715] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[11.123939] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[11.124188] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[11.127138] (-) TimerEvent: {}
+[11.182943] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[11.183351] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp:39:\n'}
+[11.183603] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[11.183850] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[11.184108] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[11.184345] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[11.184584] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/vector:60,\n'}
+[11.184818] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,\n'}
+[11.185064] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp:38:\n'}
+[11.185296] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[11.185544] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[11.185766] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[11.221504] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[11.221918] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp:39:\n'}
+[11.222183] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[11.222422] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[11.222651] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[11.222873] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[11.223126] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/vector:60,\n'}
+[11.223352] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,\n'}
+[11.223575] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp:38:\n'}
+[11.223801] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[11.224076] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[11.224320] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[11.227241] (-) TimerEvent: {}
+[11.327474] (-) TimerEvent: {}
+[11.344400] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[11.344815] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:37:\n'}
+[11.345051] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[11.345288] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[11.345513] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[11.345735] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[11.345967] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/vector:60,\n'}
+[11.346223] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,\n'}
+[11.346452] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:36:\n'}
+[11.346684] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[11.346914] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[11.347157] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[11.373835] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[11.374367] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:39:\n'}
+[11.374601] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[11.374834] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[11.375076] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[11.375300] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[11.375520] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/vector:60,\n'}
+[11.375735] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,\n'}
+[11.375942] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:38:\n'}
+[11.376167] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[11.376381] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[11.376595] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[11.427610] (-) TimerEvent: {}
+[11.527869] (-) TimerEvent: {}
+[11.628139] (-) TimerEvent: {}
+[11.728441] (-) TimerEvent: {}
+[11.828723] (-) TimerEvent: {}
+[11.929070] (-) TimerEvent: {}
+[12.029368] (-) TimerEvent: {}
+[12.129698] (-) TimerEvent: {}
+[12.230006] (-) TimerEvent: {}
+[12.258901] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp: In member function \xe2\x80\x98void IndividualMarkers::GetMarkerPoses(cv::Mat*, ARCloud&)\xe2\x80\x99:\n'}
+[12.259509] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:430:30: error: expected primary-expression before \xe2\x80\x98const\xe2\x80\x99\n'}
+[12.259917] (ar_track_alvar) StderrLine: {'line': b'  430 |               BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)\n'}
+[12.260330] (ar_track_alvar) StderrLine: {'line': b'      |                              ^~~~~\n'}
+[12.260918] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp: In member function \xe2\x80\x98void FindMarkerBundles::GetMultiMarkerPoses(cv::Mat*, ARCloud&)\xe2\x80\x99:\n'}
+[12.261362] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:579:22: error: expected primary-expression before \xe2\x80\x98const\xe2\x80\x99\n'}
+[12.261728] (ar_track_alvar) StderrLine: {'line': b'  579 |       BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)\n'}
+[12.262128] (ar_track_alvar) StderrLine: {'line': b'      |                      ^~~~~\n'}
+[12.282495] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:430:15: error: \xe2\x80\x98BOOST_FOREACH\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98BOOST_NO_HASH\xe2\x80\x99?\n'}
+[12.283077] (ar_track_alvar) StderrLine: {'line': b'  430 |               BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)\n'}
+[12.283685] (ar_track_alvar) StderrLine: {'line': b'      |               ^~~~~~~~~~~~~\n'}
+[12.284102] (ar_track_alvar) StderrLine: {'line': b'      |               BOOST_NO_HASH\n'}
+[12.284481] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:579:7: error: \xe2\x80\x98BOOST_FOREACH\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98BOOST_NO_HASH\xe2\x80\x99?\n'}
+[12.284848] (ar_track_alvar) StderrLine: {'line': b'  579 |       BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)\n'}
+[12.285238] (ar_track_alvar) StderrLine: {'line': b'      |       ^~~~~~~~~~~~~\n'}
+[12.285607] (ar_track_alvar) StderrLine: {'line': b'      |       BOOST_NO_HASH\n'}
+[12.330171] (-) TimerEvent: {}
+[12.430470] (-) TimerEvent: {}
+[12.530760] (-) TimerEvent: {}
+[12.631047] (-) TimerEvent: {}
+[12.731311] (-) TimerEvent: {}
+[12.831577] (-) TimerEvent: {}
+[12.931836] (-) TimerEvent: {}
+[13.032091] (-) TimerEvent: {}
+[13.132392] (-) TimerEvent: {}
+[13.232689] (-) TimerEvent: {}
+[13.332987] (-) TimerEvent: {}
+[13.433309] (-) TimerEvent: {}
+[13.533659] (-) TimerEvent: {}
+[13.634018] (-) TimerEvent: {}
+[13.734388] (-) TimerEvent: {}
+[13.834725] (-) TimerEvent: {}
+[13.935052] (-) TimerEvent: {}
+[14.035373] (-) TimerEvent: {}
+[14.135687] (-) TimerEvent: {}
+[14.236025] (-) TimerEvent: {}
+[14.336343] (-) TimerEvent: {}
+[14.436625] (-) TimerEvent: {}
+[14.536928] (-) TimerEvent: {}
+[14.637220] (-) TimerEvent: {}
+[14.737530] (-) TimerEvent: {}
+[14.837828] (-) TimerEvent: {}
+[14.938127] (-) TimerEvent: {}
+[15.038429] (-) TimerEvent: {}
+[15.138748] (-) TimerEvent: {}
+[15.239122] (-) TimerEvent: {}
+[15.339430] (-) TimerEvent: {}
+[15.439712] (-) TimerEvent: {}
+[15.540018] (-) TimerEvent: {}
+[15.640291] (-) TimerEvent: {}
+[15.740601] (-) TimerEvent: {}
+[15.840930] (-) TimerEvent: {}
+[15.941338] (-) TimerEvent: {}
+[16.041691] (-) TimerEvent: {}
+[16.141954] (-) TimerEvent: {}
+[16.242242] (-) TimerEvent: {}
+[16.342514] (-) TimerEvent: {}
+[16.442782] (-) TimerEvent: {}
+[16.543072] (-) TimerEvent: {}
+[16.643370] (-) TimerEvent: {}
+[16.743738] (-) TimerEvent: {}
+[16.844045] (-) TimerEvent: {}
+[16.944305] (-) TimerEvent: {}
+[17.044575] (-) TimerEvent: {}
+[17.144846] (-) TimerEvent: {}
+[17.245091] (-) TimerEvent: {}
+[17.345392] (-) TimerEvent: {}
+[17.445679] (-) TimerEvent: {}
+[17.545989] (-) TimerEvent: {}
+[17.646293] (-) TimerEvent: {}
+[17.746600] (-) TimerEvent: {}
+[17.846895] (-) TimerEvent: {}
+[17.947193] (-) TimerEvent: {}
+[18.047466] (-) TimerEvent: {}
+[18.147741] (-) TimerEvent: {}
+[18.248099] (-) TimerEvent: {}
+[18.348390] (-) TimerEvent: {}
+[18.448740] (-) TimerEvent: {}
+[18.549069] (-) TimerEvent: {}
+[18.649378] (-) TimerEvent: {}
+[18.749665] (-) TimerEvent: {}
+[18.849950] (-) TimerEvent: {}
+[18.950207] (-) TimerEvent: {}
+[19.050476] (-) TimerEvent: {}
+[19.150812] (-) TimerEvent: {}
+[19.251082] (-) TimerEvent: {}
+[19.351373] (-) TimerEvent: {}
+[19.451695] (-) TimerEvent: {}
+[19.551965] (-) TimerEvent: {}
+[19.652249] (-) TimerEvent: {}
+[19.752535] (-) TimerEvent: {}
+[19.852845] (-) TimerEvent: {}
+[19.953204] (-) TimerEvent: {}
+[20.053570] (-) TimerEvent: {}
+[20.154006] (-) TimerEvent: {}
+[20.254355] (-) TimerEvent: {}
+[20.393998] (-) TimerEvent: {}
+[20.494275] (-) TimerEvent: {}
+[20.594496] (-) TimerEvent: {}
+[20.694785] (-) TimerEvent: {}
+[20.827704] (-) TimerEvent: {}
+[20.945026] (-) TimerEvent: {}
+[21.068054] (-) TimerEvent: {}
+[21.168317] (-) TimerEvent: {}
+[21.268569] (-) TimerEvent: {}
+[21.368851] (-) TimerEvent: {}
+[21.469189] (-) TimerEvent: {}
+[21.569464] (-) TimerEvent: {}
+[21.669702] (-) TimerEvent: {}
+[21.770064] (-) TimerEvent: {}
+[21.870387] (-) TimerEvent: {}
+[21.970666] (-) TimerEvent: {}
+[22.070902] (-) TimerEvent: {}
+[22.104774] (ar_track_alvar) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/individualMarkers.dir/build.make:76\xef\xbc\x9aCMakeFiles/individualMarkers.dir/nodes/IndividualMarkers.cpp.o] \xe9\x94\x99\xe8\xaf\xaf 1\n'}
+[22.171143] (-) TimerEvent: {}
+[22.171241] (ar_track_alvar) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:232\xef\xbc\x9aCMakeFiles/individualMarkers.dir/all] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[22.171600] (ar_track_alvar) StderrLine: {'line': b'gmake[1]: *** \xe6\xad\xa3\xe5\x9c\xa8\xe7\xad\x89\xe5\xbe\x85\xe6\x9c\xaa\xe5\xae\x8c\xe6\x88\x90\xe7\x9a\x84\xe4\xbb\xbb\xe5\x8a\xa1....\n'}
+[22.236941] (ar_track_alvar) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/findMarkerBundles.dir/build.make:76\xef\xbc\x9aCMakeFiles/findMarkerBundles.dir/nodes/FindMarkerBundles.cpp.o] \xe9\x94\x99\xe8\xaf\xaf 1\n'}
+[22.237546] (ar_track_alvar) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:312\xef\xbc\x9aCMakeFiles/findMarkerBundles.dir/all] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[22.271249] (-) TimerEvent: {}
+[22.371482] (-) TimerEvent: {}
+[22.471770] (-) TimerEvent: {}
+[22.572117] (-) TimerEvent: {}
+[22.672448] (-) TimerEvent: {}
+[22.772736] (-) TimerEvent: {}
+[22.873017] (-) TimerEvent: {}
+[22.973261] (-) TimerEvent: {}
+[23.073516] (-) TimerEvent: {}
+[23.173784] (-) TimerEvent: {}
+[23.274067] (-) TimerEvent: {}
+[23.374314] (-) TimerEvent: {}
+[23.474538] (-) TimerEvent: {}
+[23.574788] (-) TimerEvent: {}
+[23.675056] (-) TimerEvent: {}
+[23.775315] (-) TimerEvent: {}
+[23.875574] (-) TimerEvent: {}
+[23.975841] (-) TimerEvent: {}
+[24.076083] (-) TimerEvent: {}
+[24.176367] (-) TimerEvent: {}
+[24.276633] (-) TimerEvent: {}
+[24.376898] (-) TimerEvent: {}
+[24.477178] (-) TimerEvent: {}
+[24.577455] (-) TimerEvent: {}
+[24.677718] (-) TimerEvent: {}
+[24.778000] (-) TimerEvent: {}
+[24.878260] (-) TimerEvent: {}
+[24.978512] (-) TimerEvent: {}
+[25.078774] (-) TimerEvent: {}
+[25.179038] (-) TimerEvent: {}
+[25.279328] (-) TimerEvent: {}
+[25.379620] (-) TimerEvent: {}
+[25.479882] (-) TimerEvent: {}
+[25.580182] (-) TimerEvent: {}
+[25.680457] (-) TimerEvent: {}
+[25.780742] (-) TimerEvent: {}
+[25.881023] (-) TimerEvent: {}
+[25.981282] (-) TimerEvent: {}
+[26.081614] (-) TimerEvent: {}
+[26.181843] (-) TimerEvent: {}
+[26.282104] (-) TimerEvent: {}
+[26.382362] (-) TimerEvent: {}
+[26.482629] (-) TimerEvent: {}
+[26.582901] (-) TimerEvent: {}
+[26.683198] (-) TimerEvent: {}
+[26.783483] (-) TimerEvent: {}
+[26.883772] (-) TimerEvent: {}
+[26.984075] (-) TimerEvent: {}
+[27.084362] (-) TimerEvent: {}
+[27.184651] (-) TimerEvent: {}
+[27.284953] (-) TimerEvent: {}
+[27.385251] (-) TimerEvent: {}
+[27.485526] (-) TimerEvent: {}
+[27.585802] (-) TimerEvent: {}
+[27.686072] (-) TimerEvent: {}
+[27.786329] (-) TimerEvent: {}
+[27.886584] (-) TimerEvent: {}
+[27.986863] (-) TimerEvent: {}
+[28.087176] (-) TimerEvent: {}
+[28.187463] (-) TimerEvent: {}
+[28.287742] (-) TimerEvent: {}
+[28.388051] (-) TimerEvent: {}
+[28.488382] (-) TimerEvent: {}
+[28.588666] (-) TimerEvent: {}
+[28.688909] (-) TimerEvent: {}
+[28.789241] (-) TimerEvent: {}
+[28.889545] (-) TimerEvent: {}
+[28.989834] (-) TimerEvent: {}
+[29.090206] (-) TimerEvent: {}
+[29.190492] (-) TimerEvent: {}
+[29.290801] (-) TimerEvent: {}
+[29.391084] (-) TimerEvent: {}
+[29.491376] (-) TimerEvent: {}
+[29.591670] (-) TimerEvent: {}
+[29.691966] (-) TimerEvent: {}
+[29.792334] (-) TimerEvent: {}
+[29.892647] (-) TimerEvent: {}
+[29.993021] (-) TimerEvent: {}
+[30.093402] (-) TimerEvent: {}
+[30.193921] (-) TimerEvent: {}
+[30.291191] (ar_track_alvar) StdoutLine: {'line': b'[ 91%] Linking CXX executable findMarkerBundlesNoKinect\n'}
+[30.294014] (-) TimerEvent: {}
+[30.394259] (-) TimerEvent: {}
+[30.494545] (-) TimerEvent: {}
+[30.594854] (-) TimerEvent: {}
+[30.695173] (-) TimerEvent: {}
+[30.795440] (-) TimerEvent: {}
+[30.895722] (-) TimerEvent: {}
+[30.996038] (-) TimerEvent: {}
+[31.096311] (-) TimerEvent: {}
+[31.196601] (-) TimerEvent: {}
+[31.553584] (-) TimerEvent: {}
+[31.653892] (-) TimerEvent: {}
+[31.754191] (-) TimerEvent: {}
+[31.854491] (-) TimerEvent: {}
+[31.954772] (-) TimerEvent: {}
+[32.055051] (-) TimerEvent: {}
+[32.155306] (-) TimerEvent: {}
+[32.255563] (-) TimerEvent: {}
+[32.355847] (-) TimerEvent: {}
+[32.456113] (-) TimerEvent: {}
+[32.556406] (-) TimerEvent: {}
+[32.656691] (-) TimerEvent: {}
+[32.756964] (-) TimerEvent: {}
+[32.857335] (-) TimerEvent: {}
+[32.957663] (-) TimerEvent: {}
+[33.054563] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_imgcodecs.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.409\n'}
+[33.057778] (-) TimerEvent: {}
+[33.158027] (-) TimerEvent: {}
+[33.258301] (-) TimerEvent: {}
+[33.306516] (ar_track_alvar) StdoutLine: {'line': b'[ 93%] Linking CXX executable trainMarkerBundle\n'}
+[33.358469] (-) TimerEvent: {}
+[33.458743] (-) TimerEvent: {}
+[33.494682] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_imgproc.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.409\n'}
+[33.500585] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_core.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_core.so.409\n'}
+[33.558877] (-) TimerEvent: {}
+[33.659161] (-) TimerEvent: {}
+[33.759401] (-) TimerEvent: {}
+[33.859683] (-) TimerEvent: {}
+[33.959966] (-) TimerEvent: {}
+[34.060267] (-) TimerEvent: {}
+[34.160535] (-) TimerEvent: {}
+[34.260811] (-) TimerEvent: {}
+[34.361096] (-) TimerEvent: {}
+[34.461361] (-) TimerEvent: {}
+[34.561641] (-) TimerEvent: {}
+[34.661889] (-) TimerEvent: {}
+[34.714669] (ar_track_alvar) StdoutLine: {'line': b'[ 93%] Built target findMarkerBundlesNoKinect\n'}
+[34.753447] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_imgcodecs.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.409\n'}
+[34.754704] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_imgproc.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.409\n'}
+[34.755708] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_core.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_core.so.409\n'}
+[34.761998] (-) TimerEvent: {}
+[34.862218] (-) TimerEvent: {}
+[34.962479] (-) TimerEvent: {}
+[35.062732] (-) TimerEvent: {}
+[35.163007] (-) TimerEvent: {}
+[35.263257] (-) TimerEvent: {}
+[35.363507] (-) TimerEvent: {}
+[35.389262] (ar_track_alvar) StdoutLine: {'line': b'[ 95%] Linking CXX executable individualMarkersNoKinect\n'}
+[35.463649] (-) TimerEvent: {}
+[35.563901] (-) TimerEvent: {}
+[35.664161] (-) TimerEvent: {}
+[35.764435] (-) TimerEvent: {}
+[35.864716] (-) TimerEvent: {}
+[35.965037] (-) TimerEvent: {}
+[36.065314] (-) TimerEvent: {}
+[36.165578] (-) TimerEvent: {}
+[36.265851] (-) TimerEvent: {}
+[36.366090] (-) TimerEvent: {}
+[36.752815] (-) TimerEvent: {}
+[36.853114] (-) TimerEvent: {}
+[36.863767] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_imgcodecs.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.409\n'}
+[36.864963] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_imgproc.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.409\n'}
+[36.866355] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_core.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_core.so.409\n'}
+[36.953218] (-) TimerEvent: {}
+[37.053450] (-) TimerEvent: {}
+[37.153712] (-) TimerEvent: {}
+[37.253933] (-) TimerEvent: {}
+[37.354159] (-) TimerEvent: {}
+[37.454243] (ar_track_alvar) StdoutLine: {'line': b'[ 95%] Built target trainMarkerBundle\n'}
+[37.454644] (-) TimerEvent: {}
+[37.554873] (-) TimerEvent: {}
+[37.655153] (-) TimerEvent: {}
+[37.665805] (ar_track_alvar) StdoutLine: {'line': b'[ 95%] Built target individualMarkersNoKinect\n'}
+[37.667916] (ar_track_alvar) StderrLine: {'line': b'gmake: *** [Makefile:146\xef\xbc\x9aall] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[37.671885] (ar_track_alvar) CommandEnded: {'returncode': 2}
+[37.685965] (ar_track_alvar) JobEnded: {'identifier': 'ar_track_alvar', 'rc': 2}
+[37.696488] (-) EventReactorShutdown: {}

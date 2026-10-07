@@ -1,0 +1,150 @@
+## 根因（按证据，按重要性排）
+
+1. **默认是 "队列插补模式"，不是 "刷新模式"**。ROS2 高频下发时，每个分段点都进固件队列按序执行，机械臂对每个点都做一次完整的 "减速→停止→再加速"，这就是你看到的卡顿和节拍感。官方抖动 Troubleshooting 的第一条对策就是切刷新模式。核心 API：`set_fresh_mode(1)`。
+2. **固件对直线运动是固定 10mm 间距线性插值**。官方协议文档写明：MOVEL 按两点欧氏距离每隔 10mm 插一个点、每段自带加减速轮廓。ROS2 的分段点一旦步长偏大或方向突变，固件层就是折线 + 起停，这是 "硬件执行" 层甩不掉的物理行为 —— 除非在上游把点喂得又密又顺。
+3. **串口 115200 是吞吐瓶颈**。一条 `send_angles` 帧约 17 字节，加上 Python 阻塞调用和固件处理，实际控制频率只有 20–50Hz。如果桥接代码里每点 `sleep` 固定值或用 `sync_send_angles`（等到位再发下一个），分段处必然停顿。
+4. **坐标空间下发会放大抖动**。如果 ROS2 发笛卡尔坐标，固件每个点都做一次逆解，相邻点逆解不连续、姿态翻转（rx/ry/rz 变化受限、奇异点）都会抖。**优先在关节空间执行**，逆解放到上位机。
+
+## 四招解决
+
+**第一招（必做）：开刷新模式 + 升级依赖**
+`set_fresh_mode(1)` 是 v3.7.0+ 才有的接口，先 `pip install -U pymycobot`；同时把 Atom/Transponder 固件用 myStudio 升到最新（老固件对高频刷新支持差）。确认用 `get_fresh_mode()` 查，返回 1 才生效。
+
+**第二招（核心）：写一个 ROS2→M5 桥接节点，做 4 件事**
+
+- 关节空间化（订阅 `JointTrajectory`，MoveIt 已算好关节角就直接用）
+- EMA 平滑去抖 + 合并冗余点
+- **动态下发节拍**：官方思路是 "按两点最大关节移动距离算移动时间，再扣掉指令开销作为间隔"，不要固定 sleep
+- 刷新模式下持续下发，**禁用 `sync_send_angles` / 每点确认到位**
+
+**第三招：链路与下发策略**
+
+- USB 直连优于 WiFi（M5 只有 2.4G，WiFi 延迟抖动明显）；控制频率压到 20–40Hz，步长按轨迹速度折算，别用 100Hz 无脑灌。
+- 如果 ROS2 给的 waypoint 很稀疏（比如就几个点），桥接层要按时间插值稠密化；如果 ROS2 已到 100Hz，抽样 / 合并到～40Hz 即可。
+
+**第四招：硬件级**
+
+- 舵机 PID 调参（抖动时**降位置环 P、升 D 阻尼**）：协议地址 21=P、22=I、23=D，初始 10/0/1，可用 `set_servo_data` 调整（官方还给了 PID 参考文档）。
+- 确认负载在有效负载内（280 约 250g），负载过大本身就会抖；同时紧固结构件、重心贴近基座。
+
+#!/usr/bin/env python3
+"""mycobot280_m5 流式执行桥接节点 —— 解决分段轨迹硬件层抖动
+依赖:  rclpy,  pymycobot(≥新版, 需含 set_fresh_mode)
+用法:  ros2 run <pkg> mycobot_stream --ros-args \
+         -p port:=/dev/ttyUSB0 -p topic:=/arm_controller/joint_trajectory
+"""
+import threading, time
+from collections import deque
+
+import rclpy
+from rclpy.node import Node
+from trajectory_msgs.msg import JointTrajectory
+from pymycobot import MyCobot280
+
+# 按你的 URDF / 控制器关节名顺序改
+JOINT_NAMES = ['joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6']
+
+
+class MyCobotStream(Node):
+    def __init__(self):
+        super().__init__('mycobot_stream')
+        self.declare_parameter('port', '/dev/ttyUSB0')
+        self.declare_parameter('baud', 115200)
+        self.declare_parameter('topic', '/arm_controller/joint_trajectory')
+        self.declare_parameter('speed', 60)      # 下发速度 1-100
+        self.declare_parameter('smooth', 3)      # EMA 平滑窗口(越大越柔)
+
+        # ---- ① 硬件: USB 直连 + 刷新模式(核心) ----
+        self.mc = MyCobot280(self.get_parameter('port').value,
+                             self.get_parameter('baud').value)
+        self.mc.power_on()
+        self.mc.set_fresh_mode(1)                # 流式: 最新指令优先, 覆盖队列
+        if self.mc.get_fresh_mode() != 1:
+            self.get_logger().warn('刷新模式未生效: 请升级 pymycobot/固件')
+
+        self.q = deque()                         # 待下发轨迹点队列
+        self.cur = None                          # 当前期望角度
+        self.hold = None                         # 轨迹结束后保持的位姿
+        self.lock = threading.Lock()
+        self._stop = False
+
+        self.sub = self.create_subscription(
+            JointTrajectory, self.get_parameter('topic').value,
+            self._on_traj, 10)
+
+        threading.Thread(target=self._loop, daemon=True).start()
+
+    # ---- 轨迹回调: 关节空间化 + 入队(上限防积压) ----
+    def _on_traj(self, msg):
+        pts = msg.points
+        if not pts:
+            return
+        idx = {n: i for i, n in enumerate(msg.joint_names)}
+        with self.lock:
+            for p in pts:
+                ang = [0.0] * 6
+                for j, n in enumerate(JOINT_NAMES):
+                    if n in idx:
+                        ang[j] = float(p.positions[idx[n]])
+                self.q.append(ang)
+            while len(self.q) > 200:
+                self.q.popleft()
+
+    # ---- ② EMA 平滑去高频抖动 ----
+    def _smooth(self, tgt):
+        if self.cur is None:
+            return tgt
+        a = 1.0 / max(1, self.get_parameter('smooth').value)
+        return [c * (1 - a) + t * a for c, t in zip(self.cur, tgt)]
+
+    # ---- ③ 动态节拍: 按相邻点最大关节位移估移动时间(官方思路) ----
+    def _interval(self, a, b):
+        max_deg = max((abs(x - y) for x, y in zip(a, b)), default=0.0)
+        vel = 150.0 * self.get_parameter('speed').value / 100.0  # 关节最大150°/s
+        dt = max_deg / vel if vel > 0 else 0.02
+        return max(0.02, dt - 0.012)             # 扣指令开销, 下限20ms≈50Hz
+
+    # ---- ④ 执行线程: 持续把最新目标发到硬件, 绝不等到位 ----
+    def _loop(self):
+        while not self._stop:
+            with self.lock:
+                tgt = self.q[0] if self.q else self.hold
+            if tgt is not None:
+                prev, tgt = self.cur, self._smooth(tgt)
+                try:
+                    self.mc.send_angles(tgt, self.get_parameter('speed').value)
+                    self.cur = tgt
+                    self.hold = tgt
+                    with self.lock:
+                        if self.q:
+                            self.q.popleft()
+                except Exception as e:
+                    self.get_logger().error(f'send fail: {e}')
+                time.sleep(self._interval(prev if prev else tgt, tgt))
+            else:
+                time.sleep(0.02)
+
+    def stop(self):
+        self._stop = True
+        try:
+            self.mc.stop()
+        except Exception:
+            pass
+
+
+def main():
+    rclpy.init()
+    node = MyCobotStream()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.stop()
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+

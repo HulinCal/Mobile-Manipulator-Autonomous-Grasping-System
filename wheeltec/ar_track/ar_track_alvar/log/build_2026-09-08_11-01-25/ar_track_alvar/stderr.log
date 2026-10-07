@@ -1,0 +1,38 @@
+CMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  CMake variable FLANN_ROOT is set to:
+
+    /usr
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+Call Stack (most recent call first):
+  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+  /opt/ros/jazzy/share/ament_cmake_auto/cmake/ament_auto_find_build_dependencies.cmake:67 (find_package)
+  CMakeLists.txt:10 (ament_auto_find_build_dependencies)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Error at CMakeLists.txt:24 (find_package):
+  By not providing "Findar_track_alvar_msgs.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "ar_track_alvar_msgs", but CMake did not find one.
+
+  Could not find a package configuration file provided by
+  "ar_track_alvar_msgs" with any of the following names:
+
+    ar_track_alvar_msgsConfig.cmake
+    ar_track_alvar_msgs-config.cmake
+
+  Add the installation prefix of "ar_track_alvar_msgs" to CMAKE_PREFIX_PATH
+  or set "ar_track_alvar_msgs_DIR" to a directory containing one of the above
+  files.  If "ar_track_alvar_msgs" provides a separate development package or
+  SDK, be sure it has been installed.
+
+

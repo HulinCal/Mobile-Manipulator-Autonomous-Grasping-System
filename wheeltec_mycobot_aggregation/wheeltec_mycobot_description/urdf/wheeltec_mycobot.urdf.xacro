@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="wheeltec_mycobot">
+
+  <!--
+    Aggregated robot: WHEELTEC R680 mobile base (senior_4wd_bs) plus myCobot 280 arm.
+
+    Design notes:
+    * The WHEELTEC base description is the ORIGINAL, unmodified
+      wheeltec_robot_urdf/urdf/senior_4wd_bs_robot.urdf file, included as-is,
+      so every inertial, collision and wheel joint property is identical to
+      the real robot.
+    * The myCobot 280 arm, gripper and ros2_control blocks are instantiated
+      from the ORIGINAL mycobot_description xacro macros, so link masses,
+      joint axes, limits (effort/velocity/position) and dynamics are identical
+      to the standalone myCobot 280 model and stay compatible with the
+      existing mycobot_moveit_config for later MoveIt 2 planning.
+    * The standalone G-shaped mounting base (g_shape_base) is intentionally
+      NOT instantiated: when the arm is installed on the car that base plate
+      is not used. The arm macro is rooted at the wheeltec base_link frame,
+      so link1 is attached to base_link by the fixed "base_link_to_link1"
+      joint. Arm links (link1 to link6, link6_flange, gripper links) and all
+      joint names are kept exactly as in the original.
+    * Mounting pose of link1 in the base_link frame:
+      the original camera_link pose was
+      xyz="0.17583451891873 0.000745202407130424 0.192704" rpy="0 0 0";
+      per the physical install it is shifted -0.09 m in X (car forward) and
+      -0.0255 m net in Z (height: first -0.035 m, then raised back +0.0095 m).
+      The arm forward direction is its +Y axis; a yaw of -pi/2 (90 deg
+      clockwise viewed from above) aligns it with the car +X forward:
+      xyz="0.08583451891873 0.000745202407130424 0.167204"
+      rpy="0 0 -1.5707963267948966".
+  -->
+
+  <xacro:arg name="use_gripper" default="true"/>
+  <xacro:arg name="gripper_type" default="adaptive_gripper"/>
+  <!-- Load the gz_ros2_control plugin for the arm inside Gazebo.
+       Kept false for pure visualization / display launches. -->
+  <xacro:arg name="use_gazebo" default="false"/>
+
+  <!-- ============================================================== -->
+  <!-- WHEELTEC R680 (senior_4wd_bs) base - original URDF, untouched -->
+  <!-- ============================================================== -->
+  <xacro:include filename="$(find wheeltec_robot_urdf)/urdf/senior_4wd_bs_robot.urdf"/>
+
+  <!-- base_footprint -> base_link fixed transform.
+       Copied from turn_on_wheeltec_robot.launch.py, where the base_to_link
+       static_transform_publisher publishes xyz="0 0 0.05" rpy="0 0 0".
+       Embedding it here makes the whole TF tree come from robot_state_publisher. -->
+  <!-- NOTE: world must NOT be attached to base_footprint in this URDF.
+       The EKF (robot_localization) publishes the DYNAMIC odom_combined ->
+       base_footprint edge on /tf, so a static world -> base_footprint here
+       would give base_footprint two parents. TF rejects that, splits the tree
+       and RViz reports "No transform from [world] to [base_footprint]".
+       The world frame is instead attached above the odometry edge by a
+       static_transform_publisher (world -> odom_combined identity) started in
+       all.launch.py, yielding the REP-105 chain:
+         world -> odom_combined -> base_footprint -> base_link. -->
+  <link name="base_footprint"/>
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ============================================================== -->
+  <!-- myCobot 280 - instantiated from the ORIGINAL description macros -->
+  <!-- ============================================================== -->
+  <!-- NOTE: g_shape_base_v2_0.urdf.xacro is deliberately NOT included.
+       The G-shaped desktop base plate is not used when the arm is mounted
+       on the car; link1 is attached directly to the wheeltec base_link. -->
+  <xacro:include filename="$(find mycobot_description)/urdf/mech/mycobot_280_arm.urdf.xacro"/>
+  <xacro:include filename="$(find mycobot_description)/urdf/mech/adaptive_gripper.urdf.xacro"/>
+  <xacro:include filename="$(find mycobot_description)/urdf/control/gazebo_sim_ros2_control.urdf.xacro"/>
+  <xacro:include filename="$(find mycobot_description)/urdf/control/mycobot_280_ros2_control.urdf.xacro"/>
+
+  <!-- 6-DOF arm rooted at the wheeltec base_link.
+       The macro creates the fixed "base_link_to_link1" joint, attaching the
+       arm directly to the car with no G-shaped base in between.
+       Relative to the old camera_link mounting point the arm is shifted
+       -0.09 m in X (car forward); in Z it is 0.0255 m lower (first lowered
+       0.035 m, then raised back 0.0095 m after on-car verification).
+       Yaw is -pi/2 so the arm +Y forward points along car +X (clockwise
+       90 deg viewed from above).
+       All original inertial/joint limit/dynamics properties are preserved. -->
+  <xacro:mycobot_280_arm
+      base_link="base_link"
+      flange_link="link6_flange"
+      prefix="">
+    <origin xyz="0.09083451891873 0.000745202407130424 0.167204" rpy="0 0 -1.5707963267948966"/>
+  </xacro:mycobot_280_arm>
+
+  <!-- Adaptive gripper, same mounting origin as in mycobot_280.urdf.xacro -->
+  <xacro:if value="$(arg use_gripper)">
+    <xacro:adaptive_gripper
+        parent="link6_flange"
+        prefix="">
+      <origin xyz="0 0 0.034" rpy="1.579 0 0"/>
+    </xacro:adaptive_gripper>
+  </xacro:if>
+
+  <!-- Gazebo ros2_control plugin for the arm (only when use_gazebo:=true) -->
+  <xacro:load_gazebo_sim_ros2_control_plugin
+      robot_name="mycobot_280"
+      use_gazebo="$(arg use_gazebo)"/>
+
+  <!-- Arm + gripper ros2_control interfaces (hardware plugin is selected
+       inside the macro from use_gazebo; harmless for RViz visualization) -->
+  <xacro:mycobot_ros2_control
+      prefix=""
+      flange_link="link6_flange"
+      use_gazebo="$(arg use_gazebo)"/>
+
+</robot>

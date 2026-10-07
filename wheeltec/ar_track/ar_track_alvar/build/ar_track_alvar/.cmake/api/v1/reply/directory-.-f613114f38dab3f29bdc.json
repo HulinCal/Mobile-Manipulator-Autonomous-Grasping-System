@@ -1,0 +1,619 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install",
+			"ament_environment_hooks",
+			"_ament_cmake_export_libraries_register_environment_hook",
+			"ament_export_libraries",
+			"ament_index_register_resource",
+			"ament_cmake_environment_generate_package_run_dependencies_marker",
+			"include",
+			"ament_execute_extensions",
+			"ament_package",
+			"ament_cmake_environment_generate_parent_prefix_path_marker",
+			"ament_generate_package_environment",
+			"ament_index_register_package",
+			"_ament_package"
+		],
+		"files" : 
+		[
+			"/opt/ros/jazzy/share/ament_cmake_core/cmake/environment_hooks/ament_environment_hooks.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_export_libraries/cmake/ament_cmake_export_libraries-extras.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_export_libraries/cmake/ament_export_libraries.cmake",
+			"CMakeLists.txt",
+			"/opt/ros/jazzy/share/ament_cmake_core/cmake/index/ament_index_register_resource.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_core/cmake/environment/ament_cmake_environment_package_hook.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_core/cmake/environment_hooks/ament_cmake_environment_hooks_package_hook.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_core/cmake/environment_hooks/ament_generate_package_environment.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_core/cmake/index/ament_index_register_package.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_core/cmake/index/ament_cmake_index_package_hook.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 136,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 35,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 25,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 70,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 87,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 3,
+				"line" : 140,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 3,
+				"line" : 146,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 3,
+				"line" : 150,
+				"parent" : 0
+			},
+			{
+				"command" : 8,
+				"file" : 3,
+				"line" : 188,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 7,
+				"line" : 66,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 6,
+				"line" : 48,
+				"parent" : 10
+			},
+			{
+				"file" : 5,
+				"parent" : 11
+			},
+			{
+				"command" : 5,
+				"file" : 5,
+				"line" : 47,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 5,
+				"line" : 29,
+				"parent" : 13
+			},
+			{
+				"command" : 0,
+				"file" : 4,
+				"line" : 105,
+				"parent" : 14
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 48,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 5,
+				"line" : 43,
+				"parent" : 16
+			},
+			{
+				"command" : 0,
+				"file" : 4,
+				"line" : 105,
+				"parent" : 17
+			},
+			{
+				"command" : 6,
+				"file" : 6,
+				"line" : 48,
+				"parent" : 10
+			},
+			{
+				"file" : 8,
+				"parent" : 19
+			},
+			{
+				"command" : 1,
+				"file" : 8,
+				"line" : 20,
+				"parent" : 20
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 70,
+				"parent" : 21
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 87,
+				"parent" : 21
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 70,
+				"parent" : 21
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 87,
+				"parent" : 21
+			},
+			{
+				"command" : 10,
+				"file" : 8,
+				"line" : 26,
+				"parent" : 20
+			},
+			{
+				"command" : 0,
+				"file" : 9,
+				"line" : 91,
+				"parent" : 26
+			},
+			{
+				"command" : 0,
+				"file" : 9,
+				"line" : 91,
+				"parent" : 26
+			},
+			{
+				"command" : 0,
+				"file" : 9,
+				"line" : 91,
+				"parent" : 26
+			},
+			{
+				"command" : 0,
+				"file" : 9,
+				"line" : 107,
+				"parent" : 26
+			},
+			{
+				"command" : 0,
+				"file" : 9,
+				"line" : 120,
+				"parent" : 26
+			},
+			{
+				"command" : 6,
+				"file" : 6,
+				"line" : 48,
+				"parent" : 10
+			},
+			{
+				"file" : 11,
+				"parent" : 32
+			},
+			{
+				"command" : 11,
+				"file" : 11,
+				"line" : 16,
+				"parent" : 33
+			},
+			{
+				"command" : 4,
+				"file" : 10,
+				"line" : 29,
+				"parent" : 34
+			},
+			{
+				"command" : 0,
+				"file" : 4,
+				"line" : 105,
+				"parent" : 35
+			},
+			{
+				"command" : 12,
+				"file" : 7,
+				"line" : 68,
+				"parent" : 9
+			},
+			{
+				"command" : 0,
+				"file" : 7,
+				"line" : 122,
+				"parent" : 37
+			},
+			{
+				"command" : 0,
+				"file" : 7,
+				"line" : 122,
+				"parent" : 37
+			},
+			{
+				"command" : 0,
+				"file" : 7,
+				"line" : 122,
+				"parent" : 37
+			},
+			{
+				"command" : 0,
+				"file" : 7,
+				"line" : 150,
+				"parent" : 37
+			},
+			{
+				"command" : 0,
+				"file" : 7,
+				"line" : 157,
+				"parent" : 37
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar/environment",
+			"paths" : 
+			[
+				"/opt/ros/jazzy/lib/python3.12/site-packages/ament_package/template/environment_hook/library_path.sh"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar/environment",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_environment_hooks/library_path.dsv"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libar_track_alvar.a"
+			],
+			"targetId" : "ar_track_alvar::@6890427a1f51a3e7e1df",
+			"targetIndex" : 0,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib/ar_track_alvar",
+			"paths" : 
+			[
+				"individualMarkers"
+			],
+			"targetId" : "individualMarkers::@6890427a1f51a3e7e1df",
+			"targetIndex" : 5,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib/ar_track_alvar",
+			"paths" : 
+			[
+				"individualMarkersNoKinect"
+			],
+			"targetId" : "individualMarkersNoKinect::@6890427a1f51a3e7e1df",
+			"targetIndex" : 6,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib/ar_track_alvar",
+			"paths" : 
+			[
+				"trainMarkerBundle"
+			],
+			"targetId" : "trainMarkerBundle::@6890427a1f51a3e7e1df",
+			"targetIndex" : 9,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib/ar_track_alvar",
+			"paths" : 
+			[
+				"findMarkerBundles"
+			],
+			"targetId" : "findMarkerBundles::@6890427a1f51a3e7e1df",
+			"targetIndex" : 3,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib/ar_track_alvar",
+			"paths" : 
+			[
+				"findMarkerBundlesNoKinect"
+			],
+			"targetId" : "findMarkerBundlesNoKinect::@6890427a1f51a3e7e1df",
+			"targetIndex" : 4,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib/ar_track_alvar",
+			"paths" : 
+			[
+				"createMarker"
+			],
+			"targetId" : "createMarker::@6890427a1f51a3e7e1df",
+			"targetIndex" : 2,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libkinect_filtering.a"
+			],
+			"targetId" : "kinect_filtering::@6890427a1f51a3e7e1df",
+			"targetIndex" : 7,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libmedianFilter.a"
+			],
+			"targetId" : "medianFilter::@6890427a1f51a3e7e1df",
+			"targetIndex" : 8,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 7,
+			"component" : "Unspecified",
+			"destination" : "include/ar_track_alvar",
+			"paths" : 
+			[
+				{
+					"from" : "include/ar_track_alvar",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar",
+			"paths" : 
+			[
+				"launch",
+				"bundles"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 15,
+			"component" : "Unspecified",
+			"destination" : "share/ament_index/resource_index/package_run_dependencies",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ar_track_alvar"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 18,
+			"component" : "Unspecified",
+			"destination" : "share/ament_index/resource_index/parent_prefix_path",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ar_track_alvar"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 22,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar/environment",
+			"paths" : 
+			[
+				"/opt/ros/jazzy/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 23,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar/environment",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_environment_hooks/ament_prefix_path.dsv"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 24,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar/environment",
+			"paths" : 
+			[
+				"/opt/ros/jazzy/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 25,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar/environment",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_environment_hooks/path.dsv"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 27,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_environment_hooks/local_setup.bash"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 28,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_environment_hooks/local_setup.sh"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 29,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_environment_hooks/local_setup.zsh"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 30,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_environment_hooks/local_setup.dsv"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 31,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_environment_hooks/package.dsv"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 36,
+			"component" : "Unspecified",
+			"destination" : "share/ament_index/resource_index/packages",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_index/share/ament_index/resource_index/packages/ar_track_alvar"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 38,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar/cmake",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 39,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar/cmake",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_export_libraries/ament_cmake_export_libraries-extras.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 40,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar/cmake",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 41,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar/cmake",
+			"paths" : 
+			[
+				"build/ar_track_alvar/ament_cmake_core/ar_track_alvarConfig.cmake",
+				"build/ar_track_alvar/ament_cmake_core/ar_track_alvarConfig-version.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 42,
+			"component" : "Unspecified",
+			"destination" : "share/ar_track_alvar",
+			"paths" : 
+			[
+				"package.xml"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	}
+}

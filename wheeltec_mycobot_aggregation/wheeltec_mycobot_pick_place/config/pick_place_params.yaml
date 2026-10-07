@@ -1,0 +1,109 @@
+# =====================================================================
+# wheeltec_mycobot_pick_place - global parameters
+# =====================================================================
+# sim_mode: true  -> run on simulated/fake data (no hardware needed)
+#           false -> real hardware (launches wheeltec_mycobot_all + speech)
+#
+# NOTE: top-level key is '/**' so every pick_place node receives these
+# parameters. The launch file also passes sim_mode explicitly which
+# overrides this value when needed.
+# =====================================================================
+/**:
+  ros__parameters:
+    sim_mode: false
+
+    # Target voice command (canonical, as published by asr_keywords)
+    target_command: "把苹果拿过来"
+
+    # Delivery pose relative to the car's start pose (map frame)
+    delivery_offset_x: 0.5
+    delivery_offset_y: 0.5
+    delivery_offset_yaw: 0.0
+
+    # How close the car's front should get to the apple before grasping
+    approach_distance: 0.35      # [m]
+
+    # Navigation goal tolerance
+    nav_goal_tolerance_xy: 0.10
+    nav_goal_tolerance_yaw: 0.15
+
+    # Apple detection (YOLO26 via ONNX, edge deployment)
+    model_type: "yolo26_onnx"    # yolo26_onnx | ultralytics
+    model_path: "/home/admi/wheeltec_mycobot_ws/src/models/yolo26n.onnx"
+    target_class: "apple"
+    target_class_id: 47          # COCO apple class id
+    input_size: 640
+    # 红球苹果 YOLO 置信度偏低 (实测 0.27), 阈值 0.4 会漏检。
+    # 注: 该参数在节点启动时一次性读入, 运行时 ros2 param set 不生效。
+    confidence_threshold: 0.2
+    image_topic: "/camera/color/image_raw"
+    depth_topic: "/camera/depth/image_raw"
+    # depth_registration:=true 时深度图已与彩色图配准, 必须用彩色内参;
+    # /camera/depth/camera_info 的 K 是 NaN (IR 标定缺失), 会导致输出 NaN 坐标。
+    depth_info_topic: "/camera/color/camera_info"
+    pointcloud_topic: "/camera/depth/color/points"
+    camera_frame: "camera_color_optical_frame"
+    target_frame: "base_link"
+    publish_debug_image: true
+    # Simulated apple pose (used when sim_mode:=true) expressed in base_link
+    sim_apple_pose: [0.5, 0.0, 0.25, 0.0, 0.0, 0.0]  # x y z roll pitch yaw
+
+    # Apple (object) physical properties used by the grasp node
+    apple_radius: 0.02           # [m] sphere (实测小苹果半径约 2cm)
+
+    # Grasp (MoveIt2)
+    arm_group: "arm"
+    gripper_group: "gripper"
+    gripper_frame: "link6_flange"
+    world_frame: "base_link"
+    home_pose: "home"
+    gripper_open: "open"
+    gripper_close: "closed"
+    # 夹爪 gripper_controller 关节指令值 [rad]。
+    # 驱动把 [-0.7, 0.15] rad 线性映射为 pymycobot set_gripper_value 的
+    # 0..100 (0=全闭, 100=全开): 0.15 -> 100 全开。
+    # 夹取不夹到硬限位 (0 只能走到 rad -0.683, 会在限位上停滞/二次发力),
+    # 按"张开约 1/3"夹取: value≈33 -> rad=-0.7+0.33*0.85≈-0.42。
+    gripper_open_value: 0.15
+    gripper_close_value: -0.42
+    grasp_approach_distance: 0.10     # [m] pre-grasp approach along gripper Z
+    # link6_flange 末端到夹爪夹持中心 (两指闭合中心) 的距离 [m]。
+    # 规划目标加在法兰上, 该值必须覆盖夹爪长度, 否则夹爪指尖会捅到
+    # 苹果下方导致夹不住。自适应夹爪长约 12~13cm, 按实测微调。
+    tcp_flange_z: 0.12
+    # true: pick 服务到达 home 后即返回 (分步测试阶段);
+    # false: 继续执行后续趋近/闭合/提升。
+    grasp_init_only: false
+    # 手眼/视觉标定残差: 最终苹果位姿在 base_link 各方向加偏移 [m]
+    # 雷达表面点->苹果中心总修正 = apple_radius + 本值 ≈ 0.075
+    # (实测真值: 表面 0.29 + 0.075 - link1偏移0.091 -> link1 y≈0.275,
+    # 手摆可达点 y=0.287, 留规划余量)。
+    pose_x_offset: 0.06
+    pose_y_offset: 0.01
+    pose_z_offset: 0.0
+    # 苹果中心在 base_link 系的固定高度 [m]。测试现场苹果放置高度恒定,
+    # 视觉深度 z 不可靠, 直接用固定值覆盖检测 z; 设为 -1 可恢复使用检测 z。
+    # 当前值由无深度几何测量标定 (苹果置于罐顶): 苹果直径0.04m + 彩色图像
+    # 像素+内参反投影, 中心高 z≈0.155 (两种方法互验: 中心0.156/顶面-半径0.154)。
+    apple_fixed_z: 0.155
+    # pre-grasp 在 link1 y 方向向内收的距离 [m] (臂展极限附近保证可达)
+    pre_grasp_inner: 0.06
+    lift_distance: 0.25               # [m] desired lift after grasping
+    place_approach_distance: 0.10
+    retreat_distance: 0.10
+    planning_time: 5.0
+    # 候选位姿试错(pre-grasp/下降/提升)单次规划时限 [s]。可达目标 TRAC-IK
+    # 通常 <0.5s 出解; 调小可显著缩短臂展极限处的试错等待 (5s->1.5s)。
+    explore_planning_time: 1.5
+
+    # ---- grasp_angle_node 专用 (launch 参数 grasp_impl:=angle 时生效) ----
+    # 抓取俯仰角候选 [deg], 按"最优->最差"排序, 由规划器逐个判定可达性,
+    # 第一个规划成功的角度即为最优抓取角度:
+    #   0  = 夹爪轴线水平朝苹果 (平行于小车前方 x 轴; 车头相机沿该方向
+    #        观察, 苹果信息最完整, 最优; 且法兰在苹果后方更靠近臂基座,
+    #        可达性通常优于俯抓)
+    #   90 = 竖直向下俯抓 (相机只能看到苹果正面一维信息, 最差, 作兜底,
+    #        与 grasp_node 行为一致)
+    # 非竖直候选的夹爪开合方向始终水平 (手指左右环绕苹果, 不会上下夹
+    # 撞苹果下方台面)。
+    grasp_pitch_angles_deg: [90.0, 75.0, 60.0, 45.0, 30.0, 15.0, 0.0]

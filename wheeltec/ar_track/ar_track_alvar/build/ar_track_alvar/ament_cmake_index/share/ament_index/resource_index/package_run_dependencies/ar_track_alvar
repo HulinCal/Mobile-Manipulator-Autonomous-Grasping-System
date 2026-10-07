@@ -1,0 +1,1 @@
+ar_track_alvar_msgs;cv_bridge;geometry_msgs;image_transport;pcl_conversions;rclcpp;rclpy;resource_retriever;sensor_msgs;std_msgs;tf2;tf2_ros;tf2_geometry_msgs;tinyxml2;visualization_msgs;libopencv-dev;eigen;libpcl-all-dev;ament_cmake_pytest;ament_lint_auto;launch;launch_ros;launch_testing;launch_testing_ament_cmake;python3-opencv;python_cmake_module;ros_testing;rosbag2

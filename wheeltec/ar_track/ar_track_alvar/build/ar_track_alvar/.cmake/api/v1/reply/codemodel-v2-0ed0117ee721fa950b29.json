@@ -1,0 +1,151 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-f613114f38dab3f29bdc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ar_track_alvar",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ar_track_alvar::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ar_track_alvar-e0a030894636d22753d8.json",
+					"name" : "ar_track_alvar",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ar_track_alvar_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ar_track_alvar_uninstall-0287cba71a9c76ffaae9.json",
+					"name" : "ar_track_alvar_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "createMarker::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-createMarker-d8fdf0fb04e4705a5d8d.json",
+					"name" : "createMarker",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "findMarkerBundles::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-findMarkerBundles-0515adc18c42b322cde3.json",
+					"name" : "findMarkerBundles",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "findMarkerBundlesNoKinect::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-findMarkerBundlesNoKinect-b0e1b5b9009b2eb59344.json",
+					"name" : "findMarkerBundlesNoKinect",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "individualMarkers::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-individualMarkers-77b75a84aa55ecdcb438.json",
+					"name" : "individualMarkers",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "individualMarkersNoKinect::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-individualMarkersNoKinect-e61518bc8a8905552265.json",
+					"name" : "individualMarkersNoKinect",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kinect_filtering::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kinect_filtering-de9b6447b9e20ce2c949.json",
+					"name" : "kinect_filtering",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "medianFilter::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-medianFilter-3d4dda36ac3d230e6ffa.json",
+					"name" : "medianFilter",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trainMarkerBundle::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trainMarkerBundle-f53150f64413c0bc637e.json",
+					"name" : "trainMarkerBundle",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-55727e535aaa747c598e.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar",
+		"source" : "/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

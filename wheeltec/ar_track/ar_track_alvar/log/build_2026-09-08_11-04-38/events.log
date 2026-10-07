@@ -1,0 +1,562 @@
+[0.000000] (-) TimerEvent: {}
+[0.000154] (ar_track_alvar) JobQueued: {'identifier': 'ar_track_alvar', 'dependencies': OrderedDict()}
+[0.000630] (ar_track_alvar) JobStarted: {'identifier': 'ar_track_alvar'}
+[0.053106] (ar_track_alvar) JobProgress: {'identifier': 'ar_track_alvar', 'progress': 'cmake'}
+[0.086538] (ar_track_alvar) JobProgress: {'identifier': 'ar_track_alvar', 'progress': 'build'}
+[0.087841] (ar_track_alvar) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', '--', '-j24', '-l24'], 'cwd': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'env': OrderedDict({'GZ_SIM_SYSTEM_PLUGIN_PATH': '/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LIBRARY_PATH': '/home/hl/TensorRT-10.13.3.9/lib:/home/hl/TensorRT-10.13.3.9/lib:', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share:/home/hl/.gazebo/models', 'AI_AGENT': 'TRAE', 'USER': 'hl', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'OPENNI2_INCLUDE': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Include', 'XDG_SESSION_TYPE': 'x11', 'GIT_ASKPASS': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass.sh', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LIBGL_ALWAYS_SOFTWARE': '0', 'LD_LIBRARY_PATH': '/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid/lib:/home/hl/wheeltec/wheeltec_ws/install/astra_camera/lib:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/usb_cam/lib:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping/lib:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin/lib:/home/hl/trac_ik_ws/install/trac_ik_lib/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/hl/AstraSDK/lib:/home/hl/AstraSDK/lib', 'HOME': '/home/hl', 'CHROME_DESKTOP': 'trae-cn.desktop', 'CONDA_SHLVL': '0', 'OLDPWD': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar', 'TERM_PROGRAM_VERSION': '1.107.1', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/hl/.nvm/versions/node/v22.22.1/bin', 'NVM_INC': '/home/hl/.nvm/versions/node/v22.22.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/trae-cn.desktop', 'TRAE_SANDBOX_CLI_PATH': '/usr/share/trae-cn/resources/app/modules/sandbox/trae-sandbox', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': '', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass-main.js', 'PS1': '\\n(TraeAI-4) \\w [$?] $', 'GZ_SIM_RENDER_ENGINE': 'ogre', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/trae-cn/trae-cn', 'MANAGERPID': '2357', 'TRAE_AI_SHELL_ID': '4', 'TRAE_SANDBOX_SOURCE_FLAG_PATH': '/tmp/sandbox-source-flag-3627a05a-7a26-45cb-936f-473fb8d30b85', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '2693', 'BUNDLED_DEBUGPY_PATH': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'ASTRA_SDK_INCLUDE': '/home/hl/AstraSDK/include', 'COLORTERM': 'truecolor', '_CE_M': '', 'isArchMatched': '1', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3783', 'TRAE_JWT_TOKEN_PATH': '/home/hl/.trae-cn/trae-jwt-token', 'NVM_DIR': '/home/hl/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'TRAE_SANDBOX_STORAGE_PATH': '/home/hl/.config/Trae CN/ModularData/ai-agent/sandbox', 'SAFE_RM_AUTO_ADD_TEMP': '1', 'COLCON_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install:/home/hl/trac_ik_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'fcitx', 'LOGNAME': 'hl', 'SAFE_RM_DENIED_PATH': '/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.git:/home/hl/wheeltec/wheeltec_ws/.git', 'JOURNAL_STREAM': '10:13026', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': ':/usr/local/lib/pkgconfig:/usr/local/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'hl', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/home/hl/.gazebo/models:/home/hl/gazebo_models', 'LIBGL_ALWAYS_INDIRECT': '1', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'TRAE_SANDBOX_LOG_DIR': '/home/hl/.config/Trae CN/logs/20260908T091402/Modular', '_CE_CONDA': '', 'FC_FONTATIONS': '1', 'HISTCONTROL': 'ignorespace', 'WINDOWPATH': '2', 'PATH': '/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/usr/local/cuda/bin:/usr/share/trae-cn/resources/app/bin:/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/home/hl/.local/bin:/home/hl/miniconda3/condabin:/usr/local/cuda/bin:/home/hl/.nvm/versions/node/v22.22.1/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/hl/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/hlc:@/tmp/.ICE-unix/2662,unix/hlc:/tmp/.ICE-unix/2662', 'INVOCATION_ID': '0e2cc4f825cf4380adf466cc942ad463', 'XDG_MENU_PREFIX': 'gnome-', 'ASTRA_SDK_LIB': '/home/hl/AstraSDK/lib', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':1', 'FILESYSTEM_CASE_SENSITIVE': 'true', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-9f65482cc9bab372.txt', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'OPENNI2_REDIST': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Redist', 'PYTHONSTARTUP': '/home/hl/.config/Trae CN/User/workspaceStorage/03094a5d17a112e1e28db96c421cd790/ms-python.python/pythonrc.py', 'TRAE_SANDBOX_CONFIG_NAME': '6a9cd8ee20cf484735200318', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=fcitx', 'TRAE_SANDBOX_DUMP_DIR': '/home/hl/.config/Trae CN/Crashpad/sandbox-pending', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'TRAE_BRAND_NAME': 'Trae CN', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-18c4daf3ca.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_nav2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/pcl_conversions:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/nav2_common:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/astra_camera:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/hl/miniconda3/bin/python', 'SHELL': '/bin/bash', '__trae_PS1': '\\n(TraeAI-4) \\w [$?] $', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'TRAE_SANDBOX_TRACE_FILE': '/tmp/trae_sandbox_trace_269939e4-0c64-4078-9dc1-7feb2f8e6a6c.jsonl', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': '', 'QT_IM_MODULE': 'fcitx', 'PWD': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'TURTLEBOT3_MODEL': 'burger', 'SAFE_RM_ALLOWED_PATH': '/home/hl/wheeltec/wheeltec_ws:/home/hl/wheeltec/wheeltec_ws', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CONDA_EXE': '/home/hl/miniconda3/bin/conda', 'TERM_PRODUCT': 'Trae', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/quiz_status/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav2_common/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/manual_drive/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/beamer/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'SAFE_RM_PROTECTION_FLAG': '/tmp/safe-rm-protection-flag-1186c237-6462-41da-bae0-bf8509a7fc9d', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'SAFE_RM_SOURCE_FLAG': '/tmp/safe-rm-source-flag-0faf3fb1-092f-4f20-8743-4f78649cc702', 'GAZEBO_VERSION': 'harmonic', 'CMAKE_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/wheeltec_nav2:/home/hl/wheeltec/wheeltec_ws/install/pcl_conversions:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid:/home/hl/wheeltec/wheeltec_ws/install/nav2_common:/home/hl/wheeltec/wheeltec_ws/install/astra_camera:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy'}), 'shell': False}
+[0.139043] (-) TimerEvent: {}
+[0.239274] (-) TimerEvent: {}
+[0.339527] (-) TimerEvent: {}
+[0.439910] (-) TimerEvent: {}
+[0.468596] (ar_track_alvar) StdoutLine: {'line': b'[  4%] Built target kinect_filtering\n'}
+[0.540022] (-) TimerEvent: {}
+[0.555977] (ar_track_alvar) StdoutLine: {'line': b'[ 69%] Built target ar_track_alvar\n'}
+[0.595091] (ar_track_alvar) StdoutLine: {'line': b'[ 73%] Built target medianFilter\n'}
+[0.622717] (ar_track_alvar) StdoutLine: {'line': b'[ 78%] Built target createMarker\n'}
+[0.640167] (-) TimerEvent: {}
+[0.643700] (ar_track_alvar) StdoutLine: {'line': b'[ 82%] Built target findMarkerBundlesNoKinect\n'}
+[0.644689] (ar_track_alvar) StdoutLine: {'line': b'[ 86%] Built target trainMarkerBundle\n'}
+[0.645127] (ar_track_alvar) StdoutLine: {'line': b'[ 91%] Built target individualMarkersNoKinect\n'}
+[0.652864] (ar_track_alvar) StdoutLine: {'line': b'[ 93%] Building CXX object CMakeFiles/individualMarkers.dir/nodes/IndividualMarkers.cpp.o\n'}
+[0.678967] (ar_track_alvar) StdoutLine: {'line': b'[ 95%] Building CXX object CMakeFiles/findMarkerBundles.dir/nodes/FindMarkerBundles.cpp.o\n'}
+[0.740281] (-) TimerEvent: {}
+[0.840528] (-) TimerEvent: {}
+[0.940768] (-) TimerEvent: {}
+[1.041016] (-) TimerEvent: {}
+[1.141254] (-) TimerEvent: {}
+[1.241486] (-) TimerEvent: {}
+[1.341722] (-) TimerEvent: {}
+[1.442001] (-) TimerEvent: {}
+[1.542252] (-) TimerEvent: {}
+[1.642488] (-) TimerEvent: {}
+[1.742736] (-) TimerEvent: {}
+[1.842994] (-) TimerEvent: {}
+[1.943234] (-) TimerEvent: {}
+[2.043477] (-) TimerEvent: {}
+[2.143719] (-) TimerEvent: {}
+[2.243960] (-) TimerEvent: {}
+[2.344256] (-) TimerEvent: {}
+[2.444530] (-) TimerEvent: {}
+[2.544750] (-) TimerEvent: {}
+[2.644989] (-) TimerEvent: {}
+[2.745202] (-) TimerEvent: {}
+[2.845418] (-) TimerEvent: {}
+[2.945626] (-) TimerEvent: {}
+[3.045837] (-) TimerEvent: {}
+[3.146034] (-) TimerEvent: {}
+[3.246237] (-) TimerEvent: {}
+[3.346435] (-) TimerEvent: {}
+[3.446637] (-) TimerEvent: {}
+[3.561077] (-) TimerEvent: {}
+[3.661332] (-) TimerEvent: {}
+[3.761633] (-) TimerEvent: {}
+[3.861904] (-) TimerEvent: {}
+[3.962129] (-) TimerEvent: {}
+[4.062354] (-) TimerEvent: {}
+[4.162608] (-) TimerEvent: {}
+[4.262864] (-) TimerEvent: {}
+[4.363109] (-) TimerEvent: {}
+[4.463347] (-) TimerEvent: {}
+[4.563593] (-) TimerEvent: {}
+[4.663845] (-) TimerEvent: {}
+[4.764097] (-) TimerEvent: {}
+[4.864349] (-) TimerEvent: {}
+[4.964576] (-) TimerEvent: {}
+[5.064825] (-) TimerEvent: {}
+[5.165057] (-) TimerEvent: {}
+[5.265274] (-) TimerEvent: {}
+[5.365564] (-) TimerEvent: {}
+[5.465911] (-) TimerEvent: {}
+[5.566240] (-) TimerEvent: {}
+[5.666505] (-) TimerEvent: {}
+[5.766762] (-) TimerEvent: {}
+[5.867029] (-) TimerEvent: {}
+[5.967301] (-) TimerEvent: {}
+[6.067555] (-) TimerEvent: {}
+[6.167824] (-) TimerEvent: {}
+[6.268067] (-) TimerEvent: {}
+[6.368314] (-) TimerEvent: {}
+[6.468548] (-) TimerEvent: {}
+[6.568810] (-) TimerEvent: {}
+[6.669037] (-) TimerEvent: {}
+[6.769270] (-) TimerEvent: {}
+[6.869515] (-) TimerEvent: {}
+[6.969750] (-) TimerEvent: {}
+[7.070000] (-) TimerEvent: {}
+[7.170231] (-) TimerEvent: {}
+[7.270478] (-) TimerEvent: {}
+[7.370736] (-) TimerEvent: {}
+[7.470987] (-) TimerEvent: {}
+[7.571232] (-) TimerEvent: {}
+[7.671481] (-) TimerEvent: {}
+[7.771724] (-) TimerEvent: {}
+[7.871979] (-) TimerEvent: {}
+[7.972213] (-) TimerEvent: {}
+[8.072448] (-) TimerEvent: {}
+[8.172693] (-) TimerEvent: {}
+[8.272939] (-) TimerEvent: {}
+[8.373178] (-) TimerEvent: {}
+[8.473418] (-) TimerEvent: {}
+[8.573660] (-) TimerEvent: {}
+[8.673893] (-) TimerEvent: {}
+[8.774134] (-) TimerEvent: {}
+[8.874410] (-) TimerEvent: {}
+[8.974724] (-) TimerEvent: {}
+[9.075009] (-) TimerEvent: {}
+[9.175265] (-) TimerEvent: {}
+[9.275500] (-) TimerEvent: {}
+[9.375761] (-) TimerEvent: {}
+[9.476019] (-) TimerEvent: {}
+[9.576265] (-) TimerEvent: {}
+[9.676498] (-) TimerEvent: {}
+[9.776745] (-) TimerEvent: {}
+[9.877048] (-) TimerEvent: {}
+[9.977368] (-) TimerEvent: {}
+[10.077643] (-) TimerEvent: {}
+[10.177926] (-) TimerEvent: {}
+[10.278194] (-) TimerEvent: {}
+[10.378460] (-) TimerEvent: {}
+[10.478723] (-) TimerEvent: {}
+[10.579003] (-) TimerEvent: {}
+[10.679255] (-) TimerEvent: {}
+[10.779542] (-) TimerEvent: {}
+[10.879818] (-) TimerEvent: {}
+[10.980074] (-) TimerEvent: {}
+[11.080331] (-) TimerEvent: {}
+[11.180584] (-) TimerEvent: {}
+[11.280866] (-) TimerEvent: {}
+[11.380388] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[11.380853] (-) TimerEvent: {}
+[11.380911] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:39:\n'}
+[11.381172] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[11.381488] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[11.381716] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[11.381958] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[11.382175] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/vector:60,\n'}
+[11.382387] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,\n'}
+[11.382597] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:38:\n'}
+[11.382846] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[11.383113] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[11.383342] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[11.481013] (-) TimerEvent: {}
+[11.513657] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[11.514056] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:37:\n'}
+[11.514291] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[11.514563] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[11.514842] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[11.515064] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[11.515280] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/vector:60,\n'}
+[11.515493] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,\n'}
+[11.515705] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:36:\n'}
+[11.515939] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[11.516152] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[11.516377] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[11.581153] (-) TimerEvent: {}
+[11.681425] (-) TimerEvent: {}
+[11.781662] (-) TimerEvent: {}
+[11.881888] (-) TimerEvent: {}
+[11.982143] (-) TimerEvent: {}
+[12.082388] (-) TimerEvent: {}
+[12.182661] (-) TimerEvent: {}
+[12.282905] (-) TimerEvent: {}
+[12.383147] (-) TimerEvent: {}
+[12.483415] (-) TimerEvent: {}
+[12.583657] (-) TimerEvent: {}
+[12.683894] (-) TimerEvent: {}
+[12.784138] (-) TimerEvent: {}
+[12.884405] (-) TimerEvent: {}
+[12.984651] (-) TimerEvent: {}
+[13.084907] (-) TimerEvent: {}
+[13.185185] (-) TimerEvent: {}
+[13.285456] (-) TimerEvent: {}
+[13.385697] (-) TimerEvent: {}
+[13.485963] (-) TimerEvent: {}
+[13.586200] (-) TimerEvent: {}
+[13.686471] (-) TimerEvent: {}
+[13.786732] (-) TimerEvent: {}
+[13.887010] (-) TimerEvent: {}
+[13.987243] (-) TimerEvent: {}
+[14.087505] (-) TimerEvent: {}
+[14.187776] (-) TimerEvent: {}
+[14.288040] (-) TimerEvent: {}
+[14.388299] (-) TimerEvent: {}
+[14.488561] (-) TimerEvent: {}
+[14.588814] (-) TimerEvent: {}
+[14.689063] (-) TimerEvent: {}
+[14.789313] (-) TimerEvent: {}
+[14.889560] (-) TimerEvent: {}
+[14.989876] (-) TimerEvent: {}
+[15.090137] (-) TimerEvent: {}
+[15.190424] (-) TimerEvent: {}
+[15.290723] (-) TimerEvent: {}
+[15.390975] (-) TimerEvent: {}
+[15.491217] (-) TimerEvent: {}
+[15.591489] (-) TimerEvent: {}
+[15.691832] (-) TimerEvent: {}
+[15.792190] (-) TimerEvent: {}
+[15.892468] (-) TimerEvent: {}
+[15.992780] (-) TimerEvent: {}
+[16.093032] (-) TimerEvent: {}
+[16.193276] (-) TimerEvent: {}
+[16.293523] (-) TimerEvent: {}
+[16.393770] (-) TimerEvent: {}
+[16.494026] (-) TimerEvent: {}
+[16.594293] (-) TimerEvent: {}
+[16.694540] (-) TimerEvent: {}
+[16.794832] (-) TimerEvent: {}
+[16.895077] (-) TimerEvent: {}
+[16.995338] (-) TimerEvent: {}
+[17.095612] (-) TimerEvent: {}
+[17.195892] (-) TimerEvent: {}
+[17.296141] (-) TimerEvent: {}
+[17.396382] (-) TimerEvent: {}
+[17.496640] (-) TimerEvent: {}
+[17.596907] (-) TimerEvent: {}
+[17.697196] (-) TimerEvent: {}
+[17.797446] (-) TimerEvent: {}
+[17.897699] (-) TimerEvent: {}
+[17.997953] (-) TimerEvent: {}
+[18.098196] (-) TimerEvent: {}
+[18.198441] (-) TimerEvent: {}
+[18.298684] (-) TimerEvent: {}
+[18.398966] (-) TimerEvent: {}
+[18.499210] (-) TimerEvent: {}
+[18.599465] (-) TimerEvent: {}
+[18.699722] (-) TimerEvent: {}
+[18.799981] (-) TimerEvent: {}
+[18.900235] (-) TimerEvent: {}
+[19.000485] (-) TimerEvent: {}
+[19.100738] (-) TimerEvent: {}
+[19.200993] (-) TimerEvent: {}
+[19.301240] (-) TimerEvent: {}
+[19.401491] (-) TimerEvent: {}
+[19.501747] (-) TimerEvent: {}
+[19.602017] (-) TimerEvent: {}
+[19.702261] (-) TimerEvent: {}
+[19.802529] (-) TimerEvent: {}
+[19.902770] (-) TimerEvent: {}
+[20.003056] (-) TimerEvent: {}
+[20.103324] (-) TimerEvent: {}
+[20.203582] (-) TimerEvent: {}
+[20.303851] (-) TimerEvent: {}
+[20.404099] (-) TimerEvent: {}
+[20.504359] (-) TimerEvent: {}
+[20.604621] (-) TimerEvent: {}
+[20.704894] (-) TimerEvent: {}
+[20.805149] (-) TimerEvent: {}
+[20.905393] (-) TimerEvent: {}
+[21.005644] (-) TimerEvent: {}
+[21.105906] (-) TimerEvent: {}
+[21.206146] (-) TimerEvent: {}
+[21.306405] (-) TimerEvent: {}
+[21.406665] (-) TimerEvent: {}
+[21.506949] (-) TimerEvent: {}
+[21.803672] (-) TimerEvent: {}
+[21.903903] (-) TimerEvent: {}
+[22.004139] (-) TimerEvent: {}
+[22.104398] (-) TimerEvent: {}
+[22.204650] (-) TimerEvent: {}
+[22.304887] (-) TimerEvent: {}
+[22.405122] (-) TimerEvent: {}
+[22.505353] (-) TimerEvent: {}
+[22.605590] (-) TimerEvent: {}
+[22.705854] (-) TimerEvent: {}
+[22.806132] (-) TimerEvent: {}
+[22.906401] (-) TimerEvent: {}
+[23.006639] (-) TimerEvent: {}
+[23.106864] (-) TimerEvent: {}
+[23.207101] (-) TimerEvent: {}
+[23.307359] (-) TimerEvent: {}
+[23.407608] (-) TimerEvent: {}
+[23.507863] (-) TimerEvent: {}
+[23.608096] (-) TimerEvent: {}
+[23.708320] (-) TimerEvent: {}
+[23.808553] (-) TimerEvent: {}
+[23.908779] (-) TimerEvent: {}
+[24.009016] (-) TimerEvent: {}
+[24.109241] (-) TimerEvent: {}
+[24.209478] (-) TimerEvent: {}
+[24.309747] (-) TimerEvent: {}
+[24.409983] (-) TimerEvent: {}
+[24.510242] (-) TimerEvent: {}
+[24.610484] (-) TimerEvent: {}
+[24.710720] (-) TimerEvent: {}
+[24.810974] (-) TimerEvent: {}
+[24.911229] (-) TimerEvent: {}
+[25.011460] (-) TimerEvent: {}
+[25.111716] (-) TimerEvent: {}
+[25.211965] (-) TimerEvent: {}
+[25.312198] (-) TimerEvent: {}
+[25.412425] (-) TimerEvent: {}
+[25.512656] (-) TimerEvent: {}
+[25.612881] (-) TimerEvent: {}
+[25.713105] (-) TimerEvent: {}
+[25.813340] (-) TimerEvent: {}
+[25.913613] (-) TimerEvent: {}
+[26.013899] (-) TimerEvent: {}
+[26.114145] (-) TimerEvent: {}
+[26.214428] (-) TimerEvent: {}
+[26.314726] (-) TimerEvent: {}
+[26.414995] (-) TimerEvent: {}
+[26.515240] (-) TimerEvent: {}
+[26.615478] (-) TimerEvent: {}
+[26.715720] (-) TimerEvent: {}
+[26.815964] (-) TimerEvent: {}
+[26.916193] (-) TimerEvent: {}
+[27.016425] (-) TimerEvent: {}
+[27.116655] (-) TimerEvent: {}
+[27.216882] (-) TimerEvent: {}
+[27.317114] (-) TimerEvent: {}
+[27.417372] (-) TimerEvent: {}
+[27.517625] (-) TimerEvent: {}
+[27.617865] (-) TimerEvent: {}
+[27.718121] (-) TimerEvent: {}
+[27.818368] (-) TimerEvent: {}
+[27.918590] (-) TimerEvent: {}
+[28.018831] (-) TimerEvent: {}
+[28.119043] (-) TimerEvent: {}
+[28.219247] (-) TimerEvent: {}
+[28.319457] (-) TimerEvent: {}
+[28.419662] (-) TimerEvent: {}
+[28.519858] (-) TimerEvent: {}
+[28.620041] (-) TimerEvent: {}
+[28.720273] (-) TimerEvent: {}
+[28.820511] (-) TimerEvent: {}
+[28.920746] (-) TimerEvent: {}
+[29.021018] (-) TimerEvent: {}
+[29.121248] (-) TimerEvent: {}
+[29.221496] (-) TimerEvent: {}
+[29.321719] (-) TimerEvent: {}
+[29.421978] (-) TimerEvent: {}
+[29.522177] (-) TimerEvent: {}
+[29.622379] (-) TimerEvent: {}
+[29.722587] (-) TimerEvent: {}
+[29.822831] (-) TimerEvent: {}
+[29.923022] (-) TimerEvent: {}
+[30.023210] (-) TimerEvent: {}
+[30.123486] (-) TimerEvent: {}
+[30.223810] (-) TimerEvent: {}
+[30.324030] (-) TimerEvent: {}
+[30.424270] (-) TimerEvent: {}
+[30.524486] (-) TimerEvent: {}
+[30.624694] (-) TimerEvent: {}
+[30.724868] (-) TimerEvent: {}
+[30.825120] (-) TimerEvent: {}
+[30.925344] (-) TimerEvent: {}
+[31.025580] (-) TimerEvent: {}
+[31.125844] (-) TimerEvent: {}
+[31.226057] (-) TimerEvent: {}
+[31.326309] (-) TimerEvent: {}
+[31.426562] (-) TimerEvent: {}
+[31.526827] (-) TimerEvent: {}
+[31.627042] (-) TimerEvent: {}
+[31.727275] (-) TimerEvent: {}
+[31.827529] (-) TimerEvent: {}
+[31.927754] (-) TimerEvent: {}
+[32.028019] (-) TimerEvent: {}
+[32.128262] (-) TimerEvent: {}
+[32.228515] (-) TimerEvent: {}
+[32.328844] (-) TimerEvent: {}
+[32.429092] (-) TimerEvent: {}
+[32.529329] (-) TimerEvent: {}
+[32.629563] (-) TimerEvent: {}
+[32.729831] (-) TimerEvent: {}
+[32.830093] (-) TimerEvent: {}
+[32.930368] (-) TimerEvent: {}
+[33.030633] (-) TimerEvent: {}
+[33.130919] (-) TimerEvent: {}
+[33.231199] (-) TimerEvent: {}
+[33.331481] (-) TimerEvent: {}
+[33.431798] (-) TimerEvent: {}
+[33.532087] (-) TimerEvent: {}
+[33.632371] (-) TimerEvent: {}
+[33.732635] (-) TimerEvent: {}
+[33.832906] (-) TimerEvent: {}
+[33.933265] (-) TimerEvent: {}
+[34.033621] (-) TimerEvent: {}
+[34.133910] (-) TimerEvent: {}
+[34.140014] (ar_track_alvar) StdoutLine: {'line': b'[ 97%] Linking CXX executable individualMarkers\n'}
+[34.234085] (-) TimerEvent: {}
+[34.334376] (-) TimerEvent: {}
+[34.434668] (-) TimerEvent: {}
+[34.534967] (-) TimerEvent: {}
+[34.635224] (-) TimerEvent: {}
+[34.735510] (-) TimerEvent: {}
+[34.835812] (-) TimerEvent: {}
+[34.850103] (ar_track_alvar) StdoutLine: {'line': b'[100%] Linking CXX executable findMarkerBundles\n'}
+[34.935953] (-) TimerEvent: {}
+[35.036259] (-) TimerEvent: {}
+[35.136619] (-) TimerEvent: {}
+[35.236975] (-) TimerEvent: {}
+[35.337321] (-) TimerEvent: {}
+[35.437608] (-) TimerEvent: {}
+[35.537949] (-) TimerEvent: {}
+[35.638389] (-) TimerEvent: {}
+[35.738837] (-) TimerEvent: {}
+[35.839256] (-) TimerEvent: {}
+[35.939570] (-) TimerEvent: {}
+[36.039945] (-) TimerEvent: {}
+[36.140332] (-) TimerEvent: {}
+[36.240743] (-) TimerEvent: {}
+[36.341119] (-) TimerEvent: {}
+[36.441544] (-) TimerEvent: {}
+[36.541991] (-) TimerEvent: {}
+[36.642392] (-) TimerEvent: {}
+[36.742822] (-) TimerEvent: {}
+[36.843276] (-) TimerEvent: {}
+[36.943706] (-) TimerEvent: {}
+[37.044115] (-) TimerEvent: {}
+[37.144537] (-) TimerEvent: {}
+[37.244933] (-) TimerEvent: {}
+[37.345292] (-) TimerEvent: {}
+[37.445617] (-) TimerEvent: {}
+[37.546105] (-) TimerEvent: {}
+[37.646491] (-) TimerEvent: {}
+[37.746885] (-) TimerEvent: {}
+[37.847191] (-) TimerEvent: {}
+[37.947509] (-) TimerEvent: {}
+[37.955606] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_imgcodecs.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.409\n'}
+[37.956916] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_imgproc.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.409\n'}
+[37.957867] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_core.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_core.so.409\n'}
+[38.047624] (-) TimerEvent: {}
+[38.147901] (-) TimerEvent: {}
+[38.248180] (-) TimerEvent: {}
+[38.348432] (-) TimerEvent: {}
+[38.448689] (-) TimerEvent: {}
+[38.548975] (-) TimerEvent: {}
+[38.649216] (-) TimerEvent: {}
+[38.749461] (-) TimerEvent: {}
+[38.849758] (-) TimerEvent: {}
+[38.950074] (-) TimerEvent: {}
+[39.050411] (-) TimerEvent: {}
+[39.150719] (-) TimerEvent: {}
+[39.250999] (-) TimerEvent: {}
+[39.310942] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_imgcodecs.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.409\n'}
+[39.312465] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_imgproc.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.409\n'}
+[39.313624] (ar_track_alvar) StderrLine: {'line': b'/usr/bin/ld: warning: libopencv_core.so.406, needed by /opt/ros/jazzy/lib/libcv_bridge.so, may conflict with libopencv_core.so.409\n'}
+[39.351147] (-) TimerEvent: {}
+[39.391747] (ar_track_alvar) StdoutLine: {'line': b'[100%] Built target individualMarkers\n'}
+[39.451259] (-) TimerEvent: {}
+[39.551510] (-) TimerEvent: {}
+[39.651770] (-) TimerEvent: {}
+[39.752054] (-) TimerEvent: {}
+[39.852362] (-) TimerEvent: {}
+[39.952673] (-) TimerEvent: {}
+[40.052916] (-) TimerEvent: {}
+[40.127206] (ar_track_alvar) StdoutLine: {'line': b'[100%] Built target findMarkerBundles\n'}
+[40.145449] (ar_track_alvar) CommandEnded: {'returncode': 0}
+[40.147410] (ar_track_alvar) JobProgress: {'identifier': 'ar_track_alvar', 'progress': 'install'}
+[40.153028] (-) TimerEvent: {}
+[40.162798] (ar_track_alvar) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar'], 'cwd': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'env': OrderedDict({'GZ_SIM_SYSTEM_PLUGIN_PATH': '/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LIBRARY_PATH': '/home/hl/TensorRT-10.13.3.9/lib:/home/hl/TensorRT-10.13.3.9/lib:', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share:/home/hl/.gazebo/models', 'AI_AGENT': 'TRAE', 'USER': 'hl', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'OPENNI2_INCLUDE': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Include', 'XDG_SESSION_TYPE': 'x11', 'GIT_ASKPASS': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass.sh', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LIBGL_ALWAYS_SOFTWARE': '0', 'LD_LIBRARY_PATH': '/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid/lib:/home/hl/wheeltec/wheeltec_ws/install/astra_camera/lib:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/usb_cam/lib:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping/lib:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin/lib:/home/hl/trac_ik_ws/install/trac_ik_lib/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/hl/AstraSDK/lib:/home/hl/AstraSDK/lib', 'HOME': '/home/hl', 'CHROME_DESKTOP': 'trae-cn.desktop', 'CONDA_SHLVL': '0', 'OLDPWD': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar', 'TERM_PROGRAM_VERSION': '1.107.1', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/hl/.nvm/versions/node/v22.22.1/bin', 'NVM_INC': '/home/hl/.nvm/versions/node/v22.22.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/trae-cn.desktop', 'TRAE_SANDBOX_CLI_PATH': '/usr/share/trae-cn/resources/app/modules/sandbox/trae-sandbox', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': '', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass-main.js', 'PS1': '\\n(TraeAI-4) \\w [$?] $', 'GZ_SIM_RENDER_ENGINE': 'ogre', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/trae-cn/trae-cn', 'MANAGERPID': '2357', 'TRAE_AI_SHELL_ID': '4', 'TRAE_SANDBOX_SOURCE_FLAG_PATH': '/tmp/sandbox-source-flag-3627a05a-7a26-45cb-936f-473fb8d30b85', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '2693', 'BUNDLED_DEBUGPY_PATH': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'ASTRA_SDK_INCLUDE': '/home/hl/AstraSDK/include', 'COLORTERM': 'truecolor', '_CE_M': '', 'isArchMatched': '1', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3783', 'TRAE_JWT_TOKEN_PATH': '/home/hl/.trae-cn/trae-jwt-token', 'NVM_DIR': '/home/hl/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'TRAE_SANDBOX_STORAGE_PATH': '/home/hl/.config/Trae CN/ModularData/ai-agent/sandbox', 'SAFE_RM_AUTO_ADD_TEMP': '1', 'COLCON_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install:/home/hl/trac_ik_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'fcitx', 'LOGNAME': 'hl', 'SAFE_RM_DENIED_PATH': '/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.git:/home/hl/wheeltec/wheeltec_ws/.git', 'JOURNAL_STREAM': '10:13026', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': ':/usr/local/lib/pkgconfig:/usr/local/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'hl', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/home/hl/.gazebo/models:/home/hl/gazebo_models', 'LIBGL_ALWAYS_INDIRECT': '1', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'TRAE_SANDBOX_LOG_DIR': '/home/hl/.config/Trae CN/logs/20260908T091402/Modular', '_CE_CONDA': '', 'FC_FONTATIONS': '1', 'HISTCONTROL': 'ignorespace', 'WINDOWPATH': '2', 'PATH': '/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/usr/local/cuda/bin:/usr/share/trae-cn/resources/app/bin:/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/home/hl/.local/bin:/home/hl/miniconda3/condabin:/usr/local/cuda/bin:/home/hl/.nvm/versions/node/v22.22.1/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/hl/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/hlc:@/tmp/.ICE-unix/2662,unix/hlc:/tmp/.ICE-unix/2662', 'INVOCATION_ID': '0e2cc4f825cf4380adf466cc942ad463', 'XDG_MENU_PREFIX': 'gnome-', 'ASTRA_SDK_LIB': '/home/hl/AstraSDK/lib', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':1', 'FILESYSTEM_CASE_SENSITIVE': 'true', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-9f65482cc9bab372.txt', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'OPENNI2_REDIST': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Redist', 'PYTHONSTARTUP': '/home/hl/.config/Trae CN/User/workspaceStorage/03094a5d17a112e1e28db96c421cd790/ms-python.python/pythonrc.py', 'TRAE_SANDBOX_CONFIG_NAME': '6a9cd8ee20cf484735200318', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=fcitx', 'TRAE_SANDBOX_DUMP_DIR': '/home/hl/.config/Trae CN/Crashpad/sandbox-pending', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'TRAE_BRAND_NAME': 'Trae CN', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-18c4daf3ca.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_nav2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/pcl_conversions:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/nav2_common:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/astra_camera:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/hl/miniconda3/bin/python', 'SHELL': '/bin/bash', '__trae_PS1': '\\n(TraeAI-4) \\w [$?] $', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'TRAE_SANDBOX_TRACE_FILE': '/tmp/trae_sandbox_trace_269939e4-0c64-4078-9dc1-7feb2f8e6a6c.jsonl', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': '', 'QT_IM_MODULE': 'fcitx', 'PWD': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'TURTLEBOT3_MODEL': 'burger', 'SAFE_RM_ALLOWED_PATH': '/home/hl/wheeltec/wheeltec_ws:/home/hl/wheeltec/wheeltec_ws', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CONDA_EXE': '/home/hl/miniconda3/bin/conda', 'TERM_PRODUCT': 'Trae', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/quiz_status/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav2_common/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/manual_drive/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/beamer/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'SAFE_RM_PROTECTION_FLAG': '/tmp/safe-rm-protection-flag-1186c237-6462-41da-bae0-bf8509a7fc9d', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'SAFE_RM_SOURCE_FLAG': '/tmp/safe-rm-source-flag-0faf3fb1-092f-4f20-8743-4f78649cc702', 'GAZEBO_VERSION': 'harmonic', 'CMAKE_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/wheeltec_nav2:/home/hl/wheeltec/wheeltec_ws/install/pcl_conversions:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid:/home/hl/wheeltec/wheeltec_ws/install/nav2_common:/home/hl/wheeltec/wheeltec_ws/install/astra_camera:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy'}), 'shell': False}
+[40.178987] (ar_track_alvar) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[40.179527] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/library_path.sh\n'}
+[40.179773] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/library_path.dsv\n'}
+[40.180174] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/libar_track_alvar.a\n'}
+[40.187720] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/individualMarkers\n'}
+[40.200744] (ar_track_alvar) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/individualMarkers" to ""\n'}
+[40.201037] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/individualMarkersNoKinect\n'}
+[40.212584] (ar_track_alvar) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/individualMarkersNoKinect" to ""\n'}
+[40.213008] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/trainMarkerBundle\n'}
+[40.221957] (ar_track_alvar) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/trainMarkerBundle" to ""\n'}
+[40.222264] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/findMarkerBundles\n'}
+[40.234109] (ar_track_alvar) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/findMarkerBundles" to ""\n'}
+[40.234398] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/findMarkerBundlesNoKinect\n'}
+[40.242514] (ar_track_alvar) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/findMarkerBundlesNoKinect" to ""\n'}
+[40.242928] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/createMarker\n'}
+[40.253153] (-) TimerEvent: {}
+[40.343560] (ar_track_alvar) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/createMarker" to ""\n'}
+[40.343942] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/libkinect_filtering.a\n'}
+[40.344446] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/libmedianFilter.a\n'}
+[40.345105] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar\n'}
+[40.345337] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Alvar.h\n'}
+[40.345550] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Line.h\n'}
+[40.345820] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/MultiMarkerInitializer.h\n'}
+[40.346056] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Tracker.h\n'}
+[40.346264] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Ransac.h\n'}
+[40.349171] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/CvTestbed.h\n'}
+[40.349645] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/AlvarException.h\n'}
+[40.349963] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/IntegralImage.h\n'}
+[40.352257] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h\n'}
+[40.352922] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Capture.h\n'}
+[40.353157] (-) TimerEvent: {}
+[40.353214] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/CaptureFactory.h\n'}
+[40.353928] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Util.h\n'}
+[40.354149] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/GlutViewer.h\n'}
+[40.354393] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/SfM.h\n'}
+[40.354618] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Timer.h\n'}
+[40.355288] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/filter\n'}
+[40.356073] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/filter/medianFilter.h\n'}
+[40.356448] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/filter/kinect_filtering.h\n'}
+[40.356851] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/UnscentedKalman.h\n'}
+[40.357084] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/DirectoryIterator.h\n'}
+[40.357292] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Bitset.h\n'}
+[40.357968] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Uncopyable.h\n'}
+[40.358472] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/DirectoryIterator_private.h\n'}
+[40.358720] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/TrackerStat.h\n'}
+[40.359233] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Platform.h\n'}
+[40.359442] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/CaptureDevice.h\n'}
+[40.359670] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Rotation.h\n'}
+[40.359915] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Shared.h\n'}
+[40.360479] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Plugin.h\n'}
+[40.361711] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Threads_private.h\n'}
+[40.362534] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/MultiMarkerBundle.h\n'}
+[40.363078] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/MultiMarkerFiltered.h\n'}
+[40.363310] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Container3d.h\n'}
+[40.363678] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/MultiMarker.h\n'}
+[40.364061] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Camera.h\n'}
+[40.364281] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Plugin_private.h\n'}
+[40.364619] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Lock.h\n'}
+[40.364859] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Threads.h\n'}
+[40.365102] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Pose.h\n'}
+[40.365471] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/CapturePlugin.h\n'}
+[40.365929] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/TrackerFeatures.h\n'}
+[40.366184] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h\n'}
+[40.366626] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/FileFormatUtils.h\n'}
+[40.366857] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/EC.h\n'}
+[40.367194] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Kalman.h\n'}
+[40.367558] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/FileFormat.h\n'}
+[40.367795] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Mutex_private.h\n'}
+[40.368030] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Optimization.h\n'}
+[40.368413] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Mutex.h\n'}
+[40.368765] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Draw.h\n'}
+[40.369111] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/TrifocalTensor.h\n'}
+[40.369335] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/CaptureFactory_private.h\n'}
+[40.369587] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Timer_private.h\n'}
+[40.370063] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/FernPoseEstimator.h\n'}
+[40.370290] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Marker.h\n'}
+[40.370518] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Filter.h\n'}
+[40.370774] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/TrackerPsa.h\n'}
+[40.371145] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/FernImageDetector.h\n'}
+[40.371354] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/TrackerOrientation.h\n'}
+[40.371690] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch\n'}
+[40.371938] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_train.py\n'}
+[40.372275] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_bundle.py\n'}
+[40.372583] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_bundle_no_kinect_testing.py\n'}
+[40.372864] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_bundle_no_kinect.launch.py\n'}
+[40.373210] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_indiv.py\n'}
+[40.373424] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_indiv_no_kinect.launch.py\n'}
+[40.373635] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/bundles\n'}
+[40.373920] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/bundles/tags8and9.xml\n'}
+[40.374134] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/bundles/table_8_9_10.xml\n'}
+[40.374344] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/bundles/truthTableLeg.xml\n'}
+[40.374572] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ament_index/resource_index/package_run_dependencies/ar_track_alvar\n'}
+[40.375041] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ament_index/resource_index/parent_prefix_path/ar_track_alvar\n'}
+[40.375477] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/ament_prefix_path.sh\n'}
+[40.376901] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/ament_prefix_path.dsv\n'}
+[40.377379] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/path.sh\n'}
+[40.378286] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/path.dsv\n'}
+[40.379137] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/local_setup.bash\n'}
+[40.379642] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/local_setup.sh\n'}
+[40.380123] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/local_setup.zsh\n'}
+[40.380908] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/local_setup.dsv\n'}
+[40.381552] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/package.dsv\n'}
+[40.382629] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ament_index/resource_index/packages/ar_track_alvar\n'}
+[40.382928] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[40.383386] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[40.383855] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[40.384148] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/cmake/ar_track_alvarConfig.cmake\n'}
+[40.384489] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/cmake/ar_track_alvarConfig-version.cmake\n'}
+[40.384855] (ar_track_alvar) StdoutLine: {'line': b'-- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/package.xml\n'}
+[40.385244] (ar_track_alvar) CommandEnded: {'returncode': 0}
+[40.425498] (ar_track_alvar) JobEnded: {'identifier': 'ar_track_alvar', 'rc': 0}
+[40.426973] (-) EventReactorShutdown: {}

@@ -1,0 +1,37 @@
+[4.534s] Invoking command in '/home/wheeltec/wheeltec_ros2/src/keyboard_control_emer': PYTHONPATH=/home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/keyboard_control_emer build --build-base /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/build install --record /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/install.log --single-version-externally-managed install_data
+[6.097s] running egg_info
+[6.099s] creating build/keyboard_control_emer/keyboard_control_emer.egg-info
+[6.156s] writing build/keyboard_control_emer/keyboard_control_emer.egg-info/PKG-INFO
+[6.157s] writing dependency_links to build/keyboard_control_emer/keyboard_control_emer.egg-info/dependency_links.txt
+[6.158s] writing entry points to build/keyboard_control_emer/keyboard_control_emer.egg-info/entry_points.txt
+[6.158s] writing requirements to build/keyboard_control_emer/keyboard_control_emer.egg-info/requires.txt
+[6.159s] writing top-level names to build/keyboard_control_emer/keyboard_control_emer.egg-info/top_level.txt
+[6.169s] writing manifest file 'build/keyboard_control_emer/keyboard_control_emer.egg-info/SOURCES.txt'
+[6.287s] reading manifest file 'build/keyboard_control_emer/keyboard_control_emer.egg-info/SOURCES.txt'
+[6.291s] writing manifest file 'build/keyboard_control_emer/keyboard_control_emer.egg-info/SOURCES.txt'
+[6.292s] running build
+[6.292s] running build_py
+[6.292s] creating /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/build
+[6.293s] creating /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/build/lib
+[6.293s] creating /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/build/lib/keyboard_control_emer
+[6.293s] copying keyboard_control_emer/__init__.py -> /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/build/lib/keyboard_control_emer
+[6.294s] copying keyboard_control_emer/keyboard_control_emer.py -> /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/build/lib/keyboard_control_emer
+[6.294s] running install
+[6.318s] running install_lib
+[6.377s] creating /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/python3.8/site-packages/keyboard_control_emer
+[6.378s] copying /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/build/lib/keyboard_control_emer/__init__.py -> /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/python3.8/site-packages/keyboard_control_emer
+[6.378s] copying /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/build/lib/keyboard_control_emer/keyboard_control_emer.py -> /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/python3.8/site-packages/keyboard_control_emer
+[6.380s] byte-compiling /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/python3.8/site-packages/keyboard_control_emer/__init__.py to __init__.cpython-38.pyc
+[6.381s] byte-compiling /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/python3.8/site-packages/keyboard_control_emer/keyboard_control_emer.py to keyboard_control_emer.cpython-38.pyc
+[6.384s] running install_data
+[6.384s] creating /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/share/ament_index
+[6.385s] creating /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/share/ament_index/resource_index
+[6.385s] creating /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/share/ament_index/resource_index/packages
+[6.386s] copying resource/keyboard_control_emer -> /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/share/ament_index/resource_index/packages
+[6.386s] copying package.xml -> /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/share/keyboard_control_emer
+[6.386s] running install_egg_info
+[6.448s] Copying build/keyboard_control_emer/keyboard_control_emer.egg-info to /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/python3.8/site-packages/keyboard_control_emer-0.0.0-py3.8.egg-info
+[6.451s] running install_scripts
+[6.778s] Installing my_node script to /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/keyboard_control_emer
+[6.779s] writing list of installed files to '/home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/install.log'
+[6.924s] Invoked command in '/home/wheeltec/wheeltec_ros2/src/keyboard_control_emer' returned '0': PYTHONPATH=/home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/keyboard_control_emer build --build-base /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/build install --record /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/install.log --single-version-externally-managed install_data

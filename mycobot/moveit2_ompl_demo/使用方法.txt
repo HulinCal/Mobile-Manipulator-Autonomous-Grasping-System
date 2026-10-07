@@ -1,0 +1,13 @@
+
+通过设置位姿态来移动机械臂：
+先检查mycobot_moveit_config/config中的kinematics.yaml是否使用了track_ik,如果使用的话要导入track_ik环境
+（source /home/hl/trac_ik_ws/install/setup.bash）
+1 先启动控制真实机械臂的环境：
+ros2 launch mycobot280_moveit2_control mycobot_280_real_moveit.launch.py
+
+2 ros2 run moveit2_ompl_demo ompl_planner_node --ros-args -p goal_x:=0.0 -p goal_y:=0.2 -p goal_z:=0.3 -p goal_roll:=0.0 -p goal_pitch:=0.0 -p goal_yaw:=0.0
+（position_only默认是false的，因此需要传入位姿）
+  只传入空间位置：ros2 launch moveit2_ompl_demo ompl_planner.launch.py  goal_x:=0.0 goal_y:=0.2 goal_z:=0.15 position_only:=true
+
+  ros2 launch moveit2_ompl_demo ompl_planner.launch.py  goal_x:=-0.2 goal_y:=0.2 goal_z:=0.1 position_only:=true
+  ros2 launch moveit2_ompl_demo ompl_planner.launch.py  goal_x:=0.2 goal_y:=0.2 goal_z:=0.1 position_only:=true

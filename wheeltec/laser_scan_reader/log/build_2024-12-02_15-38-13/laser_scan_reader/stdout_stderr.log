@@ -1,0 +1,30 @@
+running egg_info
+creating build/laser_scan_reader/laser_scan_reader.egg-info
+writing build/laser_scan_reader/laser_scan_reader.egg-info/PKG-INFO
+writing dependency_links to build/laser_scan_reader/laser_scan_reader.egg-info/dependency_links.txt
+writing requirements to build/laser_scan_reader/laser_scan_reader.egg-info/requires.txt
+writing top-level names to build/laser_scan_reader/laser_scan_reader.egg-info/top_level.txt
+writing manifest file 'build/laser_scan_reader/laser_scan_reader.egg-info/SOURCES.txt'
+reading manifest file 'build/laser_scan_reader/laser_scan_reader.egg-info/SOURCES.txt'
+writing manifest file 'build/laser_scan_reader/laser_scan_reader.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build
+creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build/lib
+creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build/lib/laser_scan_reader
+copying laser_scan_reader/__init__.py -> /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build/lib/laser_scan_reader
+running install
+running install_lib
+creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/lib/python3.8/site-packages/laser_scan_reader
+copying /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build/lib/laser_scan_reader/__init__.py -> /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/lib/python3.8/site-packages/laser_scan_reader
+byte-compiling /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/lib/python3.8/site-packages/laser_scan_reader/__init__.py to __init__.cpython-38.pyc
+running install_data
+creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/share/ament_index
+creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/share/ament_index/resource_index
+creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/share/ament_index/resource_index/packages
+copying resource/laser_scan_reader -> /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/share/ament_index/resource_index/packages
+copying package.xml -> /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/share/laser_scan_reader
+running install_egg_info
+Copying build/laser_scan_reader/laser_scan_reader.egg-info to /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/lib/python3.8/site-packages/laser_scan_reader-0.0.0-py3.8.egg-info
+running install_scripts
+writing list of installed files to '/home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/install.log'

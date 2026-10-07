@@ -1,0 +1,33 @@
+See [ROS wiki](http://wiki.ros.org/ar_track_alvar) for the users document.
+
+### Testing (Build from Source)
+
+The testing suite for this package makes use of a ros1 bag, and depends on the following [repo](https://github.com/ros2/rosbag2_bag_v2). In order to get it to work
+you need to source both the ros1 underlay and the ros2 underlay in your ~/.bashrc file. Do this in a new terminal. 
+
+```
+# ROS1 
+source /opt/ros/noetic/setup.bash
+
+# ROS2
+source /opt/ros/foxy/setup.bash
+source /usr/share/colcon_cd/function/colcon_cd.sh 
+export _colcon_cd_root=/opt/ros/foxy
+
+```
+
+### Deprecation Warning
+
+As far as we can tell the vendor package for Alvar is no longer being actively being maintained. 
+The underlying OpenCV Implementation has been upgraded, but it is unclear how worthwhile it is to keep maintaining this package. 
+Users should consider using the tag tracking [libraries](https://docs.opencv.org/4.2.0/d5/dae/tutorial_aruco_detection.html) natively supported by OpenCV as they handle a greater variety of tags, and provide similar functionality.  
+
+# Miscellaneous 
+
+Building this package requires building [perception_pcl](https://github.com/ros-perception/perception_pcl/tree/foxy-devel) from source. 
+
+In your workspace perform the following: 
+
+```
+git clone https://github.com/ros-perception/perception_pcl/ -b foxy-devel
+```

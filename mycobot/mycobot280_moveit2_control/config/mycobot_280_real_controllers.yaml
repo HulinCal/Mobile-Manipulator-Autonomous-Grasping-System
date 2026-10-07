@@ -1,0 +1,87 @@
+# controller_manager configuration for the real mycobot280 M5 arm.
+#
+# This file is the real-hardware counterpart of
+# mycobot_moveit_config/config/mycobot_280/ros2_controllers.yaml (which targets Gazebo).
+# It mirrors the Gazebo configuration: an arm_controller (JointTrajectoryController)
+# for the 6 arm joints and a gripper_action_controller (GripperActionController)
+# for the gripper_controller joint.
+#
+# The gripper joint uses radians in the whole ros2_control/MoveIt chain:
+# the URDF declares its limits as [-0.7, 0.15] rad, and the Python driver maps
+# radians to the native 0..100 open ratio expected by pymycobot's
+# set_gripper_value()/get_gripper_value().
+#
+# The hardware plugin (mycobot280_moveit2_control/MyCobot280HardwareInterface) is
+# selected automatically by the URDF when use_gazebo:=false.
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz at which the controllers are updated.
+    cmd_publish_rate: 50.0  # Hz at which the controllers publish their commands.
+
+    # The JointTrajectoryController receives MoveIt2 planned trajectories and feeds
+    # joint position commands to the hardware interface.
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    # Controls the gripper via a control_msgs/GripperCommandAction interface.
+    gripper_action_controller:
+      type: position_controllers/GripperActionController
+
+    # Publishes the current joint positions to /joint_states so that MoveIt2 / RViz
+    # can display the real arm pose.
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+# Define the parameters for the arm trajectory controller.
+arm_controller:
+  ros__parameters:
+    joints:
+      - link1_to_link2
+      - link2_to_link3
+      - link3_to_link4
+      - link4_to_link5
+      - link5_to_link6
+      - link6_to_link6_flange
+
+    # Position commands are sent to the hardware interface.
+    command_interfaces:
+      - position
+
+    # Position state is read back from the hardware interface.
+    state_interfaces:
+      - position
+
+    # Use the hardware feedback for closed-loop trajectory following.
+    open_loop_control: false
+
+    # Allow MoveIt2 to send goals that only specify positions (velocities/accelerations
+    # are numerically integrated).
+    allow_integration_in_goal_trajectories: true
+
+    # Tolerate goals that end with non-zero velocity.
+    allow_nonzero_velocity_at_trajectory_end: true
+
+    # Tolerances used when checking goal achievement.
+    # path=0.08 (~4.6°)：跳过小位移 waypoint，减少 sync_send_angles 段数 → 更平滑
+    # goal=0.03 (~1.7°)：最终目标精度
+    goal:
+      - 0.02
+    path:
+      - 0.02
+
+# GripperActionController for the gripper_controller joint. MoveIt2 can plan
+# gripper open/close goals by sending control_msgs/GripperCommand actions to
+# /gripper_action_controller/gripper_cmd. The `position` field of the goal is
+# in radians, matching the URDF limits [-0.7, 0.15].
+gripper_action_controller:
+  ros__parameters:
+    joint: gripper_controller
+    action_monitor_rate: 50.0
+    # 0.02 rad (~1.1°): 之前误用 1.0 (按 0..100 量程), 弧度量程仅 0.85,
+    # 导致任何目标在当前位置就被误判 reached, 夹爪命令从未真正下发。
+    goal_tolerance: 0.02
+    max_effort: 100.0
+    # 夹住苹果后关节到不了目标位置, 靠停滞 (接触阻力) 判定闭合完成。
+    allow_stalling: true
+    stall_velocity_threshold: 0.02   # [rad/s]
+    stall_timeout: 1.0               # 持续低速 1s 即判定夹紧

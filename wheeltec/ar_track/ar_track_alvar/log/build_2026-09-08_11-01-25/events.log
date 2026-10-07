@@ -1,0 +1,203 @@
+[0.000000] (-) TimerEvent: {}
+[0.000464] (ar_track_alvar) JobQueued: {'identifier': 'ar_track_alvar', 'dependencies': OrderedDict()}
+[0.000765] (ar_track_alvar) JobStarted: {'identifier': 'ar_track_alvar'}
+[0.016753] (ar_track_alvar) JobProgress: {'identifier': 'ar_track_alvar', 'progress': 'cmake'}
+[0.017316] (ar_track_alvar) Command: {'cmd': ['/usr/bin/cmake', '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar', '-DCMAKE_INSTALL_PREFIX=/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar'], 'cwd': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'env': OrderedDict({'GZ_SIM_SYSTEM_PLUGIN_PATH': '/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LIBRARY_PATH': '/home/hl/TensorRT-10.13.3.9/lib:/home/hl/TensorRT-10.13.3.9/lib:', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share:/home/hl/.gazebo/models', 'AI_AGENT': 'TRAE', 'USER': 'hl', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'OPENNI2_INCLUDE': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Include', 'XDG_SESSION_TYPE': 'x11', 'GIT_ASKPASS': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass.sh', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LIBGL_ALWAYS_SOFTWARE': '0', 'LD_LIBRARY_PATH': '/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/usb_cam/lib:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping/lib:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin/lib:/home/hl/trac_ik_ws/install/trac_ik_lib/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/hl/AstraSDK/lib:/home/hl/AstraSDK/lib', 'HOME': '/home/hl', 'CHROME_DESKTOP': 'trae-cn.desktop', 'CONDA_SHLVL': '0', 'OLDPWD': '/home/hl/wheeltec/wheeltec_ws', 'TERM_PROGRAM_VERSION': '1.107.1', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/hl/.nvm/versions/node/v22.22.1/bin', 'NVM_INC': '/home/hl/.nvm/versions/node/v22.22.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/trae-cn.desktop', 'TRAE_SANDBOX_CLI_PATH': '/usr/share/trae-cn/resources/app/modules/sandbox/trae-sandbox', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': '', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass-main.js', 'PS1': '\\n(TraeAI-4) \\w [$?] $', 'GZ_SIM_RENDER_ENGINE': 'ogre', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/trae-cn/trae-cn', 'MANAGERPID': '2357', 'TRAE_AI_SHELL_ID': '4', 'TRAE_SANDBOX_SOURCE_FLAG_PATH': '/tmp/sandbox-source-flag-3627a05a-7a26-45cb-936f-473fb8d30b85', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '2693', 'BUNDLED_DEBUGPY_PATH': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'ASTRA_SDK_INCLUDE': '/home/hl/AstraSDK/include', 'COLORTERM': 'truecolor', '_CE_M': '', 'isArchMatched': '1', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3783', 'TRAE_JWT_TOKEN_PATH': '/home/hl/.trae-cn/trae-jwt-token', 'NVM_DIR': '/home/hl/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'TRAE_SANDBOX_STORAGE_PATH': '/home/hl/.config/Trae CN/ModularData/ai-agent/sandbox', 'SAFE_RM_AUTO_ADD_TEMP': '1', 'COLCON_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install:/home/hl/trac_ik_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'fcitx', 'LOGNAME': 'hl', 'SAFE_RM_DENIED_PATH': '/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.git:/home/hl/wheeltec/wheeltec_ws/.git', 'JOURNAL_STREAM': '10:13026', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': ':/usr/local/lib/pkgconfig:/usr/local/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'hl', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/home/hl/.gazebo/models:/home/hl/gazebo_models', 'LIBGL_ALWAYS_INDIRECT': '1', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'TRAE_SANDBOX_LOG_DIR': '/home/hl/.config/Trae CN/logs/20260908T091402/Modular', '_CE_CONDA': '', 'FC_FONTATIONS': '1', 'HISTCONTROL': 'ignorespace', 'WINDOWPATH': '2', 'PATH': '/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/usr/local/cuda/bin:/usr/share/trae-cn/resources/app/bin:/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/home/hl/.local/bin:/home/hl/miniconda3/condabin:/usr/local/cuda/bin:/home/hl/.nvm/versions/node/v22.22.1/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/hl/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/hlc:@/tmp/.ICE-unix/2662,unix/hlc:/tmp/.ICE-unix/2662', 'INVOCATION_ID': '0e2cc4f825cf4380adf466cc942ad463', 'XDG_MENU_PREFIX': 'gnome-', 'ASTRA_SDK_LIB': '/home/hl/AstraSDK/lib', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':1', 'FILESYSTEM_CASE_SENSITIVE': 'true', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-9f65482cc9bab372.txt', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'OPENNI2_REDIST': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Redist', 'PYTHONSTARTUP': '/home/hl/.config/Trae CN/User/workspaceStorage/03094a5d17a112e1e28db96c421cd790/ms-python.python/pythonrc.py', 'TRAE_SANDBOX_CONFIG_NAME': '6a9cd8ee20cf484735200318', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=fcitx', 'TRAE_SANDBOX_DUMP_DIR': '/home/hl/.config/Trae CN/Crashpad/sandbox-pending', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'TRAE_BRAND_NAME': 'Trae CN', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-18c4daf3ca.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/hl/miniconda3/bin/python', 'SHELL': '/bin/bash', '__trae_PS1': '\\n(TraeAI-4) \\w [$?] $', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'TRAE_SANDBOX_TRACE_FILE': '/tmp/trae_sandbox_trace_269939e4-0c64-4078-9dc1-7feb2f8e6a6c.jsonl', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': '', 'QT_IM_MODULE': 'fcitx', 'PWD': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'TURTLEBOT3_MODEL': 'burger', 'SAFE_RM_ALLOWED_PATH': '/home/hl/wheeltec/wheeltec_ws:/home/hl/wheeltec/wheeltec_ws', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CONDA_EXE': '/home/hl/miniconda3/bin/conda', 'TERM_PRODUCT': 'Trae', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'SAFE_RM_PROTECTION_FLAG': '/tmp/safe-rm-protection-flag-1186c237-6462-41da-bae0-bf8509a7fc9d', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'SAFE_RM_SOURCE_FLAG': '/tmp/safe-rm-source-flag-0faf3fb1-092f-4f20-8743-4f78649cc702', 'GAZEBO_VERSION': 'harmonic', 'CMAKE_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy'}), 'shell': False}
+[0.099704] (-) TimerEvent: {}
+[0.112440] (ar_track_alvar) StdoutLine: {'line': b'-- The C compiler identification is GNU 12.4.0\n'}
+[0.199826] (-) TimerEvent: {}
+[0.207863] (ar_track_alvar) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 12.4.0\n'}
+[0.242045] (ar_track_alvar) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.299974] (-) TimerEvent: {}
+[0.387159] (ar_track_alvar) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.400077] (-) TimerEvent: {}
+[0.417810] (ar_track_alvar) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.418507] (ar_track_alvar) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.419737] (ar_track_alvar) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.439764] (ar_track_alvar) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.500191] (-) TimerEvent: {}
+[0.600410] (-) TimerEvent: {}
+[0.605580] (ar_track_alvar) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.638301] (ar_track_alvar) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.639100] (ar_track_alvar) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.640589] (ar_track_alvar) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.656018] (ar_track_alvar) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.700519] (-) TimerEvent: {}
+[0.800725] (-) TimerEvent: {}
+[0.900942] (-) TimerEvent: {}
+[0.935769] (ar_track_alvar) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[1.001041] (-) TimerEvent: {}
+[1.101238] (-) TimerEvent: {}
+[1.194410] (ar_track_alvar) StdoutLine: {'line': b'-- Found ament_cmake_auto: 2.5.6 (/opt/ros/jazzy/share/ament_cmake_auto/cmake)\n'}
+[1.201359] (-) TimerEvent: {}
+[1.301552] (-) TimerEvent: {}
+[1.401740] (-) TimerEvent: {}
+[1.495466] (ar_track_alvar) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[1.501855] (-) TimerEvent: {}
+[1.533662] (ar_track_alvar) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[1.576560] (ar_track_alvar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.601972] (-) TimerEvent: {}
+[1.624126] (ar_track_alvar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.702101] (-) TimerEvent: {}
+[1.802326] (-) TimerEvent: {}
+[1.902567] (-) TimerEvent: {}
+[1.933790] (ar_track_alvar) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[1.945040] (ar_track_alvar) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 2.2.3 (/opt/ros/jazzy/share/rmw_cyclonedds_cpp/cmake)\n'}
+[2.002679] (-) TimerEvent: {}
+[2.023093] (ar_track_alvar) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[2.102819] (-) TimerEvent: {}
+[2.203036] (-) TimerEvent: {}
+[2.224063] (ar_track_alvar) StdoutLine: {'line': b'-- Found TinyXML2 via Config file: /usr/lib/x86_64-linux-gnu/cmake/tinyxml2\n'}
+[2.303164] (-) TimerEvent: {}
+[2.380933] (ar_track_alvar) StderrLine: {'line': b'CMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):\n'}
+[2.381380] (ar_track_alvar) StderrLine: {'line': b'  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT\n'}
+[2.381623] (ar_track_alvar) StderrLine: {'line': b'  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the\n'}
+[2.381839] (ar_track_alvar) StderrLine: {'line': b'  cmake_policy command to set the policy and suppress this warning.\n'}
+[2.382032] (ar_track_alvar) StderrLine: {'line': b'\n'}
+[2.382219] (ar_track_alvar) StderrLine: {'line': b'  CMake variable FLANN_ROOT is set to:\n'}
+[2.382582] (ar_track_alvar) StderrLine: {'line': b'\n'}
+[2.382802] (ar_track_alvar) StderrLine: {'line': b'    /usr\n'}
+[2.382992] (ar_track_alvar) StderrLine: {'line': b'\n'}
+[2.383172] (ar_track_alvar) StderrLine: {'line': b'  For compatibility, find_package is ignoring the variable, but code in a\n'}
+[2.383379] (ar_track_alvar) StderrLine: {'line': b'  .cmake module might still use it.\n'}
+[2.383581] (ar_track_alvar) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[2.383762] (ar_track_alvar) StderrLine: {'line': b'  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)\n'}
+[2.383942] (ar_track_alvar) StderrLine: {'line': b'  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)\n'}
+[2.384119] (ar_track_alvar) StderrLine: {'line': b'  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)\n'}
+[2.384301] (ar_track_alvar) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[2.384527] (ar_track_alvar) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)\n'}
+[2.384719] (ar_track_alvar) StderrLine: {'line': b'  /opt/ros/jazzy/share/ament_cmake_auto/cmake/ament_auto_find_build_dependencies.cmake:67 (find_package)\n'}
+[2.384914] (ar_track_alvar) StderrLine: {'line': b'  CMakeLists.txt:10 (ament_auto_find_build_dependencies)\n'}
+[2.385097] (ar_track_alvar) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[2.385305] (ar_track_alvar) StderrLine: {'line': b'\n'}
+[2.385521] (ar_track_alvar) StdoutLine: {'line': b'-- Found flann version 1.9.2\n'}
+[2.403289] (-) TimerEvent: {}
+[2.503491] (-) TimerEvent: {}
+[2.603680] (-) TimerEvent: {}
+[2.703909] (-) TimerEvent: {}
+[2.804143] (-) TimerEvent: {}
+[2.897502] (ar_track_alvar) StdoutLine: {'line': b'-- Found OpenMP_CXX: -fopenmp (found version "4.5") \n'}
+[2.898537] (ar_track_alvar) StdoutLine: {'line': b'-- Found OpenMP: TRUE (found version "4.5") found components: CXX \n'}
+[2.904236] (-) TimerEvent: {}
+[3.004425] (-) TimerEvent: {}
+[3.104639] (-) TimerEvent: {}
+[3.204897] (-) TimerEvent: {}
+[3.305163] (-) TimerEvent: {}
+[3.405399] (-) TimerEvent: {}
+[3.505643] (-) TimerEvent: {}
+[3.605876] (-) TimerEvent: {}
+[3.706115] (-) TimerEvent: {}
+[3.806330] (-) TimerEvent: {}
+[3.906512] (-) TimerEvent: {}
+[4.006738] (-) TimerEvent: {}
+[4.106972] (-) TimerEvent: {}
+[4.207200] (-) TimerEvent: {}
+[4.307438] (-) TimerEvent: {}
+[4.407641] (-) TimerEvent: {}
+[4.507847] (-) TimerEvent: {}
+[4.608057] (-) TimerEvent: {}
+[4.708293] (-) TimerEvent: {}
+[4.808523] (-) TimerEvent: {}
+[4.908721] (-) TimerEvent: {}
+[5.008951] (-) TimerEvent: {}
+[5.109182] (-) TimerEvent: {}
+[5.209436] (-) TimerEvent: {}
+[5.221227] (ar_track_alvar) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[5.244898] (ar_track_alvar) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.9\n'}
+[5.300298] (ar_track_alvar) StdoutLine: {'line': b'-- Found libusb: /usr/local/lib/libusb-1.0.a  \n'}
+[5.301878] (ar_track_alvar) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[5.309546] (-) TimerEvent: {}
+[5.390722] (ar_track_alvar) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[5.395473] (ar_track_alvar) StdoutLine: {'line': b'-- Found Pcap: /usr/lib/x86_64-linux-gnu/libpcap.so  \n'}
+[5.409673] (-) TimerEvent: {}
+[5.425546] (ar_track_alvar) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  \n'}
+[5.463406] (ar_track_alvar) StdoutLine: {'line': b'-- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.43") \n'}
+[5.509801] (-) TimerEvent: {}
+[5.610020] (-) TimerEvent: {}
+[5.710254] (-) TimerEvent: {}
+[5.810490] (-) TimerEvent: {}
+[5.910735] (-) TimerEvent: {}
+[6.010991] (-) TimerEvent: {}
+[6.111243] (-) TimerEvent: {}
+[6.186868] (ar_track_alvar) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[6.195152] (ar_track_alvar) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[6.211363] (-) TimerEvent: {}
+[6.311555] (-) TimerEvent: {}
+[6.411797] (-) TimerEvent: {}
+[6.512036] (-) TimerEvent: {}
+[6.612245] (-) TimerEvent: {}
+[6.712483] (-) TimerEvent: {}
+[6.812682] (-) TimerEvent: {}
+[6.912904] (-) TimerEvent: {}
+[6.917906] (ar_track_alvar) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[7.013034] (-) TimerEvent: {}
+[7.113248] (-) TimerEvent: {}
+[7.213486] (-) TimerEvent: {}
+[7.313756] (-) TimerEvent: {}
+[7.414004] (-) TimerEvent: {}
+[7.514261] (-) TimerEvent: {}
+[7.614513] (-) TimerEvent: {}
+[7.714770] (-) TimerEvent: {}
+[7.716319] (ar_track_alvar) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[7.814898] (-) TimerEvent: {}
+[7.915148] (-) TimerEvent: {}
+[8.015409] (-) TimerEvent: {}
+[8.115637] (-) TimerEvent: {}
+[8.215886] (-) TimerEvent: {}
+[8.316141] (-) TimerEvent: {}
+[8.416418] (-) TimerEvent: {}
+[8.446020] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  \n'}
+[8.447919] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  \n'}
+[8.449783] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  \n'}
+[8.451633] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  \n'}
+[8.453544] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  \n'}
+[8.455475] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  \n'}
+[8.456153] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_2D: /usr/include/pcl-1.14  \n'}
+[8.456793] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_GEOMETRY: /usr/include/pcl-1.14  \n'}
+[8.458632] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  \n'}
+[8.460603] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  \n'}
+[8.462671] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  \n'}
+[8.464600] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  \n'}
+[8.466720] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  \n'}
+[8.468852] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  \n'}
+[8.470881] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  \n'}
+[8.472978] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  \n'}
+[8.475085] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  \n'}
+[8.477108] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  \n'}
+[8.479260] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  \n'}
+[8.481214] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  \n'}
+[8.482523] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.14  \n'}
+[8.483170] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_MODELER: /usr/include/pcl-1.14  \n'}
+[8.483838] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.14  \n'}
+[8.485712] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  \n'}
+[8.487842] (ar_track_alvar) StdoutLine: {'line': b'-- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  \n'}
+[8.516543] (-) TimerEvent: {}
+[8.616761] (-) TimerEvent: {}
+[8.717004] (-) TimerEvent: {}
+[8.774037] (ar_track_alvar) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.3.1 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)\n'}
+[8.776029] (ar_track_alvar) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[8.776286] (ar_track_alvar) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[8.817150] (-) TimerEvent: {}
+[8.904793] (ar_track_alvar) StdoutLine: {'line': b'-- Found OpenCV: /usr/local (found version "4.9.0") \n'}
+[8.917264] (-) TimerEvent: {}
+[8.926428] (ar_track_alvar) StderrLine: {'line': b'CMake Error at CMakeLists.txt:24 (find_package):\n'}
+[8.926691] (ar_track_alvar) StderrLine: {'line': b'  By not providing "Findar_track_alvar_msgs.cmake" in CMAKE_MODULE_PATH this\n'}
+[8.926912] (ar_track_alvar) StderrLine: {'line': b'  project has asked CMake to find a package configuration file provided by\n'}
+[8.927118] (ar_track_alvar) StderrLine: {'line': b'  "ar_track_alvar_msgs", but CMake did not find one.\n'}
+[8.927321] (ar_track_alvar) StderrLine: {'line': b'\n'}
+[8.927545] (ar_track_alvar) StderrLine: {'line': b'  Could not find a package configuration file provided by\n'}
+[8.927752] (ar_track_alvar) StderrLine: {'line': b'  "ar_track_alvar_msgs" with any of the following names:\n'}
+[8.927983] (ar_track_alvar) StderrLine: {'line': b'\n'}
+[8.928177] (ar_track_alvar) StderrLine: {'line': b'    ar_track_alvar_msgsConfig.cmake\n'}
+[8.928379] (ar_track_alvar) StderrLine: {'line': b'    ar_track_alvar_msgs-config.cmake\n'}
+[8.928580] (ar_track_alvar) StderrLine: {'line': b'\n'}
+[8.928764] (ar_track_alvar) StderrLine: {'line': b'  Add the installation prefix of "ar_track_alvar_msgs" to CMAKE_PREFIX_PATH\n'}
+[8.928944] (ar_track_alvar) StderrLine: {'line': b'  or set "ar_track_alvar_msgs_DIR" to a directory containing one of the above\n'}
+[8.929125] (ar_track_alvar) StderrLine: {'line': b'  files.  If "ar_track_alvar_msgs" provides a separate development package or\n'}
+[8.929304] (ar_track_alvar) StderrLine: {'line': b'  SDK, be sure it has been installed.\n'}
+[8.929523] (ar_track_alvar) StderrLine: {'line': b'\n'}
+[8.929709] (ar_track_alvar) StderrLine: {'line': b'\n'}
+[8.929888] (ar_track_alvar) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[8.953606] (ar_track_alvar) CommandEnded: {'returncode': 1}
+[9.001112] (ar_track_alvar) JobEnded: {'identifier': 'ar_track_alvar', 'rc': 1}
+[9.011835] (-) EventReactorShutdown: {}

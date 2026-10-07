@@ -1,0 +1,1 @@
+ar_track_alvar_msgs:cv_bridge:eigen:geometry_msgs:image_transport:libopencv-dev:libpcl-all-dev:pcl_conversions:rclcpp:rclpy:resource_retriever:sensor_msgs:std_msgs:tf2:tf2_geometry_msgs:tf2_ros:tinyxml2:visualization_msgs

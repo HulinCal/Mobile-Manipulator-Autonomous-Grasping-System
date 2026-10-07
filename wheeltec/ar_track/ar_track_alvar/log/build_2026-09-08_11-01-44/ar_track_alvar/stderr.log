@@ -1,0 +1,648 @@
+In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:35,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/MultiMarker.cpp:25:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>
+      |                 ^~~~~~~~
+In file included from /usr/include/c++/12/string:45,
+                 from /usr/include/c++/12/bits/locale_classes.h:40,
+                 from /usr/include/c++/12/bits/ios_base.h:41,
+                 from /usr/include/c++/12/ios:42,
+                 from /usr/include/c++/12/ostream:38,
+                 from /usr/include/c++/12/iostream:39,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Rotation.h:27,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:34:
+/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here
+  127 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:35,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarkerInitializer.h:34,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/MultiMarkerInitializer.cpp:24:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>
+      |                 ^~~~~~~~
+In file included from /usr/include/c++/12/string:45,
+                 from /usr/include/c++/12/bits/locale_classes.h:40,
+                 from /usr/include/c++/12/bits/ios_base.h:41,
+                 from /usr/include/c++/12/ios:42,
+                 from /usr/include/c++/12/ostream:38,
+                 from /usr/include/c++/12/iostream:39,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Rotation.h:27,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:34:
+/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here
+  127 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:35,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarkerBundle.h:34,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/MultiMarkerBundle.cpp:24:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>
+      |                 ^~~~~~~~
+In file included from /usr/include/c++/12/string:45,
+                 from /usr/include/c++/12/bits/locale_classes.h:40,
+                 from /usr/include/c++/12/bits/ios_base.h:41,
+                 from /usr/include/c++/12/ios:42,
+                 from /usr/include/c++/12/ostream:38,
+                 from /usr/include/c++/12/iostream:39,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Rotation.h:27,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:34:
+/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here
+  127 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/MarkerDetector.cpp:24:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>
+      |                 ^~~~~~~~
+In file included from /usr/include/c++/12/string:45,
+                 from /usr/include/c++/12/stdexcept:39,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/AlvarException.h:33,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Util.h:35,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:34:
+/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here
+  127 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/Marker.cpp:25:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>
+      |                 ^~~~~~~~
+In file included from /usr/include/c++/12/string:45,
+                 from /usr/include/c++/12/bits/locale_classes.h:40,
+                 from /usr/include/c++/12/bits/ios_base.h:41,
+                 from /usr/include/c++/12/ios:42,
+                 from /usr/include/c++/12/ostream:38,
+                 from /usr/include/c++/12/iostream:39,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:35:
+/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here
+  127 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:35,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/SampleMarkerCreator.cpp:1:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>
+      |                 ^~~~~~~~
+In file included from /usr/include/c++/12/string:45,
+                 from /usr/include/c++/12/bits/locale_classes.h:40,
+                 from /usr/include/c++/12/bits/ios_base.h:41,
+                 from /usr/include/c++/12/ios:42,
+                 from /usr/include/c++/12/ostream:38,
+                 from /usr/include/c++/12/iostream:39,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Rotation.h:27,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:34:
+/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here
+  127 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp:39:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>
+      |                 ^~~~~~~~
+In file included from /usr/include/c++/12/bits/stl_algobase.h:65,
+                 from /usr/include/c++/12/vector:60,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp:38:
+/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here
+  127 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:39:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>
+      |                 ^~~~~~~~
+In file included from /usr/include/c++/12/bits/stl_algobase.h:65,
+                 from /usr/include/c++/12/vector:60,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:38:
+/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here
+  127 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp:40:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>
+      |                 ^~~~~~~~
+In file included from /usr/include/c++/12/bits/stl_algobase.h:65,
+                 from /usr/include/c++/12/algorithm:60,
+                 from /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp:11,
+                 from /opt/ros/jazzy/include/std_msgs/std_msgs/msg/bool.hpp:7,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp:38:
+/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here
+  127 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp:39:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>
+      |                 ^~~~~~~~
+In file included from /usr/include/c++/12/bits/stl_algobase.h:65,
+                 from /usr/include/c++/12/vector:60,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp:38:
+/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here
+  127 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp: In member function ‘void IndividualMarkers::draw3dPoints(pcl::PointCloud<pcl::PointXYZRGB>::Ptr, std::string, int, int, double)’:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:237:50: error: no matching function for call to ‘rclcpp::Duration::Duration(double)’
+  237 |       rvizMarker.lifetime = rclcpp::Duration (1.0);
+      |                                                  ^
+In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/time.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/clock.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/client.hpp:38,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/callback_group.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:176,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Camera.h:40,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h:36,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:35:
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: ‘template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)’
+   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:237:50: note:   mismatched types ‘const std::chrono::duration<_Rep1, _Period1>’ and ‘double’
+  237 |       rvizMarker.lifetime = rclcpp::Duration (1.0);
+      |                                                  ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: ‘rclcpp::Duration::Duration()’
+  159 |   Duration() = default;
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: ‘rclcpp::Duration::Duration(const rclcpp::Duration&)’
+   62 |   Duration(const Duration & rhs);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from ‘double’ to ‘const rclcpp::Duration&’
+   62 |   Duration(const Duration & rhs);
+      |            ~~~~~~~~~~~~~~~~~^~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: ‘rclcpp::Duration::Duration(const rcl_duration_t&)’
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from ‘double’ to ‘const rcl_duration_t&’ {aka ‘const rcl_duration_s&’}
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: ‘rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)’
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from ‘double’ to ‘const builtin_interfaces::msg::Duration&’ {aka ‘const builtin_interfaces::msg::Duration_<std::allocator<void> >&’}
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: ‘rclcpp::Duration::Duration(std::chrono::nanoseconds)’
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from ‘double’ to ‘std::chrono::nanoseconds’ {aka ‘std::chrono::duration<long int, std::ratio<1, 1000000000> >’}
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: ‘rclcpp::Duration::Duration(int32_t, uint32_t)’
+   40 |   Duration(int32_t seconds, uint32_t nanoseconds);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp: In member function ‘void IndividualMarkers::drawArrow(geometry_msgs::msg::Point, tf2::Matrix3x3, std::string, int, int)’:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:267:54: error: no matching function for call to ‘rclcpp::Duration::Duration(double)’
+  267 |           rvizMarker.lifetime = rclcpp::Duration (1.0);
+      |                                                      ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: ‘template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)’
+   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:267:54: note:   mismatched types ‘const std::chrono::duration<_Rep1, _Period1>’ and ‘double’
+  267 |           rvizMarker.lifetime = rclcpp::Duration (1.0);
+      |                                                      ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: ‘rclcpp::Duration::Duration()’
+  159 |   Duration() = default;
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: ‘rclcpp::Duration::Duration(const rclcpp::Duration&)’
+   62 |   Duration(const Duration & rhs);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from ‘double’ to ‘const rclcpp::Duration&’
+   62 |   Duration(const Duration & rhs);
+      |            ~~~~~~~~~~~~~~~~~^~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: ‘rclcpp::Duration::Duration(const rcl_duration_t&)’
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from ‘double’ to ‘const rcl_duration_t&’ {aka ‘const rcl_duration_s&’}
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: ‘rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)’
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from ‘double’ to ‘const builtin_interfaces::msg::Duration&’ {aka ‘const builtin_interfaces::msg::Duration_<std::allocator<void> >&’}
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: ‘rclcpp::Duration::Duration(std::chrono::nanoseconds)’
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from ‘double’ to ‘std::chrono::nanoseconds’ {aka ‘std::chrono::duration<long int, std::ratio<1, 1000000000> >’}
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: ‘rclcpp::Duration::Duration(int32_t, uint32_t)’
+   40 |   Duration(int32_t seconds, uint32_t nanoseconds);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp: In member function ‘void IndividualMarkers::GetMarkerPoses(cv::Mat*, ARCloud&)’:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:430:30: error: expected primary-expression before ‘const’
+  430 |               BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)
+      |                              ^~~~~
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:430:15: error: ‘BOOST_FOREACH’ was not declared in this scope; did you mean ‘BOOST_NO_HASH’?
+  430 |               BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)
+      |               ^~~~~~~~~~~~~
+      |               BOOST_NO_HASH
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp: In member function ‘void IndividualMarkers::getPointCloudCallback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)’:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:598:55: error: no matching function for call to ‘rclcpp::Duration::Duration(double)’
+  598 |           rvizMarker_.lifetime = rclcpp::Duration (1.0);
+      |                                                       ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: ‘template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)’
+   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:598:55: note:   mismatched types ‘const std::chrono::duration<_Rep1, _Period1>’ and ‘double’
+  598 |           rvizMarker_.lifetime = rclcpp::Duration (1.0);
+      |                                                       ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: ‘rclcpp::Duration::Duration()’
+  159 |   Duration() = default;
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: ‘rclcpp::Duration::Duration(const rclcpp::Duration&)’
+   62 |   Duration(const Duration & rhs);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from ‘double’ to ‘const rclcpp::Duration&’
+   62 |   Duration(const Duration & rhs);
+      |            ~~~~~~~~~~~~~~~~~^~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: ‘rclcpp::Duration::Duration(const rcl_duration_t&)’
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from ‘double’ to ‘const rcl_duration_t&’ {aka ‘const rcl_duration_s&’}
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: ‘rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)’
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from ‘double’ to ‘const builtin_interfaces::msg::Duration&’ {aka ‘const builtin_interfaces::msg::Duration_<std::allocator<void> >&’}
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: ‘rclcpp::Duration::Duration(std::chrono::nanoseconds)’
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from ‘double’ to ‘std::chrono::nanoseconds’ {aka ‘std::chrono::duration<long int, std::ratio<1, 1000000000> >’}
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: ‘rclcpp::Duration::Duration(int32_t, uint32_t)’
+   40 |   Duration(int32_t seconds, uint32_t nanoseconds);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp: In member function ‘void IndividualMarkersNoKinect::getCapCallback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)’:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp:333:57: error: no matching function for call to ‘rclcpp::Duration::Duration(double)’
+  333 |             rvizMarker_.lifetime = rclcpp::Duration (1.0);
+      |                                                         ^
+In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/time.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/clock.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/client.hpp:38,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/callback_group.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:176,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Camera.h:40,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h:36,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:35:
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: ‘template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)’
+   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp:333:57: note:   mismatched types ‘const std::chrono::duration<_Rep1, _Period1>’ and ‘double’
+  333 |             rvizMarker_.lifetime = rclcpp::Duration (1.0);
+      |                                                         ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: ‘rclcpp::Duration::Duration()’
+  159 |   Duration() = default;
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: ‘rclcpp::Duration::Duration(const rclcpp::Duration&)’
+   62 |   Duration(const Duration & rhs);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from ‘double’ to ‘const rclcpp::Duration&’
+   62 |   Duration(const Duration & rhs);
+      |            ~~~~~~~~~~~~~~~~~^~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: ‘rclcpp::Duration::Duration(const rcl_duration_t&)’
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from ‘double’ to ‘const rcl_duration_t&’ {aka ‘const rcl_duration_s&’}
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: ‘rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)’
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from ‘double’ to ‘const builtin_interfaces::msg::Duration&’ {aka ‘const builtin_interfaces::msg::Duration_<std::allocator<void> >&’}
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: ‘rclcpp::Duration::Duration(std::chrono::nanoseconds)’
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from ‘double’ to ‘std::chrono::nanoseconds’ {aka ‘std::chrono::duration<long int, std::ratio<1, 1000000000> >’}
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: ‘rclcpp::Duration::Duration(int32_t, uint32_t)’
+   40 |   Duration(int32_t seconds, uint32_t nanoseconds);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp: In member function ‘void FindMarkerBundlesNoKinect::makeMarkerMsgs(int, int, alvar::Pose&, sensor_msgs::msg::Image_<std::allocator<void> >::ConstSharedPtr, geometry_msgs::msg::TransformStamped&, visualization_msgs::msg::Marker*, ar_track_alvar_msgs::msg::AlvarMarker*)’:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp:312:49: error: no matching function for call to ‘rclcpp::Duration::Duration(double)’
+  312 |     rvizMarker->lifetime = rclcpp::Duration (1.0);
+      |                                                 ^
+In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/time.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/clock.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/client.hpp:38,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/callback_group.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:176,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Camera.h:40,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h:36,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:35:
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: ‘template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)’
+   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp:312:49: note:   mismatched types ‘const std::chrono::duration<_Rep1, _Period1>’ and ‘double’
+  312 |     rvizMarker->lifetime = rclcpp::Duration (1.0);
+      |                                                 ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: ‘rclcpp::Duration::Duration()’
+  159 |   Duration() = default;
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: ‘rclcpp::Duration::Duration(const rclcpp::Duration&)’
+   62 |   Duration(const Duration & rhs);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from ‘double’ to ‘const rclcpp::Duration&’
+   62 |   Duration(const Duration & rhs);
+      |            ~~~~~~~~~~~~~~~~~^~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: ‘rclcpp::Duration::Duration(const rcl_duration_t&)’
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from ‘double’ to ‘const rcl_duration_t&’ {aka ‘const rcl_duration_s&’}
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: ‘rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)’
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from ‘double’ to ‘const builtin_interfaces::msg::Duration&’ {aka ‘const builtin_interfaces::msg::Duration_<std::allocator<void> >&’}
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: ‘rclcpp::Duration::Duration(std::chrono::nanoseconds)’
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from ‘double’ to ‘std::chrono::nanoseconds’ {aka ‘std::chrono::duration<long int, std::ratio<1, 1000000000> >’}
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: ‘rclcpp::Duration::Duration(int32_t, uint32_t)’
+   40 |   Duration(int32_t seconds, uint32_t nanoseconds);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided
+In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:37:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: ‘template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator’ is deprecated [-Wdeprecated-declarations]
+  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>
+      |                 ^~~~~~~~
+In file included from /usr/include/c++/12/bits/stl_algobase.h:65,
+                 from /usr/include/c++/12/vector:60,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:36:
+/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here
+  127 |     struct _GLIBCXX17_DEPRECATED iterator
+      |                                  ^~~~~~~~
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp: In member function ‘void TrainMarkerBundle::makeMarkerMsgs(int, int, alvar::Pose&, sensor_msgs::msg::Image_<std::allocator<void> >::ConstSharedPtr, geometry_msgs::msg::TransformStamped&, visualization_msgs::msg::Marker*, ar_track_alvar_msgs::msg::AlvarMarker*)’:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp:410:69: error: no matching function for call to ‘rclcpp::Duration::Duration(double)’
+  410 |                         rvizMarker->lifetime = rclcpp::Duration (1.0);
+      |                                                                     ^
+In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/time.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/clock.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/client.hpp:38,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/callback_group.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:176,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Camera.h:40,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h:36,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:35:
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: ‘template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)’
+   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp:410:69: note:   mismatched types ‘const std::chrono::duration<_Rep1, _Period1>’ and ‘double’
+  410 |                         rvizMarker->lifetime = rclcpp::Duration (1.0);
+      |                                                                     ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: ‘rclcpp::Duration::Duration()’
+  159 |   Duration() = default;
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: ‘rclcpp::Duration::Duration(const rclcpp::Duration&)’
+   62 |   Duration(const Duration & rhs);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from ‘double’ to ‘const rclcpp::Duration&’
+   62 |   Duration(const Duration & rhs);
+      |            ~~~~~~~~~~~~~~~~~^~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: ‘rclcpp::Duration::Duration(const rcl_duration_t&)’
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from ‘double’ to ‘const rcl_duration_t&’ {aka ‘const rcl_duration_s&’}
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: ‘rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)’
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from ‘double’ to ‘const builtin_interfaces::msg::Duration&’ {aka ‘const builtin_interfaces::msg::Duration_<std::allocator<void> >&’}
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: ‘rclcpp::Duration::Duration(std::chrono::nanoseconds)’
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from ‘double’ to ‘std::chrono::nanoseconds’ {aka ‘std::chrono::duration<long int, std::ratio<1, 1000000000> >’}
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: ‘rclcpp::Duration::Duration(int32_t, uint32_t)’
+   40 |   Duration(int32_t seconds, uint32_t nanoseconds);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp: In member function ‘void FindMarkerBundles::draw3dPoints(pcl::PointCloud<pcl::PointXYZRGB>::Ptr, std::string, int, int, double)’:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:292:50: error: no matching function for call to ‘rclcpp::Duration::Duration(double)’
+  292 |       rvizMarker.lifetime = rclcpp::Duration (1.0);
+      |                                                  ^
+In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/time.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/clock.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/client.hpp:38,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/callback_group.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:176,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Camera.h:40,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h:36,
+                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:35:
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: ‘template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)’
+   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:292:50: note:   mismatched types ‘const std::chrono::duration<_Rep1, _Period1>’ and ‘double’
+  292 |       rvizMarker.lifetime = rclcpp::Duration (1.0);
+      |                                                  ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: ‘rclcpp::Duration::Duration()’
+  159 |   Duration() = default;
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: ‘rclcpp::Duration::Duration(const rclcpp::Duration&)’
+   62 |   Duration(const Duration & rhs);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from ‘double’ to ‘const rclcpp::Duration&’
+   62 |   Duration(const Duration & rhs);
+      |            ~~~~~~~~~~~~~~~~~^~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: ‘rclcpp::Duration::Duration(const rcl_duration_t&)’
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from ‘double’ to ‘const rcl_duration_t&’ {aka ‘const rcl_duration_s&’}
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: ‘rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)’
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from ‘double’ to ‘const builtin_interfaces::msg::Duration&’ {aka ‘const builtin_interfaces::msg::Duration_<std::allocator<void> >&’}
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: ‘rclcpp::Duration::Duration(std::chrono::nanoseconds)’
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from ‘double’ to ‘std::chrono::nanoseconds’ {aka ‘std::chrono::duration<long int, std::ratio<1, 1000000000> >’}
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: ‘rclcpp::Duration::Duration(int32_t, uint32_t)’
+   40 |   Duration(int32_t seconds, uint32_t nanoseconds);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp: In member function ‘void FindMarkerBundles::drawArrow(geometry_msgs::msg::Point, tf2::Matrix3x3, std::string, int, int)’:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:322:52: error: no matching function for call to ‘rclcpp::Duration::Duration(double)’
+  322 |         rvizMarker.lifetime = rclcpp::Duration (1.0);
+      |                                                    ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: ‘template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)’
+   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:322:52: note:   mismatched types ‘const std::chrono::duration<_Rep1, _Period1>’ and ‘double’
+  322 |         rvizMarker.lifetime = rclcpp::Duration (1.0);
+      |                                                    ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: ‘rclcpp::Duration::Duration()’
+  159 |   Duration() = default;
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: ‘rclcpp::Duration::Duration(const rclcpp::Duration&)’
+   62 |   Duration(const Duration & rhs);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from ‘double’ to ‘const rclcpp::Duration&’
+   62 |   Duration(const Duration & rhs);
+      |            ~~~~~~~~~~~~~~~~~^~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: ‘rclcpp::Duration::Duration(const rcl_duration_t&)’
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from ‘double’ to ‘const rcl_duration_t&’ {aka ‘const rcl_duration_s&’}
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: ‘rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)’
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from ‘double’ to ‘const builtin_interfaces::msg::Duration&’ {aka ‘const builtin_interfaces::msg::Duration_<std::allocator<void> >&’}
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: ‘rclcpp::Duration::Duration(std::chrono::nanoseconds)’
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from ‘double’ to ‘std::chrono::nanoseconds’ {aka ‘std::chrono::duration<long int, std::ratio<1, 1000000000> >’}
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: ‘rclcpp::Duration::Duration(int32_t, uint32_t)’
+   40 |   Duration(int32_t seconds, uint32_t nanoseconds);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp: In member function ‘void FindMarkerBundles::GetMultiMarkerPoses(cv::Mat*, ARCloud&)’:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:579:22: error: expected primary-expression before ‘const’
+  579 |       BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)
+      |                      ^~~~~
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:579:7: error: ‘BOOST_FOREACH’ was not declared in this scope; did you mean ‘BOOST_NO_HASH’?
+  579 |       BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)
+      |       ^~~~~~~~~~~~~
+      |       BOOST_NO_HASH
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp: In member function ‘void FindMarkerBundles::makeMarkerMsgs(int, int, alvar::Pose&, sensor_msgs::msg::Image, geometry_msgs::msg::TransformStamped&, visualization_msgs::msg::Marker*, ar_track_alvar_msgs::msg::AlvarMarker*, int)’:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:717:49: error: no matching function for call to ‘rclcpp::Duration::Duration(double)’
+  717 |     rvizMarker->lifetime = rclcpp::Duration (0.1);
+      |                                                 ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: ‘template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)’
+   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:
+/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:717:49: note:   mismatched types ‘const std::chrono::duration<_Rep1, _Period1>’ and ‘double’
+  717 |     rvizMarker->lifetime = rclcpp::Duration (0.1);
+      |                                                 ^
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: ‘rclcpp::Duration::Duration()’
+  159 |   Duration() = default;
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: ‘rclcpp::Duration::Duration(const rclcpp::Duration&)’
+   62 |   Duration(const Duration & rhs);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from ‘double’ to ‘const rclcpp::Duration&’
+   62 |   Duration(const Duration & rhs);
+      |            ~~~~~~~~~~~~~~~~~^~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: ‘rclcpp::Duration::Duration(const rcl_duration_t&)’
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from ‘double’ to ‘const rcl_duration_t&’ {aka ‘const rcl_duration_s&’}
+   60 |   explicit Duration(const rcl_duration_t & duration);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: ‘rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)’
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from ‘double’ to ‘const builtin_interfaces::msg::Duration&’ {aka ‘const builtin_interfaces::msg::Duration_<std::allocator<void> >&’}
+   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: ‘rclcpp::Duration::Duration(std::chrono::nanoseconds)’
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |            ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from ‘double’ to ‘std::chrono::nanoseconds’ {aka ‘std::chrono::duration<long int, std::ratio<1, 1000000000> >’}
+   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: ‘rclcpp::Duration::Duration(int32_t, uint32_t)’
+   40 |   Duration(int32_t seconds, uint32_t nanoseconds);
+      |   ^~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided
+gmake[2]: *** [CMakeFiles/findMarkerBundlesNoKinect.dir/build.make:76：CMakeFiles/findMarkerBundlesNoKinect.dir/nodes/FindMarkerBundlesNoKinect.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:338：CMakeFiles/findMarkerBundlesNoKinect.dir/all] 错误 2
+gmake[1]: *** 正在等待未完成的任务....
+gmake[2]: *** [CMakeFiles/trainMarkerBundle.dir/build.make:76：CMakeFiles/trainMarkerBundle.dir/nodes/TrainMarkerBundle.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:284：CMakeFiles/trainMarkerBundle.dir/all] 错误 2
+gmake[2]: *** [CMakeFiles/individualMarkers.dir/build.make:76：CMakeFiles/individualMarkers.dir/nodes/IndividualMarkers.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:232：CMakeFiles/individualMarkers.dir/all] 错误 2
+gmake[2]: *** [CMakeFiles/individualMarkersNoKinect.dir/build.make:76：CMakeFiles/individualMarkersNoKinect.dir/nodes/IndividualMarkersNoKinect.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:258：CMakeFiles/individualMarkersNoKinect.dir/all] 错误 2
+gmake[2]: *** [CMakeFiles/findMarkerBundles.dir/build.make:76：CMakeFiles/findMarkerBundles.dir/nodes/FindMarkerBundles.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:312：CMakeFiles/findMarkerBundles.dir/all] 错误 2
+gmake: *** [Makefile:146：all] 错误 2

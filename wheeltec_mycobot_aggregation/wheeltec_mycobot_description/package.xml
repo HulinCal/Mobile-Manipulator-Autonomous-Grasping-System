@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>wheeltec_mycobot_description</name>
+  <version>0.0.1</version>
+  <description>
+    Aggregated robot description combining the WHEELTEC R680 (senior_4wd_bs)
+    mobile base and the myCobot 280 robotic arm. The myCobot base_link is
+    mounted on the base camera_link frame.
+  </description>
+  <maintainer email="user@todo.todo">user</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Original description packages reused (meshes, xacro macros, URDF) -->
+  <exec_depend>mycobot_description</exec_depend>
+  <exec_depend>wheeltec_robot_urdf</exec_depend>
+
+  <!-- Robot model processing / visualization -->
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+
+  <!-- Gazebo is fully optional: the default RViz launch never touches it, so
+       this package works on hosts without any Gazebo installation.
+       ros_gz_sim only needs to be installed when launching with
+       use_gazebo:=true, hence it is intentionally NOT a hard dependency. -->
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,12 @@
+<library path="mycobot280_moveit2_control">
+  <class name="mycobot280_moveit2_control/MyCobot280HardwareInterface"
+         type="mycobot280_moveit2_control::MyCobot280HardwareInterface"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      ros2_control SystemInterface for the mycobot280 M5 arm. Bridges MoveIt2 / ros2_control
+      to the existing Python driver (mycobot_driver_node.py) via std_msgs/Float64MultiArray topics.
+      The hardware interface publishes joint position commands to /mycobot/cmd_joint_pos and
+      subscribes to /mycobot/current_joint_pos to read the joint state.
+    </description>
+  </class>
+</library>

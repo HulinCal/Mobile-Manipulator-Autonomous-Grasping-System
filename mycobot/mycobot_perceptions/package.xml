@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>mycobot_perceptions</name>
+  <version>0.1.0</version>
+  <description>Camera-based perception for the myCobot pick-and-place project. Subscribes to RGB-D camera data, segments the scene into support plane and objects (reusing the segmentation libraries from mycobot_mtc_pick_place_demo), and publishes the results as topics for downstream grasp planning and visualization.</description>
+  <maintainer email="todo@todo.com">hl</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>libpcl-all-dev</depend>
+  <!-- moveit_core, moveit_ros_planning_interface and moveit_task_constructor_core
+       are required transitively because mycobot_mtc_pick_place_demo's exported
+       library targets link against moveit_core::moveit_collision_detection and
+       moveit_task_constructor_core::moveit_task_constructor_core_stages. -->
+  <depend>moveit_core</depend>
+  <depend>moveit_msgs</depend>
+  <depend>moveit_ros_planning</depend>
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>moveit_task_constructor_core</depend>
+  <depend>mycobot_interfaces</depend>
+  <depend>mycobot_mtc_pick_place_demo</depend>
+  <depend>pcl_conversions</depend>
+  <depend>pcl_ros</depend>
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>shape_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>tf2_eigen</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>visualization_msgs</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

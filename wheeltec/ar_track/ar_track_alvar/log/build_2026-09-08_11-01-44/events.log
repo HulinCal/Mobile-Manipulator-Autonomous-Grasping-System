@@ -1,0 +1,1220 @@
+[0.000000] (-) TimerEvent: {}
+[0.000326] (ar_track_alvar) JobQueued: {'identifier': 'ar_track_alvar', 'dependencies': OrderedDict()}
+[0.000493] (ar_track_alvar) JobStarted: {'identifier': 'ar_track_alvar'}
+[0.019647] (ar_track_alvar) JobProgress: {'identifier': 'ar_track_alvar', 'progress': 'cmake'}
+[0.021255] (ar_track_alvar) Command: {'cmd': ['/usr/bin/cmake', '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar', '-DCMAKE_INSTALL_PREFIX=/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar'], 'cwd': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'env': OrderedDict({'GZ_SIM_SYSTEM_PLUGIN_PATH': '/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LIBRARY_PATH': '/home/hl/TensorRT-10.13.3.9/lib:/home/hl/TensorRT-10.13.3.9/lib:', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share:/home/hl/.gazebo/models', 'AI_AGENT': 'TRAE', 'USER': 'hl', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'OPENNI2_INCLUDE': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Include', 'XDG_SESSION_TYPE': 'x11', 'GIT_ASKPASS': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass.sh', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LIBGL_ALWAYS_SOFTWARE': '0', 'LD_LIBRARY_PATH': '/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid/lib:/home/hl/wheeltec/wheeltec_ws/install/astra_camera/lib:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/usb_cam/lib:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping/lib:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin/lib:/home/hl/trac_ik_ws/install/trac_ik_lib/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/hl/AstraSDK/lib:/home/hl/AstraSDK/lib', 'HOME': '/home/hl', 'CHROME_DESKTOP': 'trae-cn.desktop', 'CONDA_SHLVL': '0', 'OLDPWD': '/home/hl/wheeltec/wheeltec_ws', 'TERM_PROGRAM_VERSION': '1.107.1', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/hl/.nvm/versions/node/v22.22.1/bin', 'NVM_INC': '/home/hl/.nvm/versions/node/v22.22.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/trae-cn.desktop', 'TRAE_SANDBOX_CLI_PATH': '/usr/share/trae-cn/resources/app/modules/sandbox/trae-sandbox', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': '', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass-main.js', 'PS1': '\\n(TraeAI-4) \\w [$?] $', 'GZ_SIM_RENDER_ENGINE': 'ogre', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/trae-cn/trae-cn', 'MANAGERPID': '2357', 'TRAE_AI_SHELL_ID': '4', 'TRAE_SANDBOX_SOURCE_FLAG_PATH': '/tmp/sandbox-source-flag-3627a05a-7a26-45cb-936f-473fb8d30b85', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '2693', 'BUNDLED_DEBUGPY_PATH': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'ASTRA_SDK_INCLUDE': '/home/hl/AstraSDK/include', 'COLORTERM': 'truecolor', '_CE_M': '', 'isArchMatched': '1', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3783', 'TRAE_JWT_TOKEN_PATH': '/home/hl/.trae-cn/trae-jwt-token', 'NVM_DIR': '/home/hl/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'TRAE_SANDBOX_STORAGE_PATH': '/home/hl/.config/Trae CN/ModularData/ai-agent/sandbox', 'SAFE_RM_AUTO_ADD_TEMP': '1', 'COLCON_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install:/home/hl/trac_ik_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'fcitx', 'LOGNAME': 'hl', 'SAFE_RM_DENIED_PATH': '/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.git:/home/hl/wheeltec/wheeltec_ws/.git', 'JOURNAL_STREAM': '10:13026', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': ':/usr/local/lib/pkgconfig:/usr/local/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'hl', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/home/hl/.gazebo/models:/home/hl/gazebo_models', 'LIBGL_ALWAYS_INDIRECT': '1', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'TRAE_SANDBOX_LOG_DIR': '/home/hl/.config/Trae CN/logs/20260908T091402/Modular', '_CE_CONDA': '', 'FC_FONTATIONS': '1', 'HISTCONTROL': 'ignorespace', 'WINDOWPATH': '2', 'PATH': '/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/usr/local/cuda/bin:/usr/share/trae-cn/resources/app/bin:/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/home/hl/.local/bin:/home/hl/miniconda3/condabin:/usr/local/cuda/bin:/home/hl/.nvm/versions/node/v22.22.1/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/hl/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/hlc:@/tmp/.ICE-unix/2662,unix/hlc:/tmp/.ICE-unix/2662', 'INVOCATION_ID': '0e2cc4f825cf4380adf466cc942ad463', 'XDG_MENU_PREFIX': 'gnome-', 'ASTRA_SDK_LIB': '/home/hl/AstraSDK/lib', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':1', 'FILESYSTEM_CASE_SENSITIVE': 'true', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-9f65482cc9bab372.txt', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'OPENNI2_REDIST': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Redist', 'PYTHONSTARTUP': '/home/hl/.config/Trae CN/User/workspaceStorage/03094a5d17a112e1e28db96c421cd790/ms-python.python/pythonrc.py', 'TRAE_SANDBOX_CONFIG_NAME': '6a9cd8ee20cf484735200318', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=fcitx', 'TRAE_SANDBOX_DUMP_DIR': '/home/hl/.config/Trae CN/Crashpad/sandbox-pending', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'TRAE_BRAND_NAME': 'Trae CN', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-18c4daf3ca.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_nav2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/pcl_conversions:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/nav2_common:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/astra_camera:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/hl/miniconda3/bin/python', 'SHELL': '/bin/bash', '__trae_PS1': '\\n(TraeAI-4) \\w [$?] $', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'TRAE_SANDBOX_TRACE_FILE': '/tmp/trae_sandbox_trace_269939e4-0c64-4078-9dc1-7feb2f8e6a6c.jsonl', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': '', 'QT_IM_MODULE': 'fcitx', 'PWD': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'TURTLEBOT3_MODEL': 'burger', 'SAFE_RM_ALLOWED_PATH': '/home/hl/wheeltec/wheeltec_ws:/home/hl/wheeltec/wheeltec_ws', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CONDA_EXE': '/home/hl/miniconda3/bin/conda', 'TERM_PRODUCT': 'Trae', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/quiz_status/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav2_common/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/manual_drive/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/beamer/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'SAFE_RM_PROTECTION_FLAG': '/tmp/safe-rm-protection-flag-1186c237-6462-41da-bae0-bf8509a7fc9d', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'SAFE_RM_SOURCE_FLAG': '/tmp/safe-rm-source-flag-0faf3fb1-092f-4f20-8743-4f78649cc702', 'GAZEBO_VERSION': 'harmonic', 'CMAKE_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/wheeltec_nav2:/home/hl/wheeltec/wheeltec_ws/install/pcl_conversions:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid:/home/hl/wheeltec/wheeltec_ws/install/nav2_common:/home/hl/wheeltec/wheeltec_ws/install/astra_camera:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy'}), 'shell': False}
+[0.047659] (ar_track_alvar) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.099231] (-) TimerEvent: {}
+[0.199458] (-) TimerEvent: {}
+[0.299667] (-) TimerEvent: {}
+[0.399883] (-) TimerEvent: {}
+[0.442287] (ar_track_alvar) StdoutLine: {'line': b'-- Found ament_cmake_auto: 2.5.6 (/opt/ros/jazzy/share/ament_cmake_auto/cmake)\n'}
+[0.500018] (-) TimerEvent: {}
+[0.600264] (-) TimerEvent: {}
+[0.674748] (ar_track_alvar) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.691150] (ar_track_alvar) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.700405] (-) TimerEvent: {}
+[0.714349] (ar_track_alvar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.742282] (ar_track_alvar) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.800566] (-) TimerEvent: {}
+[0.900813] (-) TimerEvent: {}
+[0.999389] (ar_track_alvar) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[1.000921] (-) TimerEvent: {}
+[1.004200] (ar_track_alvar) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 2.2.3 (/opt/ros/jazzy/share/rmw_cyclonedds_cpp/cmake)\n'}
+[1.049246] (ar_track_alvar) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[1.101073] (-) TimerEvent: {}
+[1.192363] (ar_track_alvar) StdoutLine: {'line': b'-- Found TinyXML2 via Config file: /usr/lib/x86_64-linux-gnu/cmake/tinyxml2\n'}
+[1.201184] (-) TimerEvent: {}
+[1.273577] (ar_track_alvar) StdoutLine: {'line': b'-- Found flann version 1.9.2\n'}
+[1.301305] (-) TimerEvent: {}
+[1.401531] (-) TimerEvent: {}
+[1.501759] (-) TimerEvent: {}
+[1.602002] (-) TimerEvent: {}
+[1.702221] (-) TimerEvent: {}
+[1.802438] (-) TimerEvent: {}
+[1.902677] (-) TimerEvent: {}
+[2.002970] (-) TimerEvent: {}
+[2.103219] (-) TimerEvent: {}
+[2.105760] (ar_track_alvar) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[2.114023] (ar_track_alvar) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[2.203432] (-) TimerEvent: {}
+[2.303683] (-) TimerEvent: {}
+[2.403942] (-) TimerEvent: {}
+[2.504205] (-) TimerEvent: {}
+[2.604447] (-) TimerEvent: {}
+[2.704683] (-) TimerEvent: {}
+[2.804943] (-) TimerEvent: {}
+[2.905199] (-) TimerEvent: {}
+[2.986082] (ar_track_alvar) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[2.994747] (ar_track_alvar) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[3.005313] (-) TimerEvent: {}
+[3.105521] (-) TimerEvent: {}
+[3.205784] (-) TimerEvent: {}
+[3.306028] (-) TimerEvent: {}
+[3.406285] (-) TimerEvent: {}
+[3.506528] (-) TimerEvent: {}
+[3.606759] (-) TimerEvent: {}
+[3.706985] (-) TimerEvent: {}
+[3.806563] (ar_track_alvar) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[3.807071] (-) TimerEvent: {}
+[3.907252] (-) TimerEvent: {}
+[4.007455] (-) TimerEvent: {}
+[4.107662] (-) TimerEvent: {}
+[4.207873] (-) TimerEvent: {}
+[4.308079] (-) TimerEvent: {}
+[4.408299] (-) TimerEvent: {}
+[4.508499] (-) TimerEvent: {}
+[4.608697] (-) TimerEvent: {}
+[4.643044] (ar_track_alvar) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[4.708816] (-) TimerEvent: {}
+[4.809009] (-) TimerEvent: {}
+[4.909210] (-) TimerEvent: {}
+[5.009437] (-) TimerEvent: {}
+[5.109652] (-) TimerEvent: {}
+[5.209903] (-) TimerEvent: {}
+[5.310117] (-) TimerEvent: {}
+[5.410328] (-) TimerEvent: {}
+[5.510577] (-) TimerEvent: {}
+[5.610826] (-) TimerEvent: {}
+[5.616990] (ar_track_alvar) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.3.1 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)\n'}
+[5.619034] (ar_track_alvar) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[5.710941] (-) TimerEvent: {}
+[5.772636] (ar_track_alvar) StdoutLine: {'line': b'-- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1") \n'}
+[5.773837] (ar_track_alvar) StdoutLine: {'line': b"-- Checking for module 'tinyxml'\n"}
+[5.801038] (ar_track_alvar) StdoutLine: {'line': b'--   Found tinyxml, version 2.6.2\n'}
+[5.811068] (-) TimerEvent: {}
+[5.911271] (-) TimerEvent: {}
+[6.011513] (-) TimerEvent: {}
+[6.111727] (-) TimerEvent: {}
+[6.211978] (-) TimerEvent: {}
+[6.312251] (-) TimerEvent: {}
+[6.344176] (ar_track_alvar) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[6.412382] (-) TimerEvent: {}
+[6.435429] (ar_track_alvar) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[6.512487] (-) TimerEvent: {}
+[6.612706] (-) TimerEvent: {}
+[6.683565] (ar_track_alvar) StdoutLine: {'line': b'-- Found PythonExtra: /usr/bin/python3  \n'}
+[6.712830] (-) TimerEvent: {}
+[6.765748] (ar_track_alvar) StdoutLine: {'line': b'-- Configuring done (6.7s)\n'}
+[6.812945] (-) TimerEvent: {}
+[6.913179] (-) TimerEvent: {}
+[7.013420] (-) TimerEvent: {}
+[7.113643] (-) TimerEvent: {}
+[7.187716] (ar_track_alvar) StdoutLine: {'line': b'-- Generating done (0.3s)\n'}
+[7.213770] (-) TimerEvent: {}
+[7.225653] (ar_track_alvar) StdoutLine: {'line': b'-- Build files have been written to: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar\n'}
+[7.255455] (ar_track_alvar) CommandEnded: {'returncode': 0}
+[7.256863] (ar_track_alvar) JobProgress: {'identifier': 'ar_track_alvar', 'progress': 'build'}
+[7.258343] (ar_track_alvar) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', '--', '-j24', '-l24'], 'cwd': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'env': OrderedDict({'GZ_SIM_SYSTEM_PLUGIN_PATH': '/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins:', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LIBRARY_PATH': '/home/hl/TensorRT-10.13.3.9/lib:/home/hl/TensorRT-10.13.3.9/lib:', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share:/home/hl/.gazebo/models', 'AI_AGENT': 'TRAE', 'USER': 'hl', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'OPENNI2_INCLUDE': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Include', 'XDG_SESSION_TYPE': 'x11', 'GIT_ASKPASS': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass.sh', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LIBGL_ALWAYS_SOFTWARE': '0', 'LD_LIBRARY_PATH': '/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid/lib:/home/hl/wheeltec/wheeltec_ws/install/astra_camera/lib:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib:/home/hl/wheeltec/wheeltec_ws/install/usb_cam/lib:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping/lib:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/TensorRT-10.13.3.9/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64:/opt/ros/jazzy/lib:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin/lib:/home/hl/trac_ik_ws/install/trac_ik_lib/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/hl/AstraSDK/lib:/home/hl/AstraSDK/lib', 'HOME': '/home/hl', 'CHROME_DESKTOP': 'trae-cn.desktop', 'CONDA_SHLVL': '0', 'OLDPWD': '/home/hl/wheeltec/wheeltec_ws', 'TERM_PROGRAM_VERSION': '1.107.1', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/hl/.nvm/versions/node/v22.22.1/bin', 'NVM_INC': '/home/hl/.nvm/versions/node/v22.22.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/trae-cn.desktop', 'TRAE_SANDBOX_CLI_PATH': '/usr/share/trae-cn/resources/app/modules/sandbox/trae-sandbox', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': '', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/trae-cn/resources/app/extensions/git/dist/askpass-main.js', 'PS1': '\\n(TraeAI-4) \\w [$?] $', 'GZ_SIM_RENDER_ENGINE': 'ogre', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/trae-cn/trae-cn', 'MANAGERPID': '2357', 'TRAE_AI_SHELL_ID': '4', 'TRAE_SANDBOX_SOURCE_FLAG_PATH': '/tmp/sandbox-source-flag-3627a05a-7a26-45cb-936f-473fb8d30b85', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '2693', 'BUNDLED_DEBUGPY_PATH': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'ASTRA_SDK_INCLUDE': '/home/hl/AstraSDK/include', 'COLORTERM': 'truecolor', '_CE_M': '', 'isArchMatched': '1', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3783', 'TRAE_JWT_TOKEN_PATH': '/home/hl/.trae-cn/trae-jwt-token', 'NVM_DIR': '/home/hl/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'TRAE_SANDBOX_STORAGE_PATH': '/home/hl/.config/Trae CN/ModularData/ai-agent/sandbox', 'SAFE_RM_AUTO_ADD_TEMP': '1', 'COLCON_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install:/home/hl/trac_ik_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'fcitx', 'LOGNAME': 'hl', 'SAFE_RM_DENIED_PATH': '/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.vscode:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.trae:/home/hl/wheeltec/wheeltec_ws/.git:/home/hl/wheeltec/wheeltec_ws/.git', 'JOURNAL_STREAM': '10:13026', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': ':/usr/local/lib/pkgconfig:/usr/local/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'hl', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/home/hl/.gazebo/models:/home/hl/gazebo_models', 'LIBGL_ALWAYS_INDIRECT': '1', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'TRAE_SANDBOX_LOG_DIR': '/home/hl/.config/Trae CN/logs/20260908T091402/Modular', '_CE_CONDA': '', 'FC_FONTATIONS': '1', 'HISTCONTROL': 'ignorespace', 'WINDOWPATH': '2', 'PATH': '/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/usr/local/cuda/bin:/usr/share/trae-cn/resources/app/bin:/home/hl/.trae-cn/tools/trae-gopls/current:/home/hl/.trae-cn/sdks/workspaces/03094a5d/versions/node/current:/home/hl/.trae-cn/sdks/versions/node/current:/home/hl/.local/bin:/home/hl/miniconda3/condabin:/usr/local/cuda/bin:/home/hl/.nvm/versions/node/v22.22.1/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/hl/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/hlc:@/tmp/.ICE-unix/2662,unix/hlc:/tmp/.ICE-unix/2662', 'INVOCATION_ID': '0e2cc4f825cf4380adf466cc942ad463', 'XDG_MENU_PREFIX': 'gnome-', 'ASTRA_SDK_LIB': '/home/hl/AstraSDK/lib', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':1', 'FILESYSTEM_CASE_SENSITIVE': 'true', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hl/.trae-cn/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-9f65482cc9bab372.txt', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'OPENNI2_REDIST': '/home/hl/OpenNI-Linux-x64-2.3.0.63/Redist', 'PYTHONSTARTUP': '/home/hl/.config/Trae CN/User/workspaceStorage/03094a5d17a112e1e28db96c421cd790/ms-python.python/pythonrc.py', 'TRAE_SANDBOX_CONFIG_NAME': '6a9cd8ee20cf484735200318', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=fcitx', 'TRAE_SANDBOX_DUMP_DIR': '/home/hl/.config/Trae CN/Crashpad/sandbox-pending', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'TRAE_BRAND_NAME': 'Trae CN', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-18c4daf3ca.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_nav2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/pcl_conversions:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/nav2_common:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/astra_camera:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/hl/miniconda3/bin/python', 'SHELL': '/bin/bash', '__trae_PS1': '\\n(TraeAI-4) \\w [$?] $', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'TRAE_SANDBOX_TRACE_FILE': '/tmp/trae_sandbox_trace_269939e4-0c64-4078-9dc1-7feb2f8e6a6c.jsonl', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': '', 'QT_IM_MODULE': 'fcitx', 'PWD': '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar', 'TURTLEBOT3_MODEL': 'burger', 'SAFE_RM_ALLOWED_PATH': '/home/hl/wheeltec/wheeltec_ws:/home/hl/wheeltec/wheeltec_ws', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CONDA_EXE': '/home/hl/miniconda3/bin/conda', 'TERM_PRODUCT': 'Trae', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/quiz_status/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/nav2_common/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/manual_drive/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/beamer/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard/lib/python3.12/site-packages:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'SAFE_RM_PROTECTION_FLAG': '/tmp/safe-rm-protection-flag-1186c237-6462-41da-bae0-bf8509a7fc9d', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'SAFE_RM_SOURCE_FLAG': '/tmp/safe-rm-source-flag-0faf3fb1-092f-4f20-8743-4f78649cc702', 'GAZEBO_VERSION': 'harmonic', 'CMAKE_PREFIX_PATH': '/home/hl/wheeltec/wheeltec_ws/install/wheeltec_nav2:/home/hl/wheeltec/wheeltec_ws/install/pcl_conversions:/home/hl/wheeltec/wheeltec_ws/install/dwb_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav_2d_msgs:/home/hl/wheeltec/wheeltec_ws/install/nav2_voxel_grid:/home/hl/wheeltec/wheeltec_ws/install/nav2_common:/home/hl/wheeltec/wheeltec_ws/install/astra_camera:/home/hl/wheeltec/wheeltec_ws/install/astra_camera_msgs:/home/hl/wheeltec/wheeltec_ws/install/ar_track_alvar_msgs:/home/hl/wheeltec/wheeltec_ws/install/ackermann_msgs:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_slam_toolbox:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rrt:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_rrt_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_urdf:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_rtab:/home/hl/wheeltec/wheeltec_ws/install/turn_on_wheeltec_robot:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_msg:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_joy:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_cartographer:/home/hl/wheeltec/wheeltec_ws/install/web_video_server:/home/hl/wheeltec/wheeltec_ws/install/usb_cam:/home/hl/wheeltec/wheeltec_ws/install/slam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/rplidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/openslam_gmapping:/home/hl/wheeltec/wheeltec_ws/install/lslidar_driver:/home/hl/wheeltec/wheeltec_ws/install/lslidar_msgs:/home/hl/wheeltec/wheeltec_ws/install/lidar_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_stl_ros2:/home/hl/wheeltec/wheeltec_ws/install/ldlidar_sl_ros2:/home/hl/trac_ik_ws/install/trac_ik:/home/hl/trac_ik_ws/install/trac_ik_kinematics_plugin:/home/hl/trac_ik_ws/install/trac_ik_lib:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy'}), 'shell': False}
+[7.313879] (-) TimerEvent: {}
+[7.368483] (ar_track_alvar) StdoutLine: {'line': b'[  4%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Bitset.cpp.o\n'}
+[7.370931] (ar_track_alvar) StdoutLine: {'line': b'[  2%] Building CXX object CMakeFiles/kinect_filtering.dir/src/kinect_filtering.cpp.o\n'}
+[7.371168] (ar_track_alvar) StdoutLine: {'line': b'[  6%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/CaptureDevice.cpp.o\n'}
+[7.371806] (ar_track_alvar) StdoutLine: {'line': b'[  8%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Draw.cpp.o\n'}
+[7.372213] (ar_track_alvar) StdoutLine: {'line': b'[ 15%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/CvTestbed.cpp.o\n'}
+[7.372483] (ar_track_alvar) StdoutLine: {'line': b'[ 15%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/CaptureFactory.cpp.o\n'}
+[7.372833] (ar_track_alvar) StdoutLine: {'line': b'[ 15%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/ConnectedComponents.cpp.o\n'}
+[7.373053] (ar_track_alvar) StdoutLine: {'line': b'[ 17%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/DirectoryIterator_unix.cpp.o\n'}
+[7.373270] (ar_track_alvar) StdoutLine: {'line': b'[ 19%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/DirectoryIterator.cpp.o\n'}
+[7.373668] (ar_track_alvar) StdoutLine: {'line': b'[ 21%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Camera.cpp.o\n'}
+[7.373923] (ar_track_alvar) StdoutLine: {'line': b'[ 23%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/CaptureFactory_unix.cpp.o\n'}
+[7.374157] (ar_track_alvar) StdoutLine: {'line': b'[ 26%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Marker.cpp.o\n'}
+[7.374396] (ar_track_alvar) StdoutLine: {'line': b'[ 28%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Filter.cpp.o\n'}
+[7.374599] (ar_track_alvar) StdoutLine: {'line': b'[ 30%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Line.cpp.o\n'}
+[7.375588] (ar_track_alvar) StdoutLine: {'line': b'[ 32%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/MultiMarker.cpp.o\n'}
+[7.375972] (ar_track_alvar) StdoutLine: {'line': b'[ 34%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/MultiMarkerBundle.cpp.o\n'}
+[7.376130] (ar_track_alvar) StdoutLine: {'line': b'[ 36%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/FileFormatUtils.cpp.o\n'}
+[7.376542] (ar_track_alvar) StdoutLine: {'line': b'[ 39%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Mutex.cpp.o\n'}
+[7.376894] (ar_track_alvar) StdoutLine: {'line': b'[ 41%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/MultiMarkerInitializer.cpp.o\n'}
+[7.377101] (ar_track_alvar) StdoutLine: {'line': b'[ 43%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Kalman.cpp.o\n'}
+[7.377291] (ar_track_alvar) StdoutLine: {'line': b'[ 45%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Mutex_unix.cpp.o\n'}
+[7.388423] (ar_track_alvar) StdoutLine: {'line': b'[ 47%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Optimization.cpp.o\n'}
+[7.392409] (ar_track_alvar) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/MarkerDetector.cpp.o\n'}
+[7.399008] (ar_track_alvar) StdoutLine: {'line': b'[ 52%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Plugin.cpp.o\n'}
+[7.414016] (-) TimerEvent: {}
+[7.471849] (ar_track_alvar) StdoutLine: {'line': b'[ 54%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Plugin_unix.cpp.o\n'}
+[7.514148] (-) TimerEvent: {}
+[7.528717] (ar_track_alvar) StdoutLine: {'line': b'[ 56%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Pose.cpp.o\n'}
+[7.614490] (-) TimerEvent: {}
+[7.715449] (-) TimerEvent: {}
+[7.816047] (-) TimerEvent: {}
+[7.916660] (-) TimerEvent: {}
+[8.017625] (-) TimerEvent: {}
+[8.024413] (ar_track_alvar) StdoutLine: {'line': b'[ 58%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Rotation.cpp.o\n'}
+[8.091419] (ar_track_alvar) StdoutLine: {'line': b'[ 60%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Threads.cpp.o\n'}
+[8.117737] (-) TimerEvent: {}
+[8.218058] (-) TimerEvent: {}
+[8.227426] (ar_track_alvar) StdoutLine: {'line': b'[ 63%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Threads_unix.cpp.o\n'}
+[8.285733] (ar_track_alvar) StdoutLine: {'line': b'[ 65%] Building CXX object CMakeFiles/ar_track_alvar.dir/src/Util.cpp.o\n'}
+[8.318172] (-) TimerEvent: {}
+[8.418469] (-) TimerEvent: {}
+[8.518818] (-) TimerEvent: {}
+[8.619079] (-) TimerEvent: {}
+[8.719502] (-) TimerEvent: {}
+[8.820325] (-) TimerEvent: {}
+[8.920679] (-) TimerEvent: {}
+[9.020982] (-) TimerEvent: {}
+[9.121289] (-) TimerEvent: {}
+[9.221566] (-) TimerEvent: {}
+[9.321827] (-) TimerEvent: {}
+[9.422075] (-) TimerEvent: {}
+[9.522345] (-) TimerEvent: {}
+[9.622633] (-) TimerEvent: {}
+[9.722908] (-) TimerEvent: {}
+[9.823214] (-) TimerEvent: {}
+[9.923523] (-) TimerEvent: {}
+[10.023841] (-) TimerEvent: {}
+[10.124152] (-) TimerEvent: {}
+[10.224486] (-) TimerEvent: {}
+[10.324738] (-) TimerEvent: {}
+[10.424990] (-) TimerEvent: {}
+[10.525233] (-) TimerEvent: {}
+[10.625473] (-) TimerEvent: {}
+[10.725743] (-) TimerEvent: {}
+[10.825994] (-) TimerEvent: {}
+[10.926243] (-) TimerEvent: {}
+[11.026500] (-) TimerEvent: {}
+[11.126764] (-) TimerEvent: {}
+[11.227071] (-) TimerEvent: {}
+[11.327397] (-) TimerEvent: {}
+[11.427772] (-) TimerEvent: {}
+[11.528168] (-) TimerEvent: {}
+[11.628566] (-) TimerEvent: {}
+[11.728864] (-) TimerEvent: {}
+[11.829154] (-) TimerEvent: {}
+[11.929496] (-) TimerEvent: {}
+[12.029813] (-) TimerEvent: {}
+[12.130122] (-) TimerEvent: {}
+[12.230418] (-) TimerEvent: {}
+[12.330695] (-) TimerEvent: {}
+[12.430978] (-) TimerEvent: {}
+[12.531265] (-) TimerEvent: {}
+[12.631552] (-) TimerEvent: {}
+[12.731850] (-) TimerEvent: {}
+[12.832101] (-) TimerEvent: {}
+[12.932365] (-) TimerEvent: {}
+[13.032628] (-) TimerEvent: {}
+[13.132886] (-) TimerEvent: {}
+[13.233142] (-) TimerEvent: {}
+[13.333405] (-) TimerEvent: {}
+[13.433667] (-) TimerEvent: {}
+[13.533930] (-) TimerEvent: {}
+[13.634190] (-) TimerEvent: {}
+[13.734449] (-) TimerEvent: {}
+[13.834713] (-) TimerEvent: {}
+[13.934980] (-) TimerEvent: {}
+[14.035231] (-) TimerEvent: {}
+[14.135495] (-) TimerEvent: {}
+[14.235766] (-) TimerEvent: {}
+[14.336037] (-) TimerEvent: {}
+[14.436307] (-) TimerEvent: {}
+[14.536578] (-) TimerEvent: {}
+[14.636848] (-) TimerEvent: {}
+[14.737118] (-) TimerEvent: {}
+[14.837422] (-) TimerEvent: {}
+[14.937737] (-) TimerEvent: {}
+[15.038032] (-) TimerEvent: {}
+[15.138316] (-) TimerEvent: {}
+[15.238612] (-) TimerEvent: {}
+[15.338942] (-) TimerEvent: {}
+[15.439299] (-) TimerEvent: {}
+[15.539724] (-) TimerEvent: {}
+[15.640136] (-) TimerEvent: {}
+[15.740391] (-) TimerEvent: {}
+[15.840644] (-) TimerEvent: {}
+[15.940904] (-) TimerEvent: {}
+[16.041156] (-) TimerEvent: {}
+[16.141415] (-) TimerEvent: {}
+[16.241662] (-) TimerEvent: {}
+[16.341906] (-) TimerEvent: {}
+[16.442152] (-) TimerEvent: {}
+[16.542408] (-) TimerEvent: {}
+[16.642668] (-) TimerEvent: {}
+[16.742928] (-) TimerEvent: {}
+[16.843185] (-) TimerEvent: {}
+[16.943458] (-) TimerEvent: {}
+[17.043738] (-) TimerEvent: {}
+[17.144029] (-) TimerEvent: {}
+[17.244277] (-) TimerEvent: {}
+[17.344505] (-) TimerEvent: {}
+[17.444760] (-) TimerEvent: {}
+[17.545054] (-) TimerEvent: {}
+[17.645332] (-) TimerEvent: {}
+[17.745585] (-) TimerEvent: {}
+[17.845846] (-) TimerEvent: {}
+[17.946093] (-) TimerEvent: {}
+[18.046368] (-) TimerEvent: {}
+[18.146629] (-) TimerEvent: {}
+[18.246895] (-) TimerEvent: {}
+[18.347146] (-) TimerEvent: {}
+[18.447444] (-) TimerEvent: {}
+[18.547726] (-) TimerEvent: {}
+[18.648031] (-) TimerEvent: {}
+[18.748382] (-) TimerEvent: {}
+[18.848670] (-) TimerEvent: {}
+[18.868269] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[18.868792] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:35,\n'}
+[18.869039] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/MultiMarker.cpp:25:\n'}
+[18.869261] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[18.869551] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[18.869762] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[18.869971] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/string:45,\n'}
+[18.870182] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/bits/locale_classes.h:40,\n'}
+[18.870414] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/bits/ios_base.h:41,\n'}
+[18.870634] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/ios:42,\n'}
+[18.870833] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/ostream:38,\n'}
+[18.871036] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/iostream:39,\n'}
+[18.871242] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Rotation.h:27,\n'}
+[18.871509] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:34:\n'}
+[18.871721] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[18.871925] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[18.872128] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[18.948782] (-) TimerEvent: {}
+[19.049038] (-) TimerEvent: {}
+[19.149279] (-) TimerEvent: {}
+[19.152874] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[19.153502] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:35,\n'}
+[19.153739] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarkerInitializer.h:34,\n'}
+[19.153954] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/MultiMarkerInitializer.cpp:24:\n'}
+[19.154167] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[19.154424] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[19.154658] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[19.154872] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/string:45,\n'}
+[19.155085] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/bits/locale_classes.h:40,\n'}
+[19.155292] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/bits/ios_base.h:41,\n'}
+[19.155563] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/ios:42,\n'}
+[19.155771] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/ostream:38,\n'}
+[19.155977] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/iostream:39,\n'}
+[19.156181] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Rotation.h:27,\n'}
+[19.156413] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:34:\n'}
+[19.156665] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[19.156880] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[19.157084] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[19.201047] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[19.201510] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:35,\n'}
+[19.201764] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarkerBundle.h:34,\n'}
+[19.201976] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/MultiMarkerBundle.cpp:24:\n'}
+[19.202197] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[19.202496] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[19.202734] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[19.202977] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/string:45,\n'}
+[19.203188] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/bits/locale_classes.h:40,\n'}
+[19.203438] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/bits/ios_base.h:41,\n'}
+[19.203671] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/ios:42,\n'}
+[19.203914] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/ostream:38,\n'}
+[19.204128] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/iostream:39,\n'}
+[19.204332] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Rotation.h:27,\n'}
+[19.204570] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:34:\n'}
+[19.204776] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[19.205004] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[19.205214] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[19.249454] (-) TimerEvent: {}
+[19.332872] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[19.333139] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/MarkerDetector.cpp:24:\n'}
+[19.333274] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[19.333449] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[19.333575] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[19.333691] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/string:45,\n'}
+[19.333808] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/stdexcept:39,\n'}
+[19.333925] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/AlvarException.h:33,\n'}
+[19.334040] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Util.h:35,\n'}
+[19.334159] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:34:\n'}
+[19.334278] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[19.334422] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[19.334551] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[19.349572] (-) TimerEvent: {}
+[19.393859] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/Marker.cpp:25:\n'}
+[19.394283] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[19.394592] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[19.394831] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[19.395041] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/string:45,\n'}
+[19.395250] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/bits/locale_classes.h:40,\n'}
+[19.395513] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/bits/ios_base.h:41,\n'}
+[19.395766] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/ios:42,\n'}
+[19.395975] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/ostream:38,\n'}
+[19.396183] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/iostream:39,\n'}
+[19.396429] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:35:\n'}
+[19.396685] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[19.396889] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[19.397095] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[19.449705] (-) TimerEvent: {}
+[19.549973] (-) TimerEvent: {}
+[19.650235] (-) TimerEvent: {}
+[19.750473] (-) TimerEvent: {}
+[19.850726] (-) TimerEvent: {}
+[19.951012] (-) TimerEvent: {}
+[20.051341] (-) TimerEvent: {}
+[20.151664] (-) TimerEvent: {}
+[20.251987] (-) TimerEvent: {}
+[20.352317] (-) TimerEvent: {}
+[20.452680] (-) TimerEvent: {}
+[20.552953] (-) TimerEvent: {}
+[20.653206] (-) TimerEvent: {}
+[20.753498] (-) TimerEvent: {}
+[20.853853] (-) TimerEvent: {}
+[20.954142] (-) TimerEvent: {}
+[21.054447] (-) TimerEvent: {}
+[21.154736] (-) TimerEvent: {}
+[21.255022] (-) TimerEvent: {}
+[21.355310] (-) TimerEvent: {}
+[21.455602] (-) TimerEvent: {}
+[21.555897] (-) TimerEvent: {}
+[21.656174] (-) TimerEvent: {}
+[21.756426] (-) TimerEvent: {}
+[21.758038] (ar_track_alvar) StdoutLine: {'line': b'[ 67%] Linking CXX static library libkinect_filtering.a\n'}
+[21.825485] (ar_track_alvar) StdoutLine: {'line': b'[ 67%] Built target kinect_filtering\n'}
+[21.856562] (-) TimerEvent: {}
+[21.956821] (-) TimerEvent: {}
+[22.057114] (-) TimerEvent: {}
+[22.157415] (-) TimerEvent: {}
+[22.257761] (-) TimerEvent: {}
+[22.358123] (-) TimerEvent: {}
+[22.458422] (-) TimerEvent: {}
+[22.558701] (-) TimerEvent: {}
+[22.658974] (-) TimerEvent: {}
+[22.759234] (-) TimerEvent: {}
+[22.859487] (-) TimerEvent: {}
+[22.959774] (-) TimerEvent: {}
+[23.060056] (-) TimerEvent: {}
+[23.160322] (-) TimerEvent: {}
+[23.260612] (-) TimerEvent: {}
+[23.360868] (-) TimerEvent: {}
+[23.461134] (-) TimerEvent: {}
+[23.561420] (-) TimerEvent: {}
+[23.661702] (-) TimerEvent: {}
+[23.691017] (ar_track_alvar) StdoutLine: {'line': b'[ 69%] Linking CXX static library libar_track_alvar.a\n'}
+[23.761843] (-) TimerEvent: {}
+[23.799342] (ar_track_alvar) StdoutLine: {'line': b'[ 69%] Built target ar_track_alvar\n'}
+[23.833208] (ar_track_alvar) StdoutLine: {'line': b'[ 71%] Building CXX object CMakeFiles/medianFilter.dir/src/medianFilter.cpp.o\n'}
+[23.834449] (ar_track_alvar) StdoutLine: {'line': b'[ 73%] Building CXX object CMakeFiles/trainMarkerBundle.dir/nodes/TrainMarkerBundle.cpp.o\n'}
+[23.835058] (ar_track_alvar) StdoutLine: {'line': b'[ 76%] Building CXX object CMakeFiles/findMarkerBundlesNoKinect.dir/nodes/FindMarkerBundlesNoKinect.cpp.o\n'}
+[23.835344] (ar_track_alvar) StdoutLine: {'line': b'[ 78%] Building CXX object CMakeFiles/individualMarkersNoKinect.dir/nodes/IndividualMarkersNoKinect.cpp.o\n'}
+[23.836113] (ar_track_alvar) StdoutLine: {'line': b'[ 80%] Building CXX object CMakeFiles/createMarker.dir/src/SampleMarkerCreator.cpp.o\n'}
+[23.836711] (ar_track_alvar) StdoutLine: {'line': b'[ 82%] Building CXX object CMakeFiles/individualMarkers.dir/nodes/IndividualMarkers.cpp.o\n'}
+[23.861980] (-) TimerEvent: {}
+[23.962199] (-) TimerEvent: {}
+[24.062464] (-) TimerEvent: {}
+[24.162728] (-) TimerEvent: {}
+[24.262987] (-) TimerEvent: {}
+[24.363257] (-) TimerEvent: {}
+[24.463528] (-) TimerEvent: {}
+[24.563796] (-) TimerEvent: {}
+[24.664107] (-) TimerEvent: {}
+[24.764507] (-) TimerEvent: {}
+[24.864879] (-) TimerEvent: {}
+[24.965167] (-) TimerEvent: {}
+[25.065452] (-) TimerEvent: {}
+[25.165695] (-) TimerEvent: {}
+[25.265952] (-) TimerEvent: {}
+[25.366209] (-) TimerEvent: {}
+[25.466498] (-) TimerEvent: {}
+[25.566782] (-) TimerEvent: {}
+[25.585219] (ar_track_alvar) StdoutLine: {'line': b'[ 84%] Linking CXX static library libmedianFilter.a\n'}
+[25.640112] (ar_track_alvar) StdoutLine: {'line': b'[ 84%] Built target medianFilter\n'}
+[25.666922] (-) TimerEvent: {}
+[25.677299] (ar_track_alvar) StdoutLine: {'line': b'[ 86%] Building CXX object CMakeFiles/findMarkerBundles.dir/nodes/FindMarkerBundles.cpp.o\n'}
+[25.767080] (-) TimerEvent: {}
+[25.867388] (-) TimerEvent: {}
+[25.967686] (-) TimerEvent: {}
+[26.067930] (-) TimerEvent: {}
+[26.168171] (-) TimerEvent: {}
+[26.268418] (-) TimerEvent: {}
+[26.368673] (-) TimerEvent: {}
+[26.468919] (-) TimerEvent: {}
+[26.569182] (-) TimerEvent: {}
+[26.669445] (-) TimerEvent: {}
+[26.769719] (-) TimerEvent: {}
+[26.870014] (-) TimerEvent: {}
+[26.970277] (-) TimerEvent: {}
+[27.070553] (-) TimerEvent: {}
+[27.170809] (-) TimerEvent: {}
+[27.271056] (-) TimerEvent: {}
+[27.371307] (-) TimerEvent: {}
+[27.471583] (-) TimerEvent: {}
+[27.571838] (-) TimerEvent: {}
+[27.672091] (-) TimerEvent: {}
+[27.772344] (-) TimerEvent: {}
+[27.872608] (-) TimerEvent: {}
+[27.972857] (-) TimerEvent: {}
+[28.073113] (-) TimerEvent: {}
+[28.173367] (-) TimerEvent: {}
+[28.273618] (-) TimerEvent: {}
+[28.373878] (-) TimerEvent: {}
+[28.474137] (-) TimerEvent: {}
+[28.574415] (-) TimerEvent: {}
+[28.674676] (-) TimerEvent: {}
+[28.774933] (-) TimerEvent: {}
+[28.875184] (-) TimerEvent: {}
+[28.975439] (-) TimerEvent: {}
+[29.075691] (-) TimerEvent: {}
+[29.175948] (-) TimerEvent: {}
+[29.276197] (-) TimerEvent: {}
+[29.376447] (-) TimerEvent: {}
+[29.476707] (-) TimerEvent: {}
+[29.576960] (-) TimerEvent: {}
+[29.677201] (-) TimerEvent: {}
+[29.777444] (-) TimerEvent: {}
+[29.877699] (-) TimerEvent: {}
+[29.977966] (-) TimerEvent: {}
+[30.078266] (-) TimerEvent: {}
+[30.178569] (-) TimerEvent: {}
+[30.278846] (-) TimerEvent: {}
+[30.379117] (-) TimerEvent: {}
+[30.479401] (-) TimerEvent: {}
+[30.579661] (-) TimerEvent: {}
+[30.679916] (-) TimerEvent: {}
+[30.780183] (-) TimerEvent: {}
+[30.880492] (-) TimerEvent: {}
+[30.980756] (-) TimerEvent: {}
+[31.081020] (-) TimerEvent: {}
+[31.181281] (-) TimerEvent: {}
+[31.281570] (-) TimerEvent: {}
+[31.381817] (-) TimerEvent: {}
+[31.482066] (-) TimerEvent: {}
+[31.582319] (-) TimerEvent: {}
+[31.682588] (-) TimerEvent: {}
+[31.782840] (-) TimerEvent: {}
+[31.883089] (-) TimerEvent: {}
+[31.983339] (-) TimerEvent: {}
+[32.083618] (-) TimerEvent: {}
+[32.183881] (-) TimerEvent: {}
+[32.284133] (-) TimerEvent: {}
+[32.384397] (-) TimerEvent: {}
+[32.484645] (-) TimerEvent: {}
+[32.584898] (-) TimerEvent: {}
+[32.685151] (-) TimerEvent: {}
+[32.785414] (-) TimerEvent: {}
+[32.885666] (-) TimerEvent: {}
+[32.985913] (-) TimerEvent: {}
+[33.086160] (-) TimerEvent: {}
+[33.186434] (-) TimerEvent: {}
+[33.286683] (-) TimerEvent: {}
+[33.386928] (-) TimerEvent: {}
+[33.487196] (-) TimerEvent: {}
+[33.587464] (-) TimerEvent: {}
+[33.687717] (-) TimerEvent: {}
+[33.787972] (-) TimerEvent: {}
+[33.888228] (-) TimerEvent: {}
+[33.953735] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[33.954170] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:35,\n'}
+[33.954475] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/src/SampleMarkerCreator.cpp:1:\n'}
+[33.954744] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[33.955012] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[33.955277] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[33.955550] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/string:45,\n'}
+[33.955872] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/bits/locale_classes.h:40,\n'}
+[33.956127] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/bits/ios_base.h:41,\n'}
+[33.956399] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/ios:42,\n'}
+[33.956653] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/ostream:38,\n'}
+[33.956899] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/iostream:39,\n'}
+[33.957143] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Rotation.h:27,\n'}
+[33.957402] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MultiMarker.h:34:\n'}
+[33.957672] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[33.957922] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[33.958161] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[33.988379] (-) TimerEvent: {}
+[34.088673] (-) TimerEvent: {}
+[34.188945] (-) TimerEvent: {}
+[34.235038] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[34.235472] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp:39:\n'}
+[34.235727] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[34.235964] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[34.236186] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[34.236417] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[34.236634] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/vector:60,\n'}
+[34.236844] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,\n'}
+[34.237055] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp:38:\n'}
+[34.237265] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[34.237499] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[34.237706] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[34.254574] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[34.254916] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:39:\n'}
+[34.255144] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[34.255389] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[34.255611] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[34.255825] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[34.256065] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/vector:60,\n'}
+[34.256292] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,\n'}
+[34.256522] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:38:\n'}
+[34.256730] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[34.256936] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[34.257140] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[34.289096] (-) TimerEvent: {}
+[34.301293] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[34.301702] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp:40:\n'}
+[34.301939] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[34.302197] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[34.302438] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[34.302651] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[34.302861] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/algorithm:60,\n'}
+[34.303075] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp:11,\n'}
+[34.303285] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/std_msgs/std_msgs/msg/bool.hpp:7,\n'}
+[34.303514] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp:38:\n'}
+[34.303724] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[34.303928] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[34.304137] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[34.389258] (-) TimerEvent: {}
+[34.489551] (-) TimerEvent: {}
+[34.589830] (-) TimerEvent: {}
+[34.690089] (-) TimerEvent: {}
+[34.693112] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[34.693496] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp:39:\n'}
+[34.693731] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[34.693985] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[34.694242] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[34.694472] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[34.694678] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/vector:60,\n'}
+[34.694906] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,\n'}
+[34.695114] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp:38:\n'}
+[34.695370] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[34.695584] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[34.695787] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[34.790255] (-) TimerEvent: {}
+[34.890564] (-) TimerEvent: {}
+[34.990830] (-) TimerEvent: {}
+[35.065668] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp: In member function \xe2\x80\x98void IndividualMarkers::draw3dPoints(pcl::PointCloud<pcl::PointXYZRGB>::Ptr, std::string, int, int, double)\xe2\x80\x99:\n'}
+[35.066272] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:237:50: error: no matching function for call to \xe2\x80\x98rclcpp::Duration::Duration(double)\xe2\x80\x99\n'}
+[35.066468] (ar_track_alvar) StderrLine: {'line': b'  237 |       rvizMarker.lifetime = rclcpp::Duration (1.0);\n'}
+[35.066628] (ar_track_alvar) StderrLine: {'line': b'      |                                                  ^\n'}
+[35.066777] (ar_track_alvar) StderrLine: {'line': b'In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/time.hpp:24,\n'}
+[35.067351] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/clock.hpp:24,\n'}
+[35.067528] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/client.hpp:38,\n'}
+[35.067665] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/callback_group.hpp:24,\n'}
+[35.067801] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:20,\n'}
+[35.067932] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25,\n'}
+[35.068079] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18,\n'}
+[35.068213] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22,\n'}
+[35.068343] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38,\n'}
+[35.068502] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,\n'}
+[35.068658] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21,\n'}
+[35.068790] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:176,\n'}
+[35.068918] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Camera.h:40,\n'}
+[35.069046] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h:36,\n'}
+[35.069193] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:35:\n'}
+[35.069367] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: \xe2\x80\x98template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)\xe2\x80\x99\n'}
+[35.069540] (ar_track_alvar) StderrLine: {'line': b'   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)\n'}
+[35.069708] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.069919] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:\n'}
+[35.070056] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:237:50: note:   mismatched types \xe2\x80\x98const std::chrono::duration<_Rep1, _Period1>\xe2\x80\x99 and \xe2\x80\x98double\xe2\x80\x99\n'}
+[35.070193] (ar_track_alvar) StderrLine: {'line': b'  237 |       rvizMarker.lifetime = rclcpp::Duration (1.0);\n'}
+[35.070347] (ar_track_alvar) StderrLine: {'line': b'      |                                                  ^\n'}
+[35.070517] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration()\xe2\x80\x99\n'}
+[35.070652] (ar_track_alvar) StderrLine: {'line': b'  159 |   Duration() = default;\n'}
+[35.070806] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.070935] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided\n'}
+[35.071066] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rclcpp::Duration&)\xe2\x80\x99\n'}
+[35.071196] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[35.071331] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.071500] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rclcpp::Duration&\xe2\x80\x99\n'}
+[35.071633] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[35.071762] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~^~~\n'}
+[35.071936] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rcl_duration_t&)\xe2\x80\x99\n'}
+[35.072100] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[35.072227] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[35.072386] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rcl_duration_t&\xe2\x80\x99 {aka \xe2\x80\x98const rcl_duration_s&\xe2\x80\x99}\n'}
+[35.072527] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[35.072648] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[35.072774] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)\xe2\x80\x99\n'}
+[35.072926] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[35.073058] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.073185] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const builtin_interfaces::msg::Duration&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Duration_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[35.073329] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[35.073479] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~\n'}
+[35.073627] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(std::chrono::nanoseconds)\xe2\x80\x99\n'}
+[35.073761] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[35.073897] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[35.074050] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98std::chrono::nanoseconds\xe2\x80\x99 {aka \xe2\x80\x98std::chrono::duration<long int, std::ratio<1, 1000000000> >\xe2\x80\x99}\n'}
+[35.074185] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[35.074314] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\n'}
+[35.074516] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(int32_t, uint32_t)\xe2\x80\x99\n'}
+[35.074655] (ar_track_alvar) StderrLine: {'line': b'   40 |   Duration(int32_t seconds, uint32_t nanoseconds);\n'}
+[35.074785] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.074914] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided\n'}
+[35.075065] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp: In member function \xe2\x80\x98void IndividualMarkers::drawArrow(geometry_msgs::msg::Point, tf2::Matrix3x3, std::string, int, int)\xe2\x80\x99:\n'}
+[35.075201] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:267:54: error: no matching function for call to \xe2\x80\x98rclcpp::Duration::Duration(double)\xe2\x80\x99\n'}
+[35.075334] (ar_track_alvar) StderrLine: {'line': b'  267 |           rvizMarker.lifetime = rclcpp::Duration (1.0);\n'}
+[35.075488] (ar_track_alvar) StderrLine: {'line': b'      |                                                      ^\n'}
+[35.075620] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: \xe2\x80\x98template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)\xe2\x80\x99\n'}
+[35.075753] (ar_track_alvar) StderrLine: {'line': b'   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)\n'}
+[35.075886] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.076007] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:\n'}
+[35.076168] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:267:54: note:   mismatched types \xe2\x80\x98const std::chrono::duration<_Rep1, _Period1>\xe2\x80\x99 and \xe2\x80\x98double\xe2\x80\x99\n'}
+[35.076304] (ar_track_alvar) StderrLine: {'line': b'  267 |           rvizMarker.lifetime = rclcpp::Duration (1.0);\n'}
+[35.076481] (ar_track_alvar) StderrLine: {'line': b'      |                                                      ^\n'}
+[35.076614] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration()\xe2\x80\x99\n'}
+[35.076749] (ar_track_alvar) StderrLine: {'line': b'  159 |   Duration() = default;\n'}
+[35.076909] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.077070] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided\n'}
+[35.077226] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rclcpp::Duration&)\xe2\x80\x99\n'}
+[35.077390] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[35.077541] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.077724] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rclcpp::Duration&\xe2\x80\x99\n'}
+[35.077862] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[35.077994] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~^~~\n'}
+[35.078125] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rcl_duration_t&)\xe2\x80\x99\n'}
+[35.078303] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[35.078469] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[35.078606] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rcl_duration_t&\xe2\x80\x99 {aka \xe2\x80\x98const rcl_duration_s&\xe2\x80\x99}\n'}
+[35.078756] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[35.078889] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[35.079021] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)\xe2\x80\x99\n'}
+[35.079153] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[35.079299] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.079463] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const builtin_interfaces::msg::Duration&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Duration_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[35.079599] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[35.079785] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~\n'}
+[35.079935] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(std::chrono::nanoseconds)\xe2\x80\x99\n'}
+[35.080070] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[35.080208] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[35.080337] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98std::chrono::nanoseconds\xe2\x80\x99 {aka \xe2\x80\x98std::chrono::duration<long int, std::ratio<1, 1000000000> >\xe2\x80\x99}\n'}
+[35.080504] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[35.080636] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\n'}
+[35.080774] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(int32_t, uint32_t)\xe2\x80\x99\n'}
+[35.080910] (ar_track_alvar) StderrLine: {'line': b'   40 |   Duration(int32_t seconds, uint32_t nanoseconds);\n'}
+[35.081052] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.081182] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided\n'}
+[35.090954] (-) TimerEvent: {}
+[35.091287] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp: In member function \xe2\x80\x98void IndividualMarkers::GetMarkerPoses(cv::Mat*, ARCloud&)\xe2\x80\x99:\n'}
+[35.091565] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:430:30: error: expected primary-expression before \xe2\x80\x98const\xe2\x80\x99\n'}
+[35.091715] (ar_track_alvar) StderrLine: {'line': b'  430 |               BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)\n'}
+[35.091850] (ar_track_alvar) StderrLine: {'line': b'      |                              ^~~~~\n'}
+[35.113712] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:430:15: error: \xe2\x80\x98BOOST_FOREACH\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98BOOST_NO_HASH\xe2\x80\x99?\n'}
+[35.113981] (ar_track_alvar) StderrLine: {'line': b'  430 |               BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)\n'}
+[35.114128] (ar_track_alvar) StderrLine: {'line': b'      |               ^~~~~~~~~~~~~\n'}
+[35.114262] (ar_track_alvar) StderrLine: {'line': b'      |               BOOST_NO_HASH\n'}
+[35.131289] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp: In member function \xe2\x80\x98void IndividualMarkers::getPointCloudCallback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)\xe2\x80\x99:\n'}
+[35.131662] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:598:55: error: no matching function for call to \xe2\x80\x98rclcpp::Duration::Duration(double)\xe2\x80\x99\n'}
+[35.131819] (ar_track_alvar) StderrLine: {'line': b'  598 |           rvizMarker_.lifetime = rclcpp::Duration (1.0);\n'}
+[35.132019] (ar_track_alvar) StderrLine: {'line': b'      |                                                       ^\n'}
+[35.132275] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: \xe2\x80\x98template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)\xe2\x80\x99\n'}
+[35.132475] (ar_track_alvar) StderrLine: {'line': b'   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)\n'}
+[35.132623] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.132791] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:\n'}
+[35.133044] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkers.cpp:598:55: note:   mismatched types \xe2\x80\x98const std::chrono::duration<_Rep1, _Period1>\xe2\x80\x99 and \xe2\x80\x98double\xe2\x80\x99\n'}
+[35.133207] (ar_track_alvar) StderrLine: {'line': b'  598 |           rvizMarker_.lifetime = rclcpp::Duration (1.0);\n'}
+[35.133333] (ar_track_alvar) StderrLine: {'line': b'      |                                                       ^\n'}
+[35.133475] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration()\xe2\x80\x99\n'}
+[35.133598] (ar_track_alvar) StderrLine: {'line': b'  159 |   Duration() = default;\n'}
+[35.133720] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.133842] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided\n'}
+[35.133981] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rclcpp::Duration&)\xe2\x80\x99\n'}
+[35.134155] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[35.134386] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.134645] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rclcpp::Duration&\xe2\x80\x99\n'}
+[35.134785] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[35.134921] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~^~~\n'}
+[35.135044] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rcl_duration_t&)\xe2\x80\x99\n'}
+[35.135194] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[35.135318] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[35.135634] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rcl_duration_t&\xe2\x80\x99 {aka \xe2\x80\x98const rcl_duration_s&\xe2\x80\x99}\n'}
+[35.135822] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[35.135946] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[35.136066] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)\xe2\x80\x99\n'}
+[35.136186] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[35.136307] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.136451] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const builtin_interfaces::msg::Duration&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Duration_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[35.136578] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[35.136697] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~\n'}
+[35.136862] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(std::chrono::nanoseconds)\xe2\x80\x99\n'}
+[35.137101] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[35.137337] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[35.137488] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98std::chrono::nanoseconds\xe2\x80\x99 {aka \xe2\x80\x98std::chrono::duration<long int, std::ratio<1, 1000000000> >\xe2\x80\x99}\n'}
+[35.137641] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[35.137846] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\n'}
+[35.138093] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(int32_t, uint32_t)\xe2\x80\x99\n'}
+[35.138223] (ar_track_alvar) StderrLine: {'line': b'   40 |   Duration(int32_t seconds, uint32_t nanoseconds);\n'}
+[35.138374] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.138500] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided\n'}
+[35.191123] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp: In member function \xe2\x80\x98void IndividualMarkersNoKinect::getCapCallback(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)\xe2\x80\x99:\n'}
+[35.191440] (-) TimerEvent: {}
+[35.191473] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp:333:57: error: no matching function for call to \xe2\x80\x98rclcpp::Duration::Duration(double)\xe2\x80\x99\n'}
+[35.191617] (ar_track_alvar) StderrLine: {'line': b'  333 |             rvizMarker_.lifetime = rclcpp::Duration (1.0);\n'}
+[35.191744] (ar_track_alvar) StderrLine: {'line': b'      |                                                         ^\n'}
+[35.191869] (ar_track_alvar) StderrLine: {'line': b'In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/time.hpp:24,\n'}
+[35.192091] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/clock.hpp:24,\n'}
+[35.192303] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/client.hpp:38,\n'}
+[35.192522] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/callback_group.hpp:24,\n'}
+[35.192730] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:20,\n'}
+[35.192938] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25,\n'}
+[35.193143] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18,\n'}
+[35.193351] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22,\n'}
+[35.193583] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38,\n'}
+[35.193786] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,\n'}
+[35.194045] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21,\n'}
+[35.194253] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:176,\n'}
+[35.194495] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Camera.h:40,\n'}
+[35.194734] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h:36,\n'}
+[35.194945] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:35:\n'}
+[35.195200] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: \xe2\x80\x98template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)\xe2\x80\x99\n'}
+[35.195434] (ar_track_alvar) StderrLine: {'line': b'   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)\n'}
+[35.195639] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.195839] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:\n'}
+[35.196045] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/IndividualMarkersNoKinect.cpp:333:57: note:   mismatched types \xe2\x80\x98const std::chrono::duration<_Rep1, _Period1>\xe2\x80\x99 and \xe2\x80\x98double\xe2\x80\x99\n'}
+[35.196271] (ar_track_alvar) StderrLine: {'line': b'  333 |             rvizMarker_.lifetime = rclcpp::Duration (1.0);\n'}
+[35.196490] (ar_track_alvar) StderrLine: {'line': b'      |                                                         ^\n'}
+[35.196701] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration()\xe2\x80\x99\n'}
+[35.196907] (ar_track_alvar) StderrLine: {'line': b'  159 |   Duration() = default;\n'}
+[35.197109] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.197309] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided\n'}
+[35.197528] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rclcpp::Duration&)\xe2\x80\x99\n'}
+[35.197734] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[35.197933] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.198129] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rclcpp::Duration&\xe2\x80\x99\n'}
+[35.198338] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[35.198559] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~^~~\n'}
+[35.198758] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rcl_duration_t&)\xe2\x80\x99\n'}
+[35.198962] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[35.199163] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[35.199378] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rcl_duration_t&\xe2\x80\x99 {aka \xe2\x80\x98const rcl_duration_s&\xe2\x80\x99}\n'}
+[35.199588] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[35.199790] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[35.200000] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)\xe2\x80\x99\n'}
+[35.200206] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[35.200427] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.200633] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const builtin_interfaces::msg::Duration&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Duration_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[35.200860] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[35.201067] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~\n'}
+[35.201268] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(std::chrono::nanoseconds)\xe2\x80\x99\n'}
+[35.201487] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[35.201693] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[35.201908] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98std::chrono::nanoseconds\xe2\x80\x99 {aka \xe2\x80\x98std::chrono::duration<long int, std::ratio<1, 1000000000> >\xe2\x80\x99}\n'}
+[35.202118] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[35.202324] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\n'}
+[35.202545] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(int32_t, uint32_t)\xe2\x80\x99\n'}
+[35.202754] (ar_track_alvar) StderrLine: {'line': b'   40 |   Duration(int32_t seconds, uint32_t nanoseconds);\n'}
+[35.202969] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.203175] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided\n'}
+[35.291610] (-) TimerEvent: {}
+[35.391877] (-) TimerEvent: {}
+[35.492148] (-) TimerEvent: {}
+[35.506085] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp: In member function \xe2\x80\x98void FindMarkerBundlesNoKinect::makeMarkerMsgs(int, int, alvar::Pose&, sensor_msgs::msg::Image_<std::allocator<void> >::ConstSharedPtr, geometry_msgs::msg::TransformStamped&, visualization_msgs::msg::Marker*, ar_track_alvar_msgs::msg::AlvarMarker*)\xe2\x80\x99:\n'}
+[35.506539] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp:312:49: error: no matching function for call to \xe2\x80\x98rclcpp::Duration::Duration(double)\xe2\x80\x99\n'}
+[35.506784] (ar_track_alvar) StderrLine: {'line': b'  312 |     rvizMarker->lifetime = rclcpp::Duration (1.0);\n'}
+[35.507010] (ar_track_alvar) StderrLine: {'line': b'      |                                                 ^\n'}
+[35.507226] (ar_track_alvar) StderrLine: {'line': b'In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/time.hpp:24,\n'}
+[35.507459] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/clock.hpp:24,\n'}
+[35.507673] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/client.hpp:38,\n'}
+[35.507883] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/callback_group.hpp:24,\n'}
+[35.508078] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:20,\n'}
+[35.508281] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25,\n'}
+[35.508509] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18,\n'}
+[35.508717] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22,\n'}
+[35.508925] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38,\n'}
+[35.509123] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,\n'}
+[35.509323] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21,\n'}
+[35.509546] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:176,\n'}
+[35.509752] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Camera.h:40,\n'}
+[35.509961] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h:36,\n'}
+[35.510178] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:35:\n'}
+[35.510401] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: \xe2\x80\x98template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)\xe2\x80\x99\n'}
+[35.510606] (ar_track_alvar) StderrLine: {'line': b'   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)\n'}
+[35.510806] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.511009] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:\n'}
+[35.511212] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundlesNoKinect.cpp:312:49: note:   mismatched types \xe2\x80\x98const std::chrono::duration<_Rep1, _Period1>\xe2\x80\x99 and \xe2\x80\x98double\xe2\x80\x99\n'}
+[35.511433] (ar_track_alvar) StderrLine: {'line': b'  312 |     rvizMarker->lifetime = rclcpp::Duration (1.0);\n'}
+[35.511628] (ar_track_alvar) StderrLine: {'line': b'      |                                                 ^\n'}
+[35.511826] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration()\xe2\x80\x99\n'}
+[35.512032] (ar_track_alvar) StderrLine: {'line': b'  159 |   Duration() = default;\n'}
+[35.512236] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.512458] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided\n'}
+[35.512682] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rclcpp::Duration&)\xe2\x80\x99\n'}
+[35.512892] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[35.513095] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.513304] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rclcpp::Duration&\xe2\x80\x99\n'}
+[35.513530] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[35.513736] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~^~~\n'}
+[35.513937] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rcl_duration_t&)\xe2\x80\x99\n'}
+[35.514152] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[35.514377] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[35.514586] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rcl_duration_t&\xe2\x80\x99 {aka \xe2\x80\x98const rcl_duration_s&\xe2\x80\x99}\n'}
+[35.514791] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[35.514988] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[35.515183] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)\xe2\x80\x99\n'}
+[35.515402] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[35.515613] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.515834] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const builtin_interfaces::msg::Duration&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Duration_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[35.516061] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[35.516267] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~\n'}
+[35.516495] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(std::chrono::nanoseconds)\xe2\x80\x99\n'}
+[35.516703] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[35.516908] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[35.517110] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98std::chrono::nanoseconds\xe2\x80\x99 {aka \xe2\x80\x98std::chrono::duration<long int, std::ratio<1, 1000000000> >\xe2\x80\x99}\n'}
+[35.517316] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[35.517537] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\n'}
+[35.517739] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(int32_t, uint32_t)\xe2\x80\x99\n'}
+[35.517942] (ar_track_alvar) StderrLine: {'line': b'   40 |   Duration(int32_t seconds, uint32_t nanoseconds);\n'}
+[35.518292] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[35.518542] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided\n'}
+[35.592305] (-) TimerEvent: {}
+[35.692603] (-) TimerEvent: {}
+[35.792881] (-) TimerEvent: {}
+[35.893157] (-) TimerEvent: {}
+[35.993445] (-) TimerEvent: {}
+[36.075892] (ar_track_alvar) StderrLine: {'line': b'In file included from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:38,\n'}
+[36.076179] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:37:\n'}
+[36.076313] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Marker.h:358:17: warning: \xe2\x80\x98template<class _Category, class _Tp, class _Distance, class _Pointer, class _Reference> struct std::iterator\xe2\x80\x99 is deprecated [-Wdeprecated-declarations]\n'}
+[36.076449] (ar_track_alvar) StderrLine: {'line': b'  358 |   : public std::iterator<std::forward_iterator_tag, Marker*>\n'}
+[36.076559] (ar_track_alvar) StderrLine: {'line': b'      |                 ^~~~~~~~\n'}
+[36.076736] (ar_track_alvar) StderrLine: {'line': b'In file included from /usr/include/c++/12/bits/stl_algobase.h:65,\n'}
+[36.076861] (ar_track_alvar) StderrLine: {'line': b'                 from /usr/include/c++/12/vector:60,\n'}
+[36.076977] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/CvTestbed.h:6,\n'}
+[36.077145] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:36:\n'}
+[36.077274] (ar_track_alvar) StderrLine: {'line': b'/usr/include/c++/12/bits/stl_iterator_base_types.h:127:34: note: declared here\n'}
+[36.077428] (ar_track_alvar) StderrLine: {'line': b'  127 |     struct _GLIBCXX17_DEPRECATED iterator\n'}
+[36.077573] (ar_track_alvar) StderrLine: {'line': b'      |                                  ^~~~~~~~\n'}
+[36.093576] (-) TimerEvent: {}
+[36.193860] (-) TimerEvent: {}
+[36.294128] (-) TimerEvent: {}
+[36.394434] (-) TimerEvent: {}
+[36.494741] (-) TimerEvent: {}
+[36.595030] (-) TimerEvent: {}
+[36.596851] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp: In member function \xe2\x80\x98void TrainMarkerBundle::makeMarkerMsgs(int, int, alvar::Pose&, sensor_msgs::msg::Image_<std::allocator<void> >::ConstSharedPtr, geometry_msgs::msg::TransformStamped&, visualization_msgs::msg::Marker*, ar_track_alvar_msgs::msg::AlvarMarker*)\xe2\x80\x99:\n'}
+[36.597753] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp:410:69: error: no matching function for call to \xe2\x80\x98rclcpp::Duration::Duration(double)\xe2\x80\x99\n'}
+[36.598036] (ar_track_alvar) StderrLine: {'line': b'  410 |                         rvizMarker->lifetime = rclcpp::Duration (1.0);\n'}
+[36.598263] (ar_track_alvar) StderrLine: {'line': b'      |                                                                     ^\n'}
+[36.598540] (ar_track_alvar) StderrLine: {'line': b'In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/time.hpp:24,\n'}
+[36.598761] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/clock.hpp:24,\n'}
+[36.598975] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/client.hpp:38,\n'}
+[36.599189] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/callback_group.hpp:24,\n'}
+[36.599420] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:20,\n'}
+[36.599636] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25,\n'}
+[36.599850] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18,\n'}
+[36.600050] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22,\n'}
+[36.600253] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38,\n'}
+[36.600478] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,\n'}
+[36.600688] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21,\n'}
+[36.600894] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:176,\n'}
+[36.601084] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Camera.h:40,\n'}
+[36.601284] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h:36,\n'}
+[36.601526] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:35:\n'}
+[36.601733] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: \xe2\x80\x98template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)\xe2\x80\x99\n'}
+[36.601946] (ar_track_alvar) StderrLine: {'line': b'   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)\n'}
+[36.602154] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[36.602372] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:\n'}
+[36.602586] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/TrainMarkerBundle.cpp:410:69: note:   mismatched types \xe2\x80\x98const std::chrono::duration<_Rep1, _Period1>\xe2\x80\x99 and \xe2\x80\x98double\xe2\x80\x99\n'}
+[36.602811] (ar_track_alvar) StderrLine: {'line': b'  410 |                         rvizMarker->lifetime = rclcpp::Duration (1.0);\n'}
+[36.603022] (ar_track_alvar) StderrLine: {'line': b'      |                                                                     ^\n'}
+[36.603227] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration()\xe2\x80\x99\n'}
+[36.603450] (ar_track_alvar) StderrLine: {'line': b'  159 |   Duration() = default;\n'}
+[36.603657] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[36.603861] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided\n'}
+[36.604069] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rclcpp::Duration&)\xe2\x80\x99\n'}
+[36.604279] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[36.604503] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[36.604708] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rclcpp::Duration&\xe2\x80\x99\n'}
+[36.604915] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[36.605104] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~^~~\n'}
+[36.605309] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rcl_duration_t&)\xe2\x80\x99\n'}
+[36.605534] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[36.605741] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[36.605944] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rcl_duration_t&\xe2\x80\x99 {aka \xe2\x80\x98const rcl_duration_s&\xe2\x80\x99}\n'}
+[36.606154] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[36.606373] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[36.606581] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)\xe2\x80\x99\n'}
+[36.606786] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[36.606991] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[36.607195] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const builtin_interfaces::msg::Duration&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Duration_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[36.607442] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[36.607668] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~\n'}
+[36.607874] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(std::chrono::nanoseconds)\xe2\x80\x99\n'}
+[36.608079] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[36.608299] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[36.608525] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98std::chrono::nanoseconds\xe2\x80\x99 {aka \xe2\x80\x98std::chrono::duration<long int, std::ratio<1, 1000000000> >\xe2\x80\x99}\n'}
+[36.608738] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[36.608940] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\n'}
+[36.609140] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(int32_t, uint32_t)\xe2\x80\x99\n'}
+[36.609341] (ar_track_alvar) StderrLine: {'line': b'   40 |   Duration(int32_t seconds, uint32_t nanoseconds);\n'}
+[36.609565] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[36.609768] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided\n'}
+[36.695195] (-) TimerEvent: {}
+[36.795492] (-) TimerEvent: {}
+[36.895787] (-) TimerEvent: {}
+[36.996082] (-) TimerEvent: {}
+[37.019981] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp: In member function \xe2\x80\x98void FindMarkerBundles::draw3dPoints(pcl::PointCloud<pcl::PointXYZRGB>::Ptr, std::string, int, int, double)\xe2\x80\x99:\n'}
+[37.020398] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:292:50: error: no matching function for call to \xe2\x80\x98rclcpp::Duration::Duration(double)\xe2\x80\x99\n'}
+[37.020676] (ar_track_alvar) StderrLine: {'line': b'  292 |       rvizMarker.lifetime = rclcpp::Duration (1.0);\n'}
+[37.020901] (ar_track_alvar) StderrLine: {'line': b'      |                                                  ^\n'}
+[37.021649] (ar_track_alvar) StderrLine: {'line': b'In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/time.hpp:24,\n'}
+[37.021866] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/clock.hpp:24,\n'}
+[37.022071] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/client.hpp:38,\n'}
+[37.022549] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/callback_group.hpp:24,\n'}
+[37.022971] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:20,\n'}
+[37.023433] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25,\n'}
+[37.023881] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18,\n'}
+[37.024318] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22,\n'}
+[37.024773] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38,\n'}
+[37.025213] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,\n'}
+[37.025715] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21,\n'}
+[37.026145] (ar_track_alvar) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:176,\n'}
+[37.026642] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/Camera.h:40,\n'}
+[37.027079] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h:36,\n'}
+[37.027570] (ar_track_alvar) StderrLine: {'line': b'                 from /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h:35:\n'}
+[37.028025] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: \xe2\x80\x98template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)\xe2\x80\x99\n'}
+[37.028522] (ar_track_alvar) StderrLine: {'line': b'   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)\n'}
+[37.029005] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.029449] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:\n'}
+[37.029912] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:292:50: note:   mismatched types \xe2\x80\x98const std::chrono::duration<_Rep1, _Period1>\xe2\x80\x99 and \xe2\x80\x98double\xe2\x80\x99\n'}
+[37.030385] (ar_track_alvar) StderrLine: {'line': b'  292 |       rvizMarker.lifetime = rclcpp::Duration (1.0);\n'}
+[37.030639] (ar_track_alvar) StderrLine: {'line': b'      |                                                  ^\n'}
+[37.030865] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration()\xe2\x80\x99\n'}
+[37.031067] (ar_track_alvar) StderrLine: {'line': b'  159 |   Duration() = default;\n'}
+[37.031270] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.031497] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided\n'}
+[37.031704] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rclcpp::Duration&)\xe2\x80\x99\n'}
+[37.031911] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[37.032107] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.032307] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rclcpp::Duration&\xe2\x80\x99\n'}
+[37.032550] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[37.032757] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~^~~\n'}
+[37.032965] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rcl_duration_t&)\xe2\x80\x99\n'}
+[37.033173] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[37.033401] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[37.033614] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rcl_duration_t&\xe2\x80\x99 {aka \xe2\x80\x98const rcl_duration_s&\xe2\x80\x99}\n'}
+[37.033824] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[37.034031] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[37.034234] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)\xe2\x80\x99\n'}
+[37.034459] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[37.034662] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.034882] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const builtin_interfaces::msg::Duration&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Duration_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[37.035093] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[37.035318] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~\n'}
+[37.035545] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(std::chrono::nanoseconds)\xe2\x80\x99\n'}
+[37.035757] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[37.035963] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[37.036170] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98std::chrono::nanoseconds\xe2\x80\x99 {aka \xe2\x80\x98std::chrono::duration<long int, std::ratio<1, 1000000000> >\xe2\x80\x99}\n'}
+[37.036390] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[37.036600] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\n'}
+[37.036801] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(int32_t, uint32_t)\xe2\x80\x99\n'}
+[37.036996] (ar_track_alvar) StderrLine: {'line': b'   40 |   Duration(int32_t seconds, uint32_t nanoseconds);\n'}
+[37.037202] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.037404] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided\n'}
+[37.037611] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp: In member function \xe2\x80\x98void FindMarkerBundles::drawArrow(geometry_msgs::msg::Point, tf2::Matrix3x3, std::string, int, int)\xe2\x80\x99:\n'}
+[37.037816] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:322:52: error: no matching function for call to \xe2\x80\x98rclcpp::Duration::Duration(double)\xe2\x80\x99\n'}
+[37.038023] (ar_track_alvar) StderrLine: {'line': b'  322 |         rvizMarker.lifetime = rclcpp::Duration (1.0);\n'}
+[37.038228] (ar_track_alvar) StderrLine: {'line': b'      |                                                    ^\n'}
+[37.038455] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: \xe2\x80\x98template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)\xe2\x80\x99\n'}
+[37.038668] (ar_track_alvar) StderrLine: {'line': b'   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)\n'}
+[37.038873] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.039090] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:\n'}
+[37.039302] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:322:52: note:   mismatched types \xe2\x80\x98const std::chrono::duration<_Rep1, _Period1>\xe2\x80\x99 and \xe2\x80\x98double\xe2\x80\x99\n'}
+[37.039531] (ar_track_alvar) StderrLine: {'line': b'  322 |         rvizMarker.lifetime = rclcpp::Duration (1.0);\n'}
+[37.039737] (ar_track_alvar) StderrLine: {'line': b'      |                                                    ^\n'}
+[37.039955] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration()\xe2\x80\x99\n'}
+[37.040158] (ar_track_alvar) StderrLine: {'line': b'  159 |   Duration() = default;\n'}
+[37.040375] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.040584] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided\n'}
+[37.040784] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rclcpp::Duration&)\xe2\x80\x99\n'}
+[37.040986] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[37.041186] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.041393] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rclcpp::Duration&\xe2\x80\x99\n'}
+[37.041621] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[37.041830] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~^~~\n'}
+[37.042023] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rcl_duration_t&)\xe2\x80\x99\n'}
+[37.042223] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[37.042448] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[37.042656] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rcl_duration_t&\xe2\x80\x99 {aka \xe2\x80\x98const rcl_duration_s&\xe2\x80\x99}\n'}
+[37.042866] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[37.043070] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[37.043272] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)\xe2\x80\x99\n'}
+[37.043611] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[37.043844] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.044053] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const builtin_interfaces::msg::Duration&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Duration_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[37.044256] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[37.044479] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~\n'}
+[37.044707] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(std::chrono::nanoseconds)\xe2\x80\x99\n'}
+[37.044916] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[37.045119] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[37.045314] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98std::chrono::nanoseconds\xe2\x80\x99 {aka \xe2\x80\x98std::chrono::duration<long int, std::ratio<1, 1000000000> >\xe2\x80\x99}\n'}
+[37.045558] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[37.045765] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\n'}
+[37.045969] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(int32_t, uint32_t)\xe2\x80\x99\n'}
+[37.046178] (ar_track_alvar) StderrLine: {'line': b'   40 |   Duration(int32_t seconds, uint32_t nanoseconds);\n'}
+[37.046392] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.046598] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided\n'}
+[37.054838] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp: In member function \xe2\x80\x98void FindMarkerBundles::GetMultiMarkerPoses(cv::Mat*, ARCloud&)\xe2\x80\x99:\n'}
+[37.055148] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:579:22: error: expected primary-expression before \xe2\x80\x98const\xe2\x80\x99\n'}
+[37.055378] (ar_track_alvar) StderrLine: {'line': b'  579 |       BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)\n'}
+[37.055593] (ar_track_alvar) StderrLine: {'line': b'      |                      ^~~~~\n'}
+[37.077693] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:579:7: error: \xe2\x80\x98BOOST_FOREACH\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98BOOST_NO_HASH\xe2\x80\x99?\n'}
+[37.078046] (ar_track_alvar) StderrLine: {'line': b'  579 |       BOOST_FOREACH (const PointDouble& p, m->ros_marker_points_img)\n'}
+[37.078274] (ar_track_alvar) StderrLine: {'line': b'      |       ^~~~~~~~~~~~~\n'}
+[37.078510] (ar_track_alvar) StderrLine: {'line': b'      |       BOOST_NO_HASH\n'}
+[37.082807] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp: In member function \xe2\x80\x98void FindMarkerBundles::makeMarkerMsgs(int, int, alvar::Pose&, sensor_msgs::msg::Image, geometry_msgs::msg::TransformStamped&, visualization_msgs::msg::Marker*, ar_track_alvar_msgs::msg::AlvarMarker*, int)\xe2\x80\x99:\n'}
+[37.083153] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:717:49: error: no matching function for call to \xe2\x80\x98rclcpp::Duration::Duration(double)\xe2\x80\x99\n'}
+[37.083423] (ar_track_alvar) StderrLine: {'line': b'  717 |     rvizMarker->lifetime = rclcpp::Duration (0.1);\n'}
+[37.083641] (ar_track_alvar) StderrLine: {'line': b'      |                                                 ^\n'}
+[37.083858] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note: candidate: \xe2\x80\x98template<class Rep, class Period> rclcpp::Duration::Duration(const std::chrono::duration<_Rep1, _Period1>&)\xe2\x80\x99\n'}
+[37.084076] (ar_track_alvar) StderrLine: {'line': b'   49 |   Duration(const std::chrono::duration<Rep, Period> & duration)  // NOLINT(runtime/explicit)\n'}
+[37.084283] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.084511] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:49:3: note:   template argument deduction/substitution failed:\n'}
+[37.084720] (ar_track_alvar) StderrLine: {'line': b'/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/nodes/FindMarkerBundles.cpp:717:49: note:   mismatched types \xe2\x80\x98const std::chrono::duration<_Rep1, _Period1>\xe2\x80\x99 and \xe2\x80\x98double\xe2\x80\x99\n'}
+[37.084951] (ar_track_alvar) StderrLine: {'line': b'  717 |     rvizMarker->lifetime = rclcpp::Duration (0.1);\n'}
+[37.085165] (ar_track_alvar) StderrLine: {'line': b'      |                                                 ^\n'}
+[37.085401] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration()\xe2\x80\x99\n'}
+[37.085613] (ar_track_alvar) StderrLine: {'line': b'  159 |   Duration() = default;\n'}
+[37.085816] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.086023] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:159:3: note:   candidate expects 0 arguments, 1 provided\n'}
+[37.086228] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rclcpp::Duration&)\xe2\x80\x99\n'}
+[37.086457] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[37.086668] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.086869] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:62:29: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rclcpp::Duration&\xe2\x80\x99\n'}
+[37.087075] (ar_track_alvar) StderrLine: {'line': b'   62 |   Duration(const Duration & rhs);\n'}
+[37.087281] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~^~~\n'}
+[37.087499] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const rcl_duration_t&)\xe2\x80\x99\n'}
+[37.087702] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[37.087906] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[37.088107] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:60:44: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const rcl_duration_t&\xe2\x80\x99 {aka \xe2\x80\x98const rcl_duration_s&\xe2\x80\x99}\n'}
+[37.088311] (ar_track_alvar) StderrLine: {'line': b'   60 |   explicit Duration(const rcl_duration_t & duration);\n'}
+[37.088549] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[37.088758] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(const builtin_interfaces::msg::Duration&)\xe2\x80\x99\n'}
+[37.088957] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[37.089157] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.089376] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:54:54: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98const builtin_interfaces::msg::Duration&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Duration_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[37.089586] (ar_track_alvar) StderrLine: {'line': b'   54 |   Duration(const builtin_interfaces::msg::Duration & duration_msg);  // NOLINT(runtime/explicit)\n'}
+[37.089788] (ar_track_alvar) StderrLine: {'line': b'      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~\n'}
+[37.089995] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:12: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(std::chrono::nanoseconds)\xe2\x80\x99\n'}
+[37.090199] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[37.090432] (ar_track_alvar) StderrLine: {'line': b'      |            ^~~~~~~~\n'}
+[37.090646] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:43:46: note:   no known conversion for argument 1 from \xe2\x80\x98double\xe2\x80\x99 to \xe2\x80\x98std::chrono::nanoseconds\xe2\x80\x99 {aka \xe2\x80\x98std::chrono::duration<long int, std::ratio<1, 1000000000> >\xe2\x80\x99}\n'}
+[37.090871] (ar_track_alvar) StderrLine: {'line': b'   43 |   explicit Duration(std::chrono::nanoseconds nanoseconds);\n'}
+[37.091073] (ar_track_alvar) StderrLine: {'line': b'      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\n'}
+[37.091278] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note: candidate: \xe2\x80\x98rclcpp::Duration::Duration(int32_t, uint32_t)\xe2\x80\x99\n'}
+[37.091496] (ar_track_alvar) StderrLine: {'line': b'   40 |   Duration(int32_t seconds, uint32_t nanoseconds);\n'}
+[37.091701] (ar_track_alvar) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[37.091902] (ar_track_alvar) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/duration.hpp:40:3: note:   candidate expects 2 arguments, 1 provided\n'}
+[37.096214] (-) TimerEvent: {}
+[37.196463] (-) TimerEvent: {}
+[37.197722] (ar_track_alvar) StdoutLine: {'line': b'[ 89%] Linking CXX executable createMarker\n'}
+[37.296623] (-) TimerEvent: {}
+[37.396910] (-) TimerEvent: {}
+[37.497195] (-) TimerEvent: {}
+[37.597471] (-) TimerEvent: {}
+[37.697749] (-) TimerEvent: {}
+[37.798031] (-) TimerEvent: {}
+[37.898313] (-) TimerEvent: {}
+[37.998601] (-) TimerEvent: {}
+[38.098882] (-) TimerEvent: {}
+[38.199168] (-) TimerEvent: {}
+[38.299447] (-) TimerEvent: {}
+[38.399725] (-) TimerEvent: {}
+[38.499984] (-) TimerEvent: {}
+[38.600209] (-) TimerEvent: {}
+[38.700458] (-) TimerEvent: {}
+[38.800730] (-) TimerEvent: {}
+[38.901009] (-) TimerEvent: {}
+[39.001283] (-) TimerEvent: {}
+[39.101561] (-) TimerEvent: {}
+[39.201851] (-) TimerEvent: {}
+[39.302119] (-) TimerEvent: {}
+[39.402391] (-) TimerEvent: {}
+[39.502637] (-) TimerEvent: {}
+[39.602855] (-) TimerEvent: {}
+[39.703085] (-) TimerEvent: {}
+[39.803343] (-) TimerEvent: {}
+[39.903595] (-) TimerEvent: {}
+[40.003853] (-) TimerEvent: {}
+[40.104095] (-) TimerEvent: {}
+[40.204397] (-) TimerEvent: {}
+[40.304645] (-) TimerEvent: {}
+[40.404911] (-) TimerEvent: {}
+[40.505173] (-) TimerEvent: {}
+[40.605439] (-) TimerEvent: {}
+[40.705701] (-) TimerEvent: {}
+[40.805940] (-) TimerEvent: {}
+[40.906152] (-) TimerEvent: {}
+[41.006448] (-) TimerEvent: {}
+[41.106708] (-) TimerEvent: {}
+[41.206972] (-) TimerEvent: {}
+[41.307235] (-) TimerEvent: {}
+[41.407465] (-) TimerEvent: {}
+[41.507769] (-) TimerEvent: {}
+[41.608034] (-) TimerEvent: {}
+[41.708259] (-) TimerEvent: {}
+[41.808440] (-) TimerEvent: {}
+[41.908649] (-) TimerEvent: {}
+[42.008889] (-) TimerEvent: {}
+[42.109156] (-) TimerEvent: {}
+[42.209433] (-) TimerEvent: {}
+[42.309681] (-) TimerEvent: {}
+[42.342840] (ar_track_alvar) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/findMarkerBundlesNoKinect.dir/build.make:76\xef\xbc\x9aCMakeFiles/findMarkerBundlesNoKinect.dir/nodes/FindMarkerBundlesNoKinect.cpp.o] \xe9\x94\x99\xe8\xaf\xaf 1\n'}
+[42.343504] (ar_track_alvar) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:338\xef\xbc\x9aCMakeFiles/findMarkerBundlesNoKinect.dir/all] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[42.343755] (ar_track_alvar) StderrLine: {'line': b'gmake[1]: *** \xe6\xad\xa3\xe5\x9c\xa8\xe7\xad\x89\xe5\xbe\x85\xe6\x9c\xaa\xe5\xae\x8c\xe6\x88\x90\xe7\x9a\x84\xe4\xbb\xbb\xe5\x8a\xa1....\n'}
+[42.409866] (-) TimerEvent: {}
+[42.510163] (-) TimerEvent: {}
+[42.610439] (-) TimerEvent: {}
+[42.710708] (-) TimerEvent: {}
+[42.810975] (-) TimerEvent: {}
+[42.911240] (-) TimerEvent: {}
+[43.011492] (-) TimerEvent: {}
+[43.111761] (-) TimerEvent: {}
+[43.212027] (-) TimerEvent: {}
+[43.312306] (-) TimerEvent: {}
+[43.354032] (ar_track_alvar) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/trainMarkerBundle.dir/build.make:76\xef\xbc\x9aCMakeFiles/trainMarkerBundle.dir/nodes/TrainMarkerBundle.cpp.o] \xe9\x94\x99\xe8\xaf\xaf 1\n'}
+[43.354602] (ar_track_alvar) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:284\xef\xbc\x9aCMakeFiles/trainMarkerBundle.dir/all] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[43.412445] (-) TimerEvent: {}
+[43.512714] (-) TimerEvent: {}
+[43.612986] (-) TimerEvent: {}
+[43.652785] (ar_track_alvar) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/individualMarkers.dir/build.make:76\xef\xbc\x9aCMakeFiles/individualMarkers.dir/nodes/IndividualMarkers.cpp.o] \xe9\x94\x99\xe8\xaf\xaf 1\n'}
+[43.653304] (ar_track_alvar) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:232\xef\xbc\x9aCMakeFiles/individualMarkers.dir/all] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[43.674420] (ar_track_alvar) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/individualMarkersNoKinect.dir/build.make:76\xef\xbc\x9aCMakeFiles/individualMarkersNoKinect.dir/nodes/IndividualMarkersNoKinect.cpp.o] \xe9\x94\x99\xe8\xaf\xaf 1\n'}
+[43.674848] (ar_track_alvar) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:258\xef\xbc\x9aCMakeFiles/individualMarkersNoKinect.dir/all] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[43.713130] (-) TimerEvent: {}
+[43.813375] (-) TimerEvent: {}
+[43.913610] (-) TimerEvent: {}
+[44.013868] (-) TimerEvent: {}
+[44.114148] (-) TimerEvent: {}
+[44.214430] (-) TimerEvent: {}
+[44.314679] (-) TimerEvent: {}
+[44.414944] (-) TimerEvent: {}
+[44.515207] (-) TimerEvent: {}
+[44.615498] (-) TimerEvent: {}
+[44.715780] (-) TimerEvent: {}
+[44.816042] (-) TimerEvent: {}
+[44.916310] (-) TimerEvent: {}
+[45.016588] (-) TimerEvent: {}
+[45.116852] (-) TimerEvent: {}
+[45.217110] (-) TimerEvent: {}
+[45.317384] (-) TimerEvent: {}
+[45.417650] (-) TimerEvent: {}
+[45.517914] (-) TimerEvent: {}
+[45.618193] (-) TimerEvent: {}
+[45.718585] (-) TimerEvent: {}
+[45.818937] (-) TimerEvent: {}
+[45.845787] (ar_track_alvar) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/findMarkerBundles.dir/build.make:76\xef\xbc\x9aCMakeFiles/findMarkerBundles.dir/nodes/FindMarkerBundles.cpp.o] \xe9\x94\x99\xe8\xaf\xaf 1\n'}
+[45.846198] (ar_track_alvar) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:312\xef\xbc\x9aCMakeFiles/findMarkerBundles.dir/all] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[45.919083] (-) TimerEvent: {}
+[46.019335] (-) TimerEvent: {}
+[46.119591] (-) TimerEvent: {}
+[46.219833] (-) TimerEvent: {}
+[46.320088] (-) TimerEvent: {}
+[46.420350] (-) TimerEvent: {}
+[46.520599] (-) TimerEvent: {}
+[46.620867] (-) TimerEvent: {}
+[46.721114] (-) TimerEvent: {}
+[46.821408] (-) TimerEvent: {}
+[46.921656] (-) TimerEvent: {}
+[47.021924] (-) TimerEvent: {}
+[47.122164] (-) TimerEvent: {}
+[47.222433] (-) TimerEvent: {}
+[47.322658] (-) TimerEvent: {}
+[47.422914] (-) TimerEvent: {}
+[47.523165] (-) TimerEvent: {}
+[47.623428] (-) TimerEvent: {}
+[47.723643] (-) TimerEvent: {}
+[47.823902] (-) TimerEvent: {}
+[47.924144] (-) TimerEvent: {}
+[48.024480] (-) TimerEvent: {}
+[48.124734] (-) TimerEvent: {}
+[48.224991] (-) TimerEvent: {}
+[48.325276] (-) TimerEvent: {}
+[48.425583] (-) TimerEvent: {}
+[48.525829] (-) TimerEvent: {}
+[48.626095] (-) TimerEvent: {}
+[48.726353] (-) TimerEvent: {}
+[48.826617] (-) TimerEvent: {}
+[48.926870] (-) TimerEvent: {}
+[48.980088] (ar_track_alvar) StdoutLine: {'line': b'[ 89%] Built target createMarker\n'}
+[48.981629] (ar_track_alvar) StderrLine: {'line': b'gmake: *** [Makefile:146\xef\xbc\x9aall] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[48.984680] (ar_track_alvar) CommandEnded: {'returncode': 2}
+[49.000178] (ar_track_alvar) JobEnded: {'identifier': 'ar_track_alvar', 'rc': 2}
+[49.010798] (-) EventReactorShutdown: {}

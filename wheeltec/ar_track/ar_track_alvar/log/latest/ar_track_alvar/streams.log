@@ -1,0 +1,114 @@
+[0.022s] Invoking command in '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\n(TraeAI-4) \w [$?] $ __trae_PS1=\n(TraeAI-4) \w [$?] $ /usr/bin/cmake --build /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar -- -j24 -l24
+[0.141s] [  4%] Built target kinect_filtering
+[0.174s] [ 69%] Built target ar_track_alvar
+[0.209s] [ 73%] Built target medianFilter
+[0.234s] [ 86%] Built target createMarker
+[0.234s] [ 86%] Built target trainMarkerBundle
+[0.234s] [ 86%] Built target findMarkerBundlesNoKinect
+[0.234s] [ 91%] Built target individualMarkersNoKinect
+[0.253s] [ 95%] Built target individualMarkers
+[0.293s] [100%] Built target findMarkerBundles
+[0.312s] Invoked command in '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\n(TraeAI-4) \w [$?] $ __trae_PS1=\n(TraeAI-4) \w [$?] $ /usr/bin/cmake --build /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar -- -j24 -l24
+[0.331s] Invoking command in '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\n(TraeAI-4) \w [$?] $ __trae_PS1=\n(TraeAI-4) \w [$?] $ /usr/bin/cmake --install /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar
+[0.344s] -- Install configuration: ""
+[0.344s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/library_path.sh
+[0.344s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/library_path.dsv
+[0.345s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/libar_track_alvar.a
+[0.345s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/individualMarkers
+[0.345s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/individualMarkersNoKinect
+[0.346s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/trainMarkerBundle
+[0.346s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/findMarkerBundles
+[0.346s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/findMarkerBundlesNoKinect
+[0.347s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/ar_track_alvar/createMarker
+[0.348s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/libkinect_filtering.a
+[0.349s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/lib/libmedianFilter.a
+[0.350s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar
+[0.350s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Alvar.h
+[0.350s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Line.h
+[0.351s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/MultiMarkerInitializer.h
+[0.351s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Tracker.h
+[0.351s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Ransac.h
+[0.351s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/CvTestbed.h
+[0.352s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/AlvarException.h
+[0.353s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/IntegralImage.h
+[0.353s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/ConnectedComponents.h
+[0.354s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Capture.h
+[0.355s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/CaptureFactory.h
+[0.355s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Util.h
+[0.356s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/GlutViewer.h
+[0.357s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/SfM.h
+[0.357s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Timer.h
+[0.357s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/filter
+[0.358s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/filter/medianFilter.h
+[0.358s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/filter/kinect_filtering.h
+[0.359s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/UnscentedKalman.h
+[0.360s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/DirectoryIterator.h
+[0.360s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Bitset.h
+[0.360s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Uncopyable.h
+[0.361s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/DirectoryIterator_private.h
+[0.361s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/TrackerStat.h
+[0.363s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Platform.h
+[0.363s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/CaptureDevice.h
+[0.364s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Rotation.h
+[0.365s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Shared.h
+[0.365s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Plugin.h
+[0.365s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Threads_private.h
+[0.366s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/MultiMarkerBundle.h
+[0.366s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/MultiMarkerFiltered.h
+[0.366s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Container3d.h
+[0.367s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/MultiMarker.h
+[0.368s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Camera.h
+[0.369s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Plugin_private.h
+[0.369s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Lock.h
+[0.370s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Threads.h
+[0.370s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Pose.h
+[0.371s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/CapturePlugin.h
+[0.372s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/TrackerFeatures.h
+[0.372s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/MarkerDetector.h
+[0.373s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/FileFormatUtils.h
+[0.374s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/EC.h
+[0.376s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Kalman.h
+[0.378s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/FileFormat.h
+[0.379s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Mutex_private.h
+[0.379s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Optimization.h
+[0.380s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Mutex.h
+[0.380s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Draw.h
+[0.381s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/TrifocalTensor.h
+[0.381s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/CaptureFactory_private.h
+[0.382s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Timer_private.h
+[0.383s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/FernPoseEstimator.h
+[0.383s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Marker.h
+[0.383s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/Filter.h
+[0.383s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/TrackerPsa.h
+[0.384s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/FernImageDetector.h
+[0.384s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/include/ar_track_alvar/TrackerOrientation.h
+[0.384s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch
+[0.384s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_train.py
+[0.384s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_bundle.py
+[0.385s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_bundle_no_kinect_testing.py
+[0.385s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_bundle_no_kinect.launch.py
+[0.385s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_indiv.py
+[0.385s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/launch/pr2_indiv_no_kinect.launch.py
+[0.386s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/bundles
+[0.386s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/bundles/tags8and9.xml
+[0.386s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/bundles/table_8_9_10.xml
+[0.386s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/bundles/truthTableLeg.xml
+[0.386s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ament_index/resource_index/package_run_dependencies/ar_track_alvar
+[0.387s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ament_index/resource_index/parent_prefix_path/ar_track_alvar
+[0.387s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/ament_prefix_path.sh
+[0.387s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/ament_prefix_path.dsv
+[0.387s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/path.sh
+[0.387s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/environment/path.dsv
+[0.388s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/local_setup.bash
+[0.388s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/local_setup.sh
+[0.388s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/local_setup.zsh
+[0.388s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/local_setup.dsv
+[0.389s] -- Installing: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/package.dsv
+[0.389s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ament_index/resource_index/packages/ar_track_alvar
+[0.389s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.389s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/cmake/ament_cmake_export_libraries-extras.cmake
+[0.389s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.390s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/cmake/ar_track_alvarConfig.cmake
+[0.390s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/cmake/ar_track_alvarConfig-version.cmake
+[0.390s] -- Up-to-date: /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar/share/ar_track_alvar/package.xml
+[0.391s] Invoked command in '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/hl/wheeltec/wheeltec_ws/install/simple_follower_ros2:/home/hl/wheeltec/wheeltec_ws/install/tf2_tools:/home/hl/wheeltec/wheeltec_ws/install/quiz_status:/home/hl/wheeltec/wheeltec_ws/install/quiz_pi_con:/home/hl/wheeltec/wheeltec_ws/install/nav2_gazebo_spawner:/home/hl/wheeltec/wheeltec_ws/install/manual_drive:/home/hl/wheeltec/wheeltec_ws/install/laser_scan_reader:/home/hl/wheeltec/wheeltec_ws/install/kul_tabloo_launch:/home/hl/wheeltec/wheeltec_ws/install/keyboard_control_emer:/home/hl/wheeltec/wheeltec_ws/install/beamer:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\n(TraeAI-4) \w [$?] $ __trae_PS1=\n(TraeAI-4) \w [$?] $ /usr/bin/cmake --install /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar

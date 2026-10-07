@@ -1,0 +1,2 @@
+[console_scripts]
+keyboard_control_emer = keyboard_control_emer.main:main

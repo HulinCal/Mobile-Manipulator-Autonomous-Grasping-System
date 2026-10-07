@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkinect_filtering.a CMakeFiles/kinect_filtering.dir/src/kinect_filtering.cpp.o
+/usr/bin/ranlib libkinect_filtering.a

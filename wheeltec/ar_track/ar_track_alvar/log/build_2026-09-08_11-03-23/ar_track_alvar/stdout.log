@@ -1,0 +1,15 @@
+[  4%] Built target kinect_filtering
+[ 69%] Built target ar_track_alvar
+[ 73%] Built target medianFilter
+[ 78%] Built target createMarker
+[ 82%] Building CXX object CMakeFiles/individualMarkers.dir/nodes/IndividualMarkers.cpp.o
+[ 82%] Building CXX object CMakeFiles/findMarkerBundlesNoKinect.dir/nodes/FindMarkerBundlesNoKinect.cpp.o
+[ 84%] Building CXX object CMakeFiles/trainMarkerBundle.dir/nodes/TrainMarkerBundle.cpp.o
+[ 86%] Building CXX object CMakeFiles/individualMarkersNoKinect.dir/nodes/IndividualMarkersNoKinect.cpp.o
+[ 89%] Building CXX object CMakeFiles/findMarkerBundles.dir/nodes/FindMarkerBundles.cpp.o
+[ 91%] Linking CXX executable findMarkerBundlesNoKinect
+[ 93%] Linking CXX executable trainMarkerBundle
+[ 93%] Built target findMarkerBundlesNoKinect
+[ 95%] Linking CXX executable individualMarkersNoKinect
+[ 95%] Built target trainMarkerBundle
+[ 95%] Built target individualMarkersNoKinect

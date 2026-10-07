@@ -1,0 +1,73 @@
+# ==========================================================================
+# mycobot280 M5 hand-eye calibration parameters
+#
+# ArUco marker ID 582 is mounted on the robot flange (eye-to-hand setup).
+# Change `tracking_base_frame` / `tracking_marker_frame` to a fixed world
+# marker frame when running eye-in-hand (see camera_calibration.md).
+# ==========================================================================
+
+mycobot280:
+  # ---- Marker (ArUco ID 582) ----
+  marker_id: 582
+  # Marker side length in meters. Measure the *black square* edge, NOT the
+  # white border. Update this value to match your printed marker.
+  marker_size: 0.095
+
+  # ---- Marker mounting offset on the flange (eye-to-hand only) ----------
+  # The ArUco frame published by aruco_ros (`aruco_marker_frame`) has its
+  # origin at the marker center and Z pointing OUT of the marker (toward the
+  # camera). Hand-eye calibration requires `tracking_marker_frame` to be the
+  # SAME physical point as `robot_effector_frame` (the flange center). If the
+  # marker is not centered on the flange end-face, or the calibration board
+  # has non-zero thickness, specify the marker's pose in the FLANGE frame so
+  # the launch file can publish a compensating static TF
+  # `aruco_marker_frame -> marker_mount_frame` and hand off `marker_mount_frame`
+  # to easy_handeye2.
+  #
+  # Convention (measured in the flange frame, marker face pointing outward):
+  #   marker_offset_x : marker center X offset from flange center [m]
+  #   marker_offset_y : marker center Y offset from flange center [m]
+  #   marker_thickness: distance from the ArUco-detected marker surface to
+  #                     the flange end-face [m] (board + adhesive thickness).
+  # Set all to 0 if the marker is centered and printed on paper glued flat.
+  # NOTE: only used by calibrate_eye_to_hand.launch.py (marker-on-flange).
+  #       Eye-in-hand has the marker fixed in the world, not on the flange.
+  marker_offset_x: 0.0
+  marker_offset_y: 0.0
+  marker_thickness: 0.008
+
+  # ---- Robot TF frames (from mycobot_280.urdf.xacro / .srdf) ----
+  robot_base_frame: "base_link"
+  # End-effector / flange frame defined via <xacro:arg name="flange_link"
+  # default="link6_flange"/> in mycobot_280.urdf.xacro.
+  robot_effector_frame: "link6_flange"
+
+  # MoveIt planning group that controls the arm joints (see mycobot_280.srdf).
+  planning_group: "arm"
+
+  # ---- Camera topics ----
+  # Astra Pro (astra_pro.launch.xml with camera_name:=camera) publishes:
+  #   /camera/color/image_raw   /camera/color/camera_info
+  #   /camera/depth/image_raw   /camera/depth/camera_info
+  #   /camera/ir/image_raw      /camera/ir/camera_info
+  camera_namespace: "/camera"
+  image_topic: "color/image_raw"
+  camera_info_topic: "color/camera_info"
+
+  # Optical frame of the Astra Pro color stream. The astra_camera driver
+  # publishes the TF chain:
+  #   camera_link -> camera_depth_frame -> camera_color_optical_frame
+  # (and *_depth_optical_frame etc.). Note: this is NOT the D435 frame
+  # `camera_head_color_optical_frame` from the mycobot_description URDF.
+  # The launch file also publishes a static `base_link -> camera_link`
+  # (eye-to-hand) or `link6_flange -> camera_link` (eye-in-hand) to connect
+  # the Astra's TF tree to the arm.
+  camera_optical_frame: "camera_color_optical_frame"
+
+  # ---- Calibration name (used for the result yaml file) ----
+  calibration_name: "mycobot280_calibration"
+
+  # ---- Solver ----
+  # Tsai, Park, Horaud, Andreff, Daniilidis, Horaud, Castillo, Dai, Park,
+  # Axelrod. Default in easy_handeye2 is Tsai-Lenz.
+  solver: "Tsai-Lenz"

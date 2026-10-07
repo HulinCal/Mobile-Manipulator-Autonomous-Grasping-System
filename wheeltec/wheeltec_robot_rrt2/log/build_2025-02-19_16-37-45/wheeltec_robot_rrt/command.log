@@ -1,0 +1,2 @@
+Invoking command in '/home/wheeltec/wheeltec_ros2/src/wheeltec_robot_rrt2/build/wheeltec_robot_rrt': /usr/bin/cmake /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_rrt2 -DCMAKE_INSTALL_PREFIX=/home/wheeltec/wheeltec_ros2/src/wheeltec_robot_rrt2/install/wheeltec_robot_rrt
+Invoked command in '/home/wheeltec/wheeltec_ros2/src/wheeltec_robot_rrt2/build/wheeltec_robot_rrt' returned '1': /usr/bin/cmake /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_rrt2 -DCMAKE_INSTALL_PREFIX=/home/wheeltec/wheeltec_ros2/src/wheeltec_robot_rrt2/install/wheeltec_robot_rrt

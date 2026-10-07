@@ -1,0 +1,48 @@
+# =====================================================================
+# voice_command_node - 语音指令表
+# =====================================================================
+# 添加新指令流程（无需改代码）：
+#   1. 在下方 commands 列表中追加一个条目
+#   2. 调用 ros2 service call /pick_place/reload_commands std_srvs/srv/Trigger
+#      （或重启节点）即可生效
+#
+# 字段说明：
+#   name:       指令唯一名称（供 trigger_manual 使用）
+#   patterns:   匹配文本列表（asr_command 命中任意一个即触发）
+#   match_mode: exact     - 收到的文本与 pattern 完全一致
+#               contains  - 收到的文本包含 pattern（模糊匹配）
+#   enabled:    true/false，可临时禁用某条指令
+#   actions:    依次执行的动作列表
+#     - type: topic
+#       topic:    目标话题
+#       msg_type: 消息类型（pkg/Type 或 pkg/msg/Type，需含 data 字段）
+#       data:     发布的数据（bool/int/float/string）
+#     - type: service
+#       service:  std_srvs/Trigger 服务名
+#
+# 注意：asr_keywords 发布的是标准命中的关键词（canonical keyword），
+# 因此 exact 匹配该关键词即可；若想对原始句子做模糊匹配请用 contains。
+# =====================================================================
+commands:
+  - name: pick_apple
+    patterns: ["把苹果拿过来", "把苹果带过来"]
+    match_mode: exact
+    enabled: true
+    actions:
+      - type: topic
+        topic: /pick_place/trigger
+        msg_type: std_msgs/Bool
+        data: true
+
+  # ---- 示例：如何添加新指令（复制下面模板修改即可）----
+  # - name: pick_banana
+  #   patterns: ["把香蕉拿过来"]
+  #   match_mode: exact
+  #   enabled: true
+  #   actions:
+  #     - type: topic
+  #       topic: /pick_place/trigger
+  #       msg_type: std_msgs/Bool
+  #       data: true
+  #     - type: service
+  #       service: /pick_place/detect_banana   # 可选：额外调用某服务

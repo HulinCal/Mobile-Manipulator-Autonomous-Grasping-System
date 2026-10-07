@@ -1,0 +1,32 @@
+[4.385s] Invoking command in '/home/wheeltec/wheeltec_ros2/src/laser_scan_reader': PYTHONPATH=/home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/laser_scan_reader build --build-base /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build install --record /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/install.log --single-version-externally-managed install_data
+[5.968s] running egg_info
+[5.970s] creating build/laser_scan_reader/laser_scan_reader.egg-info
+[6.025s] writing build/laser_scan_reader/laser_scan_reader.egg-info/PKG-INFO
+[6.026s] writing dependency_links to build/laser_scan_reader/laser_scan_reader.egg-info/dependency_links.txt
+[6.027s] writing requirements to build/laser_scan_reader/laser_scan_reader.egg-info/requires.txt
+[6.027s] writing top-level names to build/laser_scan_reader/laser_scan_reader.egg-info/top_level.txt
+[6.031s] writing manifest file 'build/laser_scan_reader/laser_scan_reader.egg-info/SOURCES.txt'
+[6.149s] reading manifest file 'build/laser_scan_reader/laser_scan_reader.egg-info/SOURCES.txt'
+[6.153s] writing manifest file 'build/laser_scan_reader/laser_scan_reader.egg-info/SOURCES.txt'
+[6.154s] running build
+[6.154s] running build_py
+[6.154s] creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build
+[6.157s] creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build/lib
+[6.158s] creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build/lib/laser_scan_reader
+[6.158s] copying laser_scan_reader/__init__.py -> /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build/lib/laser_scan_reader
+[6.159s] running install
+[6.186s] running install_lib
+[6.244s] creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/lib/python3.8/site-packages/laser_scan_reader
+[6.245s] copying /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build/lib/laser_scan_reader/__init__.py -> /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/lib/python3.8/site-packages/laser_scan_reader
+[6.247s] byte-compiling /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/lib/python3.8/site-packages/laser_scan_reader/__init__.py to __init__.cpython-38.pyc
+[6.248s] running install_data
+[6.248s] creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/share/ament_index
+[6.249s] creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/share/ament_index/resource_index
+[6.249s] creating /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/share/ament_index/resource_index/packages
+[6.250s] copying resource/laser_scan_reader -> /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/share/ament_index/resource_index/packages
+[6.250s] copying package.xml -> /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/share/laser_scan_reader
+[6.250s] running install_egg_info
+[6.314s] Copying build/laser_scan_reader/laser_scan_reader.egg-info to /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/lib/python3.8/site-packages/laser_scan_reader-0.0.0-py3.8.egg-info
+[6.316s] running install_scripts
+[6.650s] writing list of installed files to '/home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/install.log'
+[6.803s] Invoked command in '/home/wheeltec/wheeltec_ros2/src/laser_scan_reader' returned '0': PYTHONPATH=/home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wheeltec/wheeltec_ros2/src/laser_scan_reader/install/laser_scan_reader/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/laser_scan_reader build --build-base /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/build install --record /home/wheeltec/wheeltec_ros2/src/laser_scan_reader/build/laser_scan_reader/install.log --single-version-externally-managed install_data

@@ -1,0 +1,37 @@
+/home/wheeltec/.local/lib/python3.8/site-packages/setuptools/dist.py:771: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+  warnings.warn(
+running egg_info
+creating build/wheeltec_robot_keyboard/wheeltec_robot_keyboard.egg-info
+writing build/wheeltec_robot_keyboard/wheeltec_robot_keyboard.egg-info/PKG-INFO
+writing dependency_links to build/wheeltec_robot_keyboard/wheeltec_robot_keyboard.egg-info/dependency_links.txt
+writing entry points to build/wheeltec_robot_keyboard/wheeltec_robot_keyboard.egg-info/entry_points.txt
+writing requirements to build/wheeltec_robot_keyboard/wheeltec_robot_keyboard.egg-info/requires.txt
+writing top-level names to build/wheeltec_robot_keyboard/wheeltec_robot_keyboard.egg-info/top_level.txt
+writing manifest file 'build/wheeltec_robot_keyboard/wheeltec_robot_keyboard.egg-info/SOURCES.txt'
+reading manifest file 'build/wheeltec_robot_keyboard/wheeltec_robot_keyboard.egg-info/SOURCES.txt'
+writing manifest file 'build/wheeltec_robot_keyboard/wheeltec_robot_keyboard.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/build/wheeltec_robot_keyboard/build
+creating /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/build/wheeltec_robot_keyboard/build/lib
+creating /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/build/wheeltec_robot_keyboard/build/lib/wheeltec_robot_keyboard
+copying wheeltec_robot_keyboard/__init__.py -> /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/build/wheeltec_robot_keyboard/build/lib/wheeltec_robot_keyboard
+copying wheeltec_robot_keyboard/wheeltec_keyboard.py -> /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/build/wheeltec_robot_keyboard/build/lib/wheeltec_robot_keyboard
+running install
+running install_lib
+creating /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/lib/python3.8/site-packages/wheeltec_robot_keyboard
+copying /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/build/wheeltec_robot_keyboard/build/lib/wheeltec_robot_keyboard/__init__.py -> /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/lib/python3.8/site-packages/wheeltec_robot_keyboard
+copying /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/build/wheeltec_robot_keyboard/build/lib/wheeltec_robot_keyboard/wheeltec_keyboard.py -> /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/lib/python3.8/site-packages/wheeltec_robot_keyboard
+byte-compiling /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/lib/python3.8/site-packages/wheeltec_robot_keyboard/__init__.py to __init__.cpython-38.pyc
+byte-compiling /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/lib/python3.8/site-packages/wheeltec_robot_keyboard/wheeltec_keyboard.py to wheeltec_keyboard.cpython-38.pyc
+running install_data
+creating /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/share/ament_index
+creating /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/share/ament_index/resource_index
+creating /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/share/ament_index/resource_index/packages
+copying resource/wheeltec_robot_keyboard -> /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/share/ament_index/resource_index/packages
+copying package.xml -> /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/share/wheeltec_robot_keyboard
+running install_egg_info
+Copying build/wheeltec_robot_keyboard/wheeltec_robot_keyboard.egg-info to /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/lib/python3.8/site-packages/wheeltec_robot_keyboard-2.0.1-py3.8.egg-info
+running install_scripts
+Installing wheeltec_keyboard script to /home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/install/wheeltec_robot_keyboard/lib/wheeltec_robot_keyboard
+writing list of installed files to '/home/wheeltec/wheeltec_ros2/src/wheeltec_robot_keyboard/build/wheeltec_robot_keyboard/install.log'

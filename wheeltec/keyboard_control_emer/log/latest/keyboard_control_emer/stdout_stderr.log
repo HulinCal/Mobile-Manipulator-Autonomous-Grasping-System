@@ -1,0 +1,19 @@
+running egg_info
+writing build/keyboard_control_emer/keyboard_control_emer.egg-info/PKG-INFO
+writing dependency_links to build/keyboard_control_emer/keyboard_control_emer.egg-info/dependency_links.txt
+writing entry points to build/keyboard_control_emer/keyboard_control_emer.egg-info/entry_points.txt
+writing requirements to build/keyboard_control_emer/keyboard_control_emer.egg-info/requires.txt
+writing top-level names to build/keyboard_control_emer/keyboard_control_emer.egg-info/top_level.txt
+reading manifest file 'build/keyboard_control_emer/keyboard_control_emer.egg-info/SOURCES.txt'
+writing manifest file 'build/keyboard_control_emer/keyboard_control_emer.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+running install_egg_info
+removing '/home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/python3.8/site-packages/keyboard_control_emer-0.0.0-py3.8.egg-info' (and everything under it)
+Copying build/keyboard_control_emer/keyboard_control_emer.egg-info to /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/python3.8/site-packages/keyboard_control_emer-0.0.0-py3.8.egg-info
+running install_scripts
+Installing keyboard_control_emer script to /home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/install/keyboard_control_emer/lib/keyboard_control_emer
+writing list of installed files to '/home/wheeltec/wheeltec_ros2/src/keyboard_control_emer/build/keyboard_control_emer/install.log'

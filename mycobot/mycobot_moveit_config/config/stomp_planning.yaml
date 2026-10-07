@@ -1,0 +1,25 @@
+planning_plugins:
+  - stomp_moveit/StompPlanner
+# The order of the elements in the adapter corresponds to the order they are processed by the motion planning pipeline.
+request_adapters:
+  - default_planning_request_adapters/ResolveConstraintFrames
+  - default_planning_request_adapters/ValidateWorkspaceBounds
+  - default_planning_request_adapters/CheckStartStateBounds
+  - default_planning_request_adapters/CheckStartStateCollision
+response_adapters:
+  - default_planning_response_adapters/AddTimeOptimalParameterization
+  - default_planning_response_adapters/ValidateSolution
+  - default_planning_response_adapters/DisplayMotionPath
+
+stomp_moveit:
+  # 减少 timesteps：从 60 → 20，配合 sync_send_angles 避免过多段
+  # 每段大约 0.5s 执行时间，20 段 = 10 秒轨迹（可接受）
+  num_timesteps: 20
+  num_iterations: 40
+  num_iterations_after_valid: 0
+  num_rollouts: 30
+  max_rollouts: 30
+  exponentiated_cost_sensitivity: 0.5
+  control_cost_weight: 0.1
+  # delta_t 从 0.1 → 0.3：每段时长增加，让 sync_send_angles 有时间完成
+  delta_t: 0.3

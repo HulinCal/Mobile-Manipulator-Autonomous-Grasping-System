@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>wheeltec_mycobot_pick_place</name>
+  <version>0.1.0</version>
+  <description>
+    Voice-triggered apple pick-and-place pipeline for the aggregated
+    WHEELTEC R680 mobile base + myCobot 280 arm.
+
+    Pipeline (orchestrated by coordinator_node):
+      1. voice_command_node   - subscribe /asr_command, trigger on "把苹果拿过来"
+      2. apple_detection_node - YOLOv8 apple detection + 3D pose from depth
+      3. navigation_node      - Nav2 navigate the car close to the apple (dynamic obstacle avoidance)
+      4. grasp_node           - MoveIt2 pick &amp; lift the apple
+      5. navigation_node      - Nav2 to delivery pose (start + offset)
+      6. grasp_node           - place the apple
+      7. navigation_node      - return to start pose
+
+    Every node supports a global `sim_mode` parameter:
+      - sim_mode:=true  : nodes run on simulated data / fake services
+      - sim_mode:=false : real hardware via wheeltec_mycobot_bringup + speech_controller
+  </description>
+  <maintainer email="user@todo.todo">user</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- ROS 2 core -->
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>vision_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>image_transport</depend>
+
+  <!-- Navigation -->
+  <depend>nav2_simple_commander</depend>
+  <depend>nav2_msgs</depend>
+
+  <!-- Perception -->
+  <depend>astra_camera</depend>
+  <depend>lslidar_driver</depend>
+
+  <!-- MoveIt2 (MoveItPy / PlanningComponent) -->
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>moveit_ros_move_group</depend>
+  <depend>mycobot_moveit_config</depend>
+
+  <!-- Aggregated robot bringup &amp; description -->
+  <exec_depend>wheeltec_mycobot_bringup</exec_depend>
+  <exec_depend>wheeltec_mycobot_description</exec_depend>
+
+  <!-- Speech pipeline -->
+  <exec_depend>speech_controller</exec_depend>
+  <exec_depend>asr_sherpa</exec_depend>
+  <exec_depend>asr_keywords</exec_depend>
+
+  <!-- Python runtime deps (installed via pip, listed in README) -->
+  <exec_depend>python3-opencv</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

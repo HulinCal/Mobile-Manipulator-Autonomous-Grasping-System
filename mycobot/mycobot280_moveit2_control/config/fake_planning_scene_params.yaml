@@ -1,0 +1,32 @@
+# Flat parameter file for fake_planning_scene_server.py
+#
+# This file is loaded directly by the fake planning scene server node (not via
+# the mtc_node namespace), so the keys here are top-level parameter names that
+# match the parameter declarations in scripts/fake_planning_scene_server.py.
+#
+# Values mirror the object_* entries in
+# mycobot_mtc_pick_place_demo/config/mtc_node_params.yaml so that the fake
+# scene and the MTC target stay consistent. Edit this file to change the
+# target object's name / type / dimensions / pose used by the fake server
+# when running on real hardware without perception.
+
+# Name of the collision object published to the planning scene.
+fake_planning_scene_server:
+  ros__parameters:
+    object_name: "object"
+    object_type: "cylinder"
+
+    # Cylinder: [height, radius]. Box: [x, y, z]. Matches mtc_node_params.yaml.
+    # NOTE: mycobot_280 has ~28cm reach and base height ~13cm. A 35cm-tall
+    # cylinder standing on the table (z=0.10 base) reaches z=0.45, which is
+    # above the arm's workspace and makes MTC plan() block forever. Keep the
+    # object short (5cm tall, like a small cup) so the grasp target stays
+    # inside the reachable workspace.
+    object_dimensions: [0.1, 0.0225]    
+
+    # Object pose in object_reference_frame: [x, y, z, roll, pitch, yaw].
+    # IMPORTANT: z must be a reachable height for the arm. The fake server's
+    # built-in default uses z=0.0 which is at the base and unreachable.
+    object_pose: [0.18, 0.0, 0.18, 0.0, 0.0, 0.0]
+
+    object_reference_frame: "base_link"

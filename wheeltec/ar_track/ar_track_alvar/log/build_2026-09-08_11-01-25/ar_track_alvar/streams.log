@@ -1,0 +1,108 @@
+[0.018s] Invoking command in '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\n(TraeAI-4) \w [$?] $ __trae_PS1=\n(TraeAI-4) \w [$?] $ /usr/bin/cmake /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar -DCMAKE_INSTALL_PREFIX=/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar
+[0.112s] -- The C compiler identification is GNU 12.4.0
+[0.207s] -- The CXX compiler identification is GNU 12.4.0
+[0.241s] -- Detecting C compiler ABI info
+[0.387s] -- Detecting C compiler ABI info - done
+[0.417s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.418s] -- Detecting C compile features
+[0.419s] -- Detecting C compile features - done
+[0.439s] -- Detecting CXX compiler ABI info
+[0.605s] -- Detecting CXX compiler ABI info - done
+[0.638s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.639s] -- Detecting CXX compile features
+[0.640s] -- Detecting CXX compile features - done
+[0.655s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.935s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.194s] -- Found ament_cmake_auto: 2.5.6 (/opt/ros/jazzy/share/ament_cmake_auto/cmake)
+[1.495s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.533s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.576s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.624s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.933s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.944s] -- Found rmw_cyclonedds_cpp: 2.2.3 (/opt/ros/jazzy/share/rmw_cyclonedds_cpp/cmake)
+[2.023s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[2.224s] -- Found TinyXML2 via Config file: /usr/lib/x86_64-linux-gnu/cmake/tinyxml2
+[2.380s] CMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+[2.381s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[2.381s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[2.381s]   cmake_policy command to set the policy and suppress this warning.
+[2.381s] 
+[2.382s]   CMake variable FLANN_ROOT is set to:
+[2.382s] 
+[2.382s]     /usr
+[2.382s] 
+[2.383s]   For compatibility, find_package is ignoring the variable, but code in a
+[2.383s]   .cmake module might still use it.
+[2.383s] Call Stack (most recent call first):
+[2.383s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+[2.383s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+[2.383s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+[2.384s]   /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[2.384s]   /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+[2.384s]   /opt/ros/jazzy/share/ament_cmake_auto/cmake/ament_auto_find_build_dependencies.cmake:67 (find_package)
+[2.384s]   CMakeLists.txt:10 (ament_auto_find_build_dependencies)
+[2.384s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.385s] 
+[2.385s] -- Found flann version 1.9.2
+[2.897s] -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+[2.898s] -- Found OpenMP: TRUE (found version "4.5") found components: CXX 
+[5.221s] -- Checking for module 'libusb-1.0'
+[5.244s] --   Found libusb-1.0, version 1.0.9
+[5.300s] -- Found libusb: /usr/local/lib/libusb-1.0.a  
+[5.301s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[5.390s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[5.395s] -- Found Pcap: /usr/lib/x86_64-linux-gnu/libpcap.so  
+[5.425s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  
+[5.463s] -- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.43") 
+[6.186s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[6.195s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[6.917s] -- Found Qhull version 8.0.2
+[7.716s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[8.446s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[8.447s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[8.449s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[8.451s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[8.453s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[8.455s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[8.456s] -- Found PCL_2D: /usr/include/pcl-1.14  
+[8.456s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.14  
+[8.458s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[8.460s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[8.462s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[8.464s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[8.466s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[8.468s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[8.470s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[8.472s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[8.474s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[8.476s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[8.479s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[8.481s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[8.482s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.14  
+[8.483s] -- Found PCL_MODELER: /usr/include/pcl-1.14  
+[8.483s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.14  
+[8.485s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[8.487s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[8.774s] -- Found eigen3_cmake_module: 0.3.1 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[8.775s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[8.776s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[8.904s] -- Found OpenCV: /usr/local (found version "4.9.0") 
+[8.926s] CMake Error at CMakeLists.txt:24 (find_package):
+[8.926s]   By not providing "Findar_track_alvar_msgs.cmake" in CMAKE_MODULE_PATH this
+[8.926s]   project has asked CMake to find a package configuration file provided by
+[8.926s]   "ar_track_alvar_msgs", but CMake did not find one.
+[8.927s] 
+[8.927s]   Could not find a package configuration file provided by
+[8.927s]   "ar_track_alvar_msgs" with any of the following names:
+[8.927s] 
+[8.928s]     ar_track_alvar_msgsConfig.cmake
+[8.928s]     ar_track_alvar_msgs-config.cmake
+[8.928s] 
+[8.928s]   Add the installation prefix of "ar_track_alvar_msgs" to CMAKE_PREFIX_PATH
+[8.928s]   or set "ar_track_alvar_msgs_DIR" to a directory containing one of the above
+[8.928s]   files.  If "ar_track_alvar_msgs" provides a separate development package or
+[8.929s]   SDK, be sure it has been installed.
+[8.929s] 
+[8.929s] 
+[8.929s] -- Configuring incomplete, errors occurred!
+[8.953s] Invoked command in '/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/build/ar_track_alvar' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/hl/wheeltec/wheeltec_ws/install/wheeltec_robot_keyboard:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\n(TraeAI-4) \w [$?] $ __trae_PS1=\n(TraeAI-4) \w [$?] $ /usr/bin/cmake /home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar -DCMAKE_INSTALL_PREFIX=/home/hl/wheeltec/wheeltec_ws/ar_track/ar_track_alvar/install/ar_track_alvar
