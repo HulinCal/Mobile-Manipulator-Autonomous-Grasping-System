@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>chassis_guard</name>
+  <version>0.1.0</version>
+  <description>
+    Reactive obstacle-avoidance guard for the wheeltec chassis during
+    voice/keyboard manual driving. Sits on /cmd_vel as an overlay: external
+    velocity commands are captured as an "intent", a local dynamic map built
+    from the 2D lidar (with a reserved PointCloud2 input for future vision
+    fusion) is used to steer around obstacles, and the original heading is
+    automatically resumed once the path is clear.
+  </description>
+  <maintainer email="admi@example.com">admi</maintainer>
+  <license>Apache-2.0</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

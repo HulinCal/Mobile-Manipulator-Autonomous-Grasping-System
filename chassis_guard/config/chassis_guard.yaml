@@ -1,0 +1,84 @@
+# chassis_guard 参数配置
+# 守护节点以 overlay 模式工作在 /cmd_vel 上, 语音/键盘等速度源无需任何
+# 修改; 所有参数都可通过 launch 参数或本文件调整。
+
+chassis_guard_node:
+  ros__parameters:
+    # ---- 话题 ----
+    # 外部命令入口: 语音/键盘等速度源发布到 /cmd_vel_in (speech_controller
+    # 的 cmd_vel_topic 参数指向这里, 不改包代码).
+    cmd_vel_in_topic: /cmd_vel_in
+    # 守卫修正后的输出: 直接驱动底盘.
+    cmd_vel_topic: /cmd_vel
+    scan_topic: /scan
+    # 视觉融合预留: 未来视觉障碍检测节点把障碍点发布为 PointCloud2 即可
+    vision_obstacle_topic: /guard/vision_obstacles
+    map_topic: /guard/local_map
+    status_topic: /guard/status
+    pick_state_topic: /pick_place/state
+
+    # ---- 坐标系 ----
+    odom_frame: odom_combined
+    robot_frame: base_footprint
+
+    # ---- 频率 ----
+    publish_hz: 20.0        # 控制输出频率
+    map_hz: 2.0             # /guard/local_map 可视化发布频率
+
+    # ---- 局部动态地图 ----
+    map_size: 6.0           # m, 滚动窗口边长
+    map_resolution: 0.05    # m/格
+    map_shift_threshold: 1.0  # m, 机器人偏离窗口中心该距离时滚动重定位
+    # 障碍记忆时长: 超时未被再次观测即从地图衰减(动态障碍物自动失效)。
+    # 雷达只在车前方有数据, 侧后方障碍靠该记忆防止"转身撞上去"。
+    lidar_obstacle_timeout: 5.0
+    vision_obstacle_timeout: 2.0
+    scan_max_range: 1.5     # m, 只关心近处
+    scan_beams: 120         # 每帧最多使用的光束数(降采样)
+
+    # ---- 避障行为 ----
+    # 整车矩形轮廓(URDF 实测): 轮子外缘 y=±0.208, x=±0.233; 车体 y=±0.142.
+    # 环境感知按真实车体外形沿预计行进路线逐位姿判定, 不用外接圆近似,
+    # 车体侧面不在路线上的障碍不会误判为碰撞.
+    robot_half_length: 0.24 # m, 前/后缘半长
+    robot_half_width: 0.21  # m, 半宽(轮子外缘)
+    safety_margin: 0.02     # m, 附加安全裕量(真实矩形已贴合车体, 无需大裕量)
+    brake_time: 1.0         # s, 动态通道判据 = |vx|*brake_time(相对车体前缘)
+                            # (0.7->1.0 回调: 0.19m 停距实测刹不住撞上障碍)
+    min_clearance: 0.3      # m, 通道最小净空(提前在约 0.6m 处开始绕行)
+    # 动态硬急停: 直接基于原始 /scan(不经过地图/TF), 移动中每帧检测.
+    # 按车体矩形轮廓外扩 emergency_dist 判定(含轮子/车角区域),
+    # 侧前方(轮子会碰到)的障碍也能拦住, 而不是只看正前方一个点.
+    # 触发后立即零速并锁存, 轮廓安全区恢复连续 3 帧才解除(不被新命令强行解除).
+    emergency_dist: 0.09        # m, 轮廓外扩急停距离
+                                # (0.06->0.09: 2x 速度下停距 0.19m->0.28m,
+                                #  实测 0.19m 物理刹不住)
+    emergency_clear: 0.20       # m, 急停锁存解除间隙(滞回)
+    align_tolerance: 0.26   # rad, 航向对齐容差(~15deg)
+    forward_align_angle: 0.6   # rad, 与目标航向偏差 <34° 时保持前进(弧线绕行)
+    max_veer_angle: 1.4       # rad, 绕行最大偏航 80°(只在该范围内找最宽通道)
+    side_switch_margin: 0.25  # m, 对侧通道净空比承诺侧宽出该值才换侧(防摇摆)
+    return_confirm_cycles: 3   # 锚点方向连续 N 个控制周期畅通才回正(防抖)
+    veer_step_deg: 5.0        # 选向步进角: 从当前方向向承诺侧每次探测的角度(可调)
+    parallel_x: 0.10          # m, 平行判据: 障碍在锚点系(原航线方向)的纵向坐标
+                              # x 不大于该值, 即障碍已到车中心之后(x<=0 为严格
+                              # "中心点与障碍同一 x"); 平行前锁死航向不调节,
+                              # 平行后才允许回正
+    max_rotate_time: 12.0     # s, 单段原地转向时长(0.15rad/s 转满 80° 需 9.3s;
+                              # 旧值 4.0 只能转 34°, 而 TURN 恰在 >34° 才启用,
+                              # 必然超时闭锁零速 -> 实测小车静止)
+    rescue_turn_tol: 0.05     # rad, 脱困原地转向到位容差; 必须小于
+                              # veer_step_deg(5deg=0.087), 否则选中 5deg 方向时
+                              # 一开始就判"已到位"→不真转就解锁急停→反复空转
+    scan_timeout: 0.5         # s, 雷达数据超时即停车(不盲走)
+    tuned_vx: 0.05            # m/s, 反应距离/转向增益标定速度: 实际速度高于此值时
+                              # 前瞻/延迟转向门限/急停缓冲/rollout视野按 s=vx/tuned_vx
+                              # 自动放大(下限1), 提速后转弯刹车提前量同步增加, 无需手调
+    steer_kp: 1.2           # 航向 P 增益
+    max_steer_w: 0.35       # rad/s, 避障转向角速度上限
+    hist_sectors: 72        # 候选航向角分辨率(5deg/扇区)
+
+    # ---- pick_place 任务旁路 ----
+    # /pick_place/state 处于下列状态时守护节点完全静默, 让
+    # navigation_node(自带雷达停车)直接驱动底盘。
+    bypass_states: [DETECTING, NAV_TO_APPLE, GRASPING, NAV_TO_DELIVERY]

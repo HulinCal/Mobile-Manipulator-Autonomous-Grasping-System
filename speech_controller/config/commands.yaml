@@ -28,20 +28,20 @@
 
 commands:
   小车向前:
-    linear:  {x: 0.05, y: 0.0, z: 0.0}
+    linear:  {x: 0.1, y: 0.0, z: 0.0}
     angular: {x: 0.0, y: 0.0, z: 0.0}
 
   小车向后:
-    linear:  {x: -0.05, y: 0.0, z: 0.0}
+    linear:  {x: -0.1, y: 0.0, z: 0.0}
     angular: {x: 0.0, y: 0.0, z: 0.0}
 
   小车左转:
     linear:  {x: 0.0, y: 0.0, z: 0.0}
-    angular: {x: 0.0, y: 0.0, z: 0.1}
+    angular: {x: 0.0, y: 0.0, z: 0.2}
 
   小车右转:
     linear:  {x: 0.0, y: 0.0, z: 0.0}
-    angular: {x: 0.0, y: 0.0, z: -0.1}
+    angular: {x: 0.0, y: 0.0, z: -0.2}
 
   小车停止:
     linear:  {x: 0.0, y: 0.0, z: 0.0}

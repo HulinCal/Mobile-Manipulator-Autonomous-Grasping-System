@@ -26,6 +26,15 @@
   12. move_group             - MoveIt2 规划节点 (可选, use_rviz:=false, 因为本包
                                自己启动 RViz)
   13. rviz2                  - 使用 wheeltec_mycobot_all.rviz
+  14. chassis_guard          - 底盘避障守卫 (use_chassis_guard:=true):
+                               外部速度源发 /cmd_vel_in, 守卫按整车轮廓避障
+                               修正后发 /cmd_vel 驱动底盘; pick_place 任务期间
+                               通过 /pick_place/state 自动旁路
+  15. speech (语音控制)       - use_speech:=true, 三节点链路:
+                               asr_sherpa   麦克风 -> /asr/final_text
+                               asr_keywords /asr/final_text -> /asr_command
+                               speech_controller /asr_command -> /cmd_vel_in
+                               (语音速度指令同样经过 chassis_guard 避障)
 
 用法:
     ros2 launch wheeltec_mycobot_bringup all.launch.py
@@ -82,6 +91,8 @@ def generate_launch_description():
     driver_port = LaunchConfiguration('driver_port')
     driver_baud = LaunchConfiguration('driver_baud')
     use_real_hardware = LaunchConfiguration('use_real_hardware')
+    use_chassis_guard = LaunchConfiguration('use_chassis_guard')
+    use_speech = LaunchConfiguration('use_speech')
 
     declare_use_rviz = DeclareLaunchArgument(
         'use_rviz', default_value='true',
@@ -98,6 +109,12 @@ def generate_launch_description():
     declare_use_real_hardware = DeclareLaunchArgument(
         'use_real_hardware', default_value='true',
         description='是否连接真实硬件(串口/相机/雷达); false 时跳过硬件节点, 仅启动 RViz+MoveIt')
+    declare_use_chassis_guard = DeclareLaunchArgument(
+        'use_chassis_guard', default_value='true',
+        description='是否启动 chassis_guard 避障守卫(控制小车发 /cmd_vel_in)')
+    declare_use_speech = DeclareLaunchArgument(
+        'use_speech', default_value='true',
+        description='是否启动语音控制链路(asr_sherpa+asr_keywords+speech_controller)')
 
     # --- 通过 xacro 构建聚合机器人描述 (use_gazebo:=false, use_gripper:=true) ---
     robot_description_content = ParameterValue(
@@ -334,6 +351,52 @@ def generate_launch_description():
         condition=IfCondition(use_rviz),
     )
 
+    # 14) chassis_guard 避障守卫: 外部速度源发 /cmd_vel_in, 守卫避障修正后
+    #     发 /cmd_vel 驱动底盘; pick_place 任务期间经 /pick_place/state 旁路。
+    #     放在所有条件 include 之后(兄弟实体在条件 include 之后会被 launch
+    #     忽略, 见 rviz_node 注释), use_chassis_guard:=false 时不启动。
+    chassis_guard_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution(
+                [FindPackageShare('chassis_guard'),
+                 'launch', 'chassis_guard.launch.py'])
+        ),
+        launch_arguments={'start_guard': use_chassis_guard}.items(),
+        condition=IfCondition(use_chassis_guard),
+    )
+
+    # 15) 语音控制链路 (use_speech:=true): 麦克风 ASR -> 关键词识别 -> 速度指令。
+    #     speech_controller 的速度输出重映射到 /cmd_vel_in, 让语音指令同样
+    #     经过 chassis_guard 避障修正后驱动底盘 (语音夹爪指令走
+    #     /gripper_action_controller, 由本文件第 10 步 spawn, 无需处理)。
+    #     注意: 不能 include speech_control_all.launch.py, 它会顺带启动
+    #     turn_on_wheeltec_robot 底盘栈, 与本文件产生双 RSP/双串口节点。
+    asr_sherpa_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution(
+                [FindPackageShare('asr_sherpa'),
+                 'launch', 'asr_sherpa.launch.py'])
+        ),
+        condition=IfCondition(use_speech),
+    )
+    asr_keywords_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution(
+                [FindPackageShare('asr_keywords'),
+                 'launch', 'asr_keywords.launch.py'])
+        ),
+        condition=IfCondition(use_speech),
+    )
+    speech_controller_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution(
+                [FindPackageShare('speech_controller'),
+                 'launch', 'speech_controller.launch.py'])
+        ),
+        launch_arguments={'cmd_vel_topic': '/cmd_vel_in'}.items(),
+        condition=IfCondition(use_speech),
+    )
+
     # --- 组装 -------------------------------------------------------------
     ld = LaunchDescription()
     ld.add_action(declare_use_rviz)
@@ -341,6 +404,8 @@ def generate_launch_description():
     ld.add_action(declare_driver_port)
     ld.add_action(declare_driver_baud)
     ld.add_action(declare_use_real_hardware)
+    ld.add_action(declare_use_chassis_guard)
+    ld.add_action(declare_use_speech)
 
     ld.add_action(robot_state_publisher_node)
     ld.add_action(base_serial_launch)
@@ -359,4 +424,8 @@ def generate_launch_description():
     # 之前。放在该条件 include 之后的兄弟实体会被 launch 忽略而不启动(RViz 不弹出)。
     ld.add_action(rviz_node)
     ld.add_action(move_group_launch)
+    ld.add_action(asr_sherpa_launch)
+    ld.add_action(asr_keywords_launch)
+    ld.add_action(speech_controller_launch)
+    ld.add_action(chassis_guard_launch)
     return ld
