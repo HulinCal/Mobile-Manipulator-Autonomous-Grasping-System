@@ -1,6 +1,16 @@
-# 语音引导的移动抓取机器人（wheeltec R680 + MyCobot 280）
+# 移动机械臂抓取机器人
 
-> 基于 ROS 2 Jazzy 的端到端苹果抓取系统：说一句"把苹果拿过来"，小车自主导航到目标前，机械臂完成识别、定位、抓取并带回起点。
+> 基于 ROS 2 Jazzy 的端到端苹果抓取系统：通过语音交互，小车自主导航到目标前，机械臂完成识别、定位、抓取并带回起点。
+
+演示视频：
+<video controls width="720">
+  <source src="./assets/grasp.mp4" type="video/mp4">
+  你的浏览器不支持视频播放，请直接访问assets目录查看视频文件。
+</video>
+<video controls width="720">
+  <source src="./assets/rviz.mp4" type="video/mp4">
+  你的浏览器不支持视频播放，请直接访问assets目录查看视频文件。
+</video>
 
 ---
 
@@ -45,7 +55,7 @@
 | 激光雷达 | **LSLIDAR** | 2D 激光，导航避障与到位停车 |
 | 麦克风 | 麦克风阵列 | 离线语音采集 |
 
-### 硬件接线要点（重要）
+### 硬件接线要点
 
 - **Astra 相机必须直连 NUC 的 USB 口**，不能经过外置 USB 2.0 Hub——否则供电/带宽不足会导致枚举异常或深度图持续空洞。
 - **相机首次使用前必须安装 udev 规则**（astra_camera 包内 `install.sh`，用 `sudo sh` 执行）。
@@ -130,7 +140,7 @@ IDLE → DETECTING → NAV_TO_APPLE → GRASPING → NAV_TO_DELIVERY → DONE
 | `/mycobot/cmd_joint_pos` / `cmd_gripper_pos` | — | 桥→驱动 | 50Hz 关节/夹爪指令 |
 | `/tf` `/tf_static` | TF | 全局 | 坐标变换 |
 
-### 5.2 抓取数据流（重点）
+### 5.2 抓取数据流
 
 ```
 苹果检测(YOLO+深度直方图)
