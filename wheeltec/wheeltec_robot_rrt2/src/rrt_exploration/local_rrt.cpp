@@ -140,7 +140,8 @@ class LocalRRT : public rclcpp::Node
 
         // ObstacleFree    1:free     -1:unkown (frontier region)      0:obstacle
         char checking = ObstacleFree(x_nearest, x_new, mapData);
-        if (checking == 255)
+        // 注意: ObstacleFree 用 -1 表示 unknown，char 有符号，== 255 恒为 false
+        if (checking == -1)
         {
             exploration_goal.header.stamp = this->get_clock()->now();
             exploration_goal.header.frame_id = mapData.header.frame_id;

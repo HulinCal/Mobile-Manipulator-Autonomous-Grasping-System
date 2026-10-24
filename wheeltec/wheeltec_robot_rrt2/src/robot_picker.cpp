@@ -34,7 +34,8 @@ int main(int argc, char **argv)
   blackboard_ = BT::Blackboard::create();
   blackboard_->set<std::string>("box_colour", "red_box");
   blackboard_->set<rclcpp::Node::SharedPtr>("node", node);
-  blackboard_->set<std::chrono::milliseconds>("server_timeout", std::chrono::milliseconds(1000)); 
+  blackboard_->set<std::chrono::milliseconds>("server_timeout", std::chrono::milliseconds(1000));
+  blackboard_->set<std::chrono::milliseconds>("wait_for_service_timeout", std::chrono::milliseconds(60000));
   blackboard_->set<std::chrono::milliseconds>("bt_loop_duration", bt_loop_duration_);
 
   std::ifstream xml_file(bt_xml_filename);
