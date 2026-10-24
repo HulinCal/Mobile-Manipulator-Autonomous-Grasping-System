@@ -139,9 +139,9 @@ class GlobalRRT : public rclcpp::Node
 
         // ObstacleFree    1:free     -1:unkown (frontier region)      0:obstacle
         char checking = ObstacleFree(x_nearest, x_new, mapData);
-        //std::cout<<"chacking is "<<checking<<std::endl;
-
-        if (checking == 255)
+        // 注意: ObstacleFree 用 -1 表示 unknown（frontier），char 为有符号类型，
+        // 写 == 255 会恒为 false（-1 != 255），frontier 分支永不触发 -> 探索不动
+        if (checking == -1)
         {
             exploration_goal.header.stamp = this->get_clock()->now();
             exploration_goal.header.frame_id = mapData.header.frame_id;

@@ -12,7 +12,7 @@ def generate_launch_description():
         package='nav2_map_server',
         executable='map_saver_cli',
         output='screen',
-        arguments=['-f', '/home/admi/wheeltec_ws/src/wheeltec/wheeltec_robot_nav2/map/WHEELTEC'],
+        arguments=['-f', '/home/admi/wheeltec_mycobot_ws/src/wheeltec/wheeltec_robot_nav2/map/WHEELTEC'],
         
         parameters=[{'save_map_timeout': 2000.0},
                     ]

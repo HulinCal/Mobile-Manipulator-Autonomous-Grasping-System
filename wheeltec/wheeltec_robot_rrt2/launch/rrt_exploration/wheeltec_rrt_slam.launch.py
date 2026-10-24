@@ -4,7 +4,7 @@ from launch.substitutions import LaunchConfiguration
 from launch.actions import IncludeLaunchDescription, ExecuteProcess, RegisterEventHandler, DeclareLaunchArgument
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from ament_index_python import get_package_share_directory
+from ament_index_python.packages import get_package_share_directory
 from launch.conditions import IfCondition
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
@@ -59,7 +59,10 @@ def generate_launch_description():
             )
             
      return LaunchDescription([
-          #wheeltec_slam,     
+          # slam_toolbox 由 step1（ros2 launch wheeltec_slam_toolbox online_sync.launch.py）
+          # 单独启动，此处不可重复启动：同名 /slam_toolbox 节点会导致生命周期状态
+          # 转换时服务被路由到状态不匹配的节点而失败（bond 报错）
+          #wheeltec_slam,
           nav2_include,
           rrt_exploration,
           action_servers,

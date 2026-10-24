@@ -19,6 +19,7 @@ class Assigner : public rclcpp::Node
         this->declare_parameter<double>("hysteresis_radius", 3.0);
         this->declare_parameter<double>("hysteresis_gain", 2.0);
         this->declare_parameter<std::string>("frontiers_topic", "/filtered_goal_points");
+        this->declare_parameter<double>("min_goal_distance", 0.5);
         
         this->get_parameter("map_topic", map_topic);
         this->get_parameter("info_radius", info_radius);
@@ -26,6 +27,7 @@ class Assigner : public rclcpp::Node
         this->get_parameter("hysteresis_radius", hysteresis_radius);
         this->get_parameter("hysteresis_gain", hysteresis_gain);
         this->get_parameter("frontiers_topic", frontiers_topic);
+        this->get_parameter("min_goal_distance", min_goal_distance);
 
         map_subscription_ = this->create_subscription<nav_msgs::msg::OccupancyGrid>(
         map_topic, 100, std::bind(&Assigner::map_topic_callback, this, _1));
@@ -61,9 +63,17 @@ class Assigner : public rclcpp::Node
         }
 
         std::vector<double> revenue_record = {};
+        std::vector<geometry_msgs::msg::Point> candidates = {};
         auto frontiers_copy = frontiers;
+        auto robot_pos = robot.get_position();
         for (auto frontier : frontiers_copy)
         {
+            // 跳过贴身的边界点：这类点多是雷达盲区/车体遮挡产生的伪 frontier，
+            // 一旦被选中，nav2 会判定已到达（目标就在当前位姿）而不发速度，探索卡死
+            if (norm(robot_pos, {frontier.x, frontier.y}) < min_goal_distance){
+                continue;
+            }
+
             auto cost = norm(robot.get_position(), {frontier.x, frontier.y});
             double info_gain = information_gain(mapData, {frontier.x, frontier.y}, info_radius);
             info_gain -= discount(mapData, robot.get_assigned_point(), {frontier.x, frontier.y}, info_radius);
@@ -77,16 +87,22 @@ class Assigner : public rclcpp::Node
 
             double revenue = info_gain * info_multiplier - cost;
             revenue_record.push_back(revenue);
+            candidates.push_back(frontier);
+        }
+
+        if (candidates.empty()){
+            RCLCPP_DEBUG(this->get_logger(), "no frontier beyond min_goal_distance");
+            return;
         }
 
         int max_revenue_index = std::max_element(revenue_record.begin(),revenue_record.end()) - revenue_record.begin();
-        RCLCPP_DEBUG(this->get_logger(), "sending goal pose: %f, %f",frontiers_copy[max_revenue_index].x, frontiers_copy[max_revenue_index].y);
-        robot.send_goal(frontiers_copy[max_revenue_index]);
+        RCLCPP_DEBUG(this->get_logger(), "sending goal pose: %f, %f",candidates[max_revenue_index].x, candidates[max_revenue_index].y);
+        robot.send_goal(candidates[max_revenue_index]);
     }
     rclcpp::Subscription<nav_msgs::msg::OccupancyGrid>::SharedPtr map_subscription_;
     rclcpp::Subscription<wheeltec_rrt_msg::msg::PointArray>::SharedPtr frontiers_subscription_;
     std::string map_topic, frontiers_topic;
-    double info_radius, info_multiplier, hysteresis_radius, hysteresis_gain;
+    double info_radius, info_multiplier, hysteresis_radius, hysteresis_gain, min_goal_distance;
     nav_msgs::msg::OccupancyGrid mapData;
     std::vector<geometry_msgs::msg::Point> frontiers;
     rclcpp::TimerBase::SharedPtr timer_;

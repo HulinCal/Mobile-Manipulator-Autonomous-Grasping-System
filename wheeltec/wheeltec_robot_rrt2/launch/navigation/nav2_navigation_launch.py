@@ -39,7 +39,7 @@ def generate_launch_description():
     # Create our own temporary YAML files that include substitutions
     param_substitutions = {
         'use_sim_time': use_sim_time,
-        'default_bt_xml_filename': default_bt_xml_filename,
+        'default_nav_to_pose_bt_xml': default_bt_xml_filename,
         'autostart': autostart,
         'map_subscribe_transient_local': map_subscribe_transient_local}
 
@@ -97,9 +97,9 @@ def generate_launch_description():
             remappings=remappings),
 
         Node(
-            package='nav2_recoveries',
-            executable='recoveries_server',
-            name='recoveries_server',
+            package='nav2_behaviors',
+            executable='behavior_server',
+            name='behavior_server',
             output='screen',
             parameters=[configured_params],
             remappings=remappings),
@@ -120,49 +120,20 @@ def generate_launch_description():
             parameters=[configured_params],
             remappings=remappings),
 
+        # 单一 lifecycle manager 按序拉起（同 nav2 官方 bringup）：
+        # bt_navigator 激活时加载 BT 会等待 planner/controller 的 action 服务，
+        # 若与 planner_server 并行激活，会在 planner 尚未就绪时激活失败
         Node(
             package='nav2_lifecycle_manager',
             executable='lifecycle_manager',
-            name='lifecycle_manager_controller_server',
+            name='lifecycle_manager_navigation',
             output='screen',
             parameters=[{'use_sim_time': use_sim_time},
                         {'autostart': autostart},
-                        {'node_names': ['controller_server']}]),
-
-        Node(
-            package='nav2_lifecycle_manager',
-            executable='lifecycle_manager',
-            name='lifecycle_manager_planner_server',
-            output='screen',
-            parameters=[{'use_sim_time': use_sim_time},
-                        {'autostart': autostart},
-                        {'node_names': ['planner_server']}]),
-
-        Node(
-            package='nav2_lifecycle_manager',
-            executable='lifecycle_manager',
-            name='lifecycle_manager_recoveries_server',
-            output='screen',
-            parameters=[{'use_sim_time': use_sim_time},
-                        {'autostart': autostart},
-                        {'node_names': ['recoveries_server']}]),
-        
-        Node(
-            package='nav2_lifecycle_manager',
-            executable='lifecycle_manager',
-            name='lifecycle_manager_bt_navigator',
-            output='screen',
-            parameters=[{'use_sim_time': use_sim_time},
-                        {'autostart': autostart},
-                        {'node_names': ['bt_navigator']}]),
-
-        Node(
-            package='nav2_lifecycle_manager',
-            executable='lifecycle_manager',
-            name='lifecycle_manager_waypoint_follower',
-            output='screen',
-            parameters=[{'use_sim_time': use_sim_time},
-                        {'autostart': autostart},
-                        {'node_names': ['waypoint_follower']}]),
+                        {'node_names': ['controller_server',
+                                        'planner_server',
+                                        'behavior_server',
+                                        'bt_navigator',
+                                        'waypoint_follower']}]),
 
     ])

@@ -14,6 +14,8 @@ assigner:
     hysteresis_radius: 3.0
     hysteresis_gain: 2.0
     frontiers_topic: /filtered_goal_points
+    # 目标离机器人小于该距离则忽略（贴身伪 frontier 会导致 nav2 判定已到达、车不动）
+    min_goal_distance: 0.5
 
 
 # # anti_clockwise
