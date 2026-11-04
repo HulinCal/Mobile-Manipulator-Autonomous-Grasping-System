@@ -19,6 +19,10 @@ def generate_launch_description():
     
     resolution = LaunchConfiguration('resolution', default='0.05')
     publish_period_sec = LaunchConfiguration('publish_period_sec', default='0.5')
+    launch_rviz = LaunchConfiguration('launch_rviz', default='true')
+    rviz_config = LaunchConfiguration('rviz_config',
+        default=os.path.join(get_package_share_directory('cartographer_ros'),
+                             'configuration_files', 'demo_2d.rviz'))
  
 
     bringup_dir = get_package_share_directory('turn_on_wheeltec_robot')
@@ -54,6 +58,14 @@ def generate_launch_description():
             'publish_period_sec',
             default_value=publish_period_sec,
             description='OccupancyGrid publishing period'),
+        DeclareLaunchArgument(
+            'launch_rviz',
+            default_value='true',
+            description='Whether to start rviz2 visualization'),
+        DeclareLaunchArgument(
+            'rviz_config',
+            default_value=rviz_config,
+            description='Full path to rviz config file'),
 
         Node(
             package='cartographer_ros',
@@ -68,10 +80,18 @@ def generate_launch_description():
 
         Node(
             package='cartographer_ros',
-            executable='occupancy_grid_node',
+            executable='cartographer_occupancy_grid_node',
             name='occupancy_grid_node',
-
             parameters=[{'use_sim_time': use_sim_time}],
             arguments=['-resolution', resolution, '-publish_period_sec', publish_period_sec]),
+
+        Node(
+            condition=IfCondition(launch_rviz),
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d', rviz_config],
+            parameters=[{'use_sim_time': use_sim_time}],
+            output='screen'),
  
     ])

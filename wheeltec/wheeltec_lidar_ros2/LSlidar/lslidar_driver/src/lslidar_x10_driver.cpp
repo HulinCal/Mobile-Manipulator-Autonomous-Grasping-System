@@ -366,7 +366,9 @@ namespace lslidar_driver {
         multiecho_scan_->angle_min = -M_PI;
         multiecho_scan_->angle_max = M_PI;
         multiecho_scan_->angle_increment = (360.0 / points_size) * DEG_TO_RAD;
-        multiecho_scan_->time_increment = 0.0; 
+        multiecho_scan_->scan_time = scan_time_;
+        multiecho_scan_->time_increment = (points_size > 0 && scan_time_ > 0.0)
+                                          ? scan_time_ / points_size : 0.0; 
         multiecho_scan_->range_min = min_range;
         multiecho_scan_->range_max = max_range;
 
@@ -384,7 +386,7 @@ namespace lslidar_driver {
         output_scan.header.frame_id = cloud_msg.header.frame_id;
         output_scan.angle_min = -M_PI;
         output_scan.angle_max = M_PI;
-        output_scan.time_increment = 0.0; 
+        output_scan.scan_time = scan_time_; 
         output_scan.range_min = min_range; 
         output_scan.range_max = max_range; 
         output_scan.angle_increment = (output_scan.angle_max - output_scan.angle_min) / points_size;
@@ -394,7 +396,10 @@ namespace lslidar_driver {
         if (use_high_precision) output_scan.angle_increment *= 0.1;
 
         uint16_t ranges_size = std::ceil((output_scan.angle_max - output_scan.angle_min) / std::abs(output_scan.angle_increment));
-        output_scan.ranges.assign(ranges_size, INITIAL_RANGE); 
+        // 逐点时间间隔 = 单圈耗时 / bins数（高精度模式 bins 放大10倍，间隔相应缩小）
+        output_scan.time_increment = (ranges_size > 0 && scan_time_ > 0.0)
+                                     ? scan_time_ / ranges_size : 0.0;
+        output_scan.ranges.assign(ranges_size, INITIAL_RANGE);
         output_scan.intensities.assign(ranges_size, INITIAL_INTENSITIE);
 
         for (sensor_msgs::PointCloud2ConstIterator<float> iter_x(cloud_msg, "x"), iter_y(cloud_msg, "y"),
@@ -595,6 +600,14 @@ namespace lslidar_driver {
 
             sweep_end_time = sweep_end_time > 0 ? sweep_end_time : 0;
 
+            // 单圈耗时 = 本圈结束时刻 - 上圈结束时刻；首帧或异常(丢包/抖动>0.5s)回退电机理论值
+            double measured_scan_time = sweep_end_time - last_point_cloud_time;
+            if (last_point_cloud_time < 1e-6 || measured_scan_time <= 0.0 || measured_scan_time > 0.5) {
+                scan_time_ = 1.0 / getMotorFrequency();
+            } else {
+                scan_time_ = measured_scan_time;
+            }
+
             point_cloud_time = use_first_point_time ? last_point_cloud_time : sweep_end_time;
             last_point_cloud_time = sweep_end_time;
 
@@ -708,6 +721,13 @@ namespace lslidar_driver {
         float diff_next = fabs(curr.distance - next.distance) / next.distance;
 
         return (diff_prev > dynamic_threshold) && (diff_next > dynamic_threshold);
+    }
+
+    double LslidarX10Driver::getMotorFrequency() {
+        if (lidar_model == "M10P" || lidar_model == "M10_PLUS") return M10P_MOTOR_FREQUENCY;
+        if (lidar_model == "N10Plus") return N10Plus_hz;
+        // M10 / M10GPS / N10 / N301 均为 10Hz
+        return N10_MOTOR_FREQUENCY;
     }
 
     bool LslidarX10Driver::checkPacketValidityM10(const lslidar_msgs::msg::LslidarPacket::UniquePtr &packet, int packet_size) const {

@@ -5,8 +5,9 @@ from launch.actions import DeclareLaunchArgument, EmitEvent, LogInfo, RegisterEv
 from launch.substitutions import LaunchConfiguration
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.conditions import IfCondition
 from launch.events import matches_action
-from launch_ros.actions import LifecycleNode
+from launch_ros.actions import LifecycleNode, Node
 from launch_ros.event_handlers import OnStateTransition
 from launch_ros.events.lifecycle import ChangeState
 from lifecycle_msgs.msg import Transition
@@ -20,6 +21,25 @@ def generate_launch_description():
         description='Use simulation (Gazebo) clock if true'
     )
     use_sim_time = LaunchConfiguration('use_sim_time')
+
+    launch_rviz_arg = DeclareLaunchArgument(
+        'launch_rviz',
+        default_value='true',
+        description='是否同时启动 rviz2'
+    )
+    launch_rviz = LaunchConfiguration('launch_rviz')
+
+    default_rviz_config = os.path.join(
+        get_package_share_directory('wheeltec_slam_toolbox'),
+        'rviz',
+        'wheeltec_slam_toolbox.rviz'
+    )
+    rviz_config_arg = DeclareLaunchArgument(
+        'rviz_config',
+        default_value=default_rviz_config,
+        description='rviz2 配置文件路径'
+    )
+    rviz_config = LaunchConfiguration('rviz_config')
 
     bringup_dir = get_package_share_directory('turn_on_wheeltec_robot')
     launch_dir = os.path.join(bringup_dir, 'launch')
@@ -77,11 +97,24 @@ def generate_launch_description():
         )
     )
 
+    rviz_node = Node(
+        condition=IfCondition(launch_rviz),
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d', rviz_config],
+        parameters=[{'use_sim_time': use_sim_time}],
+        output='screen'
+    )
+
     return LaunchDescription([
         use_sim_time_arg,
+        launch_rviz_arg,
+        rviz_config_arg,
         wheeltec_robot,
         wheeltec_lidar,
         slam_node,
         configure_event,
         activate_event,
+        rviz_node,
     ])

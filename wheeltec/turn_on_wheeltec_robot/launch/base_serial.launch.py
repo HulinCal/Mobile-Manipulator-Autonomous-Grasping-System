@@ -27,7 +27,8 @@ def generate_launch_description():
                 'cmd_vel': 'cmd_vel',
                 'akm_cmd_vel': 'ackermann_cmd',
                 'product_number': 0,}],
-            remappings=[('/cmd_vel', 'cmd_vel'),]),
+            remappings=[('/cmd_vel', 'cmd_vel'),
+                ('odom_combined', 'odom')]),
 
         launch_ros.actions.Node(
             condition=IfCondition(akmcar),
@@ -47,7 +48,10 @@ def generate_launch_description():
                 'cmd_vel': 'cmd_vel',
                 'akm_cmd_vel': 'none',
                 'product_number': 0,}],
-            output='screen')
+            output='screen',
+            # 驱动 C++ 内话题名硬编码为 odom_combined, 这里 remap 成 /odom,
+            # 避免与 EKF 输出(odometry/filtered -> odom_combined)在同一话题双发布
+            remappings=[('odom_combined', 'odom')])
 
 
   ])

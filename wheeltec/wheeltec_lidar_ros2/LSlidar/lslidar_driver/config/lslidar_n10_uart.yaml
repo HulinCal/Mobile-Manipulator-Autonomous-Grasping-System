@@ -18,7 +18,7 @@ x10:
       use_time_service: false     # 否使用授时(GPS PTP NTP)
       use_first_point_time: false # 是否使用每帧第一个点的时间做为点云时间
       publish_scan: true          # LaserScan输出控制
-      use_high_precision: false   # 是否使用高精度模式(laserscan) N10建议开启
+      use_high_precision: true   # 是否使用高精度模式(laserscan) N10建议开启
       publish_multiecholaserscan: false  # N10Plus 是否发布 MultiEchoLaserScan 数据
       enable_noise_filter: false  # 是否开启孤立噪点滤波 N10Plus不生效
       N10Plus_hz: 10              # N10Plus雷达扫描频率 [6,12]

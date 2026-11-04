@@ -31,5 +31,6 @@ namespace rrt_exploration
         geometry_msgs::msg::PoseStamped goal_pose;
         rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr goal_pose_pub;
         std::vector<double> assigned_point;
+        std::vector<double> last_position{0.0, 0.0};  // TF查询失败时的兜底位姿
     };
 }

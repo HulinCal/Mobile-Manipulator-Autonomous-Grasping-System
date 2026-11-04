@@ -55,9 +55,15 @@ void Robot::send_goal(const geometry_msgs::msg::Point &goal_pose_unstamped){
 
 std::vector<double> Robot::get_position(){
     geometry_msgs::msg::TransformStamped transformStamped;
-    // transformStamped = tf_buffer_->lookupTransform(global_frame, this->name + "/" + robot_frame, tf2::TimePoint());
-    transformStamped = tf_buffer_->lookupTransform(global_frame, robot_frame, tf2::TimePoint());
-    return {transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+    // lookupTransform 必须捕获异常: TF 抖动/未连通时抛异常会导致整个 assigner 进程崩溃
+    try {
+        transformStamped = tf_buffer_->lookupTransform(global_frame, robot_frame, tf2::TimePoint());
+        last_position = {transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+    } catch (const tf2::TransformException &ex) {
+        RCLCPP_WARN_THROTTLE(nodePtr->get_logger(), *nodePtr->get_clock(), 2000,
+                             "get_position lookupTransform failed, use last known pose: %s", ex.what());
+    }
+    return last_position;
 }
 
 std::vector<double> Robot::get_assigned_point(){

@@ -125,7 +125,7 @@ def generate_launch_description():
             '--z', '0.155',
             '--roll', '0.0',
             '--pitch', '0.0',
-            '--yaw', '0.0',
+            '--yaw', '-0.03',
             '--frame-id', 'base_link',
             '--child-frame-id', 'laser',
         ],

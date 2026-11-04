@@ -65,7 +65,7 @@ add_executable(pick_robot_action_server src/pick_robot_action_server.cpp)
 ament_target_dependencies(pick_robot_action_server rclcpp rclcpp_action wheeltec_rrt_msg)
 
 add_executable(wait_for_fin src/rrt_exploration/wait_for_fin.cpp)
-ament_target_dependencies(wait_for_fin rclcpp geometry_msgs nav_msgs visualization_msgs)
+ament_target_dependencies(wait_for_fin rclcpp std_msgs geometry_msgs nav_msgs visualization_msgs)
 
 
 install(TARGETS  
