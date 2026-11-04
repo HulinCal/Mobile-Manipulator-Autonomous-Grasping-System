@@ -21,7 +21,7 @@ def generate_launch_description():
     
     carto_slam = LaunchConfiguration('carto_slam', default='false')
     carto_slam_dec = DeclareLaunchArgument('carto_slam',default_value='false')
-            
+
     wheeltec_robot = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(launch_dir, 'base_serial.launch.py')),
             launch_arguments={'akmcar': 'false'}.items(),
@@ -65,8 +65,8 @@ def generate_launch_description():
 
     robot_ekf = launch_ros.actions.Node(
             condition=UnlessCondition(carto_slam),
-            package='robot_localization', 
-            executable='ekf_node', 
+            package='robot_localization',
+            executable='ekf_node',
             parameters=[ekf_config],
             remappings=[("odometry/filtered", "odom_combined")]
             )

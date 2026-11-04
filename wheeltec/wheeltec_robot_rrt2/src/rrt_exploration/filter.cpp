@@ -1,4 +1,5 @@
 #include "rclcpp/rclcpp.hpp"
+#include <cmath>
 #include "utils.h"
 #include "mean_shift.h"
 #include "geometry_msgs/msg/point_stamped.hpp"
@@ -94,6 +95,14 @@ class Filter : public rclcpp::Node
 
     void goals_topic_callback(const geometry_msgs::msg::PointStamped::SharedPtr msg)
     {
+        // 过滤非有限值(NaN/Inf), 防止下游 mean-shift 收敛判断失效卡死
+        if (!std::isfinite(msg->point.x) || !std::isfinite(msg->point.y)) {
+            return;
+        }
+        // 定时器被门控(return)期间 frontiers 不会被清空, 必须限长防止无界堆积
+        if (frontiers.size() >= 2000) {
+            frontiers.erase(frontiers.begin(), frontiers.begin() + 1000);
+        }
         frontiers.push_back(*msg);
     }
 
@@ -132,7 +141,6 @@ class Filter : public rclcpp::Node
         
         for(auto centroid: unfiltered_centroids){
             bool condition = grid_value(global_map, {centroid[0], centroid[1]}) > threshold;
-            bool around = (checkAround(mapData,{centroid[0], centroid[1]},info_radius*0.5)>1000);
             if(!(condition || information_gain(mapData, {centroid[0], centroid[1]}, info_radius*0.5) < 0.05)){
                 filtered_centroids.push_back(centroid);
             }

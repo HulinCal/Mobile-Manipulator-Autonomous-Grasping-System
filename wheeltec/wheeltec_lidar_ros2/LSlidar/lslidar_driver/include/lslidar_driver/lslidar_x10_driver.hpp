@@ -112,6 +112,9 @@ namespace lslidar_driver {
 
         bool isNoisePoint(size_t curr_idx, size_t end_fir_idx) const;
 
+        // 按型号返回电机扫描频率(Hz)
+        double getMotorFrequency();
+
         void resetMultiEchoLaserScan();
 
         void pointcloudToLaserscan(const sensor_msgs::msg::PointCloud2 &cloud_msg, sensor_msgs::msg::LaserScan &output_scan);
@@ -177,6 +180,8 @@ namespace lslidar_driver {
         double sweep_end_time;
         double current_packet_time;
         double last_packet_time;
+        // 单圈扫描耗时(秒)，由实测帧间隔计算，异常时回退电机理论值
+        double scan_time_ = 0.0;
         // 定义一个结构体来表示角度区间
         struct AngleRange {
             int start;

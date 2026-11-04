@@ -51,7 +51,7 @@
 | [src/pick_robot_action_server.cpp](file:///home/admi/wheeltec_mycobot_ws/src/wheeltec/wheeltec_robot_rrt2/src/pick_robot_action_server.cpp) | 抓取动作服务（与探索无关） |
 | [src/robot_picker.cpp](file:///home/admi/wheeltec_mycobot_ws/src/wheeltec/wheeltec_robot_rrt2/src/robot_picker.cpp) | 行为树执行器（抓取流程） |
 | [src/robot_pose_publisher.cpp](file:///home/admi/wheeltec_mycobot_ws/src/wheeltec/wheeltec_robot_rrt2/src/robot_pose_publisher.cpp) | 把视觉融合点云转成目标位姿（抓取用） |
-| [src/rrt_exploration/wait_for_fin.cpp](file:///home/admi/wheeltec_mycobot_ws/src/wheeltec/wheeltec_robot_rrt2/src/rrt_exploration/wait_for_fin.cpp) | 探索结束判定 + 回原点（**当前未纳入 launch**） |
+| [src/rrt_exploration/wait_for_fin.cpp](file:///home/admi/wheeltec_mycobot_ws/src/wheeltec/wheeltec_robot_rrt2/src/rrt_exploration/wait_for_fin.cpp) | 探索结束判定（前沿耗尽+静止）→ 存图 → 停 assigner → 回原点（已纳入 launch，可用 `enable_wait_for_fin:=false` 关闭） |
 | [scripts/boundary_publisher.py](file:///home/admi/wheeltec_mycobot_ws/src/wheeltec/wheeltec_robot_rrt2/scripts/boundary_publisher.py) | 自动发布 4+1 个边界点 |
 | [config/exploration_params.yaml](file:///home/admi/wheeltec_mycobot_ws/src/wheeltec/wheeltec_robot_rrt2/config/exploration_params.yaml) | RRT 四节点参数 |
 | [config/nav2_params.yaml](file:///home/admi/wheeltec_mycobot_ws/src/wheeltec/wheeltec_robot_rrt2/config/nav2_params.yaml) | 本包专用 Nav2 参数 |
@@ -73,9 +73,14 @@
 ```bash
 # step1：底盘 + 雷达 + EKF + URDF + slam_toolbox（建图）
 ros2 launch wheeltec_slam_toolbox online_sync.launch.py
+  或者使用cartographer建图:
+  ros2 launch  wheeltec_cartographer cartographer.launch.py
 
 # step2：Nav2 + RRT 探索四节点 + action servers + 行为树节点
 ros2 launch wheeltec_robot_rrt wheeltec_rrt_slam.launch.py
+
+# step3:发布边界点
+python3 src/wheeltec/wheeltec_robot_rrt2/scripts/boundary_publisher.py
 ```
 
 ### 3.3 step2 内部启动了什么
@@ -312,15 +317,26 @@ ros2 topic echo /cmd_vel
 
 正常表现：`/detected_frontiers` 高频输出 → `/filtered_goal_points` 有点 → `/assigned_frontier_goal` 每 3 秒更新且**不是机器人当前位置** → `/cmd_vel` 有非零线速度 → 小车前进、地图扩大。
 
-### 7.5 保存地图
+### 7.5 建图完成与回原点（自动）
 
-探索完成后（车停稳、`/map` 不再变化）：
+step2 默认带 `wait_for_fin` 节点，满足以下**双条件**自动判定建图完成：
+
+1. **前沿耗尽**：超过 `frontier_timeout_sec`（默认 15s）没有新前沿（需先收到过至少一批前沿，防止启动初期误判）；
+2. **小车静止**：线/角速度低于 `still_*_eps` 并持续 `still_duration_sec`（默认 5s）。
+
+触发后依次执行：保存地图（`map_saver_cli` 存 `/map`，默认 `~/maps/rrt_map.pgm/.yaml`）→ `pkill` 停掉 assigner → 向 `/goal_pose` 重发 5 次 map 原点目标 → 小车自动回初始位姿 → 发布 `overmap_flag=1`。
+
+参数见 [exploration_params.yaml](file:///home/admi/wheeltec_mycobot_ws/src/wheeltec/wheeltec_robot_rrt2/config/exploration_params.yaml) 的 `wait_for_fin` 段；不需要自动回原点可关：
 
 ```bash
-ros2 launch wheeltec_nav2 save_map.launch.py
+ros2 launch wheeltec_robot_rrt wheeltec_rrt_slam.launch.py enable_wait_for_fin:=false
 ```
 
-生成 `WHEELTEC.pgm` 与 `WHEELTEC.yaml` 到 `wheeltec_robot_nav2/map/`。
+手动保存地图仍可用：
+
+```bash
+ros2 run nav2_map_server map_saver_cli -t /map -f ~/maps/my_map --ros-args -p map_subscribe_transient_local:=true
+```
 
 ### 7.6 结束探索
 

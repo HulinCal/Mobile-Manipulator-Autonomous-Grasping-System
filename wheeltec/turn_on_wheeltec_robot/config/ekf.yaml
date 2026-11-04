@@ -73,7 +73,9 @@ ekf_filter_node:
 # sensor_msgs/Imu). To add an input, simply append the next number in the sequence to its "base" name, e.g., odom0,
 # odom1, twist0, twist1, imu0, imu1, imu2, etc. The value should be the topic name. These parameters obviously have no
 # default values, and must be specified.
-        odom0: odom_combined
+        odom0: odom
+# 输入必须是驱动原始轮速里程计 /odom; 若写 odom_combined 会吃到 EKF 自己的输出,
+# 与驱动在同一话题上双发布并形成反馈环, 导致建图重影/位姿抖动
 # Each sensor reading updates some or all of the filter's state. These options give you greater control over which
 # values from each measurement are fed to the filter. For example, if you have an odometry message as input, but only
 # want to use its Z position value, then set the entire vector to false, except for the third entry. The order of the
@@ -126,7 +128,10 @@ ekf_filter_node:
                       false, false, false,
                       false, false, false,
                       false, false, true,
-                      true,  false, false]
+                      false, false, false]
+# IMU 只融合 vyaw(绕z角速度), 禁止融合 ax 加速度:
+# 静止时 ax 零偏约 -0.024 m/s², 积分后位置百米级发散(实测 166s 漂 332m),
+# 此前靠 odom0 自反馈(odom0=odom_combined)碰巧锚住, 反馈环拆除后立刻发散
 
         imu0_nodelay: false
         imu0_differential: true

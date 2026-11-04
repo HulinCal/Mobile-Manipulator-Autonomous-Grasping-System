@@ -98,8 +98,8 @@ controller_server:
     general_goal_checker:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.25
-      yaw_goal_tolerance: 0.25
+      xy_goal_tolerance: 0.15
+      yaw_goal_tolerance: 0.15
 
     FollowPath:
       plugin: "dwb_core::DWBLocalPlanner"
@@ -125,8 +125,8 @@ controller_server:
       linear_granularity: 0.05
       angular_granularity: 0.025
       transform_tolerance: 0.2
-      xy_goal_tolerance: 0.25
-      trans_stopped_velocity: 0.25
+      xy_goal_tolerance: 0.1
+      trans_stopped_velocity: 0.05
       short_circuit_trajectory_evaluation: True
       stateful: True
       critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
@@ -138,7 +138,7 @@ controller_server:
       PathDist.scale: 30.0
       GoalDist.scale: 10.0
       RotateToGoal.scale: 32.0
-      RotateToGoal.slowing_factor: 5.0
+      RotateToGoal.slowing_factor: 2.0
       RotateToGoal.lookahead_time: -1.0
 
 controller_server_rclcpp_node:

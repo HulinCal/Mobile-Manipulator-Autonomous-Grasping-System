@@ -17,6 +17,23 @@ assigner:
     # 目标离机器人小于该距离则忽略（贴身伪 frontier 会导致 nav2 判定已到达、车不动）
     min_goal_distance: 0.5
 
+wait_for_fin:
+  ros__parameters:
+    # 前沿耗尽判定：超过该时长没有新前沿（需先收到过至少一批前沿才生效）
+    frontier_timeout_sec: 15.0
+    # 静止判定：线/角速度低于阈值并持续该时长
+    still_duration_sec: 5.0
+    still_linear_eps: 0.005
+    still_angular_eps: 0.005
+    # 完成后是否保存地图（map_saver_cli 存 /map，无需桌面终端）
+    save_map: true
+    # 保存路径前缀（不含扩展名），空则默认 ~/maps/rrt_map
+    map_save_path: ""
+    # 完成后是否发布 map 原点目标让小车回初始位姿
+    return_to_origin: true
+    # 回原点目标重发次数（分帧发，避免时序竞争丢目标）
+    goal_publish_repeat: 5
+
 
 # # anti_clockwise
 # boundry_publisher:
