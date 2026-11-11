@@ -1,17 +1,21 @@
 # ==========================================================================
 # mycobot280 M5 hand-eye calibration parameters
 #
-# ArUco marker ID 582 is mounted on the robot flange (eye-to-hand setup).
+# 本文件由 calibrate_eye_to_hand.launch.py 直接读取（yaml.safe_load），
+# 其中 mycobot280 段的所有键都会成为对应 launch 参数的默认值；
+# 命令行（ros2 launch ... key:=value）仍然可以覆盖。
+#
+# ArUco marker ID 2 is mounted on the robot flange (eye-to-hand setup).
 # Change `tracking_base_frame` / `tracking_marker_frame` to a fixed world
 # marker frame when running eye-in-hand (see camera_calibration.md).
 # ==========================================================================
 
 mycobot280:
-  # ---- Marker (ArUco ID 582) ----
-  marker_id: 582
+  # ---- Marker (ArUco ID 2) ----
+  marker_id: 2
   # Marker side length in meters. Measure the *black square* edge, NOT the
   # white border. Update this value to match your printed marker.
-  marker_size: 0.095
+  marker_size: 0.026
 
   # ---- Marker mounting offset on the flange (eye-to-hand only) ----------
   # The ArUco frame published by aruco_ros (`aruco_marker_frame`) has its
@@ -29,15 +33,26 @@ mycobot280:
   #   marker_offset_y : marker center Y offset from flange center [m]
   #   marker_thickness: distance from the ArUco-detected marker surface to
   #                     the flange end-face [m] (board + adhesive thickness).
-  # Set all to 0 if the marker is centered and printed on paper glued flat.
+  #
+  # 允许负数：marker 装在 link6_flange 的 -Z 方向时通常需要填负值。
+  # 判据（launch 发布的是 marker 坐标系下的 flange 原点平移 T_z = -marker_thickness）：
+  #   flange 原点在 aruco_marker_frame 的 +Z 侧  -> marker_thickness 取负
+  #   flange 原点在 aruco_marker_frame 的 -Z 侧  -> marker_thickness 取正
+  # 实测方法（检测到 marker 后）：
+  #   ros2 run tf2_ros tf2_echo aruco_marker_frame link6_flange
+  #   读取 Translation.z，marker_thickness = -z
+  #
   # NOTE: only used by calibrate_eye_to_hand.launch.py (marker-on-flange).
   #       Eye-in-hand has the marker fixed in the world, not on the flange.
   marker_offset_x: 0.0
   marker_offset_y: 0.0
-  marker_thickness: 0.008
+  marker_thickness: -0.1096
 
   # ---- Robot TF frames (from mycobot_280.urdf.xacro / .srdf) ----
-  robot_base_frame: "base_link"
+  # 机械臂的真实 base 坐标系是 link1。标定结果直接发布为
+  #   link1 -> camera_color_optical_frame
+  # 使用时代码里无需再做 base_link 转换。
+  robot_base_frame: "link1"
   # End-effector / flange frame defined via <xacro:arg name="flange_link"
   # default="link6_flange"/> in mycobot_280.urdf.xacro.
   robot_effector_frame: "link6_flange"
@@ -50,6 +65,7 @@ mycobot280:
   #   /camera/color/image_raw   /camera/color/camera_info
   #   /camera/depth/image_raw   /camera/depth/camera_info
   #   /camera/ir/image_raw      /camera/ir/camera_info
+  # image_topic / camera_info_topic 为相对话题名，launch 会与 camera_namespace 拼接。
   camera_namespace: "/camera"
   image_topic: "color/image_raw"
   camera_info_topic: "color/camera_info"
@@ -59,10 +75,14 @@ mycobot280:
   #   camera_link -> camera_depth_frame -> camera_color_optical_frame
   # (and *_depth_optical_frame etc.). Note: this is NOT the D435 frame
   # `camera_head_color_optical_frame` from the mycobot_description URDF.
-  # The launch file also publishes a static `base_link -> camera_link`
+  # The launch file also publishes a static `link1 -> camera_link`
   # (eye-to-hand) or `link6_flange -> camera_link` (eye-in-hand) to connect
   # the Astra's TF tree to the arm.
   camera_optical_frame: "camera_color_optical_frame"
+
+  # ---- Robot driver (ros2_control hardware -> pymycobot serial) ----
+  driver_port: "/dev/mycobot_controller"
+  driver_baud: 115200
 
   # ---- Calibration name (used for the result yaml file) ----
   calibration_name: "mycobot280_calibration"

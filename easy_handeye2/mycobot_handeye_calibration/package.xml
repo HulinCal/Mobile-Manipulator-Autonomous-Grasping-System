@@ -25,6 +25,8 @@
   <exec_depend>moveit_ros_move_group</exec_depend>
   <exec_depend>mycobot_moveit_config</exec_depend>
   <exec_depend>mycobot_description</exec_depend>
+  <exec_depend>wheeltec_mycobot_bringup</exec_depend>
+  <exec_depend>wheeltec_mycobot_description</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

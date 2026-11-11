@@ -6,7 +6,7 @@ Wraps easy_handeye2's `publish.launch.py`. After calibration, the result
 yaml (saved by easy_handeye2 under `~/.ros/easy_handeye/`) is loaded and the
 resulting transform is published to `/tf`.
 
-For eye-to-hand, publishes `base_link -> camera_optical_frame`.
+For eye-to-hand, publishes `link1 -> camera_color_optical_frame`.
 For eye-in-hand, publishes `link6_flange -> camera_optical_frame`.
 
 :author: hl

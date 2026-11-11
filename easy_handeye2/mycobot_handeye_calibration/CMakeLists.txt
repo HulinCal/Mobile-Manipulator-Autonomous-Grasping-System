@@ -16,4 +16,10 @@ install(
     share/${PROJECT_NAME}
 )
 
+# 关节滑块 GUI（拖动手柄控制机械臂位置）
+install(PROGRAMS
+  scripts/joint_slider_gui.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()

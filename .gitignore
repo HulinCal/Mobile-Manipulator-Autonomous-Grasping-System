@@ -1,0 +1,4 @@
+models/**/*.onnx
+models/**/*.bin
+models/**/*.pth
+models/**/*.safetensors

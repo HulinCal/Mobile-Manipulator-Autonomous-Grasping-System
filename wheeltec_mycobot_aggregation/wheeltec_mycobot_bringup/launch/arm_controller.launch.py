@@ -82,12 +82,13 @@ def generate_launch_description():
         'urdf',
         'wheeltec_mycobot.urdf.xacro',
     ])
+    robot_description_cmd = Command([
+        'xacro', ' ', urdf_xacro, ' ',
+        'use_gazebo:=false', ' ',
+        'use_gripper:=true',
+    ])
     robot_description_content = ParameterValue(
-        Command([
-            'xacro', ' ', urdf_xacro, ' ',
-            'use_gazebo:=false', ' ',
-            'use_gripper:=true',
-        ]),
+        robot_description_cmd,
         value_type=str,
     )
 
@@ -198,6 +199,9 @@ def generate_launch_description():
             'use_rviz': use_rviz,
             'use_sim_time': use_sim_time,
             'robot_name': 'mycobot_280',
+            # 让 MoveIt / RViz 也使用聚合 URDF（含底盘），
+            # 否则规划场景里显示的仍是旧的独立机械臂模型。
+            'robot_description': robot_description_cmd,
         }.items(),
         condition=IfCondition(use_move_group),
     )

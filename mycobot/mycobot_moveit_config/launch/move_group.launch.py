@@ -11,6 +11,7 @@ starts the move_group node, and optionally launches RViz for visualization.
 """
 
 import os
+import re
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, EmitEvent, RegisterEventHandler, OpaqueFunction
 from launch.conditions import IfCondition
@@ -71,6 +72,16 @@ def generate_launch_description():
         default_value=package_name_moveit_config,
         description='Package containing the RViz configuration file')
 
+    # 可选: 用外部 URDF 覆盖 moveit 配置包内的模型。
+    # 例如 wheeltec_mycobot_bringup 使用聚合机器人
+    # (WHEELTEC 底盘 + myCobot 280) 时，需要让 MoveIt / RViz 也使用同一个模型，
+    # 否则规划场景里显示的还是旧的独立机械臂模型。留空则保持原行为。
+    declare_robot_description_cmd = DeclareLaunchArgument(
+        name='robot_description',
+        default_value='',
+        description='可选: 外部机器人 URDF 字符串，非空时覆盖配置包内的 '
+                    'robot_description（用于 wheeltec 聚合机器人等模型）')
+
     def configure_setup(context):
         """Configure MoveIt and create nodes with proper string conversions."""
         # Get the robot name as a string for use in MoveItConfigsBuilder
@@ -110,6 +121,23 @@ def generate_launch_description():
             .to_moveit_configs()
         )
 
+        # 可选的外部 URDF 覆盖（例如 wheeltec 聚合机器人模型）
+        external_urdf = LaunchConfiguration('robot_description').perform(context)
+        moveit_config_dict = moveit_config.to_dict()
+        if external_urdf.strip():
+            moveit_config_dict['robot_description'] = external_urdf
+            # MoveIt 要求 SRDF 的 <robot name="..."> 与 URDF 的 robot name 一致，
+            # 否则会报 "Semantic description is not specified for the same robot
+            # as the URDF"。外部模型名不同时把 SRDF 的 name 改成一致。
+            urdf_match = re.search(r'<robot[^>]*\bname="([^"]+)"', external_urdf)
+            urdf_name = urdf_match.group(1) if urdf_match else None
+            srdf_xml = moveit_config_dict['robot_description_semantic']
+            if urdf_name:
+                srdf_xml = re.sub(r'(<robot[^>]*\bname=")[^"]*(")',
+                                  lambda m: m.group(1) + urdf_name + m.group(2),
+                                  srdf_xml, count=1)
+                moveit_config_dict['robot_description_semantic'] = srdf_xml
+
         # MoveIt capabilities
         # 注意：显式设置 `capabilities` 会覆盖 MoveGroup 默认列表。MoveIt 2 加载
         # capability 时若遇到不存在的类名会抛异常，导致后续 capability 全部不
@@ -132,7 +160,7 @@ def generate_launch_description():
             executable="move_group",
             output="screen",
             parameters=[
-                moveit_config.to_dict(),
+                moveit_config_dict,
                 {'use_sim_time': use_sim_time},
                 {'start_state': {'content': initial_positions_file_path}},
                 move_group_capabilities,
@@ -140,6 +168,12 @@ def generate_launch_description():
         )
 
         # Create RViz node
+        rviz_robot_description = dict(moveit_config.robot_description)
+        rviz_robot_description.update(moveit_config.robot_description_semantic)
+        if external_urdf.strip():
+            rviz_robot_description['robot_description'] = external_urdf
+            rviz_robot_description['robot_description_semantic'] = \
+                moveit_config_dict['robot_description_semantic']
         start_rviz_node_cmd = Node(
             condition=IfCondition(use_rviz),
             package="rviz2",
@@ -150,8 +184,7 @@ def generate_launch_description():
             ],
             output="screen",
             parameters=[
-                moveit_config.robot_description,
-                moveit_config.robot_description_semantic,
+                rviz_robot_description,
                 moveit_config.planning_pipelines,
                 moveit_config.robot_description_kinematics,
                 moveit_config.joint_limits,
@@ -177,6 +210,7 @@ def generate_launch_description():
     ld.add_action(declare_robot_name_cmd)
     ld.add_action(declare_rviz_config_file_cmd)
     ld.add_action(declare_rviz_config_package_cmd)
+    ld.add_action(declare_robot_description_cmd)
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_use_rviz_cmd)
 
