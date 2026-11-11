@@ -202,7 +202,7 @@ global_costmap:
       footprint: "[[-0.25, -0.20], [-0.25, 0.20], [0.25, 0.20], [0.25, -0.20]]"
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
       # ── costmap 根层级参数（StaticLayer/ObstacleLayer 共享）──
-      track_unknown_space: true    # false=未知视为 FREE_SPACE(0)，让 NavFn 直接穿过
+      track_unknown_space: false    # false=未知视为 FREE_SPACE(0)，让 NavFn 直接穿过
       unknown_cost_value: 255       # 地图中 unknown 的原始值（默认 255）
       lethal_cost_threshold: 100   # occupancy ≥ 100 视为 lethal obstacle
       trinary_costmap: true         # 三值模式 (FREE/LETHAL/UNKNOWN)

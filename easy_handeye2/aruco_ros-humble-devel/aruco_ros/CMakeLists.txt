@@ -84,6 +84,19 @@ target_include_directories(marker_publisher
 ament_target_dependencies(marker_publisher ${THIS_PACKAGE_INCLUDE_DEPENDS})
 target_link_libraries(marker_publisher ${OpenCV_LIBRARIES})
 
+add_executable(aruco_pose_test src/aruco_pose_test.cpp
+                               src/aruco_ros_utils.cpp)
+target_include_directories(aruco_pose_test
+  PUBLIC
+  include)
+
+target_include_directories(aruco_pose_test
+  SYSTEM PUBLIC
+  ${OpenCV_INCLUDE_DIRS}
+)
+ament_target_dependencies(aruco_pose_test ${THIS_PACKAGE_INCLUDE_DEPENDS})
+target_link_libraries(aruco_pose_test ${OpenCV_LIBRARIES})
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
 
@@ -102,7 +115,7 @@ install(TARGETS aruco_ros_utils
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin)
 
-install(TARGETS marker_publisher single double
+install(TARGETS marker_publisher single double aruco_pose_test
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY include/

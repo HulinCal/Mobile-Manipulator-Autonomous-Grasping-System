@@ -18,6 +18,48 @@ ros2 run mycobot_system_tests arm_gripper_loop_controller.py
 ros2 run mycobot_system_tests arm_gripper_loop_controller
 ```
 
+## 重定位精度测试（relocation_test）
+
+用于评估 mycobot280 的重复定位精度：从不同位置回到同一目标位置时，实际到达位置的一致性。
+
+节点行为：
+1. 订阅 `/joint_states`，读到 6 个关节角后打印当前角度（度 + 弧度），便于人工量取实际位置；
+2. 启动时在关节限位内随机生成 10 个可达目标并打印（度 + 弧度）；
+3. 订阅 `/relocation_test/target`（`std_msgs/Float64MultiArray`，6 个关节角），
+   通过 `/arm_controller/follow_joint_trajectory` 驱动机械臂，到位后打印实测关节角。
+
+### 前置条件
+launch 默认会 include `wheeltec_mycobot_bringup/arm_controller.launch.py` 自动启动机械臂
+（RSP + ros2_control + 串口驱动 + 控制器 spawn），无需手动准备；最终需要以下接口可用：
+- `/arm_controller/follow_joint_trajectory`
+- `/joint_states`
+
+### 使用
+```bash
+# 终端1：启动机械臂 + 测试节点（默认输入单位为弧度）
+ros2 launch mycobot_system_tests relocation_test.launch.py
+
+# 串口不是默认 /dev/mycobot_controller 时覆盖（实测机械臂在 /dev/ttyACM2 时）：
+ros2 launch mycobot_system_tests relocation_test.launch.py driver_port:=/dev/ttyACM2
+
+# 机械臂栈已在别处启动时，只起测试节点：
+ros2 launch mycobot_system_tests relocation_test.launch.py use_arm_bringup:=false
+
+# 终端2：发布目标位置（6 个关节角，顺序为 link1_to_link2 ... link6_to_link6_flange）
+ros2 topic pub --once /relocation_test/target std_msgs/msg/Float64MultiArray \
+  "{data: [-0.6984, 1.8264, 0.6159, 0.5468, 0.6399, -0.3467]}"
+```
+
+常用参数：
+```bash
+# 以“度”为单位发布，生成 10 个目标，单次运动 4 秒
+ros2 launch mycobot_system_tests relocation_test.launch.py angle_unit:=deg
+# 固定随机种子，便于复现同一组目标
+ros2 launch mycobot_system_tests relocation_test.launch.py seed:=42
+```
+
+> 随机目标仅在关节限位内采样，不保证不自碰撞或不会碰到桌面；下发前请先确认姿态安全。
+
 mycobot_system_tests （机械臂循环测试）
 功能 ：让机械臂在"目标位置"和"Home 位置"之间循环运动，并在每个位置同步开/关夹爪，用于验证关节控制器和夹爪动作的可靠性。
 

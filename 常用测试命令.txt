@@ -1,0 +1,40 @@
+1.导航精度测试
+    1.1启动导航栈：
+    source install/setup.bash
+    ros2 launch wheeltec_nav2 wheeltec_nav2.launch.py use_rviz:=true 
+    1.2 给初始位姿（关键！每次都要）
+    如果`set_initial_pose: true` （默认）且车正好在地图原点，可以跳过。否则 必须在 RViz 里给 ：
+    - RViz 工具栏 → "2D Pose Estimate" 按钮（或`P` 键）
+    - 在地图上点一下车头位置，拖动箭头指向前方
+    AMCL 会围绕这个初值收敛，否则定位偏差可能 20cm+
+    1.3 发布位置： 
+        # 向前 1m，目标朝向 = map x 轴正方向 (w=1)
+    ros2 topic pub --once /goal_pose geometry_msgs/msg/PoseStamped \
+    "{header: {frame_id: map}, pose: {position: {x: 1.0, y: 0.0, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}}"
+
+2 测试aruco标定板
+    2.1 ros2 run aruco_ros aruco_pose_test
+        # 需要改参数时
+        ros2 run aruco_ros aruco_pose_test --ros-args -p marker_size:=0.05 -p image_is_rectified:=false
+    2.2 打开摄像头
+        ros2 launch turn_on_wheeltec_robot wheeltec_camera.launch.py
+    2.3 查看叠加图像
+        ros2 run rqt_image_view rqt_image_view    # 选择 /aruco_pose_test/image
+        ros2 topic echo /aruco_pose_test/pose
+
+   2.4 修改aruco的ID和尺寸：aruco_pose_test.cpp#L47-L48 
+
+3 测试机械臂重定位精度
+    3.1 启动机械臂
+        ros2 launch mycobot_system_tests relocation_test.launch.py
+        或者指定接口：ros2 launch mycobot_system_tests relocation_test.launch.py driver_port:=/dev/ttyACM2
+
+    同一目标点：
+        ros2 topic pub --once /relocation_test/target std_msgs/msg/Float64MultiArray  "{data: [0.0276, -0.9755, -0.635, 0.1381, -0.003, -0.9203]}"
+
+    为了安全，可以使用以下几个点进行测试：
+    ros2 topic pub --once /relocation_test/target std_msgs/msg/Float64MultiArray        "{data: [0.5276, -0.5755, -0.435, 0.1381, -0.003, -0.9203]}"
+
+    ros2 topic pub --once /relocation_test/target std_msgs/msg/Float64MultiArray        "{data: [-0.5276, -0.5755, -0.435, 0.1381, -0.003, -0.9203]}"
+
+    ros2 topic pub --once /relocation_test/target std_msgs/msg/Float64MultiArray       "{data: [ 0.0000  , 0.0000 ,  0.0000 ,  0.0000 ,  0.0000 ,  0.0000]}"

@@ -17,7 +17,7 @@ ament_target_dependencies(arm_gripper_loop_controller rclcpp rclcpp_action contr
 
 # Copy necessary files to designated locations in the project
 install (
-  DIRECTORY scripts src
+  DIRECTORY scripts src launch
   DESTINATION share/${PROJECT_NAME}
 )
 
@@ -31,6 +31,7 @@ install(
 # Install Python executables
 install(PROGRAMS
   scripts/arm_gripper_loop_controller.py
+  scripts/relocation_test.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
