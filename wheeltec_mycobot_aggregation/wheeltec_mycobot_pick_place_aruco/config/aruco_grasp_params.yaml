@@ -1,0 +1,65 @@
+# ============================================================================
+# wheeltec_mycobot_pick_place_aruco parameters
+# ============================================================================
+/**:
+  ros__parameters:
+    # ---- ArUco marker ----
+    marker_id: 1
+    marker_size: 0.026              # [m] marker black square edge
+    block_size: 0.030               # [m] cube side length
+    marker_on_top: true             # marker printed on block top face
+    marker_thickness: 0.0           # [m] marker surface to block surface
+    grasp_depth_from_marker: 0.015  # [m] marker top -> block center
+
+    # ---- Stability detection ----
+    stable_duration: 1.0            # [s] stable before triggering grasp
+    stable_pos_tol: 0.015           # [m] position variance tolerance
+    stable_ori_tol: 0.15            # [rad] orientation variance tolerance
+    detect_timeout: 5.0            # [s] max wait for stable marker
+
+    # ---- Frames ----
+    arm_base_frame: "link1"
+    eef_link: "link6_flange"
+    camera_frame: "camera_color_optical_frame"
+    marker_frame: "aruco_marker_frame"
+
+    # ---- Grasp geometry ----
+    # link6_flange +z to gripper finger center [m]
+    tcp_flange_z: 0.06
+
+    # ---- Hand-eye calibration correction offsets [m] ----
+    # 在 link1 坐标系下对 marker 位置做附加修正, 补偿手眼标定系统偏差.
+    # 夹爪抓取到的 z 位置偏低, 需向上抬高 +5mm: marker_pos_offset_z: 0.005
+    # 测得偏差后直接改这里数值, 无需重编译.
+    marker_pos_offset_x: 0.03   # -0.003 # 向右偏了 3mm → 往左修
+    marker_pos_offset_y: 0.2   # 向后偏了 2mm → 往前修
+    marker_pos_offset_z: 0.0 # 抬得不够，再加 5mm
+
+    # ---- 闭合前视觉修正 (id=2 修正标定板, 刚连在法兰上) ----
+    # 修正板距法兰原点 78.6mm, 在法兰 +z 轴上, 板 z 与法兰 z 相反,
+    # 板 x,y 与法兰原点重合. 仅在闭合夹爪前使用, 其他时候忽略.
+    correction_enabled: true
+    correction_pose_topic: "/aruco_correction/pose"
+    correction_flange_dist: 0.0786   # [m] 法兰原点到修正板距离
+    correction_max: 0.05             # [m] 单次修正限幅, 超过视为检测异常跳过
+    correction_timeout: 1.0          # [s] 修正板位姿新鲜度
+
+    # ---- Motion ----
+    approach_distance: 0.08         # [m] pre-grasp height above block
+    lift_distance: 0.10              # [m] lift after grasping
+    rotate_yaw_deg: 60.0             # [deg] rotate right after lift
+    planning_time: 5.0               # [s] MoveIt planning timeout
+    explore_planning_time: 1.5       # [s] fast attempt planning timeout
+    arm_group: "arm"
+    vel_scale_slow: 0.1             # fine approach velocity scaling
+    vel_scale_fast: 0.3             # home/lift velocity scaling
+
+    # ---- Gripper ----
+    gripper_open_value: 0.15        # [rad] open (fully open)
+    gripper_close_value: -0.42      # [rad] close (about 1/3 open)
+    gripper_settle_time: 1.5        # [s] wait after close command
+
+    # ---- Action topics ----
+    marker_pose_topic: "/aruco_single/pose"   # published by aruco_ros single
+    move_action: "/move_action"
+    gripper_action: "/gripper_action_controller/gripper_cmd"

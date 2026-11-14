@@ -15,7 +15,7 @@ mycobot280:
   marker_id: 2
   # Marker side length in meters. Measure the *black square* edge, NOT the
   # white border. Update this value to match your printed marker.
-  marker_size: 0.026
+  marker_size: 0.024
 
   # ---- Marker mounting offset on the flange (eye-to-hand only) ----------
   # The ArUco frame published by aruco_ros (`aruco_marker_frame`) has its
@@ -46,7 +46,7 @@ mycobot280:
   #       Eye-in-hand has the marker fixed in the world, not on the flange.
   marker_offset_x: 0.0
   marker_offset_y: 0.0
-  marker_thickness: -0.1096
+  marker_thickness: 0.0504
 
   # ---- Robot TF frames (from mycobot_280.urdf.xacro / .srdf) ----
   # 机械臂的真实 base 坐标系是 link1。标定结果直接发布为

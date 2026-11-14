@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>wheeltec_mycobot_pick_place_aruco</name>
+  <version>0.1.0</version>
+  <description>
+    Test package for pick-and-place of an ArUco calibration block.
+
+    Pipeline:
+      1. aruco_ros "single" detects ArUco marker ID 0 (size 0.026m)
+      2. Marker pose is transformed from camera frame to link1 (arm base)
+      3. aruco_grasp_node verifies 2-second stable detection
+      4. MoveIt2 picks the marker block:
+         - move to pre-grasp above marker
+         - slow vertical approach
+         - close gripper
+         - lift ~0.10m
+         - rotate right ~60deg (Z axis)
+         - open gripper (drop block)
+         - return home
+         - wait for next detection
+    The car does not move; only the arm picks in place.
+  </description>
+  <maintainer email="user@todo.todo">user</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- ROS 2 core -->
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf2_msgs</depend>
+
+  <!-- MoveIt2 -->
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>moveit_ros_move_group</depend>
+  <depend>mycobot_moveit_config</depend>
+
+  <!-- aruco_ros -->
+  <depend>aruco_ros</depend>
+  <depend>aruco_msgs</depend>
+
+  <!-- Aggregated robot bringup -->
+  <exec_depend>wheeltec_mycobot_bringup</exec_depend>
+  <exec_depend>wheeltec_mycobot_description</exec_depend>
+  <exec_depend>mycobot_handeye_calibration</exec_depend>
+
+  <exec_depend>python3-opencv</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
