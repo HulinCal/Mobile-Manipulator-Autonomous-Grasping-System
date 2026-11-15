@@ -83,9 +83,9 @@ class ArucoGraspNode(Node):
         # ---- hand-eye calibration correction offsets [m] ----
         # 在手眼标定 TF 转换到 link1 系后, 对 marker 位置做附加修正.
         # 用于补偿手眼标定系统偏差, 例如实测 z 偏低需 +0.005m.
-        self.declare_parameter('marker_pos_offset_x', 0.0)
-        self.declare_parameter('marker_pos_offset_y', 0.0)
-        self.declare_parameter('marker_pos_offset_z', 0.0)
+        self.declare_parameter('marker_pos_offset_x', -0.015)
+        self.declare_parameter('marker_pos_offset_y', 0.015)
+        self.declare_parameter('marker_pos_offset_z', -0.015)
 
         # ---- motion ----
         self.declare_parameter('approach_distance', 0.08)    # [m] pre-grasp above block

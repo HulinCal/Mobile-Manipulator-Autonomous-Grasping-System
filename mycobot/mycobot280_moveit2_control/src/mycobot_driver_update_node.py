@@ -38,7 +38,9 @@
   3. 关节空间执行: ros2_control/MoveIt 已算好关节角, 直接下发.
   4. 后台执行线程: 解耦 ROS 回调与串口 I/O.
   5. 回调分组: 指令订阅与状态定时器互不阻塞.
-  6. 变化检测: 目标与上次下发差值 <0.1° 时跳过, 减少空闲串口流量.
+  6. 变化检测: 目标与上次下发差值 <0.02° 时跳过, 减少空闲串口流量.
+  7. 急停: /mycobot/stop 立即让固件停止, 丢弃待发目标, 并在
+     stop_hold_time 内忽略后续指令, 防止在途插值点立刻把臂重新带起来.
 
 ============================================================
 接口
@@ -56,7 +58,7 @@ import rclpy
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.callback_groups import ReentrantCallbackGroup, MutuallyExclusiveCallbackGroup
 from rclpy.node import Node
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Empty, Float64MultiArray, Int32
 from packaging import version
 import pymycobot
 
@@ -78,8 +80,10 @@ else:
 GRIPPER_RAD_MIN = -0.7
 GRIPPER_RAD_MAX = 0.15
 
-# 变化阈值(deg): 目标与上次下发差值小于此值时跳过, 减少空闲串口流量
-SEND_EPS = 0.1
+# 变化阈值(deg): 目标与上次下发差值小于此值时跳过, 减少空闲串口流量.
+# 必须小于最慢运动段每帧的变化量(约 0.06°/帧), 否则静止前的最后一个
+# 目标可能被跳过, 臂走到旧目标后停顿等下一帧 —— 表现为低速跟踪卡顿.
+SEND_EPS = 0.02
 
 
 class MyCobotDriverUpdate(Node):
@@ -91,9 +95,15 @@ class MyCobotDriverUpdate(Node):
         # ---- 参数 ----
         self.declare_parameter('port', '/dev/ttyACM0')
         self.declare_parameter('baudrate', 115200)
-        self.declare_parameter('speed', 80)        # 固件内部插值速度 1-100
+        self.declare_parameter('speed', 50)        # 固件内部插值速度 1-100
         self.declare_parameter('stream_hz', 40.0)  # 流式下发频率 (≤50, 串口吞吐上限)
         self.declare_parameter('gripper_speed', 30)  # 夹爪开合速度 1-100
+        # 急停后忽略指令的时长 [s]: 覆盖 JTC/桥接在途的插值点,
+        # 避免刚刹停就被旧目标重新带走; 调用方仍应取消自己的轨迹源.
+        self.declare_parameter('stop_hold_time', 0.5)
+        # 实时速度提示的有效期 [s]: 对齐节点按 marker 移动速度下发
+        # /mycobot/speed_hint, 超时未更新则回落到上面的静态 speed.
+        self.declare_parameter('speed_hint_timeout', 0.5)
 
         port = self.get_parameter('port').value
         baudrate = self.get_parameter('baudrate').value
@@ -128,6 +138,11 @@ class MyCobotDriverUpdate(Node):
         self.cur = None                # 最近一次下发的角度(deg), 执行线程维护
         self.gripper_target = None     # 0..100
         self.gripper_last_sent = None  # 上次已下发的夹爪值, 避免重复 send
+        # 急停闭锁截止时刻 (monotonic); 在此之前丢弃所有关节指令
+        self._ignore_cmd_until = 0.0
+        # 实时速度提示 (1-100) 及其有效期
+        self._speed_hint = None
+        self._speed_hint_until = 0.0
 
         # 初始化 cur 为机械臂实际角度
         try:
@@ -156,6 +171,21 @@ class MyCobotDriverUpdate(Node):
             Float64MultiArray,
             '/mycobot/cmd_gripper_pos',
             self.gripper_cmd_callback,
+            5,
+            callback_group=cmd_cb_group)
+        # 机械臂急停: 立即让固件停止运动并丢弃待发目标.
+        # (语音"机械臂停止"经 grasp_node 的 /pick_place/arm_stop 转发到此处)
+        self.stop_sub = self.create_subscription(
+            Empty,
+            '/mycobot/stop',
+            self.stop_cmd_callback,
+            5,
+            callback_group=cmd_cb_group)
+        # 实时速度提示: 目标移动越快, 固件插值速度越高 (对齐节点发布)
+        self.speed_hint_sub = self.create_subscription(
+            Int32,
+            '/mycobot/speed_hint',
+            self.speed_hint_callback,
             5,
             callback_group=cmd_cb_group)
 
@@ -195,6 +225,11 @@ class MyCobotDriverUpdate(Node):
                 f"Expected 6 joints, got {len(msg.data)}")
             return
 
+        # 急停闭锁期内丢弃指令: 桥接/JTC 在途的插值点若被采用,
+        # 会在刹停后几帧内把臂重新带起来.
+        if time.monotonic() < self._ignore_cmd_until:
+            return
+
         # pymycobot 用角度制(deg), ros2_control 用弧度(rad)
         angles_deg = [math.degrees(a) for a in msg.data]
         with self.lock:
@@ -220,6 +255,41 @@ class MyCobotDriverUpdate(Node):
         value = max(0, min(100, value))
         with self.lock:
             self.gripper_target = value
+
+    def stop_cmd_callback(self, _msg):
+        """急停: 固件立即停止 + 丢弃待发目标 + 短暂闭锁后续指令.
+
+        串口锁最多等 0.2s (执行线程一次 send_angles 约 10ms), 超时也
+        照样下发 stop, 保证物理臂优先刹停. 闭锁时长 stop_hold_time
+        覆盖桥接/JTC 在途插值点; 调用方应同时取消自己的轨迹源
+        (grasp_node 的 /pick_place/arm_stop 已实现).
+        """
+        self._ignore_cmd_until = time.monotonic() + \
+            self.get_parameter('stop_hold_time').value
+        with self.lock:
+            self.target = None
+        self.get_logger().warn('Arm STOP command received -> firmware stop')
+
+        acquired = self.serial_lock.acquire(timeout=0.2)
+        try:
+            self.mc.stop()
+        except Exception as e:
+            self.get_logger().error(f'Error stopping arm: {e}')
+        finally:
+            if acquired:
+                self.serial_lock.release()
+
+    def speed_hint_callback(self, msg):
+        """接收对齐节点的实时固件速度提示 (1-100)."""
+        self._speed_hint = max(1, min(100, int(msg.data)))
+        self._speed_hint_until = time.monotonic() + \
+            self.get_parameter('speed_hint_timeout').value
+
+    def _effective_speed(self, default):
+        """固件插值速度: 实时提示优先, 超时回落静态参数."""
+        if time.monotonic() < self._speed_hint_until:
+            return self._speed_hint
+        return default
 
     # ============================================================
     # 辅助: 判断两组角度是否足够接近
@@ -249,11 +319,15 @@ class MyCobotDriverUpdate(Node):
             if tgt is not None:
                 # 只在目标变化时下发, 避免重复 send 浪费串口带宽
                 need_send = self.cur is None or not self._close(self.cur, tgt)
+                # 急停闭锁: 本周期读到的目标是闭锁前残留的, 不许下发
+                if time.monotonic() < self._ignore_cmd_until:
+                    need_send = False
 
             if need_send:
                 try:
                     with self.serial_lock:
-                        self.mc.send_angles(tgt, speed)
+                        self.mc.send_angles(
+                            tgt, self._effective_speed(speed))
                     self.cur = list(tgt)
                 except Exception as e:
                     self.get_logger().error(
@@ -340,7 +414,10 @@ class MyCobotDriverUpdate(Node):
             pass
 
         try:
-            self.get_logger().info("MyCobot Driver Update Node stopped.")
+            # context 已进入关闭流程时不再发 rosout, 避免
+            # "publisher's context is invalid" 噪音
+            if rclpy.ok():
+                self.get_logger().info("MyCobot Driver Update Node stopped.")
         except Exception:
             pass
 

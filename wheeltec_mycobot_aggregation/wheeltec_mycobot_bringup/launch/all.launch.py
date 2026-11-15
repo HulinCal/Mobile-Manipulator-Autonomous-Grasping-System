@@ -18,7 +18,8 @@
   8. controller_manager       - ros2_control 节点, 加载机械臂硬件接口与控制器
                                (mycobot280_moveit2_control/config/
                                 mycobot_280_real_controllers.yaml)
-  9. mycobot_driver_node.py  - Python 串口驱动 (默认 /dev/ttyACM0, 115200)
+  9. mycobot_driver_update_node.py - Python 流式串口驱动
+                               (fresh_mode=1, 默认 /dev/ttyACM0, 115200)
   10. load_controllers       - 依次 spawn joint_state_broadcaster -> arm_controller
                                -> gripper_action_controller (TimerAction + 事件串联)
   11. joint_state_publisher  - 无头模式, 发布轮子等非 ros2_control 关节状态
@@ -260,15 +261,20 @@ def generate_launch_description():
     )
 
     # 9) mycobot Python 驱动节点, 与机械臂通信
+    #    使用流式驱动: fresh_mode=1 + 非阻塞 send_angles, 固件自行插值,
+    #    消除旧驱动 fresh_mode=0 + sync_send_angles 阻塞造成的"动一下停一下"
     #    use_real_hardware:=false 时跳过, 避免串口不存在导致崩溃
     driver_node = Node(
         package='mycobot280_moveit2_control',
-        executable='mycobot_driver_node.py',
-        name='mycobot_driver',
+        executable='mycobot_driver_update_node.py',
+        name='mycobot_driver_update',
         output='screen',
         parameters=[{
             'port': driver_port,
             'baudrate': driver_baud,
+            'speed': 50,
+            'stream_hz': 40.0,
+            'gripper_speed': 30,
         }],
         condition=IfCondition(use_real_hardware),
     )

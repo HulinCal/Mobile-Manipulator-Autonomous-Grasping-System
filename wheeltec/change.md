@@ -1,5 +1,15 @@
 # ROS2 Humble → Jazzy 转换记录
 
+相机关节定义（旧的）：
+  `camera_joint` 定义在 senior_4wd_bs_robot.urdf 中
+  xyz = -0.150  0.1067  0.612      (相对 base_link)
+  rpy =  0.070008  0.353497  -0.288989
+
+相机关节定义（新的）：
+  `camera_joint` 定义在 senior_4wd_bs_robot.urdf 中
+  xyz = -0.150  0.1067  0.612      (相对 base_link)
+  rpy =  0.070008  0.31416 -0.34907
+
 本文档记录了将 wheeltec_ws 工作空间从 ROS2 Humble 迁移到 Jazzy 版本的所有修改。
 
 ---

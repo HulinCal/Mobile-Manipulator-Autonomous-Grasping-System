@@ -166,50 +166,34 @@ def generate_launch_description():
 
     # 3) Python driver. Lives in this package (src/mycobot_driver_update_node.py)
     #    and is installed as a ros2 executable via CMakeLists.txt PROGRAMS.
-    #    使用防抖动流式驱动节点 (set_fresh_mode(1) + send_angles 非阻塞
-    #    + EMA 平滑 + 动态节拍), 替代旧版 sync_send_angles 阻塞驱动。
+    #    使用流式驱动节点 (set_fresh_mode(1) + send_angles 非阻塞 + 动态节拍),
+    #    替代旧版 sync_send_angles 阻塞驱动 (段间必停一下).
     #    Parameters port and baudrate are read through declare_parameter
     #    defaults inside mycobot_driver_update_node.py.
     declare_driver_speed = DeclareLaunchArgument(
-        'driver_speed', default_value='80',
-        description='Firmware interpolation speed 1-100 (anti-jitter driver)')
-    declare_driver_smooth = DeclareLaunchArgument(
-        'driver_smooth', default_value='3',
-        description='EMA smoothing window, larger = softer (anti-jitter driver)')
+        'driver_speed', default_value='50',
+        description='Firmware interpolation speed 1-100 (streaming driver)')
     declare_driver_stream_hz = DeclareLaunchArgument(
         'driver_stream_hz', default_value='40.0',
-        description='Streaming send frequency Hz, <=50 (anti-jitter driver)')
+        description='Streaming send frequency Hz, <=50 (streaming driver)')
     declare_driver_gripper_speed = DeclareLaunchArgument(
         'driver_gripper_speed', default_value='30',
-        description='Gripper open/close speed 1-100 (anti-jitter driver)')
+        description='Gripper open/close speed 1-100 (streaming driver)')
     driver_speed = LaunchConfiguration('driver_speed')
-    driver_smooth = LaunchConfiguration('driver_smooth')
     driver_stream_hz = LaunchConfiguration('driver_stream_hz')
     driver_gripper_speed = LaunchConfiguration('driver_gripper_speed')
 
-    # driver_node = Node(
-    #     package='mycobot280_moveit2_control',
-    #     executable='mycobot_driver_update_node.py',
-    #     name='mycobot_driver_update',
-    #     output='screen',
-    #     parameters=[{
-    #         'port': driver_port,
-    #         'baudrate': driver_baud,
-    #         'speed': driver_speed,
-    #         'smooth': driver_smooth,
-    #         'stream_hz': driver_stream_hz,
-    #         'gripper_speed': driver_gripper_speed,
-    #     }],
-    # )
-    
     driver_node = Node(
         package='mycobot280_moveit2_control',
-        executable='mycobot_driver_node.py',
-        name='mycobot_driver',
+        executable='mycobot_driver_update_node.py',
+        name='mycobot_driver_update',
         output='screen',
         parameters=[{
             'port': driver_port,
             'baudrate': driver_baud,
+            'speed': driver_speed,
+            'stream_hz': driver_stream_hz,
+            'gripper_speed': driver_gripper_speed,
         }],
     )
 
@@ -266,8 +250,8 @@ def generate_launch_description():
         declare_robot_name, declare_use_rviz, declare_use_move_group,
         declare_use_sim_time, declare_prefix, declare_flange_link,
         declare_use_gripper, declare_driver_port, declare_driver_baud,
-        declare_driver_speed, declare_driver_smooth,
-        declare_driver_stream_hz, declare_driver_gripper_speed,
+        declare_driver_speed, declare_driver_stream_hz,
+        declare_driver_gripper_speed,
     ]:
         ld.add_action(arg)
 
