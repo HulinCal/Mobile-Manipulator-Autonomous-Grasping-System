@@ -11,8 +11,13 @@
   5. 每条轨迹执行成功并静置 settle_time 后才做下一次控制, 仍不满足容差就再解算一次
   6. marker_offset_x/y/z 在 link1 系给相机解算位置加常向量补偿,
      用于抵消手眼外参的系统偏差(方向固定、约几厘米的对准偏差)
+  7. 对准后 marker 连续 grasp_stable_time 秒不动, 进入抓取循环:
+     张开夹爪(grasp_open_hold) -> 夹持点移动到 marker (姿态允许小幅
+     倾斜, 不再限定沿法兰 +Z) -> 闭合夹爪 -> 回到 pick_ready
+     -> 张开夹爪 -> 重新对准
 """
 import math
+import threading
 import time
 
 import rclpy
@@ -24,7 +29,7 @@ from rclpy.executors import MultiThreadedExecutor
 from geometry_msgs.msg import PoseStamped
 from std_msgs.msg import Int32
 from control_msgs.msg import JointTrajectoryControllerState
-from control_msgs.action import FollowJointTrajectory
+from control_msgs.action import FollowJointTrajectory, GripperCommand
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 
 import tf2_ros
@@ -127,6 +132,53 @@ def _smooth_points(q0, q1, duration, count=ALIGN_WAYPOINTS):
     return pts
 
 
+def _rotvec_matrix(r):
+    """3x3 旋转矩阵 -> 旋转向量 (轴 * 角), 用于姿态误差."""
+    c = 0.5 * (r[0][0] + r[1][1] + r[2][2] - 1.0)
+    c = max(-1.0, min(1.0, c))
+    ang = math.acos(c)
+    if ang < 1e-9:
+        return (0.0, 0.0, 0.0)
+    s = math.sin(ang)
+    if abs(s) < 1e-6:
+        return (0.0, 0.0, 0.0)   # 接近 180°, 插入过程不会出现
+    k = ang / (2.0 * s)
+    return (k * (r[2][1] - r[1][2]),
+            k * (r[0][2] - r[2][0]),
+            k * (r[1][0] - r[0][1]))
+
+
+def _solve_linear(a, b):
+    """高斯消元解 A x = b (A 为 n x n), 奇异返回 None."""
+    n = len(b)
+    m = [list(a[i]) + [b[i]] for i in range(n)]
+    for col in range(n):
+        piv = max(range(col, n), key=lambda r: abs(m[r][col]))
+        if abs(m[piv][col]) < 1e-12:
+            return None
+        m[col], m[piv] = m[piv], m[col]
+        inv = 1.0 / m[col][col]
+        for j in range(col, n + 1):
+            m[col][j] *= inv
+        for row in range(n):
+            if row == col:
+                continue
+            f = m[row][col]
+            if f:
+                for j in range(col, n + 1):
+                    m[row][j] -= f * m[col][j]
+    return [m[i][n] for i in range(n)]
+
+
+# 主状态机: 对准 -> 张开 -> 前伸 -> 闭合 -> 回 pick_ready -> 张开 -> 重新对准
+ST_ALIGN = 'align'            # 视觉对准 (J1~J5)
+ST_OPEN_PRE = 'open_pre'      # 前伸前张开夹爪
+ST_INSERT = 'insert'          # 沿法兰 +Z 前伸到 marker
+ST_CLOSE = 'close'            # 闭合夹爪
+ST_RETURN = 'return'          # 回到 pick_ready
+ST_OPEN_POST = 'open_post'    # 回位后张开夹爪
+
+
 class ArucoAlignNode(Node):
 
     def __init__(self):
@@ -168,6 +220,30 @@ class ArucoAlignNode(Node):
         self.declare_parameter('speed_slow', 40)            # 固件 speed 下限
         self.declare_parameter('speed_fast', 80)            # 固件 speed 上限
 
+        # ---- 对准稳定后的抓取循环 ----
+        # marker 连续 grasp_stable_time 秒不动才触发抓取.
+        # marker 位姿本身有约 ±1.5cm 的 PnP 抖动, 判定不宜过严:
+        # 1.0s + 1.5cm 与 aruco_grasp_params.yaml 的 stable_duration /
+        # stable_pos_tol 保持一致
+        self.declare_parameter('grasp_stable_time', 1.0)    # [s]
+        self.declare_parameter('grasp_stable_pos_tol', 0.02)  # [m] 视为不动的范围
+        # 夹爪: 法兰 +Z 到实际夹持点的距离 [m].
+        # 指尖全长约 0.10m (安装偏移 0.034 + 指节 0.07), 但方块是夹在
+        # 两指根部之间: 实机在 0.10 时停下后距 marker 还差约 5cm, 故取 0.05.
+        self.declare_parameter('tcp_flange_z', 0.05)
+        # 额外前伸深度 [m]: 正数表示越过 marker 继续深入.
+        # ArUco 标定板厚 0.03m, 位姿解算给出的是板中心, 实际抓取面在
+        # 板前表面, 故再沿接近方向多深入半个板厚 0.015m.
+        self.declare_parameter('insert_extra_depth', 0.015)
+        self.declare_parameter('insert_rate', 0.3)          # [rad/s] 前伸关节速率
+        self.declare_parameter('grasp_open_hold', 1.0)      # [s] 张开后保持
+        self.declare_parameter('grasp_close_hold', 1.0)     # [s] 闭合后保持
+        self.declare_parameter('gripper_action',
+                               '/gripper_action_controller/gripper_cmd')
+        self.declare_parameter('gripper_open_value', 0.15)   # [rad]
+        self.declare_parameter('gripper_close_value', -0.42)  # [rad]
+        self.declare_parameter('gripper_max_effort', 50.0)
+
         p = self.get_parameter
         self.init_duration = p('init_duration').value
         self.base_frame = p('arm_base_frame').value
@@ -190,6 +266,16 @@ class ArucoAlignNode(Node):
         self.adapt_omega_ref = p('adapt_omega_ref').value
         self.speed_slow = p('speed_slow').value
         self.speed_fast = p('speed_fast').value
+        self.grasp_stable_time = p('grasp_stable_time').value
+        self.grasp_stable_pos_tol = p('grasp_stable_pos_tol').value
+        self.tcp_flange_z = p('tcp_flange_z').value
+        self.insert_extra_depth = p('insert_extra_depth').value
+        self.insert_rate = p('insert_rate').value
+        self.grasp_open_hold = p('grasp_open_hold').value
+        self.grasp_close_hold = p('grasp_close_hold').value
+        self.gripper_open_value = p('gripper_open_value').value
+        self.gripper_close_value = p('gripper_close_value').value
+        self.gripper_max_effort = p('gripper_max_effort').value
 
         # ---- 状态 ----
         self._joints = {}            # name -> position (controller 反馈)
@@ -213,6 +299,20 @@ class ArucoAlignNode(Node):
         # 已下发的指令位置 (不是反馈): 连续重规划以它为基准累加,
         # 否则串口反馈滞后会让每步都从"落后"的位置重新起步
         self._cmd_q = None
+        # ---- 抓取循环状态 ----
+        self._state = ST_ALIGN          # 主状态机当前状态
+        self._state_time = 0.0          # 进入当前状态的时刻
+        self._stable_since = None       # 对准后 marker 开始不动的时刻
+        self._stable_ref = None         # 不动判定的参考位置 (法兰系 P)
+        self._arm_done = None           # 前伸/回位轨迹结果: None/True/False
+        self._arm_done_time = 0.0
+        self._gripper_done = None       # 夹爪 action 结果: None/True/False
+        self._gripper_done_time = 0.0
+        self._gripper_busy = False
+        # 定时器重入保护: ReentrantCallbackGroup + 多线程执行器下, 一次
+        # IK 计算超过 50ms 周期时会有多个线程同时进入同一 tick, 造成同一帧
+        # 重复解算/重复下发 (日志里同一 pos_err 连续打印多次)
+        self._tick_lock = threading.Lock()
 
         # ---- TF: 只用于 相机/手眼 静态链路, 不用于机械臂关节 ----
         self.tf_buf = tf2_ros.Buffer()
@@ -232,6 +332,11 @@ class ArucoAlignNode(Node):
         self.traj_cli = ActionClient(
             self, FollowJointTrajectory,
             p('trajectory_action').value,
+            callback_group=self.cbg)
+        # ---- 夹爪 action ----
+        self.gripper_cli = ActionClient(
+            self, GripperCommand,
+            p('gripper_action').value,
             callback_group=self.cbg)
 
         # 固件速度提示: 根据 marker 移动速度实时调节驱动 speed (1-100)
@@ -367,6 +472,78 @@ class ArucoAlignNode(Node):
                 break
         return {n: q[n] for n in ALIGN_JOINTS}
 
+    def _pose_residual(self, target_rot, target_pos, q, w_rot, tcp=0.0):
+        """候选关节角下 (法兰或夹持点) 相对目标位姿的 6 维误差.
+
+        tcp > 0 时位置误差按"夹持点 = 法兰 + R*(0,0,tcp)"计算,
+        否则按法兰原点计算.
+        """
+        fk = self._fk(q)
+        if fk is None:
+            return None
+        rot, pos = fk
+        if tcp:
+            pos = tuple(pos[i] + rot[i][2] * tcp for i in range(3))
+        rv = _rotvec_matrix(_mat_mul(target_rot, _mat_t(rot)))
+        return [target_pos[0] - pos[0], target_pos[1] - pos[1],
+                target_pos[2] - pos[2],
+                w_rot * rv[0], w_rot * rv[1], w_rot * rv[2]]
+
+    def _solve_cartesian(self, target_rot, target_pos, w_rot=0.1, tcp=0.0):
+        """模型内迭代 J1~J5, 让夹持点到目标位置, 姿态只做弱约束.
+
+        返回 (目标角字典, 位置残差[m], 姿态残差[deg]); 失败返回 None.
+        w_rot 越小姿态越自由: 0.02 时允许手腕倾斜约 9° 换取位置精度,
+        不再要求沿法兰 +Z 直线前伸 (该方向已到可达边界).
+        """
+        if any(n not in self._joints for n in ARM_JOINTS):
+            return None
+        q = dict(self._joints)
+        h = 1e-3
+        lam2 = 1e-6
+        for _ in range(80):
+            err = self._pose_residual(target_rot, target_pos, q, w_rot, tcp)
+            if err is None:
+                return None
+            if math.sqrt(sum(v * v for v in err[:3])) <= 1e-3:
+                break
+            # 6x5 数值雅可比
+            jac = []
+            for n in ALIGN_JOINTS:
+                qp = dict(q)
+                qp[n] += h
+                ep = self._pose_residual(target_rot, target_pos, qp, w_rot, tcp)
+                if ep is None:
+                    return None
+                jac.append([(ep[k] - err[k]) / h for k in range(6)])
+            # 法方程 (J^T J + lam^2 I) dq = -J^T e (e = 目标 - 当前)
+            a = [[sum(jac[i][k] * jac[j][k] for k in range(6))
+                  + (lam2 if i == j else 0.0) for j in range(5)]
+                 for i in range(5)]
+            g = [-sum(jac[i][k] * err[k] for k in range(6))
+                 for i in range(5)]
+            dq = _solve_linear(a, g)
+            if dq is None:
+                return None
+            step = max(abs(v) for v in dq)
+            if step > 0.15:
+                dq = [v * 0.15 / step for v in dq]
+            moved = False
+            for i, n in enumerate(ALIGN_JOINTS):
+                nv = max(-JOINT_LIMIT, min(JOINT_LIMIT, q[n] + dq[i]))
+                if abs(nv - q[n]) > 1e-6:
+                    moved = True
+                q[n] = nv
+            if not moved:
+                break
+        err = self._pose_residual(target_rot, target_pos, q, w_rot, tcp)
+        if err is None:
+            return None
+        pos_err = math.sqrt(sum(v * v for v in err[:3]))
+        rot_err = math.degrees(
+            math.sqrt(sum(v * v for v in err[3:])) / w_rot)
+        return {n: q[n] for n in ALIGN_JOINTS}, pos_err, rot_err
+
     # ------------------------------------------------------------------
     # 目标速度自适应: marker 移动速度 -> 期望角速度 -> 速率/speed
     # ------------------------------------------------------------------
@@ -396,19 +573,40 @@ class ArucoAlignNode(Node):
     # 主循环
     # ------------------------------------------------------------------
     def _tick(self):
+        """20Hz 主循环入口; 上一拍未执行完时直接跳过, 避免并发重入."""
+        if not self._tick_lock.acquire(blocking=False):
+            return
+        try:
+            self._tick_once()
+        finally:
+            self._tick_lock.release()
+
+    def _tick_once(self):
         self._update_speed_hint()
         if not self._init_done:
             # 初始化阶段独占: 等 pick_ready 轨迹走完
             if not self._busy:
                 self._init_pick_ready()
             return
-        if time.time() < self._settle_until:
-            return
-        # 跟踪阶段不阻塞等轨迹结果: 每 replan_interval 用最新 marker 重规划,
-        # 新目标会抢占在途轨迹 (旧目标结果由序号过滤)
-        if time.time() - self._last_send < self.replan_interval:
-            return
-        self._align_step()
+        now = time.time()
+        if self._state == ST_ALIGN:
+            if now < self._settle_until:
+                return
+            # 跟踪阶段不阻塞等轨迹结果: 每 replan_interval 用最新 marker 重规划,
+            # 新目标会抢占在途轨迹 (旧目标结果由序号过滤)
+            if now - self._last_send < self.replan_interval:
+                return
+            self._align_step()
+        elif self._state == ST_OPEN_PRE:
+            self._tick_open_pre(now)
+        elif self._state == ST_INSERT:
+            self._tick_insert(now)
+        elif self._state == ST_CLOSE:
+            self._tick_close(now)
+        elif self._state == ST_RETURN:
+            self._tick_return(now)
+        elif self._state == ST_OPEN_POST:
+            self._tick_open_post()
 
     # ------------------------------------------------------------------
     # 初始化: 回 pick_ready
@@ -427,9 +625,12 @@ class ArucoAlignNode(Node):
     # 视觉对准: J1~J5 (marker 位置 P 在法兰系)
     # ------------------------------------------------------------------
     def _align_step(self):
+        now = time.time()
         if self._marker_link1 is None:
             return
-        if time.time() - self._marker_time > self.marker_timeout:
+        if now - self._marker_time > self.marker_timeout:
+            # marker 丢失/过期: 不动的计时必须重置, 否则重新出现会立刻误触发抓取
+            self._stable_since = None
             return
         fk = self._fk()
         if fk is None:
@@ -461,6 +662,7 @@ class ArucoAlignNode(Node):
                 f'marker not in front of flange '
                 f'(P=({P[0]:.3f},{P[1]:.3f},{P[2]:.3f})), skip',
                 throttle_duration_sec=2.0)
+            self._stable_since = None
             return
         if r <= self.tolerance:
             if not self._aligned:
@@ -471,16 +673,25 @@ class ArucoAlignNode(Node):
                     f'P=({P[0]:+.4f}, {P[1]:+.4f}, {P[2]:+.4f})m | '
                     f'perpendicular r={r:.4f}m (tol {self.tolerance:.3f}m) | '
                     f'angular={ang_err:+.2f}deg | distance={dist:.4f}m')
-            self._aligned = True
+                self._aligned = True
+                self._stable_since = now
+                self._stable_ref = P
             self.get_logger().info(
                 f'aligned: r={r:.4f}m <= {self.tolerance:.3f}m',
                 throttle_duration_sec=2.0)
+            if self._grasp_stability_ok(P, now):
+                self.get_logger().info(
+                    f'marker still for {self.grasp_stable_time:.1f}s, '
+                    'start grasp cycle')
+                self._enter_open_pre()
             return
         # 滞回: 已对准后, 误差回到 release_tolerance 以内不再动作,
         # 避免检测噪声让伺服来回小幅摆动
         if self._aligned and r <= self.release_tolerance:
+            self._stable_since = None
             return
         self._aligned = False
+        self._stable_since = None
 
         # 一次性解算: 在模型里迭代出 J1~J5 目标角, 再单条轨迹下发
         target = self._solve_aim(m)
@@ -531,6 +742,242 @@ class ArucoAlignNode(Node):
             self._settle_until = time.time() + RETRY_INTERVAL
         else:
             self._cmd_q = dict(zip(ARM_JOINTS, positions))
+
+    # ------------------------------------------------------------------
+    # 对准后的抓取循环 (状态机, 由 _tick 驱动)
+    # ------------------------------------------------------------------
+    def _goto_state(self, state):
+        self._state = state
+        self._state_time = time.time()
+
+    def _enter_align(self):
+        """一个抓取循环结束, 清空对准/稳定计时后重新开始视觉对准."""
+        self._aligned = False
+        self._stable_since = None
+        self._stable_ref = None
+        self._last_cmd = None
+        self._arm_done = None
+        self._gripper_done = None
+        self._settle_until = time.time() + self.settle_time
+        self._goto_state(ST_ALIGN)
+
+    def _grasp_stability_ok(self, P, now):
+        """marker 已对准且连续 grasp_stable_time 秒几乎不动 -> True."""
+        if self._stable_since is None or self._stable_ref is None:
+            self._stable_since = now
+            self._stable_ref = P
+            return False
+        if math.dist(P, self._stable_ref) > self.grasp_stable_pos_tol:
+            self._stable_since = now
+            self._stable_ref = P
+            return False
+        return now - self._stable_since >= self.grasp_stable_time
+
+    # ---- 1. 张开夹爪 ----
+    def _enter_open_pre(self):
+        self.get_logger().info('Grasp: opening gripper before insert')
+        if not self._send_gripper(self.gripper_open_value):
+            self._enter_align()
+            return
+        self._goto_state(ST_OPEN_PRE)
+
+    def _tick_open_pre(self, now):
+        if self._gripper_done is None:
+            return
+        if not self._gripper_done:
+            self.get_logger().warn('Grasp: open gripper failed, back to align')
+            self._enter_align()
+            return
+        if now - self._gripper_done_time >= self.grasp_open_hold:
+            self._enter_insert()
+
+    # ---- 2. 沿法兰 +Z 前伸到 marker ----
+    def _enter_insert(self):
+        mission = self._insert_target()
+        if mission is None:
+            self._enter_align()
+            return
+        positions, duration, gap = mission
+        if positions is None:
+            # 夹持点已经贴到 marker, 不需要再前伸, 直接闭合
+            self._enter_close()
+            return
+        self._arm_done = None
+        self._goal_kind = 'insert'
+        if not self._send_positions(positions, duration, preempt=True):
+            self._enter_align()
+            return
+        self._cmd_q = dict(zip(ARM_JOINTS, positions))
+        self.get_logger().info(
+            f'Grasp: move grasp point to marker {gap:.3f}m '
+            f'in {duration:.2f}s')
+        self._goto_state(ST_INSERT)
+
+    def _insert_target(self):
+        """夹持点 (法兰 +Z 方向 tcp_flange_z 处) 到达 marker 的目标关节角.
+
+        不再强制沿法兰 +Z 直线前伸: 该方向已到可达边界, 留给姿态
+        约 9° 的自由度, 由求解器自行选择路径, 保证夹持点真正到点.
+        """
+        now = time.time()
+        if (self._marker_link1 is None
+                or now - self._marker_time > self.marker_timeout):
+            self.get_logger().warn('Grasp: marker lost before insert')
+            return None
+        fk = self._fk()
+        if fk is None:
+            return None
+        rot_fe, t_fe = fk
+        m = self._marker_link1.pose.position
+        # 夹持点当前所在位置 -> marker 还需走的距离
+        tcp_now = tuple(t_fe[i] + rot_fe[i][2] * self.tcp_flange_z
+                        for i in range(3))
+        d = (m.x - tcp_now[0], m.y - tcp_now[1], m.z - tcp_now[2])
+        dist = math.sqrt(sum(v * v for v in d))
+        gap = dist + self.insert_extra_depth
+        if gap < 0.003:
+            self.get_logger().info(
+                f'Grasp: grasp point already at marker (gap={gap:.4f}m), '
+                'skip insert')
+            return None, 0.0, gap
+        # insert_extra_depth > 0 时沿当前夹持点->marker 方向再深入
+        u = tuple(v / dist for v in d) if dist > 1e-6 else (0.0, 0.0, 1.0)
+        extra = self.insert_extra_depth
+        target_pos = (m.x + u[0] * extra,
+                      m.y + u[1] * extra,
+                      m.z + u[2] * extra)
+        # 位置约束在夹持点上, 姿态权重取 0.02 (约 9° 倾斜换位置精度)
+        solved = self._solve_cartesian(
+            rot_fe, target_pos, w_rot=0.02, tcp=self.tcp_flange_z)
+        if solved is None:
+            self.get_logger().warn(
+                'Grasp: insert IK failed, back to align',
+                throttle_duration_sec=2.0)
+            return None
+        target, pos_err, rot_err = solved
+        if pos_err > 0.005:
+            self.get_logger().warn(
+                f'Grasp: insert unreachable '
+                f'(tcp_err={pos_err * 1000:.1f}mm, rot_err={rot_err:.1f}deg), '
+                'back to align')
+            return None
+        positions = [target.get(n, self._joints[n]) for n in ARM_JOINTS]
+        base_q = {n: (self._cmd_q[n] if self._cmd_q else self._joints[n])
+                  for n in ALIGN_JOINTS}
+        dq = max(abs(target[n] - base_q[n]) for n in ALIGN_JOINTS)
+        duration = max(self.min_move_time, dq / self.insert_rate)
+        self.get_logger().info(
+            f'Grasp: gap={gap:.3f}m, tcp_err={pos_err * 1000:.1f}mm '
+            f'wrist tilt={rot_err:.1f}deg')
+        return positions, duration, gap
+
+    def _tick_insert(self, now):
+        if self._arm_done is None:
+            return
+        if not self._arm_done:
+            self.get_logger().warn('Grasp: insert trajectory failed, back to align')
+            self._enter_align()
+            return
+        if now - self._arm_done_time >= self.settle_time:
+            self._enter_close()
+
+    # ---- 3. 闭合夹爪 ----
+    def _enter_close(self):
+        self.get_logger().info('Grasp: closing gripper')
+        if not self._send_gripper(self.gripper_close_value):
+            self._enter_align()
+            return
+        self._goto_state(ST_CLOSE)
+
+    def _tick_close(self, now):
+        if self._gripper_done is None:
+            return
+        if not self._gripper_done:
+            self.get_logger().warn(
+                'Grasp: close gripper not confirmed, return anyway')
+        elif now - self._gripper_done_time < self.grasp_close_hold:
+            return
+        self._enter_return()
+
+    # ---- 4. 回到 pick_ready ----
+    def _enter_return(self):
+        base_q = {n: (self._cmd_q[n] if self._cmd_q else self._joints[n])
+                  for n in ARM_JOINTS}
+        dq = max(abs(PICK_READY_JOINT_VALUES[i] - base_q[n])
+                 for i, n in enumerate(ARM_JOINTS))
+        duration = max(1.0, dq / self.max_joint_rate)
+        self._arm_done = None
+        self._goal_kind = 'return'
+        if not self._send_positions(list(PICK_READY_JOINT_VALUES), duration,
+                                    preempt=True):
+            self._enter_align()
+            return
+        self._cmd_q = dict(zip(ARM_JOINTS, PICK_READY_JOINT_VALUES))
+        self.get_logger().info(f'Grasp: return to pick_ready in {duration:.2f}s')
+        self._goto_state(ST_RETURN)
+
+    def _tick_return(self, now):
+        if self._arm_done is None:
+            return
+        if not self._arm_done:
+            self.get_logger().warn('Grasp: return trajectory failed')
+        elif now - self._arm_done_time < self.settle_time:
+            return
+        self._enter_open_post()
+
+    # ---- 5. 回位后张开夹爪, 进入下一循环 ----
+    def _enter_open_post(self):
+        self.get_logger().info('Grasp: opening gripper at pick_ready')
+        if not self._send_gripper(self.gripper_open_value):
+            self._enter_align()
+            return
+        self._goto_state(ST_OPEN_POST)
+
+    def _tick_open_post(self):
+        if self._gripper_done is None:
+            return
+        if not self._gripper_done:
+            self.get_logger().warn('Grasp: open gripper after return failed')
+        self.get_logger().info('Grasp cycle complete, resume ArUco align')
+        self._enter_align()
+
+    # ------------------------------------------------------------------
+    # 夹爪 action
+    # ------------------------------------------------------------------
+    def _send_gripper(self, value: float) -> bool:
+        if self._gripper_busy:
+            return False
+        if not self.gripper_cli.wait_for_server(timeout_sec=0.1):
+            self.get_logger().warn(
+                'gripper action server not ready', throttle_duration_sec=2.0)
+            return False
+        goal = GripperCommand.Goal()
+        goal.command.position = float(value)
+        goal.command.max_effort = float(self.gripper_max_effort)
+        self._gripper_busy = True
+        self._gripper_done = None
+        future = self.gripper_cli.send_goal_async(goal)
+        future.add_done_callback(self._on_gripper_response)
+        return True
+
+    def _on_gripper_response(self, future):
+        handle = future.result()
+        if handle is None or not handle.accepted:
+            self.get_logger().warn('gripper goal rejected')
+            self._gripper_done = False
+            self._gripper_done_time = time.time()
+            self._gripper_busy = False
+            return
+        handle.get_result_async().add_done_callback(self._on_gripper_result)
+
+    def _on_gripper_result(self, future):
+        wrapped = future.result()
+        result = wrapped.result if wrapped is not None else None
+        ok = bool(result is not None
+                  and (result.reached_goal or result.stalled))
+        self._gripper_done = ok
+        self._gripper_done_time = time.time()
+        self._gripper_busy = False
 
     # ------------------------------------------------------------------
     # 轨迹下发 (无规划器)
@@ -587,6 +1034,8 @@ class ArucoAlignNode(Node):
             self._busy = False
             self._cmd_q = None      # 指令位置已不可信, 下一步回到反馈基准
             self._settle_until = time.time() + RETRY_INTERVAL
+            self._arm_done = False
+            self._arm_done_time = time.time()
             return
         self._goal_handle = handle
         result_future = handle.get_result_async()
@@ -605,12 +1054,17 @@ class ArucoAlignNode(Node):
                 f'trajectory error_code={code}, will retry')
             self._cmd_q = None      # 指令位置已不可信, 下一步回到反馈基准
             self._settle_until = time.time() + RETRY_INTERVAL
+            self._arm_done = False
+            self._arm_done_time = time.time()
             return
         if self._goal_kind == 'init':
             self._init_done = True
             self.get_logger().info(
                 'pick_ready reached, start J1~J5 align')
             self._settle_until = time.time() + self.settle_time
+        elif self._goal_kind in ('insert', 'return'):
+            self._arm_done = True
+            self._arm_done_time = time.time()
 
 
 def main():

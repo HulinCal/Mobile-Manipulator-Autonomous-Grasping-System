@@ -41,6 +41,8 @@ def generate_launch_description():
     marker_offset_x = LaunchConfiguration('marker_offset_x')
     marker_offset_y = LaunchConfiguration('marker_offset_y')
     marker_offset_z = LaunchConfiguration('marker_offset_z')
+    tcp_flange_z = LaunchConfiguration('tcp_flange_z')
+    insert_extra_depth = LaunchConfiguration('insert_extra_depth')
 
     declare_args = [
         DeclareLaunchArgument(
@@ -71,6 +73,17 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'marker_offset_z', default_value='0.0',
             description='Marker position correction in link1 Z [m]'),
+        # 夹爪几何: 法兰 +Z 到实际夹持点 [m].
+        # 指尖全长约 0.10m, 方块夹在两指根部, 实机实测夹持点距法兰约 0.05m.
+        # 前伸量 = P_z - tcp_flange_z + insert_extra_depth
+        DeclareLaunchArgument(
+            'tcp_flange_z', default_value='0.05',
+            description='Flange +Z to gripper grasp center [m]'),
+        # ArUco 板厚 0.03m, 位姿给出板中心, 抓取面在板前表面,
+        # 额外深入半个板厚 0.015m
+        DeclareLaunchArgument(
+            'insert_extra_depth', default_value='0.015',
+            description='Extra forward depth past the marker [m]'),
     ]
 
     # ---- 1. 机械臂 bringup ----
@@ -146,6 +159,8 @@ def generate_launch_description():
                 'marker_offset_x': marker_offset_x,
                 'marker_offset_y': marker_offset_y,
                 'marker_offset_z': marker_offset_z,
+                'tcp_flange_z': tcp_flange_z,
+                'insert_extra_depth': insert_extra_depth,
             }],
         )],
     )
