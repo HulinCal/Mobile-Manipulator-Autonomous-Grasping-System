@@ -3,15 +3,10 @@
 
 流程:
   1. 启动后下发绝对关节角轨迹到 pick_ready
-  2. 订阅 /aruco_single/pose, 由手眼静态 TF 转到 link1 系, 打印 marker 与夹爪位置
-  3. 用 controller_state 的真实关节角做 URDF 正解(不用 /joint_states / 机械臂 TF,
-     因为它们被 joint_state_publisher 的旧值污染), 把 marker 位置换算到法兰系 P
-  4. 一次性解算: 在 URDF 模型里用牛顿迭代直接求出使 r 收敛的 J1~J5 绝对角,
-     再把整段角度单条轨迹下发(不再小步伺服, 不再动一下停一下)
-  5. 每条轨迹执行成功并静置 settle_time 后才做下一次控制, 仍不满足容差就再解算一次
-  6. marker_offset_x/y/z 在 link1 系给相机解算位置加常向量补偿,
-     用于抵消手眼外参的系统偏差(方向固定、约几厘米的对准偏差)
-  7. 对准后 marker 连续 grasp_stable_time 秒不动, 进入抓取循环:
+  2. 订阅 /aruco_single/pose, 由手眼静态 TF 转到 link1 系；
+  3. 用 controller_state 的真实关节角做 URDF 正解，把 marker 位置换算到法兰系 P；
+  4. 使用URDF模型的参数用牛顿迭代直接求出使 r 收敛的 J1~J5 绝对角，r就是跟踪的对象在法兰系下到法兰Z轴的距离；
+  5. 对准后 marker 连续 grasp_stable_time 秒不动, 进入抓取循环:
      张开夹爪(grasp_open_hold) -> 夹持点移动到 marker (姿态允许小幅
      倾斜, 不再限定沿法兰 +Z) -> 闭合夹爪 -> 回到 pick_ready
      -> 张开夹爪 -> 重新对准
@@ -109,21 +104,61 @@ def _mat_t(a):
     return [[a[j][i] for j in range(3)] for i in range(3)]
 
 
-def _smoothstep(t):
-    """0→1 平滑映射, 两端一阶、二阶导均为 0."""
-    return t * t * t * (10.0 - 15.0 * t + 6.0 * t * t)
+def _trapezoidal(t, blend=0.1):
+    """梯形速度 profile: 匀加速(0→blend) + 匀速(blend→1-blend) + 匀减速(1-blend→1).
 
-
-def _smooth_points(q0, q1, duration, count=ALIGN_WAYPOINTS):
-    """生成 smoothstep 插值的轨迹点, 起停无冲击.
-
-    注意: smoothstep 峰值速度是平均速度的 1.875 倍, duration 由调用方
-    按平均速度估算即可, 峰值仍在关节可接受范围内.
+    位置 s(t) 是分段二次函数, 起停两端一阶/二阶导均为 0, 中间大部分时间匀速.
+    峰值速度 = 1 / (1 - 2*blend), 默认 blend=0.1 时峰值约 1.25×均速.
     """
+    # 裁剪浮点边界
+    t = max(0.0, min(1.0, t))
+    if t <= blend:
+        # 匀加速段: s = (t/blend)^2 * (blend/2)
+        return 0.5 * t * t / blend
+    if t >= 1.0 - blend:
+        # 匀减速段: 对称于加速段
+        u = 1.0 - t
+        return 1.0 - 0.5 * u * u / blend
+    # 匀速段
+    return 0.5 * blend + (t - blend)
+
+
+def _cruise_decel(t, decel=0.2):
+    """直接匀速起步 + 末段匀减速的速度 profile.
+
+    前 (1-decel) 时间全程匀速, 最后 decel 时间从均速匀减速到 0.
+    峰值速度 = 2 / (2 - decel); decel=0.2 时峰值 ≈ 1.11×均速, 几乎全程匀速.
+    适合给进/插入这类"从静止起步后尽快进入匀速、临近目标再减速"的阶段.
+    """
+    t = max(0.0, min(1.0, t))
+    v_const = 2.0 / (2.0 - decel)
+    cut = 1.0 - decel
+    if t <= cut:
+        return v_const * t
+    u = t - cut
+    return v_const * (t - 0.5 * u * u / decel)
+
+
+def _smooth_points(q0, q1, duration, count=ALIGN_WAYPOINTS,
+                   profile='trapezoidal'):
+    """生成关节插值轨迹点.
+
+    profile:
+      'trapezoidal'  —— 起停短暂匀加速/减速, 中间匀速 (blend=0.1,
+                       峰值约 1.25×均速), 适合对准/回位等通用阶段.
+      'cruise_decel' —— 直接匀速起步, 末段 decel=0.2 匀减速到 0
+                       (峰值约 1.11×均速), 适合给进/插入阶段.
+
+    调用方按平均速度估算 duration 即可.
+    """
+    if profile == 'cruise_decel':
+        _s = _cruise_decel
+    else:
+        _s = _trapezoidal
     pts = []
     for i in range(1, count + 1):
         tau = i / count
-        s = _smoothstep(tau)
+        s = _s(tau)
         pt = JointTrajectoryPoint()
         pt.positions = [a + (b - a) * s for a, b in zip(q0, q1)]
         pt.time_from_start = rclpy.duration.Duration(
@@ -804,7 +839,8 @@ class ArucoAlignNode(Node):
             return
         self._arm_done = None
         self._goal_kind = 'insert'
-        if not self._send_positions(positions, duration, preempt=True):
+        if not self._send_positions(positions, duration, preempt=True,
+                                    profile='cruise_decel'):
             self._enter_align()
             return
         self._cmd_q = dict(zip(ARM_JOINTS, positions))
@@ -983,7 +1019,8 @@ class ArucoAlignNode(Node):
     # 轨迹下发 (无规划器)
     # ------------------------------------------------------------------
     def _send_positions(self, positions, duration: float,
-                        preempt: bool = False) -> bool:
+                        preempt: bool = False,
+                        profile: str = 'trapezoidal') -> bool:
         if preempt:
             # 跟踪重规划: 取消在途轨迹, 新目标从当前实际位置接管
             self._cancel_active()
@@ -1005,7 +1042,8 @@ class ArucoAlignNode(Node):
                 rclpy.duration.Duration(seconds=duration).to_msg()
             traj.points.append(pt)
         else:
-            traj.points = _smooth_points(q0, positions, duration)
+            traj.points = _smooth_points(q0, positions, duration,
+                                          profile=profile)
 
         goal = FollowJointTrajectory.Goal()
         goal.trajectory = traj
