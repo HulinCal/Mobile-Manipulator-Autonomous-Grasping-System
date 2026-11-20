@@ -230,12 +230,12 @@ marker 在 `link1` 系下的**水平距离** `r = sqrt(x² + y²)`：
 
 | 条件 | 动作 |
 |---|---|
-| `r > 0.20 m`（`approach_start_distance`） | 发布 `/cmd_vel`：边走边调，前进与航向修正同时进行 |
+| `r > 0.20 m`（`approach_start_distance`） | 发布 `/cmd_vel`：边走边调，前进与航向修正同时进行；**已停车到位一次后**需 `r > 0.25 m`（`approach_reentry_margin` = 0.05）才再次前进，防止距离噪声在 0.20 m 附近反复触发 |
 | 接近过程中（每 0.2 s） | 用最新 marker 位姿重算方位角，叠加到当前角速度上持续修正（5Hz），途中移动 marker 也能跟随 |
 | `r ≤ 0.18 m`（`approach_stop_distance`） | 立即零速，清空旧的对准/稳定状态，停稳后**重新对准一次再抓取** |
 | `r < 0.15 m`（`retreat_trigger_distance`） | 太近：**直线后退**（`vx<0`、`wz=0`，不看方向）到 `r ≥ 0.18 m`（`retreat_stop_distance`），停稳后重新对准抓取 |
 | marker 丢失超过 `marker_timeout` | 立即零速并退出接近/后退 |
-| 单次累计指令行程 > 0.5 m（`approach_max_travel` / `retreat_max_travel`） | 停止接近/后退并告警，交回机械臂对准 |
+| 单次累计指令行程 > 0.5 m（`approach_max_travel` / `retreat_max_travel`） | 停止接近/后退并告警；接近时每再靠近 3 cm 会清零预算，因此只有"空转不前进"才会用光；marker 被移动超过 5 cm 后自动解除锁定 |
 | 进入抓取状态机（张开/前伸/闭合/回位） | 强制零速，不再动底盘 |
 
 **为什么用水平距离**：marker 通常贴在地面/低处，3D 距离会把竖直高度差算进去，
@@ -267,6 +267,12 @@ marker 面法线偏航角也会解析并打印（`face_yaw`），但因小 marke
 `_stable_since`、`_stable_ref`、`_last_cmd`、`_cmd_q`，从当前实际关节重新解算
 J1~J5 目标角，并重新满足 `grasp_stable_time` 稳定时间后才进入抓取，避免沿用
 移动前的对准结论导致抓不到。
+
+**稳定判定（抓取触发）**：对准后 r 在 `target_tolerance`（0.01 m）内即视为已对准，
+之后只要 r 仍在 `release_tolerance`（0.02 m）滞回带内就保持已对准并继续累计稳定
+时间，不会因单帧噪声清零；稳定判定只比较法兰系横向偏差 `(P[0], P[1])`，容差
+`grasp_stable_pos_tol`（0.03 m），连续 `grasp_stable_time`（1.0 s）满足即开始抓取。
+PnP 深度 `P[2]` 抖动可达数厘米，不参与稳定判定。
 
 > 本 launch 关闭了 `chassis_guard`，所以默认直接发 `/cmd_vel` 给底盘驱动。
 > 若启用守卫，把 `chassis_cmd_topic` 改为 `/cmd_vel_in`，由守卫做避障修正。

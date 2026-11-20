@@ -267,11 +267,10 @@ class ArucoAlignNode(Node):
 
         # ---- 对准稳定后的抓取循环 ----
         # marker 连续 grasp_stable_time 秒不动才触发抓取.
-        # marker 位姿本身有约 ±1.5cm 的 PnP 抖动, 判定不宜过严:
-        # 1.0s + 1.5cm 与 aruco_grasp_params.yaml 的 stable_duration /
-        # stable_pos_tol 保持一致
+        # marker 位姿本身有约 ±1.5cm 的 PnP 抖动, 判定不能过严:
+        # 稳定时间 1.0s, 不动范围 3cm (放宽到 3cm 避免单帧跳变反复清零)
         self.declare_parameter('grasp_stable_time', 1.0)    # [s]
-        self.declare_parameter('grasp_stable_pos_tol', 0.02)  # [m] 视为不动的范围
+        self.declare_parameter('grasp_stable_pos_tol', 0.03)  # [m] 视为不动的范围
         # 夹爪: 法兰 +Z 到实际夹持点的距离 [m].
         # 指尖全长约 0.10m (安装偏移 0.034 + 指节 0.07), 但方块是夹在
         # 两指根部之间: 实机在 0.10 时停下后距 marker 还差约 5cm, 故取 0.05.
@@ -280,6 +279,11 @@ class ArucoAlignNode(Node):
         # ArUco 标定板厚 0.03m, 位姿解算给出的是板中心, 实际抓取面在
         # 板前表面, 故再沿接近方向多深入半个板厚 0.015m.
         self.declare_parameter('insert_extra_depth', 0.015)
+        # 前伸解算允许的残差 [m]. 不能要求 5mm: marker 在 link1 中约
+        # 0.46m 远, 已到 myCobot280 工作空间边界 (近乎伸直), 求解器最优
+        # 也只能差 2~3cm. 夹爪两指从夹持点向指尖还有约 5cm, 差 3cm 时
+        # 3cm 方块仍在两指之间, 可以正常闭合夹住.
+        self.declare_parameter('insert_max_pos_err', 0.03)
         self.declare_parameter('insert_rate', 0.3)          # [rad/s] 前伸关节速率
         self.declare_parameter('grasp_open_hold', 1.0)      # [s] 张开后保持
         self.declare_parameter('grasp_close_hold', 1.0)     # [s] 闭合后保持
@@ -300,6 +304,10 @@ class ArucoAlignNode(Node):
         self.declare_parameter('chassis_frame', 'base_link')
         self.declare_parameter('approach_start_distance', 0.20)  # [m]
         self.declare_parameter('approach_stop_distance', 0.18)   # [m]
+        # 到达停车后再次前进的门槛余量 [m]: 检测距离在 0.20m 附近有 ±1~2cm
+        # 抖动, 若不加余量, 停稳后噪声越过 0.20m 就会反复触发"前进->停车",
+        # 每次都清空对准/稳定计时, 导致 marker 明明不动却永远凑不满稳定时间.
+        self.declare_parameter('approach_reentry_margin', 0.05)  # [m]
         self.declare_parameter('approach_max_linear', 0.05)      # [m/s]
         self.declare_parameter('approach_max_angular', 0.20)     # [rad/s]
         self.declare_parameter('approach_turn_gain', 1.5)        # [rad/s per rad]
@@ -341,6 +349,7 @@ class ArucoAlignNode(Node):
         self.grasp_stable_pos_tol = p('grasp_stable_pos_tol').value
         self.tcp_flange_z = p('tcp_flange_z').value
         self.insert_extra_depth = p('insert_extra_depth').value
+        self.insert_max_pos_err = p('insert_max_pos_err').value
         self.insert_rate = p('insert_rate').value
         self.grasp_open_hold = p('grasp_open_hold').value
         self.grasp_close_hold = p('grasp_close_hold').value
@@ -351,6 +360,7 @@ class ArucoAlignNode(Node):
         self.chassis_frame = p('chassis_frame').value
         self.approach_start_distance = p('approach_start_distance').value
         self.approach_stop_distance = p('approach_stop_distance').value
+        self.approach_reentry_margin = p('approach_reentry_margin').value
         self.approach_max_linear = p('approach_max_linear').value
         self.approach_max_angular = p('approach_max_angular').value
         self.approach_turn_gain = p('approach_turn_gain').value
@@ -397,6 +407,8 @@ class ArucoAlignNode(Node):
         self._marker_chassis = None       # marker 在底盘系的位姿 (选向用)
         self._approach_active = False     # 正在发速度命令接近 marker
         self._approach_travel = 0.0       # 本次接近累计指令行程 [m]
+        self._approach_best_reach = 0.0   # 本次接近看到的最短距离 [m]
+        self._approach_block_reach = 0.0  # 触发行程上限时的距离 [m]
         self._approach_blocked = False    # 行程用尽, 不再自动前进
         self._approach_last_time = 0.0
         self._approach_cmd_time = 0.0     # 上次重新解算航向的时刻
@@ -405,6 +417,9 @@ class ArucoAlignNode(Node):
         self._retreat_active = False      # marker 太近, 正在直线后退
         self._retreat_travel = 0.0        # 本次后退累计指令行程 [m]
         self._retreat_last_time = 0.0
+        # 已到达停车一次: 再次前进的门槛提高到 start + reentry_margin,
+        # 避免距离噪声在 0.20m 附近反复触发前进、清空稳定计时
+        self._approach_arrived = False
         self._chassis_hold_until = 0.0    # 停车后继续补发零速的截止时刻
         # 定时器重入保护: ReentrantCallbackGroup + 多线程执行器下, 一次
         # IK 计算超过 50ms 周期时会有多个线程同时进入同一 tick, 造成同一帧
@@ -768,6 +783,8 @@ class ArucoAlignNode(Node):
         """底盘停车, 作废移动前的对准结论, 停稳后由机械臂重新对准."""
         self._stop_chassis()
         self._reset_align_tracking()
+        # 已经停到位: 再次前进需要明显超过起点阈值, 避免噪声反复触发
+        self._approach_arrived = True
         self._settle_until = now + self.settle_time
 
     def _reset_align_tracking(self):
@@ -907,20 +924,31 @@ class ArucoAlignNode(Node):
                     'Chassis: arrived, re-align before grasp')
                 return True
         else:
-            if reach <= self.approach_start_distance:
+            # 刚到过位时用更高的门槛, 只有 marker 明确远离才再次前进
+            start = self.approach_start_distance
+            if self._approach_arrived:
+                start += self.approach_reentry_margin
+            if reach <= start:
                 if reach <= self.approach_stop_distance:
                     self._approach_blocked = False
                 return False
             if self._approach_blocked:
-                self.get_logger().warn(
-                    f'Chassis: approach disabled after {self.approach_max_travel:.2f}m '
-                    'travel limit', throttle_duration_sec=5.0)
-                return False
+                # marker 被移动超过 5cm 才重新允许接近, 避免原地反复试探
+                if abs(reach - self._approach_block_reach) > 0.05:
+                    self._approach_blocked = False
+                else:
+                    self.get_logger().warn(
+                        f'Chassis: approach disabled after '
+                        f'{self.approach_max_travel:.2f}m travel limit',
+                        throttle_duration_sec=5.0)
+                    return False
             if self._marker_chassis is None:
                 # 底盘系位姿不可用 (TF 缺失): 无法选向, 交回机械臂对准
                 return False
             self._approach_active = True
+            self._approach_arrived = False
             self._approach_travel = 0.0
+            self._approach_best_reach = reach
             self._approach_last_time = now
             self._approach_cmd_time = 0.0
             self._approach_cmd_vx = 0.0
@@ -955,11 +983,19 @@ class ArucoAlignNode(Node):
         vx = self._approach_cmd_vx
         wz = self._approach_cmd_wz
 
+        # 真实接近进度: 每比本次接近的最短距离再近 3cm, 就重置行程预算.
+        # 底盘低速指令与实际位移不成比例 (低速死区/打滑), 只按指令累计行程
+        # 会在真正到点前就把 0.5m 预算用光, 之后再也不前进.
+        if reach < self._approach_best_reach - 0.03:
+            self._approach_best_reach = reach
+            self._approach_travel = 0.0
+
         # 累计指令行程, 超过上限停车 (防止误检/漂移导致一直前顶)
         dt = max(0.0, min(now - self._approach_last_time, 0.2))
         self._approach_last_time = now
         if self._approach_travel + vx * dt > self.approach_max_travel:
             self._approach_blocked = True
+            self._approach_block_reach = reach
             self.get_logger().warn(
                 f'Chassis: travel limit {self.approach_max_travel:.2f}m '
                 'reached, stop approach')
@@ -1013,7 +1049,12 @@ class ArucoAlignNode(Node):
                 throttle_duration_sec=2.0)
             self._stable_since = None
             return
-        if r <= self.tolerance:
+        # 对准判定: 首次进入 target_tolerance 记为已对准; 之后只要仍在
+        # release_tolerance 滞回带内就保持已对准并继续累计稳定时间.
+        # 检测噪声把 r 推过 target_tolerance 但没出滞回带时不能清零稳定计时,
+        # 否则 marker 明明静止也会被反复清零, 永远凑不满 grasp_stable_time.
+        if (r <= self.tolerance
+                or (self._aligned and r <= self.release_tolerance)):
             if not self._aligned:
                 # 刚进入容差带: 把残留误差完整算出来并打印
                 ang_err = math.degrees(math.atan2(r, P[2]))
@@ -1026,18 +1067,13 @@ class ArucoAlignNode(Node):
                 self._stable_since = now
                 self._stable_ref = P
             self.get_logger().info(
-                f'aligned: r={r:.4f}m <= {self.tolerance:.3f}m',
+                f'aligned: r={r:.4f}m <= {self.release_tolerance:.3f}m',
                 throttle_duration_sec=2.0)
             if self._grasp_stability_ok(P, now):
                 self.get_logger().info(
                     f'marker still for {self.grasp_stable_time:.1f}s, '
                     'start grasp cycle')
                 self._enter_open_pre()
-            return
-        # 滞回: 已对准后, 误差回到 release_tolerance 以内不再动作,
-        # 避免检测噪声让伺服来回小幅摆动
-        if self._aligned and r <= self.release_tolerance:
-            self._stable_since = None
             return
         self._aligned = False
         self._stable_since = None
@@ -1107,16 +1143,24 @@ class ArucoAlignNode(Node):
         self._last_cmd = None
         self._arm_done = None
         self._gripper_done = None
+        self._approach_arrived = False
         self._settle_until = time.time() + self.settle_time
         self._goto_state(ST_ALIGN)
 
     def _grasp_stability_ok(self, P, now):
-        """marker 已对准且连续 grasp_stable_time 秒几乎不动 -> True."""
+        """marker 已对准且连续 grasp_stable_time 秒几乎不动 -> True.
+
+        只比较法兰系的横向偏差 (P[0], P[1]): 小 marker 的 PnP 深度 (P[2])
+        抖动可达数厘米, 但它不影响夹爪横向对准, 纳入判定会让静止 marker
+        永远凑不满稳定时间.
+        """
         if self._stable_since is None or self._stable_ref is None:
             self._stable_since = now
             self._stable_ref = P
             return False
-        if math.dist(P, self._stable_ref) > self.grasp_stable_pos_tol:
+        lateral = math.hypot(P[0] - self._stable_ref[0],
+                             P[1] - self._stable_ref[1])
+        if lateral > self.grasp_stable_pos_tol:
             self._stable_since = now
             self._stable_ref = P
             return False
@@ -1125,6 +1169,7 @@ class ArucoAlignNode(Node):
     # ---- 1. 张开夹爪 ----
     def _enter_open_pre(self):
         self.get_logger().info('Grasp: opening gripper before insert')
+        self._approach_arrived = False
         if not self._send_gripper(self.gripper_open_value):
             self._enter_align()
             return
@@ -1205,12 +1250,20 @@ class ArucoAlignNode(Node):
                 throttle_duration_sec=2.0)
             return None
         target, pos_err, rot_err = solved
-        if pos_err > 0.005:
+        if pos_err > self.insert_max_pos_err:
             self.get_logger().warn(
                 f'Grasp: insert unreachable '
-                f'(tcp_err={pos_err * 1000:.1f}mm, rot_err={rot_err:.1f}deg), '
-                'back to align')
+                f'(tcp_err={pos_err * 1000:.1f}mm > '
+                f'{self.insert_max_pos_err * 1000:.0f}mm, '
+                f'rot_err={rot_err:.1f}deg), back to align')
             return None
+        if pos_err > 0.005:
+            # marker 已到工作空间边界: 夹持点停在 marker 前 1~2cm 处,
+            # 3cm 方块仍在两指之间, 继续闭合并抓取
+            self.get_logger().warn(
+                f'Grasp: insert at workspace limit, grasp point stops '
+                f'{max(0.0, pos_err - self.insert_extra_depth) * 1000:.1f}mm '
+                f'before marker center (tcp_err={pos_err * 1000:.1f}mm)')
         positions = [target.get(n, self._joints[n]) for n in ARM_JOINTS]
         base_q = {n: (self._cmd_q[n] if self._cmd_q else self._joints[n])
                   for n in ALIGN_JOINTS}
