@@ -1,7 +1,8 @@
 # wheeltec_mycobot_pick_place_aruco
 
-> ArUco 标定块抓取/放下成功率测试包。**不启动小车**，仅在原地用机械臂夹取 0.03m 立方体，
-> 用于验证手眼标定 + MoveIt2 抓取链路的端到端可行性。
+> ArUco 标定块抓取/放下成功率测试包。**默认不主动导航**，仅在原地用机械臂夹取
+> 0.03m 立方体；`aruco_align.launch.py` 下若 marker 距机械臂基座超过 20cm，
+> `aruco_align_node` 会直接发 `/cmd_vel` 驱动底盘靠近，再执行抓取。
 
 ## 功能
 
@@ -221,6 +222,58 @@ ros2 topic echo /aruco_single/pose --once
 # 单独验证 marker 在 link1 系的位置
 ros2 run tf2_ros tf2_echo link1 aruco_marker_frame
 ```
+
+## 底盘接近（aruco_align_node）
+
+`aruco_align.launch.py` 启动的 `aruco_align_node` 在 `ST_ALIGN` 状态下每拍先检查
+marker 在 `link1` 系下的**水平距离** `r = sqrt(x² + y²)`：
+
+| 条件 | 动作 |
+|---|---|
+| `r > 0.20 m`（`approach_start_distance`） | 发布 `/cmd_vel`：边走边调，前进与航向修正同时进行 |
+| 接近过程中（每 0.2 s） | 用最新 marker 位姿重算方位角，叠加到当前角速度上持续修正（5Hz），途中移动 marker 也能跟随 |
+| `r ≤ 0.18 m`（`approach_stop_distance`） | 立即零速，清空旧的对准/稳定状态，停稳后**重新对准一次再抓取** |
+| `r < 0.15 m`（`retreat_trigger_distance`） | 太近：**直线后退**（`vx<0`、`wz=0`，不看方向）到 `r ≥ 0.18 m`（`retreat_stop_distance`），停稳后重新对准抓取 |
+| marker 丢失超过 `marker_timeout` | 立即零速并退出接近/后退 |
+| 单次累计指令行程 > 0.5 m（`approach_max_travel` / `retreat_max_travel`） | 停止接近/后退并告警，交回机械臂对准 |
+| 进入抓取状态机（张开/前伸/闭合/回位） | 强制零速，不再动底盘 |
+
+**为什么用水平距离**：marker 通常贴在地面/低处，3D 距离会把竖直高度差算进去，
+水平方向已经够近时仍会判成“太远”，导致小车持续前顶。
+
+**方向控制（边走边调）**：marker 经 `link1 -> base_link` 静态 TF 转到
+`base_link`，取方位角 `atan2(y, x)`；每 `approach_update_period`（默认 0.2 s，即
+1 秒 5 次）重新解算一次，角速度 `wz = 1.5·err`（限幅 0.20 rad/s）与恒定的
+`vx = 0.05 m/s` 同时下发，**不会因航向偏差中断前进**，用户途中移动 marker 也能
+随时调整方向。
+
+停车瞬间允许残余十几度的航向偏差（用户要求，不为此停车原地补转），由停车后
+机械臂重新对准兜底。注意：若“原地转正再走”，航向容差稍大一点点底盘就不会走
+（低速转向死区/检测抖动），表现为一直原地转不前进。
+
+**太近后退**：marker 水平距离 < `retreat_trigger_distance`（默认 0.15 m）时，
+直接发负 `vx`（`wz=0`，不考虑方向）直线后退，退到 `r ≥ retreat_stop_distance`
+（默认 0.18 m）停车，再清空对准状态重新对准抓取；单次后退累计指令行程受
+`retreat_max_travel`（默认 0.5 m）限制，防止测距异常时一直后倒。
+
+后退速度 `retreat_max_linear` 默认 0.01 m/s（比前进 0.05 m/s 慢很多）。后退过快
+时停车延迟会让 `r` 冲过 `approach_start_distance`（0.20 m），立刻又触发前进，
+表现为小车在 15~20 cm 之间反复前进/后退。
+
+marker 面法线偏航角也会解析并打印（`face_yaw`），但因小 marker 的 PnP 姿态存在
+翻折二义性，转向目标仍以“对准 marker 中心”为准，不用面法线直接控制航向。
+
+**到达后必须重新对准**：底盘移动后，机械臂会清空移动前的 `_aligned`、
+`_stable_since`、`_stable_ref`、`_last_cmd`、`_cmd_q`，从当前实际关节重新解算
+J1~J5 目标角，并重新满足 `grasp_stable_time` 稳定时间后才进入抓取，避免沿用
+移动前的对准结论导致抓不到。
+
+> 本 launch 关闭了 `chassis_guard`，所以默认直接发 `/cmd_vel` 给底盘驱动。
+> 若启用守卫，把 `chassis_cmd_topic` 改为 `/cmd_vel_in`，由守卫做避障修正。
+
+对应 launch 参数：`chassis_approach`、`chassis_cmd_topic`、
+`approach_start_distance`、`approach_stop_distance`、`approach_max_linear`、
+`approach_max_angular`、`approach_max_travel`、`approach_update_period`。
 
 ## 可调参数
 

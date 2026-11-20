@@ -46,3 +46,7 @@
     ros2 launch mycobot_handeye_calibration calibrate_eye_to_hand.launch.py
     ros2 launch mycobot_handeye_calibration calibrate_eye_in_hand.launch.py
     在calibration_params.yaml中填写aruco标定板信息size,厚度
+
+6 aruco检测、对准、抓取（移动到抓取距离）
+    ros2 launch wheeltec_mycobot_pick_place_aruco aruco_align.launch.py
+    使用之前必须标定好相机内参数及将手眼标定结果放入urdf文件中

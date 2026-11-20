@@ -4,14 +4,24 @@
 流程:
   1. 启动后下发绝对关节角轨迹到 pick_ready
   2. 订阅 /aruco_single/pose, 由手眼静态 TF 转到 link1 系；
-  3. 用 controller_state 的真实关节角做 URDF 正解，把 marker 位置换算到法兰系 P；
-  4. 使用URDF模型的参数用牛顿迭代直接求出使 r 收敛的 J1~J5 绝对角，r就是跟踪的对象在法兰系下到法兰Z轴的距离；
-  5. 对准后 marker 连续 grasp_stable_time 秒不动, 进入抓取循环:
+  3. marker 在 link1 系的水平距离 > approach_start_distance(默认 0.20m) 时,
+     发 /cmd_vel 驱动底盘接近: 前进与航向修正同时进行 (边走边调),
+     运行中每 0.2s(5Hz) 用最新 marker 位姿重算方位角并修正小车方向,
+     用户途中移动 marker 也能持续跟随; 距离进入
+     approach_stop_distance(0.18m) 即停车, 残余航向偏差由停车后机械臂
+     重新对准兜底, 清空旧对准状态后再对准一次再抓取；
+     若 marker 距离 < retreat_trigger_distance(默认 0.15m) 太近,
+     先不看方向直线后退(负 vx, wz=0) 到 retreat_stop_distance(0.18m),
+     停稳后再重新对准抓取；
+  4. 用 controller_state 的真实关节角做 URDF 正解，把 marker 位置换算到法兰系 P；
+  5. 使用URDF模型的参数用牛顿迭代直接求出使 r 收敛的 J1~J5 绝对角，r就是跟踪的对象在法兰系下到法兰Z轴的距离；
+  6. 对准后 marker 连续 grasp_stable_time 秒不动, 进入抓取循环:
      张开夹爪(grasp_open_hold) -> 夹持点移动到 marker (姿态允许小幅
      倾斜, 不再限定沿法兰 +Z) -> 闭合夹爪 -> 回到 pick_ready
      -> 张开夹爪 -> 重新对准
 """
 import math
+import signal
 import threading
 import time
 
@@ -21,7 +31,7 @@ from rclpy.action import ActionClient
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 
-from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import PoseStamped, Twist
 from std_msgs.msg import Int32
 from control_msgs.msg import JointTrajectoryControllerState
 from control_msgs.action import FollowJointTrajectory, GripperCommand
@@ -279,6 +289,32 @@ class ArucoAlignNode(Node):
         self.declare_parameter('gripper_close_value', -0.42)  # [rad]
         self.declare_parameter('gripper_max_effort', 50.0)
 
+        # ---- 底盘接近 ----
+        # marker 在 link1 系下的水平距离 (sqrt(x^2+y^2), 不含 z) 超过
+        # approach_start_distance 时, 直接发 /cmd_vel 让底盘朝 marker 前进;
+        # 进入 approach_stop_distance 后停车, 机械臂再继续对准/抓取.
+        # 不含 z: 竖直高度差不占机械臂水平可达范围, 否则地面上的 marker
+        # 会被 3D 距离误判为一直"太远", 导致小车持续前顶.
+        self.declare_parameter('chassis_approach', True)
+        self.declare_parameter('chassis_cmd_topic', '/cmd_vel')
+        self.declare_parameter('chassis_frame', 'base_link')
+        self.declare_parameter('approach_start_distance', 0.20)  # [m]
+        self.declare_parameter('approach_stop_distance', 0.18)   # [m]
+        self.declare_parameter('approach_max_linear', 0.05)      # [m/s]
+        self.declare_parameter('approach_max_angular', 0.20)     # [rad/s]
+        self.declare_parameter('approach_turn_gain', 1.5)        # [rad/s per rad]
+        self.declare_parameter('approach_max_travel', 0.5)       # [m]
+        # 运行中重新检测 marker 并修正航向的周期: 0.2s = 5Hz 即可
+        self.declare_parameter('approach_update_period', 0.2)    # [s]
+        # 太近保护: 水平距离小于 retreat_trigger_distance 时直线后退
+        # (不调方向, 只发负 vx) 到 retreat_stop_distance, 给机械臂留抓取空间
+        self.declare_parameter('retreat_trigger_distance', 0.15)  # [m]
+        self.declare_parameter('retreat_stop_distance', 0.18)     # [m]
+        # 后退速度放慢: 后退停车延迟会带来过冲, 冲过 approach_start_distance
+        # (0.20m) 会立刻又触发前进, 形成前进/后退往复.
+        self.declare_parameter('retreat_max_linear', 0.01)        # [m/s]
+        self.declare_parameter('retreat_max_travel', 0.5)         # [m]
+
         p = self.get_parameter
         self.init_duration = p('init_duration').value
         self.base_frame = p('arm_base_frame').value
@@ -311,6 +347,19 @@ class ArucoAlignNode(Node):
         self.gripper_open_value = p('gripper_open_value').value
         self.gripper_close_value = p('gripper_close_value').value
         self.gripper_max_effort = p('gripper_max_effort').value
+        self.chassis_approach = p('chassis_approach').value
+        self.chassis_frame = p('chassis_frame').value
+        self.approach_start_distance = p('approach_start_distance').value
+        self.approach_stop_distance = p('approach_stop_distance').value
+        self.approach_max_linear = p('approach_max_linear').value
+        self.approach_max_angular = p('approach_max_angular').value
+        self.approach_turn_gain = p('approach_turn_gain').value
+        self.approach_max_travel = p('approach_max_travel').value
+        self.approach_update_period = p('approach_update_period').value
+        self.retreat_trigger_distance = p('retreat_trigger_distance').value
+        self.retreat_stop_distance = p('retreat_stop_distance').value
+        self.retreat_max_linear = p('retreat_max_linear').value
+        self.retreat_max_travel = p('retreat_max_travel').value
 
         # ---- 状态 ----
         self._joints = {}            # name -> position (controller 反馈)
@@ -344,6 +393,19 @@ class ArucoAlignNode(Node):
         self._gripper_done = None       # 夹爪 action 结果: None/True/False
         self._gripper_done_time = 0.0
         self._gripper_busy = False
+        # ---- 底盘接近状态 ----
+        self._marker_chassis = None       # marker 在底盘系的位姿 (选向用)
+        self._approach_active = False     # 正在发速度命令接近 marker
+        self._approach_travel = 0.0       # 本次接近累计指令行程 [m]
+        self._approach_blocked = False    # 行程用尽, 不再自动前进
+        self._approach_last_time = 0.0
+        self._approach_cmd_time = 0.0     # 上次重新解算航向的时刻
+        self._approach_cmd_vx = 0.0
+        self._approach_cmd_wz = 0.0
+        self._retreat_active = False      # marker 太近, 正在直线后退
+        self._retreat_travel = 0.0        # 本次后退累计指令行程 [m]
+        self._retreat_last_time = 0.0
+        self._chassis_hold_until = 0.0    # 停车后继续补发零速的截止时刻
         # 定时器重入保护: ReentrantCallbackGroup + 多线程执行器下, 一次
         # IK 计算超过 50ms 周期时会有多个线程同时进入同一 tick, 造成同一帧
         # 重复解算/重复下发 (日志里同一 pos_err 连续打印多次)
@@ -377,6 +439,11 @@ class ArucoAlignNode(Node):
         # 固件速度提示: 根据 marker 移动速度实时调节驱动 speed (1-100)
         self._speed_pub = self.create_publisher(
             Int32, '/mycobot/speed_hint', 10)
+        # 底盘接近: marker 太远时直接驱动底盘 (chassis_guard 未启动时用
+        # /cmd_vel; 若启用了守卫, 应把该参数改为 /cmd_vel_in)
+        self._chassis_cmd_topic = p('chassis_cmd_topic').value
+        self._chassis_pub = self.create_publisher(
+            Twist, self._chassis_cmd_topic, 10)
 
         # 20Hz 主循环: 初始化 -> 视觉伺服 (跟踪阶段每个 replan_interval 重规划)
         self.create_timer(0.05, self._tick, callback_group=self.cbg)
@@ -413,6 +480,18 @@ class ArucoAlignNode(Node):
             pose_l1.pose.position.z += oz
         self._marker_link1 = pose_l1
         self._marker_time = time.time()
+
+        # marker 在底盘系的位置: 仅用于底盘接近时的朝向选择
+        # (走 link1 -> chassis_frame 静态链, 复用上面已补偿的位姿)
+        if self.chassis_approach:
+            try:
+                tf_b = self.tf_buf.lookup_transform(
+                    self.chassis_frame, self.base_frame, rclpy.time.Time(),
+                    timeout=rclpy.duration.Duration(seconds=0.2))
+                self._marker_chassis = do_transform_pose_stamped(
+                    pose_l1, tf_b).pose
+            except TransformException:
+                self._marker_chassis = None
 
         # ---- marker 移动速度: 相机固定在 link1 上, 位移差即目标运动 ----
         now = time.monotonic()
@@ -624,7 +703,14 @@ class ArucoAlignNode(Node):
                 self._init_pick_ready()
             return
         now = time.time()
+        if self._state != ST_ALIGN:
+            # 抓取循环期间绝不允许底盘继续动
+            if self._approach_active or self._retreat_active:
+                self._stop_chassis()
         if self._state == ST_ALIGN:
+            # marker 太远时先由底盘接近接管, 本拍不做机械臂对准
+            if self._chassis_approach_step(now):
+                return
             if now < self._settle_until:
                 return
             # 跟踪阶段不阻塞等轨迹结果: 每 replan_interval 用最新 marker 重规划,
@@ -655,6 +741,234 @@ class ArucoAlignNode(Node):
             f'Init: moving to pick_ready in {self.init_duration:.1f}s')
         self._goal_kind = 'init'
         self._send_positions(PICK_READY_JOINT_VALUES, self.init_duration)
+
+    # ------------------------------------------------------------------
+    # 底盘接近: link1 系下 marker 水平距离 > 阈值 -> 发 /cmd_vel 前进
+    # ------------------------------------------------------------------
+    def _publish_chassis(self, vx, wz):
+        msg = Twist()
+        msg.linear.x = float(vx)
+        msg.angular.z = float(wz)
+        self._chassis_pub.publish(msg)
+
+    def _stop_chassis(self):
+        """发零速并清接近/后退状态; 停车后再补发几拍零速确保底盘停稳."""
+        if self._approach_active:
+            self.get_logger().info(
+                f'Chassis: stop (travel={self._approach_travel:.3f}m)')
+        if self._retreat_active:
+            self.get_logger().info(
+                f'Chassis: retreat stop (travel={self._retreat_travel:.3f}m)')
+        self._approach_active = False
+        self._retreat_active = False
+        self._publish_chassis(0.0, 0.0)
+        self._chassis_hold_until = time.time() + 0.3
+
+    def _finish_chassis_move(self, now):
+        """底盘停车, 作废移动前的对准结论, 停稳后由机械臂重新对准."""
+        self._stop_chassis()
+        self._reset_align_tracking()
+        self._settle_until = now + self.settle_time
+
+    def _reset_align_tracking(self):
+        """底盘移动后, 让机械臂以当前实际关节重新对准并重新判定稳定.
+
+        旧的容差状态/稳定计时/上一条目标角都必须清掉, 否则底盘移动后
+        机械臂会沿用移动前的"已对准"结论直接抓取, 姿态是错的.
+        """
+        self._aligned = False
+        self._stable_since = None
+        self._stable_ref = None
+        self._last_cmd = None
+        self._cmd_q = None
+
+    def _marker_face_yaw(self):
+        """marker 面法线在 base_link 系下的偏航角 [rad], 仅作诊断输出."""
+        if self._marker_chassis is None:
+            return None
+        q = self._marker_chassis.orientation
+        # 四元数旋转矩阵第三列 (marker +Z 轴)
+        nx = 2.0 * (q.x * q.z + q.w * q.y)
+        ny = 2.0 * (q.y * q.z - q.w * q.x)
+        if math.hypot(nx, ny) < 0.3:
+            return None
+        return math.atan2(ny, nx)
+
+    def _marker_bearing(self):
+        """marker 在底盘系下的方位角 [rad] (正 = 偏左); 位姿不可用返回 None."""
+        if self._marker_chassis is None:
+            return None
+        cp = self._marker_chassis.position
+        return math.atan2(cp.y, cp.x)
+
+    def _approach_control(self):
+        """解算一拍底盘速度, 返回 (vx, wz).
+
+        边走边调: 前进不因航向误差中断, 只把角速度作为修正量叠加,
+        这样行进中 marker 被移动也能持续跟随; 停车瞬间残余的航向偏差
+        由停车后的机械臂重新对准兜底.
+        """
+        err = self._marker_bearing()
+        if err is None:
+            return 0.0, 0.0
+        wz = max(-self.approach_max_angular,
+                 min(self.approach_max_angular,
+                     self.approach_turn_gain * err))
+        # 前进速度恒定: 用 (reach - stop) 收尾会退化成亚毫米级爬行,
+        # 底盘低速死区下走不动, 距离永远差一点点到不了停车判据.
+        # 停车判据每拍(20Hz)检查, 不会冲过 stop_distance.
+        return self.approach_max_linear, wz
+
+    def _retreat_step(self, now, reach):
+        """marker 太近时直线后退. 返回 True 表示本拍由底盘接管.
+
+        后退不考虑方向 (wz=0, 只发负 vx), 退到 retreat_stop_distance
+        (默认 0.18m) 停车, 留出机械臂抓取空间后再重新对准.
+        """
+        if not self._retreat_active:
+            if reach >= self.retreat_trigger_distance:
+                return False
+            self._retreat_active = True
+            self._retreat_travel = 0.0
+            self._retreat_last_time = now
+            self._approach_active = False
+            self._reset_align_tracking()
+            self.get_logger().info(
+                f'Chassis: marker {reach:.3f}m < '
+                f'{self.retreat_trigger_distance:.2f}m, retreat straight back')
+
+        if reach >= self.retreat_stop_distance:
+            self.get_logger().info(
+                f'Chassis: retreat done at {reach:.3f}m, re-align before grasp')
+            self._finish_chassis_move(now)
+            return True
+
+        dt = max(0.0, min(now - self._retreat_last_time, 0.2))
+        self._retreat_last_time = now
+        if (self._retreat_travel + self.retreat_max_linear * dt
+                > self.retreat_max_travel):
+            self.get_logger().warn(
+                f'Chassis: retreat travel limit {self.retreat_max_travel:.2f}m '
+                'reached, stop')
+            self._finish_chassis_move(now)
+            return True
+        self._retreat_travel += self.retreat_max_linear * dt
+        self._publish_chassis(-self.retreat_max_linear, 0.0)
+        return True
+
+    def _chassis_approach_step(self, now):
+        """底盘接近一拍. 返回 True 表示本拍已由底盘接管 (跳过机械臂对准).
+
+        距离判据: marker 在 link1 系下的水平距离 sqrt(x^2+y^2).
+        竖直高度差不影响机械臂水平可达范围, 故不参与距离计算.
+        运行中每 approach_update_period(默认 0.2s = 5Hz) 用最新 marker
+        位姿重新解算一次航向并修正, 其余拍重复下发当前速度指令.
+        """
+        if not self.chassis_approach:
+            return False
+
+        # 停车后的补零速窗口
+        if (now < self._chassis_hold_until
+                and not self._approach_active and not self._retreat_active):
+            self._publish_chassis(0.0, 0.0)
+            return True
+
+        if (self._marker_link1 is None
+                or now - self._marker_time > self.marker_timeout):
+            if self._approach_active or self._retreat_active:
+                self.get_logger().warn(
+                    'Chassis: marker lost during approach/retreat, stop')
+                self._stop_chassis()
+                return True
+            return False
+
+        pos = self._marker_link1.pose.position
+        reach = math.hypot(pos.x, pos.y)
+
+        # 太近: 先直线后退到抓取距离, 再由机械臂对准
+        if self._retreat_step(now, reach):
+            return True
+
+        if self._approach_active:
+            # 到达判定只看距离: 接近全程边走边调, 停车瞬间残余的航向
+            # 偏差由停车后的机械臂重新对准兜底, 这里不再原地补转.
+            if reach <= self.approach_stop_distance:
+                err = self._marker_bearing()
+                err_txt = ('n/a' if err is None
+                           else f'{math.degrees(err):+.1f}deg')
+                self.get_logger().info(
+                    f'Chassis: marker within {reach:.3f}m '
+                    f'(<= {self.approach_stop_distance:.2f}m), stop '
+                    f'(bearing {err_txt}, arm will re-align)')
+                # 底盘移动后必须重新修正一次对准角度: 清掉移动前的
+                # 已对准/稳定/目标角状态, 停稳后从当前关节重新解算
+                self._finish_chassis_move(now)
+                self.get_logger().info(
+                    'Chassis: arrived, re-align before grasp')
+                return True
+        else:
+            if reach <= self.approach_start_distance:
+                if reach <= self.approach_stop_distance:
+                    self._approach_blocked = False
+                return False
+            if self._approach_blocked:
+                self.get_logger().warn(
+                    f'Chassis: approach disabled after {self.approach_max_travel:.2f}m '
+                    'travel limit', throttle_duration_sec=5.0)
+                return False
+            if self._marker_chassis is None:
+                # 底盘系位姿不可用 (TF 缺失): 无法选向, 交回机械臂对准
+                return False
+            self._approach_active = True
+            self._approach_travel = 0.0
+            self._approach_last_time = now
+            self._approach_cmd_time = 0.0
+            self._approach_cmd_vx = 0.0
+            self._approach_cmd_wz = 0.0
+            # 接近途中目标会移动, 原有的对准/稳定计时作废
+            self._reset_align_tracking()
+            self.get_logger().info(
+                f'Chassis: marker {reach:.3f}m > '
+                f'{self.approach_start_distance:.2f}m, approach forward')
+
+        if self._marker_chassis is None:
+            self._stop_chassis()
+            return True
+
+        # 5Hz: 用最新 marker 位置重新解算航向, 运行中持续修正小车方向
+        if now - self._approach_cmd_time >= self.approach_update_period:
+            self._approach_cmd_time = now
+            vx, wz = self._approach_control()
+            self._approach_cmd_vx = vx
+            self._approach_cmd_wz = wz
+            err = self._marker_bearing()
+            face_yaw = self._marker_face_yaw()
+            face_txt = ('n/a' if face_yaw is None
+                        else f'{math.degrees(face_yaw):+.1f}deg')
+            self.get_logger().info(
+                f'Chassis track 5Hz: marker {reach:.3f}m '
+                f'bearing {math.degrees(err):+.1f}deg face_yaw {face_txt} '
+                f'-> vx={vx:.3f}m/s wz={wz:+.3f}rad/s',
+                throttle_duration_sec=self.print_throttle)
+
+        # 每拍重复下发当前指令 (底盘驱动只保持最后一条命令)
+        vx = self._approach_cmd_vx
+        wz = self._approach_cmd_wz
+
+        # 累计指令行程, 超过上限停车 (防止误检/漂移导致一直前顶)
+        dt = max(0.0, min(now - self._approach_last_time, 0.2))
+        self._approach_last_time = now
+        if self._approach_travel + vx * dt > self.approach_max_travel:
+            self._approach_blocked = True
+            self.get_logger().warn(
+                f'Chassis: travel limit {self.approach_max_travel:.2f}m '
+                'reached, stop approach')
+            self._stop_chassis()
+            return True
+        self._approach_travel += vx * dt
+
+        self._publish_chassis(vx, wz)
+        return True
 
     # ------------------------------------------------------------------
     # 视觉对准: J1~J5 (marker 位置 P 在法兰系)
@@ -1110,13 +1424,30 @@ def main():
     node = ArucoAlignNode()
     executor = MultiThreadedExecutor()
     executor.add_node(node)
+
+    def _sigint_handler(_signum, _frame):
+        # Ctrl+C: 底盘驱动会保持最后一条速度指令, 必须先补发零速再退出
+        try:
+            for _ in range(5):
+                node._publish_chassis(0.0, 0.0)
+                time.sleep(0.05)
+        finally:
+            raise KeyboardInterrupt
+
+    signal.signal(signal.SIGINT, _sigint_handler)
+    signal.signal(signal.SIGTERM, _sigint_handler)
     try:
         executor.spin()
     except KeyboardInterrupt:
         pass
     finally:
+        # 退出前确保底盘收到零速, 避免残留速度命令
+        try:
+            node._stop_chassis()
+        except Exception:
+            pass
         node.destroy_node()
-        rclpy.shutdown()
+        rclpy.try_shutdown()
 
 
 if __name__ == '__main__':

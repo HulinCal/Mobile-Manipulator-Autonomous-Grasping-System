@@ -26,6 +26,7 @@ from launch.substitutions import (
     PathJoinSubstitution,
 )
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
 
 
@@ -43,6 +44,14 @@ def generate_launch_description():
     marker_offset_z = LaunchConfiguration('marker_offset_z')
     tcp_flange_z = LaunchConfiguration('tcp_flange_z')
     insert_extra_depth = LaunchConfiguration('insert_extra_depth')
+    chassis_approach = LaunchConfiguration('chassis_approach')
+    chassis_cmd_topic = LaunchConfiguration('chassis_cmd_topic')
+    approach_start_distance = LaunchConfiguration('approach_start_distance')
+    approach_stop_distance = LaunchConfiguration('approach_stop_distance')
+    approach_max_linear = LaunchConfiguration('approach_max_linear')
+    approach_max_angular = LaunchConfiguration('approach_max_angular')
+    approach_max_travel = LaunchConfiguration('approach_max_travel')
+    approach_update_period = LaunchConfiguration('approach_update_period')
 
     declare_args = [
         DeclareLaunchArgument(
@@ -84,6 +93,37 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'insert_extra_depth', default_value='0.015',
             description='Extra forward depth past the marker [m]'),
+        # ---- 底盘接近 ----
+        # link1 系下 marker 水平距离超过 start 时, 发 /cmd_vel 让底盘前进,
+        # 到 stop 距离内停车, 机械臂再继续对准/抓取.
+        DeclareLaunchArgument(
+            'chassis_approach', default_value='true',
+            description='Drive chassis toward the marker when it is too far'),
+        DeclareLaunchArgument(
+            'chassis_cmd_topic', default_value='/cmd_vel',
+            description='Chassis velocity topic (use /cmd_vel_in if '
+                        'chassis_guard is enabled)'),
+        DeclareLaunchArgument(
+            'approach_start_distance', default_value='0.20',
+            description='Start chassis approach when marker horizontal '
+                        'distance in link1 exceeds this [m]'),
+        DeclareLaunchArgument(
+            'approach_stop_distance', default_value='0.18',
+            description='Stop chassis when marker horizontal distance in '
+                        'link1 is within this [m]'),
+        DeclareLaunchArgument(
+            'approach_max_linear', default_value='0.05',
+            description='Max forward speed during approach [m/s]'),
+        DeclareLaunchArgument(
+            'approach_max_angular', default_value='0.20',
+            description='Max yaw rate during approach [rad/s]'),
+        DeclareLaunchArgument(
+            'approach_max_travel', default_value='0.5',
+            description='Max commanded travel per approach [m]'),
+        DeclareLaunchArgument(
+            'approach_update_period', default_value='0.2',
+            description='Re-detect marker and correct heading every N '
+                        'seconds while approaching (0.2s = 5Hz)'),
     ]
 
     # ---- 1. 机械臂 bringup ----
@@ -161,6 +201,21 @@ def generate_launch_description():
                 'marker_offset_z': marker_offset_z,
                 'tcp_flange_z': tcp_flange_z,
                 'insert_extra_depth': insert_extra_depth,
+                'chassis_approach': ParameterValue(
+                    chassis_approach, value_type=bool),
+                'chassis_cmd_topic': chassis_cmd_topic,
+                'approach_start_distance': ParameterValue(
+                    approach_start_distance, value_type=float),
+                'approach_stop_distance': ParameterValue(
+                    approach_stop_distance, value_type=float),
+                'approach_max_linear': ParameterValue(
+                    approach_max_linear, value_type=float),
+                'approach_max_angular': ParameterValue(
+                    approach_max_angular, value_type=float),
+                'approach_max_travel': ParameterValue(
+                    approach_max_travel, value_type=float),
+                'approach_update_period': ParameterValue(
+                    approach_update_period, value_type=float),
             }],
         )],
     )
