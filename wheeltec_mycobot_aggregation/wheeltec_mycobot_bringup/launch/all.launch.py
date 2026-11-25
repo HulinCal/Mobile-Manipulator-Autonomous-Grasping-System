@@ -9,7 +9,7 @@
   4. lslidar_driver          - LSLidar N10 驱动 (lsn10_launch.py)
   5. base_to_gyro            - 静态 TF: base_link -> gyro_link (单位变换)
   6. base_to_laser           - 静态 TF: base_footprint -> laser
-                               (xyz='0.0911 0 0.155' rpy='0 0 0')
+                               (XY 与 URDF laser_link 对齐，仅 Z 方向不同)
   6.1 world_to_odom          - 静态 TF: world -> odom_combined (单位变换);
                                world 必须挂在 EKF 里程计之上, 不能在 URDF 里
                                直连 base_footprint (否则双父节点拆树)
@@ -193,14 +193,14 @@ def generate_launch_description():
     )
 
     # 6) base_to_laser 静态 TF: base_footprint -> laser
-    #    (与 senior_4wd_bs_robot 一致: xyz='0.0911 0 0.155' rpy='0 0 0')
+    #    XY 与 URDF laser_link 对齐，仅 Z 方向不同
     base_to_laser_node = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='base_to_laser',
         arguments=[
-            '--x', '0.0911',
-            '--y', '0.0',
+            '--x', '0.1321278646206001',
+            '--y', '0.000667202405493635',
             '--z', '0.155',
             '--roll', '0.0',
             '--pitch', '0.0',

@@ -352,9 +352,8 @@ def generate_launch_description():
             package='tf2_ros', 
             executable='static_transform_publisher', 
             name='base_to_laser',
-            arguments=['0.0011', '0', '0.105','0', '0','0','base_footprint','laser'],),
-            # 为了与laser_link对齐,x轴偏移-0.1511m,下面的才是默认的值
-            #arguments=['0.02', '0', '0.155','0', '0','0','base_footprint','laser'],),
+            arguments=['0.1321278646206001', '0.000667202405493635', '0.105','0', '0','0','base_footprint','laser'],),
+            # 与 URDF laser_link 的 XY 对齐，仅 Z 方向不同
         # launch_ros.actions.Node(
         #     package='tf2_ros', 
         #     executable='static_transform_publisher', 

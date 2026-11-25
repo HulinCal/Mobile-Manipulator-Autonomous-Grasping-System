@@ -12,6 +12,7 @@ ros2 launch turn_on_wheeltec_robot wheeltec_lidar.launch.py
 
 5、打开键盘控制
 ros2 run wheeltec_robot_keyboard wheeltec_keyboard 
+ros2 run keyboard_control_emer keyboard_control_emer
 
 6、简单跟随功能
 ① 雷达跟随
@@ -28,16 +29,22 @@ ros2 launch simple_follower_ros2 visual_follower.launch.py
 ros2 launch slam_gmapping slam_gmapping.launch.py
 
 ②使用slam_toolbox建图
-ros2 launch wheeltec_slam_toolbox online_sync.launch.py
+ros2 launch wheeltec_slam_toolbox online_sync.launch.py  同步建图
+ros2 launch wheeltec_slam_toolbox online_async_upstream.launch.py 异步建图（一般使用异步）
 
 ③使用cartographer建图
-ros2 launch wheeltec_cartographer cartographer.launch.py
+ros2 launch wheeltec_cartographer cartographer.launch.py  
+ 退出时会自动存储图像到~/wheeltec_mycobot_ws/maps 
+ //或者指定存储路径
+ros2 launch wheeltec_cartographer cartographer.launch.py \
+  map_filestem:=/home/admi/wheeltec_mycobot_ws/maps/test_direct
 
 保存地图
 ros2 launch wheeltec_nav2 save_map.launch.py
 
 8、2D导航
 ros2 launch wheeltec_nav2 wheeltec_nav2.launch.py
+ros2 launch wheeltec_nav2 wheeltec_nav2_mppi.launch.py   //mppi参数文件
 
 9、RRT 自主探索建图[顺时针/逆时针发布四个点，最后一个点发布在已知地图中]
 step1：ros2 launch wheeltec_slam_toolbox online_sync.launch.py

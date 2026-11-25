@@ -12,7 +12,7 @@
                                base_serial.launch.py, akmcar:=false)
   3. base_to_gyro            - 静态 TF: base_link -> gyro_link (单位变换)
   4. base_to_laser           - 静态 TF: base_footprint -> laser
-                               (xyz='0.0911 0 0.155' rpy='0 0 0')
+                               (XY 与 URDF laser_link 对齐，仅 Z 方向不同)
   5. robot_ekf               - EKF 融合节点 (配置: turn_on_wheeltec_robot/config/ekf.yaml)
                                (carto_slam:=true 时禁用, 默认 false)
   6. joint_state_publisher   - 无头模式发布关节状态 (真实硬件提供关节状态)
@@ -111,14 +111,14 @@ def generate_launch_description():
     )
 
     # 4) base_to_laser 静态 TF: base_footprint -> laser
-    #    (与 senior_4wd_bs_robot 一致: xyz='0.0911 0 0.155' rpy='0 0 0')
+    #    XY 与 URDF laser_link 对齐，仅 Z 方向不同
     base_to_laser_node = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='base_to_laser',
         arguments=[
-            '--x', '0.0911',
-            '--y', '0.0',
+            '--x', '0.1321278646206001',
+            '--y', '0.000667202405493635',
             '--z', '0.155',
             '--roll', '0.0',
             '--pitch', '0.0',

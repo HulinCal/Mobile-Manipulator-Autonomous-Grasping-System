@@ -35,4 +35,8 @@ install(
   DIRECTORY launch config
   DESTINATION share/${PROJECT_NAME}
 )
+install(
+  PROGRAMS scripts/cartographer_with_map_saver.py
+  DESTINATION lib/${PROJECT_NAME}
+)
 ament_package()

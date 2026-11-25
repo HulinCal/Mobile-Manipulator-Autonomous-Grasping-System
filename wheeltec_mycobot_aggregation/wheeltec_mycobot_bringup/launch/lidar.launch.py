@@ -8,8 +8,8 @@
                               保证轮子与机械臂各 link 的 TF 完整显示
      joint_state_publisher_gui - (可选, 默认不启动) GUI 滑块, 用于手动拖动机械臂
                               关节调试, 启动方式: jsp_gui:=true (与无头版互斥)
-  3. base_to_laser          - 静态 TF: base_footprint -> laser
-                             (xyz='0.0911 0 0.155' rpy='0 0 0', 与 senior_4wd_bs_robot 一致)
+  3. base_to_laser          - 静态 TF: base_link -> laser
+                             (XY 与 URDF laser_link 对齐，仅 Z 方向不同)
   4. lslidar_driver         - 启动 LSLidar N10 驱动 (复用 lsn10_launch.py)
   5. rviz2                  - 使用 wheeltec_mycobot_lidar.rviz, 同时显示机器人模型与激光点
 
@@ -112,16 +112,15 @@ def generate_launch_description():
         condition=IfCondition(jsp_gui),
     )
 
-    # 3) base_to_laser 静态 TF: base_footprint -> laser
-    #    与 turn_on_wheeltec_robot/launch/robot_mode_description.launch.py 中
-    #    senior_4wd_bs_robot 的 base_to_laser 保持一致 (xyz='0.0911 0 0.155')
+    # 3) base_to_laser 静态 TF: base_link -> laser
+    #    XY 与 URDF laser_link 对齐，仅 Z 方向不同
     base_to_laser_node = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='base_to_laser',
         arguments=[
-            '--x', '0.0911',
-            '--y', '0.0',
+            '--x', '0.1321278646206001',
+            '--y', '0.000667202405493635',
             '--z', '0.155',
             '--roll', '0.0',
             '--pitch', '0.0',

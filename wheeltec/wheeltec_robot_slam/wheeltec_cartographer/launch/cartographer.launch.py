@@ -23,6 +23,10 @@ def generate_launch_description():
     rviz_config = LaunchConfiguration('rviz_config',
         default=os.path.join(get_package_share_directory('cartographer_ros'),
                              'configuration_files', 'demo_2d.rviz'))
+
+    # 地图文件名（不含扩展名）：退出时生成 map_filestem.pbstream/.pgm/.yaml
+    map_filestem = LaunchConfiguration('map_filestem')
+    save_state_filename = LaunchConfiguration('save_state_filename')
  
 
     bringup_dir = get_package_share_directory('turn_on_wheeltec_robot')
@@ -35,6 +39,22 @@ def generate_launch_description():
     wheeltec_lidar = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(launch_dir, 'wheeltec_lidar.launch.py')),
     )
+
+    # 守护进程先等待 cartographer_node 正常保存 pbstream，再执行 PGM/YAML
+    # 转换；避免 launch 已进入关闭流程后 OnProcessExit 无法启动转换进程。
+    cartographer_node = Node(
+        package='wheeltec_cartographer',
+        executable='cartographer_with_map_saver.py',
+        name='cartographer_map_saver',
+        arguments=[
+            '--configuration-directory', cartographer_config_dir,
+            '--configuration-basename', configuration_basename,
+            '--save-state-filename', save_state_filename,
+            '--map-filestem', map_filestem,
+            '--resolution', resolution,
+            '--use-sim-time', use_sim_time],
+        output='screen')
+
     return LaunchDescription([
     wheeltec_robot,wheeltec_lidar,
 
@@ -66,17 +86,16 @@ def generate_launch_description():
             'rviz_config',
             default_value=rviz_config,
             description='Full path to rviz config file'),
+        DeclareLaunchArgument(
+            'map_filestem',
+            default_value=os.path.expanduser('~/wheeltec_mycobot_ws/maps/map'),
+            description='Output map path without extension (.pbstream/.pgm/.yaml)'),
+        DeclareLaunchArgument(
+            'save_state_filename',
+            default_value=[map_filestem, '.pbstream'],
+            description='Pbstream file saved when cartographer_node exits'),
 
-        Node(
-            package='cartographer_ros',
-            executable='cartographer_node',
-            name='cartographer_node',
-            parameters=[{'use_sim_time': use_sim_time}],
-            arguments=[
-                '-configuration_directory', cartographer_config_dir,
-                '-configuration_basename', configuration_basename],
-            remappings=[('odom','odom_combined'),
-            ('imu','/mobile_base/sensors/imu_data')]),
+        cartographer_node,
 
         Node(
             package='cartographer_ros',
@@ -93,5 +112,4 @@ def generate_launch_description():
             arguments=['-d', rviz_config],
             parameters=[{'use_sim_time': use_sim_time}],
             output='screen'),
- 
     ])

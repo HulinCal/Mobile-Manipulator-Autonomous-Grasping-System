@@ -1,0 +1,390 @@
+amcl:
+  ros__parameters:
+    use_sim_time: False
+    alpha1: 0.5
+    alpha2: 0.1
+    alpha3: 0.05
+    alpha4: 0.01
+    alpha5: 0.04
+    base_frame_id: "base_footprint"
+    beam_skip_distance: 0.5
+    beam_skip_error_threshold: 0.9
+    beam_skip_threshold: 0.3
+    do_beamskip: false
+    global_frame_id: "map"
+    lambda_short: 0.1
+    laser_likelihood_max_dist: 2.0
+    laser_max_range: 6.0
+    laser_min_range: 0.15
+    laser_model_type: "likelihood_field_prob"
+    max_beams: 120
+    max_particles: 2000
+    min_particles: 800
+    odom_frame_id: "odom_combined"
+    pf_err: 0.02
+    pf_z: 0.85
+    recovery_alpha_fast: 0.0
+    recovery_alpha_slow: 0.0
+    resample_interval: 2
+    robot_model_type: "nav2_amcl::DifferentialMotionModel"
+    save_pose_rate: 0.5
+    sigma_hit: 0.02
+    tf_broadcast: true
+    transform_tolerance: 0.5
+    update_min_a: 0.06
+    update_min_d: 0.025
+    z_hit: 0.7
+    z_max: 0.001
+    z_rand: 0.059
+    z_short: 0.24
+
+    # Initial Pose
+    set_initial_pose: True
+    initial_pose.x: 0.0
+    initial_pose.y: 0.0
+    initial_pose.z: 0.0
+    initial_pose.yaw: 0.0
+
+amcl_map_client:
+  ros__parameters:
+    use_sim_time: False
+
+amcl_rclcpp_node:
+  ros__parameters:
+    use_sim_time: False
+
+bt_navigator:
+  ros__parameters:
+    use_sim_time: False
+    global_frame: map
+    robot_base_frame: base_footprint
+    odom_topic: /odom_combined
+    bt_loop_duration: 10
+    default_server_timeout: 20
+    enable_groot_monitoring: True
+    groot_zmq_publisher_port: 1666
+    groot_zmq_server_port: 1667
+bt_navigator_rclcpp_node:
+  ros__parameters:
+    use_sim_time: False
+
+controller_server:
+  ros__parameters:
+    use_sim_time: False
+    controller_frequency: 5.0
+    min_x_velocity_threshold: 0.001
+    min_y_velocity_threshold: 0.5
+    min_theta_velocity_threshold: 0.001
+    failure_tolerance: 0.6
+    progress_checker_plugin: "progress_checker"
+    goal_checker_plugins: ["general_goal_checker"]
+    controller_plugins: ["FollowPath"]
+
+    # Progress checker parameters
+    progress_checker:
+      plugin: "nav2_controller::SimpleProgressChecker"
+      required_movement_radius: 0.2
+      movement_time_allowance: 10.0
+    # Goal checker parameters
+    general_goal_checker:
+      stateful: True
+      plugin: "nav2_controller::SimpleGoalChecker"
+      # 末端容许误差过小会导致在目标附近反复修正；低速实测适当放宽
+      xy_goal_tolerance: 0.12
+      yaw_goal_tolerance: 0.15
+
+    # ── MPPI 控制器（替换 DWB）──
+    FollowPath:
+      plugin: "nav2_mppi_controller::MPPIController"
+
+      # model_dt 必须 >= 控制周期(1/controller_frequency=0.2s)，否则 MPPI configure 直接抛异常
+      # 采样设置：20 × 0.2s = 4.0s 预测时域；0.2m/s 下约 0.8m 前瞻
+      time_steps: 20
+      model_dt: 0.2
+      # 降采样数提升控制频率：实测 1000 时控制环掉到 5~7Hz，跟踪必然失真
+      batch_size: 500
+      iteration_count: 1
+
+      # 采样噪声标准差：过小会导致 MPPI 粘滞在零速（探索不到前进样本）
+      vx_std: 0.10
+      vy_std: 0.0        # 差速车 vy_max=0，不给横向噪声
+      wz_std: 0.10
+
+      # 速度约束（差速车，不允许横移）
+      # 5Hz 控制下每周期位移 = vx*0.2s：0.25m/s → 5cm，留足避障反应距离
+      vx_max: 0.25
+      # 允许小速度倒车，但不得过快：车尾激光遮挡区更新滞后
+      vx_min: -0.10
+      vy_max: 0.0
+      # 0.1rad/s 转过90°需15.7s，必然触发10s进度超时，必须恢复
+      wz_max: 0.50
+
+      # 优化器
+      # 0.2 过于尖锐，容易锁定零速；0.3 让代价值平滑过渡
+      temperature: 0.3      # 越小越激进地收敛到最优样本
+      gamma: 0.015          # 代价折扣，越大越重视远期
+      motion_model: "DiffDrive"
+      # 1.2 > vx_max*时域(0.25*4=1.0m)，保证预测轨迹全程都有参考路径
+      prune_distance: 1.2   # 局部路径裁剪长度(m)
+      transform_tolerance: 0.2
+      # 关闭 /trajectories 发布以释放 CPU；调试轨迹时再改回 True
+      visualize: False
+
+      TrajectoryVisualizer:
+        trajectory_step: 5
+        time_step: 3
+
+      critics: ["ConstraintCritic", "CostCritic", "GoalCritic",
+                "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic",
+                "PathAngleCritic", "PreferForwardCritic",
+                "VelocityDeadbandCritic"]
+
+      ConstraintCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 4.0
+
+      CostCritic:
+        enabled: true
+        cost_power: 1
+        # 碰撞由 collision_cost 保证；此处过高会让"原地不动"在数值上更划算
+        cost_weight: 10.0
+        critical_cost: 300.0
+        consider_footprint: true       # 前进/后退都按 0.52×0.44 整车轮廓检查碰撞
+        collision_cost: 1000000.0
+        # 默认1.0m会在接近目标时提前弱化避障；目标靠墙时尤其危险
+        near_goal_distance: 0.2
+
+      GoalCritic:
+        enabled: true
+        cost_power: 1
+        # 直冲目标会抄近路偏离路径，权重压低、触发距离收窄
+        cost_weight: 3.0
+        threshold_to_consider: 0.3
+
+      GoalAngleCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 3.0
+        threshold_to_consider: 0.3
+
+      PathAlignCritic:
+        enabled: true
+        cost_power: 1
+        # 主约束：轨迹必须贴合全局路径，权重设为最高
+        cost_weight: 40.0
+        max_path_occupancy_ratio: 1.0
+        trajectory_point_step: 4
+        threshold_to_consider: 0.2
+        offset_from_furthest: 10
+        # 同时约束行进方向与路径朝向一致
+        use_path_orientations: true
+
+      PathFollowCritic:
+        enabled: true
+        cost_power: 1
+        # 抗粘滞主力量：奖励沿路径推进，抵消"不动更便宜"的倾向
+        cost_weight: 20.0
+        offset_from_furthest: 5
+        # 距目标0.5m以上持续跟踪路径，与 GoalCritic 在此交接
+        threshold_to_consider: 0.5
+
+      PathAngleCritic:
+        enabled: true
+        cost_power: 1
+        # 车头朝向必须与路径切向一致，防止斜插偏离
+        cost_weight: 8.0
+        offset_from_furthest: 4
+        threshold_to_consider: 0.5
+        max_angle_to_furthest: 1.2
+        mode: 0
+
+      PreferForwardCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 5.0
+        threshold_to_consider: 0.2
+
+      VelocityDeadbandCritic:
+        enabled: true
+        cost_power: 1
+        # 权重过高会让低速修正被强行抹平，加剧"走一下停一下"
+        cost_weight: 3.0
+        deadband_velocities: [0.01, 0.01, 0.01]
+
+controller_server_rclcpp_node:
+  ros__parameters:
+    use_sim_time: False
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      update_frequency: 5.0
+      publish_frequency: 2.0
+      global_frame: odom_combined
+      robot_base_frame: base_footprint
+      use_sim_time: False
+      rolling_window: true
+      width: 3
+      height: 3
+      resolution: 0.05
+      # 碰撞轮廓 0.52m×0.44m（实测车体 0.50m×0.42m + 1cm padding）
+      #robot_radius: 0.20
+      footprint: "[[-0.26, -0.22], [-0.26, 0.22], [0.26, 0.22], [0.26, -0.22]]"
+      footprint_padding: 0.01
+      plugins: ["obstacle_layer", "inflation_layer"]
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 3.0
+        # 0.52×0.44 轮廓外接圆半径 0.3406m(+padding 0.01)；必须 >= 该值，
+        # 否则 MPPI 退化为逐点全轮廓检查并持续报错刷屏。
+        inflation_radius: 0.45
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        observation_sources: scan
+        scan:
+          topic: /scan
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+          raytrace_max_range: 6.0
+          raytrace_min_range: 0.15
+          obstacle_max_range: 2.5
+          obstacle_min_range: 0.05
+
+      always_send_full_costmap: True
+  local_costmap_client:
+    ros__parameters:
+      use_sim_time: False
+  local_costmap_rclcpp_node:
+    ros__parameters:
+      use_sim_time: False
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      update_frequency: 1.0
+      publish_frequency: 1.0
+      global_frame: map
+      robot_base_frame: base_footprint
+      use_sim_time: False
+      # 碰撞轮廓 0.52m×0.44m（实测车体 0.50m×0.42m + 1cm padding）
+      #robot_radius: 0.20   # 使用 footprint 而非圆形近似，注释掉避免歧义
+      resolution: 0.05
+      footprint: "[[-0.26, -0.22], [-0.26, 0.22], [0.26, 0.22], [0.26, -0.22]]"
+      footprint_padding: 0.01
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      # ── costmap 根层级参数（StaticLayer/ObstacleLayer 共享）──
+      track_unknown_space: true    # false=未知视为 FREE_SPACE(0)，让 NavFn 直接穿过
+      unknown_cost_value: 255       # 地图中 unknown 的原始值（默认 255）
+      lethal_cost_threshold: 100   # occupancy ≥ 100 视为 lethal obstacle
+      trinary_costmap: true         # 三值模式 (FREE/LETHAL/UNKNOWN)
+      use_maximum: false
+      # ── 子 layer ──
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        observation_sources: scan
+        scan:
+          topic: /scan
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+          raytrace_max_range: 6.0
+          raytrace_min_range: 0.15
+          obstacle_max_range: 2.5
+          obstacle_min_range: 0.05
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_subscribe_transient_local: True
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        # 全局需要足够宽的代价梯度，Smac 才会把路径推向通道中央；
+        # 仅比内切半径多1~2格时，路径会贴墙，MPPI 只能跟随该路径。
+        cost_scaling_factor: 2.0
+        inflation_radius: 0.50
+        inflate_unknown: True        # 把未知当成致命障碍膨胀
+        inflate_around_unknown: True
+      always_send_full_costmap: True
+  global_costmap_client:
+    ros__parameters:
+      use_sim_time: False
+  global_costmap_rclcpp_node:
+    ros__parameters:
+      use_sim_time: False
+
+map_server:
+  ros__parameters:
+    use_sim_time: False
+    yaml_filename: "turtlebot3_world.yaml"
+
+map_saver:
+  ros__parameters:
+    use_sim_time: False
+    save_map_timeout: 5.0
+    free_thresh_default: 0.25
+    occupied_thresh_default: 0.65
+    map_subscribe_transient_local: True
+
+planner_server:
+  ros__parameters:
+    expected_planner_frequency: 20.0
+    use_sim_time: False
+    planner_plugins: ["GridBased"]
+
+    GridBased:
+      plugin: "nav2_smac_planner::SmacPlanner2D"
+      tolerance: 0.1                    # 目标点容差(m)
+      allow_unknown: false              # 禁止穿越未知区域（配合 costmap track_unknown_space）
+      max_iterations: 100000
+      max_on_approach_iterations: 1000
+      max_planning_time: 3.0            # 单次规划最长耗时(s)
+      downsample_costmap: false         # 降采样代价地图（大地图可开，提速但精度下降）
+      downsampling_factor: 1            # 降采样倍数
+      cost_travel_multiplier: 2.0       # 代价权重，越大越倾向绕开高代价格
+      use_final_approach_orientation: false  # 终点朝向是否取接近方向（差速车建议 false）
+      terminal_checking_interval: 5000  # 接近终点的碰撞检查间隔（迭代次数）
+
+planner_server_rclcpp_node:
+  ros__parameters:
+    use_sim_time: False
+
+behavior_server:
+  ros__parameters:
+    costmap_topic: local_costmap/costmap_raw
+    footprint_topic: local_costmap/published_footprint
+    cycle_frequency: 10.0
+    behavior_plugins: ["spin", "backup", "wait"]
+    spin:
+      plugin: "nav2_behaviors::Spin"
+    backup:
+      plugin: "nav2_behaviors::BackUp"
+    wait:
+      plugin: "nav2_behaviors::Wait"
+    global_frame: odom_combined
+    # spin/backup 使用 local_frame；缺省会查找不存在的 odom，导致恢复行为直接失败
+    local_frame: odom_combined
+    robot_base_frame: base_footprint
+    transform_timeout: 0.1
+    use_sim_time: False
+    simulate_ahead_time: 2.0
+    max_rotational_vel: 0.3
+    min_rotational_vel: 0.05
+    rotational_acc_lim: 0.3
+
+robot_state_publisher:
+  ros__parameters:
+    use_sim_time: False
+
+waypoint_follower:
+  ros__parameters:
+    loop_rate: 20
+    stop_on_failure: false
+    waypoint_task_executor_plugin: "wait_at_waypoint"
+    wait_at_waypoint:
+      plugin: "nav2_waypoint_follower::WaitAtWaypoint"
+      enabled: True
+      waypoint_pause_duration: 200

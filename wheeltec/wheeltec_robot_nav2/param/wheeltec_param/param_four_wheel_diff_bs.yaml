@@ -1,7 +1,7 @@
 amcl:
   ros__parameters:
     use_sim_time: False
-    alpha1: 0.9
+    alpha1: 0.5
     alpha2: 0.1
     alpha3: 0.05
     alpha4: 0.01
@@ -14,12 +14,12 @@ amcl:
     global_frame_id: "map"
     lambda_short: 0.1
     laser_likelihood_max_dist: 2.0
-    laser_max_range: 100.0
-    laser_min_range: -1.0
-    laser_model_type: "likelihood_field"
-    max_beams: 60
+    laser_max_range: 6.0
+    laser_min_range: 0.15
+    laser_model_type: "likelihood_field_prob"
+    max_beams: 120
     max_particles: 2000
-    min_particles: 500
+    min_particles: 800
     odom_frame_id: "odom_combined"
     pf_err: 0.02
     pf_z: 0.85
@@ -98,19 +98,19 @@ controller_server:
     general_goal_checker:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.15
-      yaw_goal_tolerance: 0.15
+      xy_goal_tolerance: 0.10
+      yaw_goal_tolerance: 0.10
 
     FollowPath:
       plugin: "dwb_core::DWBLocalPlanner"
       debug_trajectory_details: True
-      min_vel_x: -0.3
+      min_vel_x: -0.2
       min_vel_y: 0.0
-      max_vel_x: 0.3
+      max_vel_x: 0.2
       max_vel_y: 0.0
       max_vel_theta: 0.5
       min_speed_xy: 0.0
-      max_speed_xy: 0.3
+      max_speed_xy: 0.2
       min_speed_theta: 0.0
       acc_lim_x: 0.25
       acc_lim_y: 0.0
@@ -131,13 +131,13 @@ controller_server:
       stateful: True
       critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
       BaseObstacle.scale: 1.0
-      PathAlign.scale: 30.0
+      PathAlign.scale: 20.0
       GoalAlign.scale: 10.0
       PathAlign.forward_point_distance: 0.1
       GoalAlign.forward_point_distance: 0.1
-      PathDist.scale: 30.0
+      PathDist.scale: 20.0
       GoalDist.scale: 10.0
-      RotateToGoal.scale: 32.0
+      RotateToGoal.scale: 20.0
       RotateToGoal.slowing_factor: 2.0
       RotateToGoal.lookahead_time: -1.0
 
@@ -157,14 +157,16 @@ local_costmap:
       width: 3
       height: 3
       resolution: 0.05
-      # 车体尺寸 0.50m(长) × 0.40m(宽)，base_footprint 在几何中心
+      # 碰撞轮廓 0.52m×0.44m（实测车体 0.50m×0.42m + 1cm padding）
       #robot_radius: 0.20
-      footprint: "[[-0.25, -0.20], [-0.25, 0.20], [0.25, 0.20], [0.25, -0.20]]"
+      footprint: "[[-0.26, -0.22], [-0.26, 0.22], [0.26, 0.22], [0.26, -0.22]]"
+      footprint_padding: 0.01
       plugins: ["obstacle_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-        inflation_radius: 0.4   # 半宽0.20 + 0.10安全余量；配合 chassis_guard 实时轮廓检测兜底
+        # 0.52×0.44 轮廓外接圆半径 0.3406m(+padding 0.01)；必须 >= 该值
+        inflation_radius: 0.45
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
@@ -175,10 +177,10 @@ local_costmap:
           clearing: True
           marking: True
           data_type: "LaserScan"
-          raytrace_max_range: 10.0
-          raytrace_min_range: 0.0
+          raytrace_max_range: 6.0
+          raytrace_min_range: 0.15
           obstacle_max_range: 2.5
-          obstacle_min_range: 0.0
+          obstacle_min_range: 0.05  
 
       always_send_full_costmap: True
   local_costmap_client:
@@ -196,13 +198,14 @@ global_costmap:
       global_frame: map
       robot_base_frame: base_footprint
       use_sim_time: False
-      # 车体尺寸 0.50m(长) × 0.40m(宽)，base_footprint 在几何中心
+      # 碰撞轮廓 0.52m×0.44m（实测车体 0.50m×0.42m + 1cm padding）
       #robot_radius: 0.20   # 使用 footprint 而非圆形近似，注释掉避免歧义
       resolution: 0.05
-      footprint: "[[-0.25, -0.20], [-0.25, 0.20], [0.25, 0.20], [0.25, -0.20]]"
+      footprint: "[[-0.26, -0.22], [-0.26, 0.22], [0.26, 0.22], [0.26, -0.22]]"
+      footprint_padding: 0.01
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
       # ── costmap 根层级参数（StaticLayer/ObstacleLayer 共享）──
-      track_unknown_space: false    # false=未知视为 FREE_SPACE(0)，让 NavFn 直接穿过
+      track_unknown_space: true    # false=未知视为 FREE_SPACE(0)，让 NavFn 直接穿过
       unknown_cost_value: 255       # 地图中 unknown 的原始值（默认 255）
       lethal_cost_threshold: 100   # occupancy ≥ 100 视为 lethal obstacle
       trinary_costmap: true         # 三值模式 (FREE/LETHAL/UNKNOWN)
@@ -218,17 +221,20 @@ global_costmap:
           clearing: True
           marking: True
           data_type: "LaserScan"
-          raytrace_max_range: 10.0
-          raytrace_min_range: 0.0
+          raytrace_max_range: 6.0
+          raytrace_min_range: 0.15
           obstacle_max_range: 2.5
-          obstacle_min_range: 0.0
+          obstacle_min_range: 0.05
       static_layer:
         plugin: "nav2_costmap_2d::StaticLayer"
         map_subscribe_transient_local: True
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.4   # 半宽0.20 + 0.08余量；全局略小于局部，让规划器可利用狭窄区域
+        cost_scaling_factor: 2.0
+        # 全局需要足够宽的代价梯度，Smac 才会把路径推向通道中央
+        inflation_radius: 0.50
+        inflate_unknown: True        # 把未知当成致命障碍膨胀
+        inflate_around_unknown: True
       always_send_full_costmap: True
   global_costmap_client:
     ros__parameters:
