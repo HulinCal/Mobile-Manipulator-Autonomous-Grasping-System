@@ -139,6 +139,15 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
         arguments=['-d', os.path.join(my_rviz_dir, my_rviz_file)])
 
+    # 定位异常监控：协方差发散或激光与地图不匹配时自动触发初始化定位
+    localization_monitor = Node(
+        condition=UnlessCondition(use_slam),
+        package='wheeltec_nav2',
+        executable='localization_monitor',
+        name='localization_monitor',
+        output='screen',
+        parameters=[params_file])
+
     # Specify the actions
     bringup_cmd_group = GroupAction([
         PushRosNamespace(
@@ -167,6 +176,8 @@ def generate_launch_description():
                               'params_file': params_file,
                               'use_lifecycle_mgr': 'false',
                               'map_subscribe_transient_local': 'true'}.items()),
+
+        localization_monitor,
 
         rviz_cmd,
     ])

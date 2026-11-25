@@ -23,8 +23,8 @@ amcl:
     odom_frame_id: "odom_combined"
     pf_err: 0.02
     pf_z: 0.85
-    recovery_alpha_fast: 0.0
-    recovery_alpha_slow: 0.0
+    recovery_alpha_fast: 0.1
+    recovery_alpha_slow: 0.001
     resample_interval: 2
     robot_model_type: "nav2_amcl::DifferentialMotionModel"
     save_pose_rate: 0.5
@@ -61,9 +61,20 @@ bt_navigator:
     odom_topic: /odom_combined
     bt_loop_duration: 10
     default_server_timeout: 20
+    # AMCL 的重定位服务由独立的 lifecycle manager 启动，给足等待时间避免激活竞态
+    wait_for_service_timeout: 10000
     enable_groot_monitoring: True
     groot_zmq_publisher_port: 1666
     groot_zmq_server_port: 1667
+    # 注册的 Navigator：前两个为 nav2 默认，第三个为初始化定位
+    navigators: ["navigate_to_pose", "navigate_through_poses", "initialize_localization"]
+    navigate_to_pose:
+      plugin: "nav2_bt_navigator::NavigateToPoseNavigator"
+    navigate_through_poses:
+      plugin: "nav2_bt_navigator::NavigateThroughPosesNavigator"
+    # 初始化定位：全局重定位 + 旋转 360° + 前进 0.5m
+    initialize_localization:
+      plugin: "wheeltec_nav2::InitializeLocalizationNavigator"
 bt_navigator_rclcpp_node:
   ros__parameters:
     use_sim_time: False
@@ -357,11 +368,13 @@ behavior_server:
     costmap_topic: local_costmap/costmap_raw
     footprint_topic: local_costmap/published_footprint
     cycle_frequency: 10.0
-    behavior_plugins: ["spin", "backup", "wait"]
+    behavior_plugins: ["spin", "backup", "drive_on_heading", "wait"]
     spin:
       plugin: "nav2_behaviors::Spin"
     backup:
       plugin: "nav2_behaviors::BackUp"
+    drive_on_heading:
+      plugin: "nav2_behaviors::DriveOnHeading"
     wait:
       plugin: "nav2_behaviors::Wait"
     global_frame: odom_combined
@@ -388,3 +401,42 @@ waypoint_follower:
       plugin: "nav2_waypoint_follower::WaitAtWaypoint"
       enabled: True
       waypoint_pause_duration: 200
+
+# 定位异常监控：协方差发散或激光与地图长期不匹配时，自动触发初始化定位
+localization_monitor:
+  ros__parameters:
+    use_sim_time: False
+    initialize_action: "/initialize_localization"
+    map_topic: "/map"
+    amcl_pose_topic: "/amcl_pose"
+    scan_topic: "/scan"
+    odom_topic: "/odom_combined"
+    base_frame: "base_footprint"
+    # 定位发散判定：AMCL 位姿标准差阈值
+    std_xy_threshold: 0.30
+    std_yaw_threshold: 0.20
+    # 绑架判定：只统计地图有信息且雷达有回波的光束，要求大范围、多方向同时失配
+    scan_mismatch_threshold: 0.60
+    scan_match_tolerance: 0.50
+    scan_check_max_beams: 80
+    scan_check_min_beams: 40
+    scan_check_min_mismatch_beams: 25
+    scan_min_mismatch_sectors: 5
+    # 启动静止期实测的失配基线；实际阈值 = max(scan_mismatch_threshold, 基线 + margin)
+    scan_baseline_margin: 0.20
+    scan_check_max_range: 6.0
+    occupied_threshold: 65
+    # 重定位后需产生该位移才恢复协方差判定，避免静止时协方差无法收敛导致误报
+    cov_suppress_move_dist: 0.05
+    # 触发策略
+    anomaly_sustain_time: 3.0
+    startup_grace_period: 15.0
+    recovery_cooldown: 60.0
+    recovery_timeout: 120.0
+    max_consecutive_recoveries: 3
+    failure_hold_time: 120.0
+    settle_after_success: 5.0
+    require_stationary: True
+    stationary_linear_threshold: 0.02
+    stationary_angular_threshold: 0.05
+    odom_timeout: 1.0

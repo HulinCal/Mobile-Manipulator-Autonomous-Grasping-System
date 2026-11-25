@@ -1,0 +1,9 @@
+<class_libraries>
+  <library path="initialize_localization_navigator">
+    <class
+      type="wheeltec_nav2::InitializeLocalizationNavigator"
+      base_class_type="nav2_core::NavigatorBase">
+      <description>初始化定位 Navigator（全局重定位 + 原地旋转 360 度）</description>
+    </class>
+  </library>
+</class_libraries>

@@ -1,0 +1,17 @@
+# 初始化定位目标（Goal）
+# 目标为空，行为参数（重定位服务、旋转角度等）由行为树 XML 配置
+
+---
+# 执行结果（Result）
+bool success
+# 成功说明或失败原因
+string message
+# 与 nav2 BtActionServer 的错误码接口兼容（模板实现会写入该字段）
+uint16 error_code
+
+---
+# 执行反馈（Feedback）
+# 当前执行阶段
+string state
+# 粗略进度（0.0 ~ 1.0）
+float32 progress

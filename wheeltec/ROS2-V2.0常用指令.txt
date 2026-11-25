@@ -46,6 +46,10 @@ ros2 launch wheeltec_nav2 save_map.launch.py
 ros2 launch wheeltec_nav2 wheeltec_nav2.launch.py
 ros2 launch wheeltec_nav2 wheeltec_nav2_mppi.launch.py   //mppi参数文件
 
+如果位置不在原点，需要启动一次初始化服务：
+ros2 action send_goal /initialize_localization \
+  wheeltec_nav2/action/InitializeLocalization "{}" --feedback
+
 9、RRT 自主探索建图[顺时针/逆时针发布四个点，最后一个点发布在已知地图中]
 step1：ros2 launch wheeltec_slam_toolbox online_sync.launch.py
 step2：ros2 launch wheeltec_robot_rrt wheeltec_rrt_slam.launch.py

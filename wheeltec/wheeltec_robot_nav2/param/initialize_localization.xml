@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+  初始化定位行为树：
+  1) 调用 AMCL 的 /reinitialize_global_localization 清空粒子分布，进入全局重定位；
+  2) 原地旋转一圈（360°），用全方向激光观测快速收窄粒子分布；
+  3) 向前直行 0.5m，用平移观测进一步消除旋转里程计漂移带来的残余误差；
+  4) 停车后等待 2 秒，让最终位姿稳定。
+
+  Spin 由 behavior_server 的 spin 插件执行，0.3rad/s 约需 21 秒，time_allowance 设 60 秒；
+  DriveOnHeading 由 drive_on_heading 插件执行，0.05m/s 走完 0.5m 约需 10 秒。
+-->
+<root BTCPP_format="4" main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Sequence name="InitializeLocalization">
+      <ReinitializeGlobalLocalization
+        service_name="/reinitialize_global_localization"
+        server_timeout="5000"/>
+      <Spin spin_dist="6.283" time_allowance="60.0"/>
+      <DriveOnHeading dist_to_travel="0.5" speed="0.05" time_allowance="25.0"/>
+      <Wait wait_duration="2.0"/>
+    </Sequence>
+  </BehaviorTree>
+</root>
